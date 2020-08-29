@@ -1,0 +1,172 @@
+/* style.css    WCRA    31 May 16    [MLS] */
+
+html {
+  background: white;
+  color: black;
+  margin: 0;
+  padding: 0;
+  /* height: 100%;  Leave this here for both HTML and body */
+}
+
+body {
+  background: url("../Images/Background.jpg") center center no-repeat fixed;
+  color: black;  
+  font-family: "Verdana", "Arial", sans-serif;
+  font-size: 11pt;
+  margin: 0;
+  padding: 0;
+  /* height: 100%; */
+}
+
+.FullPage {
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.Content {
+  padding: 0;
+  margin: auto 2% 6em 2%;  /* make room for the footer */
+}
+
+.Footer {
+  clear: both;
+  text-align: center;
+  border-top: 3px solid darkblue;
+  background-color: #C0EFFF;
+  width: 100%;
+  height: 6em;
+  padding: 0;
+  margin: 0;
+  /* position: fixed; */
+  top: auto;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.Title {
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  background-color: rgba(224, 240, 256, 0.7);  /* sky blue */
+  color: #000080;
+  padding: 0.3em 0.2em 0.3em 0.2em;
+  margin-bottom: 0.75em;
+}
+
+.Subtitle {
+  text-align: center;
+  font-size: 1.4em;
+  font-weight: bold;
+  background-color: #F0F0B0;
+  color: #402010;
+  margin-top: 0;
+  padding: 0.1em 0.2em 0.1em 0.2em;
+  margin-bottom: 1.5em;
+}
+
+.NewsItem {
+  border: solid 2px;
+  border-radius: 0.5em;
+  padding: 0.5em 1em 0.5em 1em;
+  margin: 0.5em 0 0.5em 0;
+}
+
+.Announcement {
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0.2em;
+}
+
+.Isolated {
+  border: 2px solid gray;
+  border-radius: 0.5em;
+  margin: 0 2em 2em 2em;
+  padding: 0.5em;
+}
+
+.Left {
+  padding: 0.5em 0.75em 0.5em 0;
+  float: left;
+}
+
+.Right {
+  padding: 0.5em 0 0.5em 0.75em;
+  float: right;
+}
+
+
+/* Event Calendar styles */
+
+table.EventCalendar {
+  font-size: 0.9em;
+  text-align: center;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table.EventCalendar td {
+  border-top: solid 1px silver;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  min-height: 1.2em;
+}
+
+table.EventCalendar tr:nth-child(even) {
+  background-color: #E0E0E0;
+}
+
+table.EventCalendar tr:nth-child(odd) {
+  background-color: #F0F0F0;
+}
+
+table.EventCalendar tr.ClubEvent {
+  background-color: #E0FFE0;
+}
+
+table.EventCalendar tr.SpecialEvent {
+  font-weight: bold;
+  color: #0000E0;
+  background-color: #E8D8FF;
+}
+
+table.EventCalendar tr.ImportantEvent {
+  font-weight: bold;
+  color: red;
+  background-color: #FFFF80;
+}
+
+table.EventCalendar tr.Officers {
+  color: #202020;
+  background-color: #E8E8E8;
+}
+
+table.EventCalendar tr.Newbies {
+  color: #804000;
+  background-color: #F0F0D0;
+}
+
+table.EventCalendar tr.Canceled {
+  background-color: #FFE0E0;
+  background-image: url("Images/CanceledBackdrop.gif");
+  background-repeat: repeat;
+  background-position: center;
+}
+
+#commiteeSelection {
+  /* font-size: 10pt; */
+  margin: 0.5em 0 0 0;
+  border-collapse: collapse; 
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  font-size: 1.2em
+}
