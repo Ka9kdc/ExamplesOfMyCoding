@@ -1,6 +1,10 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
+//this page has no styling Marty had a seperate style sheet for the narbar
+//plus the following inline styling
+// div class="Navbar" style="background-color: #C0D0FF; text-align: center;">
+{/* <table style="text-align: center; margin-left: auto; margin-right: auto */}
 
 const pages = [
     {name: "Home", url: "index.html"},
@@ -24,7 +28,7 @@ const NavBar = (props) => {
                 if(page.name === 'Join WCRA') {
                 return  <Link to={page.url} key={page.name}>{page.name}</Link>
                 } else {
-                    return <a href="/${page.url}"  key={page.name}>${page.name}</a>
+                    return <a href="/${page.url}"  key={page.name}>{page.name}</a>
                 }
               })
             }
