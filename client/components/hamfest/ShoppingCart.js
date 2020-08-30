@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 
 
 
+
+
 const tempItems = [
     {id:1,
         name: 'tickets',
@@ -17,6 +19,7 @@ price: 20,
 total: 4*20}
 ]
 class ShoppingCart extends React.Component {
+
 
     render() {
         const items = this.props.cartItems
@@ -39,5 +42,7 @@ const mapStateToProps = (state) =>{
         cartItems: state.cart
     }
 }
+
+
 
 export default connect(mapStateToProps)(ShoppingCart)
