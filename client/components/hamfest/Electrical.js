@@ -2,6 +2,7 @@ import React from 'react'
 
 const Electrical = (props) => {
     const product = props.product
+    const other =  {qty:1, total: 15}
     return(
     <div className="product_container">
     <div className="product"> 
@@ -14,8 +15,8 @@ const Electrical = (props) => {
                     <span>${product.price}</span>
                     {product.onSale ?  <span className="sale"> Sale</span> : '' }
                 </p>
-                <p>Add to order <input type="checkbox" name={product.dataName} />
-            <button className='add_to_cart' >Add to Card</button>
+                <p>
+            <button className='add_to_cart' onClick={() => props.addToCartOnClick(product, event, other)} >Add to Card</button>
             </p>
             </div>
         </div>
@@ -25,5 +26,6 @@ const Electrical = (props) => {
 
     )
 }
+
 
 export default Electrical

@@ -41,7 +41,7 @@ class MembershipForm extends React.Component{
             <form action="/membership/" method="POST" name="membershipApplication">
             <div >
                 <div className="Right">
-                    <div><input type="checkbox" name="Desired" onChange={this.handleCheckbox}/> Club Badge </div>
+                    <div><input type="checkbox" name="Desired" onChange={this.handleCheckbox}/> Get A Club Badge </div>
                     {/* <!--badge section only show up when checked?--> */}
                     {this.state.Desired ? 
                    <Badge handleChange={this.handleChange} handleCheckbox={this.handleCheckbox} badgeType={this.state.badgeType}/>

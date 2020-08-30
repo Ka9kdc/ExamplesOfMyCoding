@@ -1,5 +1,7 @@
 import React from 'react'
 import CartItem from './CartItem'
+import { connect } from 'react-redux'
+
 
 
 const tempItems = [
@@ -17,7 +19,7 @@ total: 4*20}
 class ShoppingCart extends React.Component {
 
     render() {
-        const items = tempItems
+        const items = this.props.cartItems
         return (
             <div className="Right">
 
@@ -32,5 +34,10 @@ class ShoppingCart extends React.Component {
         )
     }
 }
+const mapStateToProps = (state) =>{
+    return {
+        cartItems: state.cart
+    }
+}
 
-export default ShoppingCart
+export default connect(mapStateToProps)(ShoppingCart)

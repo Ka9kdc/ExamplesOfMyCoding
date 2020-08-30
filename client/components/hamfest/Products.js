@@ -1,7 +1,26 @@
 import React from 'react';
 
-const Product = (props) => {
-    const product = props.product
+
+class Product extends React.Component {
+    constructor(){
+        super()
+        this.state= {
+            qty: 0,
+            total: 0
+        }
+        this.handleChange = this.handleChange.bind(this)
+    }
+    
+    handleChange(){
+        console.log(event.target.value)
+        const newtotal = this.props.product.price * event.target.value
+        console.log(newtotal)
+        this.setState({qty: event.target.value, total: newtotal})
+    }
+    
+    
+    render(){
+    const product = this.props.product
     return(
     <div className="product_container">
     <div className="product"> 
@@ -14,8 +33,8 @@ const Product = (props) => {
                     <span>${product.price}</span>
                     {product.onSale ?  <span className="sale"> Sale</span> : '' }
                 </p>
-            <p>Qty: <input type="number" name={product.dataName} min="0"/>
-            <button className='add_to_cart' >Add to Card</button>
+            <p>Qty: <input type="number" name={product.dataName} value={this.state.qty} onChange={() => this.handleChange()}/>
+            <button className='add_to_cart' onClick={() => this.props.addToCartOnClick(product, event, this.state)} >Add to Card</button>
             </p>
             </div>
         </div>
@@ -24,6 +43,7 @@ const Product = (props) => {
     </div>
 
     )
+    }
 }
 
 export default Product

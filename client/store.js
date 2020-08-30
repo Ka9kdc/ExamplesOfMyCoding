@@ -3,11 +3,12 @@ import axios from 'axios';
 import thunkMiddleware from 'redux-thunk';
 
 const initialState = {
-    products: []
+    products: [],
+    cart:[]
 }
 
 const GET_PRODUCTS = 'GET_PRODUCTS'
-const ADD_PRODUCT = 'ADD_PRODUCT'
+const ADD_PRODUCT_TO_CART = 'ADD_PRODUCT_TO_CART'
 
 export const getAllProducts = (products) =>{
     return {
@@ -27,10 +28,20 @@ export const fetchAllProducts = () => {
     }
 }
 
+export const addProductToCart = (product) =>{
+    return {
+        type: ADD_PRODUCT_TO_CART,
+        product
+    }
+}
+
+
 const reducer = (state = initialState, action) =>{
     switch (action.type) {
         case GET_PRODUCTS:
             return {...state, products: action.products};
+        case ADD_PRODUCT_TO_CART:
+            return {...state, cart:[...state.cart, action.product]}
         default:
             return state
     }
