@@ -2,42 +2,27 @@ import React from 'react'
 import Product from './Products'
 import Electrical from './Electrical'
 import ShoppingCart from './ShoppingCart';
+import {connect} from 'react-redux'
+import { fetchAllProducts } from '../../store';
 
-const tempProd = [
-    // { name: 'Advanced Tickets',
-    //   dataName: 'Tickets',
-    //   price: 8,
-    //   onSale: false,
-    //   decription: 'Entree Ticket with 4 raffle studs. Day off tickets come with only 1 stud and will be $10.'},
-    {name: "Extra chair",
-    dataName: 'Chairs',
-      description: 'a metal folding chair. One chair is provided with each Vendor request.',
-      price: 2,
-      onSale: false,
-      photo: '',
-    id:1},
-    {name: "Table",
-    dataName: 'Tables',
-      description: '8 foot by 4 foot folding table.',
-      price: 25,
-      onSale: true,
-      photo: '',
-      id:3},
-    {name: "Electrical",
-    dataName: 'Electrical',
-      description: 'An Electrical drop',
-      price: 15,
-      onSale: false,
-      photo: '',
-      id:2}
-  ];
+
+const mapStateToProps = (state) => {
+    return {
+        products: state.products
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getProducts: () => dispatch(fetchAllProducts())
+    }
+}
 
 class HamfestStore extends React.Component {
-    constructor(){
-        super()
-        this.state = {
-            products: tempProd
-        }
+    
+
+    componentDidMount(){
+        this.props.getProducts()
     }
 
     render() {
@@ -50,7 +35,7 @@ class HamfestStore extends React.Component {
                <form  method="POST" name="OrderForm">
                     <ShoppingCart />
                     <div className="body_container">
-                        {this.state.products.map(product =>{
+                        {this.props.products.map(product =>{
                             if(product.name !== Electrical) return <Product product={product} key={product.id}/>
                             else return <Electrical product={product} key={product.id}/>
                         })}
@@ -67,4 +52,4 @@ class HamfestStore extends React.Component {
     }
 }
 
-export default HamfestStore
+export default connect(mapStateToProps, mapDispatchToProps)(HamfestStore)
