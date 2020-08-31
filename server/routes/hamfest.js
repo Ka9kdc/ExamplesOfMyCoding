@@ -70,32 +70,39 @@ router.post('/attendee', async (req, res, next) =>{
   
 router.post('/vendor', async (req, res, next) => {
     try {
-        const vendor = await Vendor.create(req.body);
-        console.log(vendor)
+       
+        const order = await Order.create(req.body.order)
         
-        // const amount = req.body.order.amount
-        // const date = req.body.order.OrderDate
-        // const payment = await Payment.create({
-        //     vendorId: vendor.id,
-        //     orderId: order.id,
-        //     Amount: amount,
-        //     PaymentDate: date
-        // })
-        res.send(vendor)
+        const vendorInfo = req.body.vendorInformation
+        vendorInfo.orderId = order.id
+
+        const vendor = await Vendor.create(vendorInfo);
+        
+        const amount = req.body.order.Amount
+        const date = req.body.order.OrderDate
+        const payment = await Payment.create({
+            vendorId: vendor.id,
+            orderId: order.id,
+            Amount: amount,
+            PaymentDate: date
+        })
+        res.send(payment)
     } catch (error) {
         console.log(error)
+        next(error)
     }
 })
 
-router.post('/order', async (req, res, next) =>{
-    try {
-        console.log(req.body)
-        const order = await Order.create(req.body)
-        console.log(order)
-        res.send(order)
-    } catch (error) {
-        console.log(error)
-    }
-})
+// router.post('/order', async (req, res, next) =>{
+//     try {
+//         console.log(req.body)
+//         const order = await Order.create(req.body)
+//         console.log(order)
+//         res.send(order)
+//     } catch (error) {
+//         console.log(error)
+//         next(error)
+//     }
+// })
    
 module.exports = router

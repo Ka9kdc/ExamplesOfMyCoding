@@ -1,7 +1,7 @@
 import React from 'react'
 import States from '../states'
 import {connect} from 'react-redux'
-import {placeVendorOrder} from '../../store'
+
 import axios from 'axios'
 
 class VendorInfromation extends React.Component{
@@ -29,7 +29,7 @@ class VendorInfromation extends React.Component{
 
     async handleSubmit(event){
         event.preventDefault()
-        console.log('placing order')
+        
         const vendorInformation = this.state
         const order = this.props.cartItems.reduce((obj, item) =>{
             obj[item.dataName] = item.qty
@@ -38,12 +38,13 @@ class VendorInfromation extends React.Component{
         order.Amount = this.props.cartTotal
         order.OrderDate = new Date()
         vendorInformation.OrderDate = order.OrderDate;
-       
-
-        console.log(vendor)
+        const vendor = {
+           vendorInformation,
+           order
+       }
+ 
         const response = await axios.post("/api/hamfest/vendor", vendor)
-        console.log(response.data)
-
+       
     }
 
     render() {
@@ -79,11 +80,7 @@ class VendorInfromation extends React.Component{
     }
 }
 
-const mapDispatch = (dispatch) =>{
-    return {
-        placeOrder: (vendor) => dispatch(placeVendorOrder(vendor))
-    }
-}
+
 
 const mapStateToProps = (state) =>{
     return {
@@ -92,4 +89,4 @@ const mapStateToProps = (state) =>{
     }
 }
 
-export default connect(mapStateToProps, mapDispatch)(VendorInfromation)
+export default connect(mapStateToProps)(VendorInfromation)

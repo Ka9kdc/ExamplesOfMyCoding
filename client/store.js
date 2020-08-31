@@ -5,15 +5,13 @@ import thunkMiddleware from 'redux-thunk';
 const initialState = {
     products: [],
     cart:[],
-    total: 0,
-    vendor: {}
+    total: 0
 }
 
 const GET_PRODUCTS = 'GET_PRODUCTS'
 const ADD_PRODUCT_TO_CART = 'ADD_PRODUCT_TO_CART'
 const REMOVE_PRODUCT_FROM_CART = "REMOVE_PRODUCT_FROM_CART"
 const CHANGE_QTY = 'CHANGE_QTY'
-const SET_VENDOR = 'SET_VENDOR'
 
 export const getAllProducts = (products) =>{
     return {
@@ -51,22 +49,8 @@ export const updateQty = (product) =>{
     }
 }
 
-export const setVendor = (vendor) =>{
-    return {
-        type: SET_VENDOR,
-        vendor: vendor
-    }
-}
 
-export const placeVendorOrder = (vendor) =>{
-    console.log('in place order')
-    return async () =>{
-        // dispatch(setVendor(vendor));
-        // // console.log(state)
-        const response = await axios.post("/api/hamfest/vendor", vendor)
-        console.log(response.data)
-    }
-}
+
 
 const reducer = (state = initialState, action) =>{
     switch (action.type) {
@@ -93,8 +77,6 @@ const reducer = (state = initialState, action) =>{
                 return total + item.total
              }, 0)
             return {...state, cart: update, total: newTotal};
-        case SET_VENDOR:
-            return {...state, vendor: action.vendor,}
         default:
             return state
     }
