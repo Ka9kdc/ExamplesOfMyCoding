@@ -1,25 +1,44 @@
 import React from 'react'
 import CartItem from './CartItem'
 import { connect } from 'react-redux'
+import { updateQty } from '../../store'
 
 
 
 
+//combine increase and decreasing in to one function
 
-const tempItems = [
-    {id:1,
-        name: 'tickets',
-    qty: 4,
-price: 8,
-total: 4*8},
-{id:2,
-    name: 'tables',
-    qty: 4,
-price: 20,
-total: 4*20}
-]
 class ShoppingCart extends React.Component {
+    constructor(){
+        super()
+        this.increaseQty = this.increaseQty.bind(this)
+        this.decreaseQty = this.decreaseQty.bind(this)
 
+    }
+
+    increaseQty(item, event){
+        event.preventDefault()
+        const itemKeys = Object.keys(item)
+        const updatedItem = itemKeys.reduce((obj, key) =>{
+            if(key === 'qty') obj[key] = item[key] + 1
+            else obj[key] = item[key]
+            return obj
+        }, {})
+        updatedItem.total = updatedItem.qty * updatedItem.price
+        this.props.updateCart(updatedItem)
+    }
+
+    decreaseQty(item, event){
+        event.preventDefault()
+        const itemKeys = Object.keys(item)
+        const updatedItem = itemKeys.reduce((obj, key) =>{
+            if(key === 'qty') obj[key] = item[key] - 1
+            else obj[key] = item[key]
+            return obj
+        }, {})
+        updatedItem.total = updatedItem.qty * updatedItem.price
+        this.props.updateCart(updatedItem)
+    }
 
     render() {
         const items = this.props.cartItems
@@ -27,22 +46,28 @@ class ShoppingCart extends React.Component {
             <div className="Right">
 
                 {items.map(item =>{
-                    return <CartItem item={item} key={item.id}/>
+                    return <CartItem item={item} key={item.id} decreaseQty={this.decreaseQty} increaseQty={this.increaseQty}/>
                 })}
                 <div><label htmlFor="cartTotal"> Total: </label> 
-                    <input type="hidden" name="Amount" /></div>
+                    <input type="hidden" name="Amount" />${this.props.cartTotal}</div>
                 
-                <button type="submit" value="Checkout"> Checkout </button>
+                <button type="submit" value="Checkout" onClick={() => this.props.checkout(event)}> Checkout </button>
             </div>
         )
     }
 }
 const mapStateToProps = (state) =>{
     return {
-        cartItems: state.cart
+        cartItems: state.cart,
+        cartTotal: state.total
+    }
+}
+
+const mapDispatchToProps = (dispatch) =>{
+    return {
+        updateCart: (item) => dispatch(updateQty(item))
     }
 }
 
 
-
-export default connect(mapStateToProps)(ShoppingCart)
+export default connect(mapStateToProps, mapDispatchToProps)(ShoppingCart)

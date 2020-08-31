@@ -12,10 +12,8 @@ class Product extends React.Component {
     }
     
     handleChange(){
-        console.log(event.target.value)
         const newtotal = this.props.product.price * event.target.value
-        console.log(newtotal)
-        this.setState({qty: event.target.value, total: newtotal})
+        this.setState({qty: Number(event.target.value), total: newtotal})
     }
     
     
@@ -33,7 +31,7 @@ class Product extends React.Component {
                     <span>${product.price}</span>
                     {product.onSale ?  <span className="sale"> Sale</span> : '' }
                 </p>
-            <p>Qty: <input type="number" name={product.dataName} value={this.state.qty} onChange={() => this.handleChange()}/>
+            <p>Qty: <input type="number" value={this.state.qty} onChange={() => this.handleChange()}/>
             <button className='add_to_cart' onClick={() => this.props.addToCartOnClick(product, event, this.state)} >Add to Card</button>
             </p>
             </div>

@@ -1,8 +1,7 @@
 import React from 'react'
 
 export default function States (props) {
-    return (<select name="State">
-    <option value="IL">Illinois</option>
+	return (<select name="State" value={props.state} onChange={() => props.handleChange(event)}>
 	<option value="AL">Alabama</option>
 	<option value="AK">Alaska</option>
 	<option value="AZ">Arizona</option>

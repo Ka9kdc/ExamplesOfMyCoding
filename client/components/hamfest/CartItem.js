@@ -5,10 +5,13 @@ import { removeProductFromCart } from '../../store'
 const CartItem = (props) =>{
     const item= props.item
     return (
-        <div>
-            <div>{item.name}:   {item.price} each  
-            {item.name === 'Electrical' ? '' : <div><button>-</button> Qty: {item.qty}  <button>+</button></div>}
-            </div>
+        <div>{item.name === 'Electrical' ?  <div>{item.name}:   ${item.price} </div>
+           
+         :  <div>{item.name}:   ${item.price} each  
+                <button onClick={() => props.decreaseQty(item, event)}>-</button>
+                 Qty: {item.qty} 
+                  <button onClick={() => props.increaseQty(item, event)}>+</button></div>}
+            
             <div>Line Total: {item.total} <button onClick={() => props.removeFromCart(item.id)}>Remove</button> </div>
             
           
@@ -18,10 +21,10 @@ const CartItem = (props) =>{
     )
 }
 
-const mapDispatchToProps = (dispatch =>{
+const mapDispatchToProps = (dispatch) => {
     return {
-        removeFromCart: (itemId) => dispatch(removeProductFromCart(itemId))
+        removeFromCart: (itemId) => dispatch(removeProductFromCart(itemId)),
     }
-})
+}
 
 export default connect(null, mapDispatchToProps)(CartItem)

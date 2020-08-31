@@ -4,6 +4,8 @@ import Electrical from './Electrical'
 import ShoppingCart from './ShoppingCart';
 import {connect} from 'react-redux'
 import { fetchAllProducts, addProductToCart } from '../../store';
+import Order from "./Order"
+import VendorInformation from './VendorInformation'
 
 
 const mapStateToProps = (state) => {
@@ -22,7 +24,11 @@ const mapDispatchToProps = (dispatch) => {
 class HamfestStore extends React.Component {
     constructor(){
         super()
+        this.state = {
+            checkingOut: false
+        }
         this.addToCartOnClick = this.addToCartOnClick.bind(this)
+        this.checkout = this.checkout.bind(this)
     }
 
     componentDidMount(){
@@ -33,7 +39,10 @@ class HamfestStore extends React.Component {
         event.preventDefault()
         const newItem = {...item, ...other}
         this.props.addToCart(newItem)
-
+    }
+    checkout(event){
+        event.preventDefault()
+        this.setState({checkingOut: !this.state.checkingOut})
     }
 
     render() {
@@ -44,17 +53,15 @@ class HamfestStore extends React.Component {
             <div className="Content">
             <div> 
                <form>
-                    <ShoppingCart />
+                   {this.state.checkingOut ? <div><Order /> <VendorInformation /></div>
+                   : <div><ShoppingCart checkout={this.checkout}/>
                     <div className="body_container">
                         {this.props.products.map(product =>{
                             if(product.name !== 'Electrical') return <Product product={product} key={product.id} addToCartOnClick={this.addToCartOnClick}/>
                             else return <Electrical product={product} key={product.id} addToCartOnClick={this.addToCartOnClick}/>
                         })}
-            
-        
+                    </div></div>}
 
-
-                    </div>
                 </form>
             </div>
             </div>
