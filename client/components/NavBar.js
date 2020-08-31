@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 
 //this page has no styling Marty had a seperate style sheet for the narbar
 //plus the following inline styling
@@ -11,7 +11,7 @@ const pages = [
      {name: "News", url: "/News.html"},
      {name: "Events/Activities", url: "/Events.html"},
      {name: "Repeaters", url: "/Repeaters.html"},
-     {name: "Hamfest", url: "/hamfest/store"},
+     {name: "Hamfest", url: "/hamfestStore"},
      {name: "Newsletter", url: "/Hamletter.html"},
      {name: "Training", url: "/Training.html"},
      {name: "About Us", url: "/About.html"},
@@ -26,7 +26,7 @@ const NavBar = (props) => {
         <div>
         { pages.map(page => {
                 if(page.name === 'Join WCRA' || page.name === 'Hamfest') {
-                return  <Link to={page.url} key={page.name}>{page.name}</Link>
+                return  <NavLink to={page.url} key={page.name}>{page.name}</NavLink>
                 } else {
                     return <a href={page.url} key={page.name}>{page.name}</a>
                 }

@@ -10,7 +10,10 @@ module.exports = {
     //coding from babeljs.io
     module: {
       rules: [
-        { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
+        { 
+          test: /\.js$/, 
+          exclude: /node_modules/, 
+          loader: "babel-loader" }
       ]
     },
       // Creates "source map" files (ex. "bundle.js.map"). Modern browsers can automatically

@@ -6,14 +6,24 @@ const {db} = require('./models')
 const app = new express()
 
 app.use(morgan("dev")); //logging middleware
-app.use(express.static(path.join(__dirname, "..", "/public")))
-app.use(express.urlencoded({ extended: false })); //parsing middleware for form input data
+
+// body parsing middleware
+//parsing middleware for form input data
 app.use(express.json());
+app.use(express.urlencoded({ extended: false })); 
+// static middleware
+app.use(express.static(path.join(__dirname, "..", "/public")))
 
 app.use('/api', require('./routes/api'))
 
-app.use((err, req, res, next) =>{
-    console.log(error)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/index.html'))
+}) // Send index.html for any other requests
+
+// error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack)
+  res.status(err.status || 500).send(err.message || 'Internal server error')
 })
 
 
