@@ -11,7 +11,7 @@ const pages = [
      {name: "News", url: "/News.html"},
      {name: "Events/Activities", url: "/Events.html"},
      {name: "Repeaters", url: "/Repeaters.html"},
-     {name: "Hamfest", url: "/hamfest"},
+     {name: "Hamfest", url: "/hamfest/store"},
      {name: "Newsletter", url: "/Hamletter.html"},
      {name: "Training", url: "/Training.html"},
      {name: "About Us", url: "/About.html"},

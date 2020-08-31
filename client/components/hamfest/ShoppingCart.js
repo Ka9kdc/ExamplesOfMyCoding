@@ -2,6 +2,7 @@ import React from 'react'
 import CartItem from './CartItem'
 import { connect } from 'react-redux'
 import { updateQty } from '../../store'
+import {Link} from 'react-router-dom'
 
 
 
@@ -51,7 +52,7 @@ class ShoppingCart extends React.Component {
                 <div><label htmlFor="cartTotal"> Total: </label> 
                     <input type="hidden" name="Amount" />${this.props.cartTotal}</div>
                 
-                <button type="submit" value="Checkout" onClick={() => this.props.checkout(event)}> Checkout </button>
+                <Link to="/hamfest/Checkout"> Checkout </Link>
             </div>
         )
     }

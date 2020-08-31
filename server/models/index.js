@@ -17,14 +17,14 @@ Committee.belongsTo(Member)
 Member.hasMany(Payment)
 Payment.belongsTo(Member)
 
-Payment.belongsTo(Attendee)
 Attendee.hasOne(Payment)
+Payment.belongsTo(Attendee)
 
 Attendee.hasOne(Ticket)
 Ticket.belongsTo(Attendee)
 
-Payment.belongsTo(Ticket)
 Ticket.hasOne(Payment)
+Payment.belongsTo(Ticket)
 
 Vendor.hasOne(Order)
 Order.belongsTo(Vendor)

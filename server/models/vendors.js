@@ -54,16 +54,16 @@ const Order = db.define('order', {
     Tickets:{
         type: Sequelize.INTEGER,
         allowNull: false,
-        // validate: {
-        //     notEmpty: true,
-        // }
+        validate: {
+            notEmpty: true,
+        }
     },
     Tables:{
         type: Sequelize.INTEGER,
         allowNull: false,
-        // validate: {
-        //     notEmpty: true,
-        // }
+        validate: {
+            notEmpty: true,
+        }
     },
     Chairs:{
         type: Sequelize.INTEGER
@@ -77,15 +77,15 @@ const Order = db.define('order', {
     Amount:{
         type: Sequelize.DECIMAL,
         allowNull: false,
-        // validate: {
-        //     notEmpty: true,
-        // }
+        validate: {
+            notEmpty: true,
+        }
     },
    OrderDate:{
     type: Sequelize.DATE,
-    // validate: {
-    //     notEmpty: true,
-    // }
+    validate: {
+        notEmpty: true,
+    }
    }
 })
 

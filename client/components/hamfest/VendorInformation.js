@@ -29,28 +29,45 @@ class VendorInfromation extends React.Component{
 
     async handleSubmit(event){
         event.preventDefault()
-        
-        const vendorInformation = this.state
-        const order = this.props.cartItems.reduce((obj, item) =>{
-            obj[item.dataName] = item.qty
-            return obj
-        }, {})
-        order.Amount = this.props.cartTotal
-        order.OrderDate = new Date()
-        vendorInformation.OrderDate = order.OrderDate;
-        const vendor = {
-           vendorInformation,
-           order
+        try {
+            const order = this.props.cartItems.reduce((obj, item) =>{
+                    obj[item.dataName] = item.qty
+                    return obj
+                }, {})
+            order.Amount = this.props.cartTotal
+            order.OrderDate = new Date()
+            const information = this.state
+       
+            information.OrderDate = order.OrderDate;
+            const person = {
+                information,
+                order
+                    }
+            if(order.Tables) { 
+                const response = await axios.post("/api/hamfest/vendor", person)
+            } else {
+                const response = await axios.post("/api/hamfest/attendee", person)
+            }
+
+            
+       } catch (error){
+           console.log(error.message)
        }
  
-        const response = await axios.post("/api/hamfest/vendor", vendor)
+       
+        
        
     }
 
     render() {
+        const cart = this.props.cartItems.reduce((names, item) =>{
+            names.push(item.dataName)
+            return names
+        }, [])
+        const newVendor = cart.indexOf('Tables') !== -1
         return (
             <div>
-                <h2>Thank You Vendor for your interest in the WCRA Hamfest</h2>
+                <h2>Thank You {newVendor ? 'Vendor' : ''} for your interest in the WCRA Hamfest</h2>
                 <h3>Please provide your contact information below.</h3>
                 <div>
                     <div>
@@ -69,7 +86,7 @@ class VendorInfromation extends React.Component{
                         <label>   State: </label> <States state={this.state.State} handleChange={this.handleChange}/> 
                         <label>   Zip Code: </label> <input name="Zip" placeholder="00000" type="text" size="5" value={this.state.Zip} onChange={() => this.handleChange(event)}/>
                     </div>
-                    <label>Special Requests: <textarea name="SpecialRequests" cols="50" value={this.state.SpecialRequests} onChange={() => this.handleChange(event)}></textarea></label>
+                   {newVendor ? <label>Special Requests: <textarea name="SpecialRequests" cols="50" value={this.state.SpecialRequests} onChange={() => this.handleChange(event)}></textarea></label> : ''}
                 </div>
                 <p>Clicking Place order will take you to PayPal to pay. Please verify your contact information is currect before click Place Order.
                      Your order will not be consider placed until payment has been received.</p>

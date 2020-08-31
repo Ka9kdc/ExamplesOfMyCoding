@@ -50,18 +50,23 @@ router.get("/products", async (req, res, next) => {
 
 router.post('/attendee', async (req, res, next) =>{
     try {
-        const attendee = await Attendee.create(req.body);
-        const order = await Ticket.create({
-            ...req.body, 
-            attendeeId: attendee.id
-            })
+        const attendee= await Attendee.create(req.body.information)
+        
+        const orderInfo = req.body.order
+        orderInfo.orderId = attendee.id
+
+        const order = await Ticket.create(orderInfo);
+        
+        const amount = req.body.order.Amount
+        const date = req.body.order.OrderDate
         const payment = await Payment.create({
             attendeeId: attendee.id,
             ticketId: order.id,
-            Amount: req.body.Amount,
-            PaymentDate: req.body.date
+            Amount: amount,
+            PaymentDate: date
         })
-        res.send(attendee, order, payment)
+
+        res.send(payment)
     } catch (error) {
         next(error)
     }
@@ -71,12 +76,12 @@ router.post('/attendee', async (req, res, next) =>{
 router.post('/vendor', async (req, res, next) => {
     try {
        
-        const order = await Order.create(req.body.order)
+        const vendor = await Vendor.create(req.body.information)
         
-        const vendorInfo = req.body.vendorInformation
-        vendorInfo.orderId = order.id
+        const orderInfo = req.body.order
+        orderInfo.vendprId = vendor.id
 
-        const vendor = await Vendor.create(vendorInfo);
+        const order = await Order.create(orderInfo);
         
         const amount = req.body.order.Amount
         const date = req.body.order.OrderDate
@@ -86,6 +91,7 @@ router.post('/vendor', async (req, res, next) => {
             Amount: amount,
             PaymentDate: date
         })
+
         res.send(payment)
     } catch (error) {
         console.log(error)
@@ -93,16 +99,5 @@ router.post('/vendor', async (req, res, next) => {
     }
 })
 
-// router.post('/order', async (req, res, next) =>{
-//     try {
-//         console.log(req.body)
-//         const order = await Order.create(req.body)
-//         console.log(order)
-//         res.send(order)
-//     } catch (error) {
-//         console.log(error)
-//         next(error)
-//     }
-// })
    
 module.exports = router
