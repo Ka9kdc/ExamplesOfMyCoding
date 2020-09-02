@@ -3,6 +3,7 @@ import States from '../states'
 import {connect} from 'react-redux'
 
 import axios from 'axios'
+import PayPalCheckoutButtonsBasic from '../PayPalButtonsBasic'
 
 class VendorInfromation extends React.Component{
     constructor(){
@@ -53,11 +54,10 @@ class VendorInfromation extends React.Component{
        } catch (error){
            console.log(error.message)
        }
- 
-       
-        
-       
+
     }
+
+    
 
     render() {
         const cart = this.props.cartItems.reduce((names, item) =>{
@@ -90,7 +90,7 @@ class VendorInfromation extends React.Component{
                 </div>
                 <p>Clicking Place order will take you to PayPal to pay. Please verify your contact information is currect before click Place Order.
                      Your order will not be consider placed until payment has been received.</p>
-                <button onClick={() => this.handleSubmit(event)}>Place Order</button>
+                <PayPalCheckoutButtonsBasic amount={this.props.cartTotal} cart={this.props.cartItems} information={this.state}/>
             </div>
             
         )

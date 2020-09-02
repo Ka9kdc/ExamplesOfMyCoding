@@ -41,6 +41,8 @@ class ShoppingCart extends React.Component {
         this.props.updateCart(updatedItem)
     }
 
+    
+
     render() {
         const items = this.props.cartItems
         return (
@@ -52,7 +54,7 @@ class ShoppingCart extends React.Component {
                 <div><label htmlFor="cartTotal"> Total: </label> 
                     <input type="hidden" name="Amount" />${this.props.cartTotal}</div>
                 
-                <Link to="/hamfest/Checkout"> Checkout </Link>
+                <Link to="/hamfestCheckout"> Checkout </Link>
             </div>
         )
     }

@@ -37,6 +37,7 @@ class HamfestStore extends React.Component {
    
 
     render() {
+        
         return(
             <>
             <div className="Subtitle" >Hamfest Store</div>

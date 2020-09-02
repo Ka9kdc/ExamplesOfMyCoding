@@ -9,11 +9,14 @@ import HamfestStore from './hamfest/HamfestStore'
 import Checkout from './hamfest/Checkout';
 
 
+
 export default class Main extends React.Component {
+    
 
     render () {
         return (
             <div>
+
                 <Router >
                 <div>
                     <Header />
@@ -24,6 +27,7 @@ export default class Main extends React.Component {
                     <Route path="/membershipForm" component={MembershipForm} />
                     <Route path="/hamfestStore" component={HamfestStore} />
                     <Route path="/hamfestCheckout" component={Checkout} />
+                    
 
                 </main>
                 </Router>
