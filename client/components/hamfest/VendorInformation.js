@@ -9,7 +9,8 @@ class VendorInfromation extends React.Component{
     constructor(){
         super()
         this.state = {
-            readyToPay: false
+            readyToPay: false,
+            redirect: null
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -45,11 +46,15 @@ class VendorInfromation extends React.Component{
     
 
     render() {
-        const cart = this.props.cartItems.reduce((names, item) =>{
+        if (this.state.redirect) {
+            return <Redirect to={this.state.redirect} />
+          }
+          const cart = this.props.cartItems.reduce((names, item) =>{
             names.push(item.dataName)
             return names
         }, [])
         const newVendor = cart.indexOf('Tables') !== -1
+        
         return (
             <div>
                 <h2>Thank You {newVendor ? 'Vendor' : ''} for your interest in the WCRA Hamfest</h2>

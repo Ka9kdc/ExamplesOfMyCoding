@@ -79,7 +79,7 @@ router.post('/vendor', async (req, res, next) => {
         const vendor = await Vendor.create(req.body.information)
         
         const orderInfo = req.body.order
-        orderInfo.vendprId = vendor.id
+        orderInfo.vendorId = vendor.id
 
         const order = await Order.create(orderInfo);
         
