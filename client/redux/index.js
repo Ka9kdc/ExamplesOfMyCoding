@@ -6,7 +6,7 @@ import customerReducer from './customer'
 
 
 const appReducer = combineReducers({
-    projects: productsReducer,
+    products: productsReducer,
     cart: cartReducer,
     customerInfo: customerReducer
 })

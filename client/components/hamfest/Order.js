@@ -22,8 +22,8 @@ const Order = (props) => {
 
 const mapStateToProps = (state) =>{
     return {
-        cartItems: state.cart,
-        cartTotal: state.total
+        cartItems: state.cart.cart,
+        cartTotal: state.cart.total
     }
 }
 

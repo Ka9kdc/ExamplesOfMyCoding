@@ -3,7 +3,8 @@ import Product from './Products'
 import Electrical from './Electrical'
 import ShoppingCart from './ShoppingCart';
 import {connect} from 'react-redux'
-import { fetchAllProducts, addProductToCart } from '../../store';
+import { fetchAllProducts } from '../../redux/products';
+import {  addProductToCart } from '../../redux/cart';
 
 
 const mapStateToProps = (state) => {

@@ -1,7 +1,7 @@
 import React from 'react'
 import CartItem from './CartItem'
 import { connect } from 'react-redux'
-import { updateQty } from '../../store'
+import { updateQty } from '../../redux/cart'
 import {Link} from 'react-router-dom'
 
 
@@ -61,8 +61,8 @@ class ShoppingCart extends React.Component {
 }
 const mapStateToProps = (state) =>{
     return {
-        cartItems: state.cart,
-        cartTotal: state.total
+        cartItems: state.cart.cart,
+        cartTotal: state.cart.total
     }
 }
 

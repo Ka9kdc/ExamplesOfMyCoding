@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import { removeProductFromCart } from '../../store'
+import { removeProductFromCart } from '../../redux/cart'
 
 const CartItem = (props) =>{
     const item= props.item
