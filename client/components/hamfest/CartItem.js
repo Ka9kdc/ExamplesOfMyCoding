@@ -5,9 +5,10 @@ import { removeProductFromCart } from '../../redux/cart'
 const CartItem = (props) =>{
     const item= props.item
     return (
-        <div>{item.name === 'Electrical' ?  <div>{item.name}:   ${item.price} </div>
+        <div className="cartRow"><div>{item.name}:   ${item.price} </div>
+        {item.name === 'Electrical' ?  '' 
            
-         :  <div>{item.name}:   ${item.price} each  
+         :  <div>
                 <button onClick={() => props.decreaseQty(item, event)}>-</button>
                  Qty: {item.qty} 
                   <button onClick={() => props.increaseQty(item, event)}>+</button></div>}

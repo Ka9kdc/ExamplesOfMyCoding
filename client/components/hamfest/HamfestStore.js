@@ -45,9 +45,10 @@ class HamfestStore extends React.Component {
     
             <div className="Content">
             <div> 
-               <form>
-                   <ShoppingCart />
+               <form className="columns">
+                  <ShoppingCart />
                     <div className="body_container">
+                         
                         {this.props.products.map(product =>{
                             if(product.name !== 'Electrical') return <Product product={product} key={product.id} addToCartOnClick={this.addToCartOnClick}/>
                             else return <Electrical product={product} key={product.id} addToCartOnClick={this.addToCartOnClick}/>

@@ -46,8 +46,8 @@ class ShoppingCart extends React.Component {
     render() {
         const items = this.props.cartItems
         return (
-            <div className="Right">
-
+            <div className="shoppingCart">
+                <h2>Shopping Cart</h2>
                 {items.map(item =>{
                     return <CartItem item={item} key={item.id} decreaseQty={this.decreaseQty} increaseQty={this.increaseQty}/>
                 })}

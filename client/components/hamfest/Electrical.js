@@ -6,7 +6,7 @@ const Electrical = (props) => {
     return(
     <div className="product_container">
     <div className="product"> 
-        <p><img className="product_image" href={product.photo} alt={`picture of ${product.name}`}/></p>
+        <p><img className="product_image" src={product.photo} alt={`picture of ${product.name}`}/></p>
         <div className="price">
             <p className="product_name">{product.name}</p>
             <div className="qty">
