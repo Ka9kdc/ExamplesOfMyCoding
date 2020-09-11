@@ -9,7 +9,7 @@ const router = express.Router()
 
 router.post('/member', async (req, res, next) =>{
     try{
-        const [newMember, wasCreated] = await Member.findOrCreate(req.body);
+        const newMember = await Member.create(req.body);
         res.send(newMember)
     } catch (error) {
         next(error)

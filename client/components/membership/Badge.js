@@ -1,15 +1,16 @@
 import React from 'react';
+import {connect} from 'react-redux'
+import { updateMemberInfo } from '../../redux/membership';
 
 //this page is done for now
 
 const Badge = (props) => {
-    console.log(props.Badge)
     return (
         <div>
         <div>Year licensed: <input name="LicenseYear" type="number" onChange={props.handleChange}/></div>
         <div>Badge name: <input name="badgeName" placeholder="Name" type="text" onChange={props.handleChange} /></div>
         <div>
-            <div><input type="checkbox" name='ArrlLogo' onChange={props.handleCheckbox} /> ARRL logo  </div>
+            <div><input type="checkbox" name='ArrlLogo' onChange={props.updateLogo} /> ARRL logo  </div>
             <div><input type="radio" name="badgeType" value="Notch" onChange={props.handleChange}/> Notch &nbsp;
                 <input type="radio" name="badgeType"  value="Magnet"  onChange={props.handleChange}/> Magnet </div>
             <div><input type="radio" name="badgeType"  value="Lanyard" onChange={props.handleChange} /> Lanyard &nbsp;
@@ -33,4 +34,15 @@ const Badge = (props) => {
     )
 }
 
-export default Badge
+const mapState = state => {
+    return {
+        badge: state.member.badge
+    }
+}
+
+const mapDispatch = dispatch => {
+    return {
+        updateLogo: () => dispatch(updateMemberInfo({ArrlLogo: !this.props.badge.ArrlLogo}))
+    }
+}
+export default connect(mapState, mapDispatch)(Badge)

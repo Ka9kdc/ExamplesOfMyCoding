@@ -1,35 +1,36 @@
 import React from 'react'
+import {connect} from 'react-redux'
 import Badge from './Badge'
 import MemberInformation from './MemberInfomation'
 import Commitees from './Committees'
+import { submitMember, updateMemberInfo } from '../../redux/membership'
 
 
 class MembershipForm extends React.Component{
     constructor(){
-        super()
-        this.state = {
-            badgeType: '',
-            ArrlLogo: false,
-            Color: '',
-            badgeName: '',
-            LicenseYear: 0,
-            Membership: '',
-            date: '',
+        super()    
+        this.state ={
             Desired: false,
-            DueYear: '2021',
-
+            familyCount: 1,
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleCheckbox = this.handleCheckbox.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     handleCheckbox(event){
-        console.log(event.target.name)
         this.setState({[event.target.name]: !(this.state[event.target.name])})
     }
 
     handleChange(event){
-        this.setState({[event.target.name]: event.target.value})
+        console.log(event.target.value)
+        this.props.updateMemberInfo({[event.target.name]: event.target.value})
+    }
+
+    handleSubmit(){
+        event.preventDefault()
+        console.log('submit')
+        this.props.submitMember(this.props.member)
     }
 
     render() {
@@ -38,13 +39,13 @@ class MembershipForm extends React.Component{
         <div className="Subtitle" >Membership Signup</div>
 
         <div className="Content">
-            <form action="/membership/" method="POST" name="membershipApplication">
+
             <div >
                 <div className="Right">
                     <div><input type="checkbox" name="Desired" onChange={this.handleCheckbox}/> Get A Club Badge </div>
                     {/* <!--badge section only show up when checked?--> */}
                     {this.state.Desired ? 
-                   <Badge handleChange={this.handleChange} handleCheckbox={this.handleCheckbox} badgeType={this.state.badgeType}/>
+                   <Badge handleChange={this.handleChange} />
                         : ''}
                    </div>
             </div>
@@ -63,6 +64,9 @@ class MembershipForm extends React.Component{
             <option value='2021'>2021</option>
             <option value='2020'>2020</option>
             </select>
+            {this.props.member.contact.Membership === 'Lifetime' ? <h2 style={{color: 'red'}}>
+                Your Lifetime Membership status will be verified by the Club sectertary at the next meeting before your renewal will accepted. 
+                </h2>: ''}
                <MemberInformation />
                     {/* <!--additional name,call,email box when family is selected--> */}
             </div>
@@ -70,12 +74,29 @@ class MembershipForm extends React.Component{
             <hr />
         
            <Commitees />
-            <div><input type="submit" style={{textAlign: "center"}} value="Submit" /></div>
+            <div>
+            
+           {this.props.member.contact.Membership === 'Family' ?  <button type="button" style={{textAlign: "center"}} onClick={() => console.log(clicked)}>Add Family Member</button> : ''}
+           {this.props.member.contact.Membership !== 'Family' || this.state.familyCount > 1 ? <button type="button" style={{textAlign: "center"}} onClick={() => this.handleSubmit()}>Submit Form</button> : ''}
+                </div>
            
-        </form>
+       
             
         </div></>)
     }
 }
 
-export default MembershipForm
+const mapState = state =>{
+    return {
+        member: state.member
+    }
+}
+
+const mapDispatch = dispatch => {
+    return {
+        submitMember: (memberInfo) => dispatch(submitMember(memberInfo)),
+        updateMemberInfo: (memberInfo) => dispatch(updateMemberInfo({contact: memberInfo}))
+    }
+}
+
+export default connect(mapState, mapDispatch)(MembershipForm)

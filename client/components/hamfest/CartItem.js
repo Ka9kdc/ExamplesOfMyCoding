@@ -5,7 +5,7 @@ import { removeProductFromCart } from '../../redux/cart'
 const CartItem = (props) =>{
     const item= props.item
     return (
-        <div className="cartRow"><div>{item.name}:   ${item.price} </div>
+        <div className="cartRow"><div style={{fontSize: '1.3em'}}>{item.name}:   ${item.price} </div>
         {item.name === 'Electrical' ?  '' 
            
          :  <div>

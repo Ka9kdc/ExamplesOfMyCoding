@@ -23,10 +23,10 @@ const pages = [
 
 const NavBar = (props) => {
     return (
-        <div>
+        <div className="Navbar ">
         { pages.map(page => {
                 if(page.name === 'Join WCRA' || page.name === 'Hamfest') {
-                return  <NavLink to={page.url} key={page.name}>{page.name}</NavLink>
+                return  <NavLink to={page.url} key={page.name} >{page.name}</NavLink>
                 } else {
                     return <a href={page.url} key={page.name}>{page.name}</a>
                 }

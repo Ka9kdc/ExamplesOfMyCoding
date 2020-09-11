@@ -31,7 +31,7 @@ class Product extends React.Component {
                     <span>${product.price}</span>
                     {product.onSale ?  <span className="sale"> Sale</span> : '' }
                 </p>
-            <p>Qty: <input type="number" value={this.state.qty} onChange={() => this.handleChange()}/>
+            <p>Qty: <input type="number" value={this.state.qty} min="0" onChange={() => this.handleChange()}/>
             <button className='add_to_cart' onClick={() => this.props.addToCartOnClick(product, event, this.state)} >Add to Card</button>
             </p>
             </div>
