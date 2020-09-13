@@ -7,7 +7,7 @@ import Footer from './Footer'
 import MembershipForm from './membership/membershipForm'
 import HamfestStore from './hamfest/HamfestStore'
 import Checkout from './hamfest/Checkout';
-
+import MemberPage from './MemberPage/MemberPage'
 
 
 export default class Main extends React.Component {
@@ -27,13 +27,14 @@ export default class Main extends React.Component {
                     <Route path="/membershipForm" component={MembershipForm} />
                     <Route path="/hamfestStore" component={HamfestStore} />
                     <Route path="/hamfestCheckout" component={Checkout} />
-                    
+                    <Route path='/memberPage' component={MemberPage} />
 
                 </main>
                 </Router>
                 <div>
                     <Footer />
                 </div>
+               
             </div>
         )
     }

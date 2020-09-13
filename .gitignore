@@ -5,3 +5,4 @@ public/bundle.js.map
 info.txt
 paypal-backend
 paypal-firstattempts
+secrets.js

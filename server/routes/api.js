@@ -4,9 +4,14 @@ const router = express.Router()
 
 router.use('/membership', require('./membership'))
 router.use('/hamfest', require('./hamfest'))
+router.use('/user', require('./user'))
 
-// router.get((req, res, next) =>{
-//     res.send("Page Not Found")
-// })
+
+//404 routes - put after all routes aka just before the export
+router.use((req, res, next) => {
+    const err = new Error('Not found.');
+    err.status = 404;
+    next(err)
+})
 
 module.exports = router

@@ -6,6 +6,8 @@ const Payment = require('./payment')
 const { Attendee, Ticket } = require('./Attendees')
 const { Vendor, Order } = require('./vendors')
 const Product = require('./products')
+const User = require('./User')
+
 
 
 Member.hasOne(Badge)
@@ -16,6 +18,8 @@ Committee.belongsTo(Member)
 
 Member.hasMany(Payment)
 Payment.belongsTo(Member)
+
+Member.hasMany(Member)
 
 Attendee.hasOne(Payment)
 Payment.belongsTo(Attendee)
@@ -45,5 +49,6 @@ module.exports = {
     Vendor,
     Ticket,
     Order,
-    Product
+    Product, 
+    User
 }

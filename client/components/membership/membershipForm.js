@@ -3,19 +3,19 @@ import {connect} from 'react-redux'
 import Badge from './Badge'
 import MemberInformation from './MemberInfomation'
 import Commitees from './Committees'
-import { submitMember, updateMemberInfo } from '../../redux/membership'
+import { submitMember, updateMemberInfo, submitFamilyMember } from '../../redux/membership'
 
 
 class MembershipForm extends React.Component{
     constructor(){
         super()    
         this.state ={
-            Desired: false,
             familyCount: 1,
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleCheckbox = this.handleCheckbox.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.addFamilyMember = this.addFamilyMember.bind(this)
     }
 
     handleCheckbox(event){
@@ -30,8 +30,20 @@ class MembershipForm extends React.Component{
     handleSubmit(){
         event.preventDefault()
         console.log('submit')
+        if(this.state.familyCount >= 2) {
+            this.props.submitFamilyMember(this.props.member)
+        }
         this.props.submitMember(this.props.member)
     }
+
+    addFamilyMember(){
+        event.preventDefault()
+        console.log('family')
+        const newCount = this.state.familyCount + 1
+        this.setState({familyCount: newCount })
+        this.props.submitFamilyMember(this.props.member)
+    }
+    
 
     render() {
         return (
@@ -76,7 +88,7 @@ class MembershipForm extends React.Component{
            <Commitees />
             <div>
             
-           {this.props.member.contact.Membership === 'Family' ?  <button type="button" style={{textAlign: "center"}} onClick={() => console.log(clicked)}>Add Family Member</button> : ''}
+           {this.props.member.contact.Membership === 'Family' ?  <button type="button" style={{textAlign: "center"}} onClick={() => this.addFamilyMember()}>Add Family Member</button> : ''}
            {this.props.member.contact.Membership !== 'Family' || this.state.familyCount > 1 ? <button type="button" style={{textAlign: "center"}} onClick={() => this.handleSubmit()}>Submit Form</button> : ''}
                 </div>
            
@@ -95,7 +107,8 @@ const mapState = state =>{
 const mapDispatch = dispatch => {
     return {
         submitMember: (memberInfo) => dispatch(submitMember(memberInfo)),
-        updateMemberInfo: (memberInfo) => dispatch(updateMemberInfo({contact: memberInfo}))
+        updateMemberInfo: (memberInfo) => dispatch(updateMemberInfo({contact: memberInfo})),
+        submitFamilyMember: (memberInfo) => dispatch(submitFamilyMember(memberInfo))
     }
 }
 

@@ -17,7 +17,8 @@ const pages = [
      {name: "About Us", url: "/About.html"},
      {name: "Join WCRA", url: "/membership"},
      {name: "Contact WCRA", url: "/Contacts.html"},
-     {name: "References", url: "/References.html"}
+     {name: "References", url: "/References.html"},
+     {name: "Member Page", url: "/MemberPage"},
  ]
 
 
@@ -25,7 +26,7 @@ const NavBar = (props) => {
     return (
         <div className="Navbar ">
         { pages.map(page => {
-                if(page.name === 'Join WCRA' || page.name === 'Hamfest') {
+                if(page.name === 'Join WCRA' || page.name === 'Hamfest' || page.name === 'Member Page') {
                 return  <NavLink to={page.url} key={page.name} >{page.name}</NavLink>
                 } else {
                     return <a href={page.url} key={page.name}>{page.name}</a>
