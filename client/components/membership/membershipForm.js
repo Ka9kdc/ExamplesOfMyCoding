@@ -61,21 +61,27 @@ class MembershipForm extends React.Component{
                         : ''}
                    </div>
             </div>
-        <div>
-        <label>Membership Type: </label>
-        <select name="Membership" required onChange={this.handleChange} >
-            <option value="Full" >Regular $26.00 USD</option>
-            <option value="Senior">Senior (55+ & retired) $13.00 USD</option>
-            <option value="Family">Family $39.00 USD</option>
-            <option value="Student">Student $13.00 USD</option>
-            <option value="Associate">Associate (No license) $13.00 USD</option>
-            <option value="Lifetime">Lifetime</option>
-        </select>
-        <label>Today's Date: </label><input type="date" required name="date" onChange={this.handleChange} />
-        <label>Due Year: </label><select required name="DueYear" onChange={this.handleChange} >
-            <option value='2021'>2021</option>
-            <option value='2020'>2020</option>
-            </select>
+        <div className='form'>
+            <div>
+                <label>Membership Type: </label>
+                <select name="Membership" required onChange={this.handleChange} >
+                    <option value="Full" >Regular $26.00 USD</option>
+                    <option value="Senior">Senior (55+ & retired) $13.00 USD</option>
+                    <option value="Family">Family $39.00 USD</option>
+                    <option value="Student">Student $13.00 USD</option>
+                    <option value="Associate">Associate (No license) $13.00 USD</option>
+                    <option value="Lifetime">Lifetime</option>
+                </select>
+            </div>
+            <div><label>Today's Date: </label><input type="date" required name="date" onChange={this.handleChange} /></div>
+            <div><label>Due Year: </label>
+                <select required name="DueYear" onChange={this.handleChange} >
+                    <option value='2021'>2021</option>
+                    <option value='2020'>2020</option>
+                </select>
+            </div>
+        
+        
             {this.props.member.contact.Membership === 'Lifetime' ? <h2 style={{color: 'red'}}>
                 Your Lifetime Membership status will be verified by the Club sectertary at the next meeting before your renewal will accepted. 
                 </h2>: ''}

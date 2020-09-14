@@ -4,15 +4,18 @@ const _ = require('lodash')
 const db = require('./db')
 
 const User = db.define('user', {
-    email:{
+    Callsign: {
         type: Sequelize.STRING,
     },
+    // email:{
+    //     type: Sequelize.STRING,
+    // },
     name: { 
         type: Sequelize.STRING,
     },
-    googleId: {
-        type: Sequelize.STRING
-    },
+    // googleId: {
+    //     type: Sequelize.STRING
+    // },
     password: {
         type: Sequelize.STRING
     },

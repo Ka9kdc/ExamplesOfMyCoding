@@ -9,7 +9,7 @@ router.get('/me', (req, res, next) =>{
 router.put('/login', (req, res ,next) =>{
     User.findOne({
         where: {
-            email: req.body.email
+            Callsign: req.body.Callsign
         }
     }).then(user => {
         if(!user) res.status(401).send('User not found')
@@ -25,7 +25,7 @@ router.put('/login', (req, res ,next) =>{
 
 router.post('/signup', (req, res, next) =>{
     User.Create({
-        email: req.body.email,
+        Callsign: req.body.Callsign,
         password: req.body.password
     }).than(user =>{
        req.login(user, err =>{

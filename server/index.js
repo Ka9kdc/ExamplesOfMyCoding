@@ -14,7 +14,7 @@ const app = new express()
 dbStore.sync()
 
 app.use(session({
-  secret: process.env.SESSION_SECRET || 'this is a insecure secret',
+  secret: process.env.SESSION_SECRET,
   store: dbStore,
   resave: false,
   saveUninitialized: false

@@ -8,12 +8,13 @@ class MemberPage extends React.Component {
     componentDidMount(){
         this.props.fetchCurrentUser()
     }
+    
     render(){
         if (!this.props.user.id) {
             return <LoginForm />
         } else {
            return ( <div>
-            <h1>Welcome Back {this.props.user.email}!</h1>
+            <h1>Welcome Back {this.props.user.Callsign}!</h1>
             <button onClick={() => this.props.logout()} >Logout</button>
             </div>
            )

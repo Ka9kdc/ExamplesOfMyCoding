@@ -21,7 +21,7 @@ export const login = (credentials, history) => dispatch => {
   console.log('login')
     axios.put('/api/user/login', credentials)
     .then(res => dispatch(setCurrentUser(res.data)))
-    .catch(err => console.error(`Logging in with ${credentials.email} and ${credentials.password} was unsuccessful`, err))
+    .catch(err => console.error(`Logging in with ${credentials.Callsign} and ${credentials.password} was unsuccessful`, err))
 }
 
 export const logout = () => dispatch => {

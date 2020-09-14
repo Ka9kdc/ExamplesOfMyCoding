@@ -7,8 +7,8 @@ const LoginForm = props =>{
         <form onSubmit={props.handleSubmit} id="login">
             <div>
             <div>
-                <label htmlFor='email'>Email: </label>
-                <input type='text' name="email" required />
+                <label htmlFor='Callsign'>Callsign: </label>
+                <input type='text' name="Callsign" required />
             </div>
             <div>
                 <label htmlFor='password'>Password: </label>
@@ -23,9 +23,9 @@ const LoginForm = props =>{
 const mapDispatch = (dispatch, ownProps) => ({
     handleSubmit: event => {
         event.preventDefault()
-        const email = event.target.email.value
+        const Callsign = event.target.Callsign.value
         const password =event.target.password.value
-        const credentials = {email, password}
+        const credentials = {Callsign, password}
         dispatch(login(credentials, ownProps.history))
     }
 

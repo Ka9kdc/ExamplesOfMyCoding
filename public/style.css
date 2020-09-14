@@ -163,6 +163,7 @@ table.EventCalendar tr.Canceled {
   background-position: center;
 }
 
+/* forms */
 #commiteeSelection {
   /* font-size: 10pt; */
   margin: 0.5em 0 0 0;
@@ -171,6 +172,13 @@ table.EventCalendar tr.Canceled {
   flex-wrap: wrap;
   justify-content: space-around;
   font-size: 1.2em
+}
+
+.form{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  
 }
 
 /*store*/

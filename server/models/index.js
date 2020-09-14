@@ -8,7 +8,8 @@ const { Vendor, Order } = require('./vendors')
 const Product = require('./products')
 const User = require('./User')
 
-
+User.belongsTo(Member)
+Member.hasOne(User)
 
 Member.hasOne(Badge)
 Badge.belongsTo(Member)
