@@ -42,7 +42,9 @@ const mapState = state => {
 
 const mapDispatch = dispatch => {
     return {
-        updateLogo: () => dispatch(updateMemberInfo({ArrlLogo: !this.props.badge.ArrlLogo}))
+        updateLogo: () => dispatch(updateMemberInfo({ArrlLogo: !this.props.badge.ArrlLogo})),
+        handleChange: (event) => dispatch(updateMemberInfo({badge: {[event.target.name]: event.target.value}})),
     }
 }
+
 export default connect(mapState, mapDispatch)(Badge)

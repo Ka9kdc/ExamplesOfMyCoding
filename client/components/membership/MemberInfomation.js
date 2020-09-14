@@ -10,7 +10,7 @@ const MemberInformation = (props) =>{
         <div className='form'>
             <div><label htmlFor="FirstName">First Name:  </label><input name="FirstName" value={props.member.FirstName} placeholder="First Name" required  type="text"  onChange={() => props.handleChange(event)} /></div>
             <div> <label htmlFor="LastName">Last Name:  </label><input name="LastName" value={props.member.LastName} placeholder="Last Name" required type="text"  onChange={() => props.handleChange(event)} /></div>
-            <div><label htmlFor="CallSign">Callsign:</label><input name="Callsign" value={props.member.Callsign} placeholder="callsign"  type="text" required  onChange={() => props.handleChange(event)} /></div>
+            <div><label htmlFor="CallSign">Callsign:  </label><input name="Callsign" value={props.member.Callsign} placeholder="callsign"  type="text" required  onChange={() => props.handleChange(event)} /></div>
             <div><label htmlFor="Email">Email:  </label><input name="Email" value={props.member.Email} placeholder="Your email here (required)" required size="48" type="email" required onChange={() => props.handleChange(event)} /></div>
             <div><label htmlFor="Phone">Phone Number:  </label><input name="Phone" value={props.member.Phone} placeholder="000-000-0000" size="15" type="tel" required onChange={() => props.handleChange(event)} /></div>
             <div><label htmlFor="Street">Street Address:  </label><input name="Street" type="text" size="40%" value={props.member.Street} required size="48" onChange={() => props.handleChange(event)} /></div>

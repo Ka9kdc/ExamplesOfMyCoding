@@ -13,14 +13,10 @@ class MembershipForm extends React.Component{
             familyCount: 1,
         }
         this.handleChange = this.handleChange.bind(this);
-        this.handleCheckbox = this.handleCheckbox.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.addFamilyMember = this.addFamilyMember.bind(this)
     }
 
-    handleCheckbox(event){
-        this.setState({[event.target.name]: !(this.state[event.target.name])})
-    }
 
     handleChange(event){
         console.log(event.target.value)
@@ -46,6 +42,7 @@ class MembershipForm extends React.Component{
     
 
     render() {
+        console.log(this.props.Desired)
         return (
             <>
         <div className="Subtitle" >Membership Signup</div>
@@ -54,10 +51,10 @@ class MembershipForm extends React.Component{
 
             <div >
                 <div className="Right">
-                    <div><input type="checkbox" name="Desired" onChange={this.handleCheckbox}/> Get A Club Badge </div>
+                    <div><input type="checkbox" name="Desired" onChange={() => this.props.getBadge({Desired: !this.props.Desired})}/> Get A Club Badge </div>
                     {/* <!--badge section only show up when checked?--> */}
-                    {this.state.Desired ? 
-                   <Badge handleChange={this.handleChange} />
+                    {this.props.Desired ? 
+                   <Badge />
                         : ''}
                    </div>
             </div>
@@ -82,7 +79,7 @@ class MembershipForm extends React.Component{
             </div>
         
         
-            {this.props.member.contact.Membership === 'Lifetime' ? <h2 style={{color: 'red'}}>
+            {this.props.member.Membership === 'Lifetime' ? <h2 style={{color: 'red'}}>
                 Your Lifetime Membership status will be verified by the Club sectertary at the next meeting before your renewal will accepted. 
                 </h2>: ''}
                <MemberInformation />
@@ -94,8 +91,8 @@ class MembershipForm extends React.Component{
            <Commitees />
             <div>
             
-           {this.props.member.contact.Membership === 'Family' ?  <button type="button" style={{textAlign: "center"}} onClick={() => this.addFamilyMember()}>Add Family Member</button> : ''}
-           {this.props.member.contact.Membership !== 'Family' || this.state.familyCount > 1 ? <button type="button" style={{textAlign: "center"}} onClick={() => this.handleSubmit()}>Submit Form</button> : ''}
+           {this.props.member.Membership === 'Family' ?  <button type="button" style={{textAlign: "center"}} onClick={() => this.addFamilyMember()}>Add Family Member</button> : ''}
+           {this.props.member.Membership !== 'Family' || this.state.familyCount > 1 ? <button type="button" style={{textAlign: "center"}} onClick={() => this.handleSubmit()}>Submit Form</button> : ''}
                 </div>
            
        
@@ -106,7 +103,8 @@ class MembershipForm extends React.Component{
 
 const mapState = state =>{
     return {
-        member: state.member
+        member: state.member.contact,
+        Desired: state.member.badge.Desired
     }
 }
 
@@ -114,7 +112,8 @@ const mapDispatch = dispatch => {
     return {
         submitMember: (memberInfo) => dispatch(submitMember(memberInfo)),
         updateMemberInfo: (memberInfo) => dispatch(updateMemberInfo({contact: memberInfo})),
-        submitFamilyMember: (memberInfo) => dispatch(submitFamilyMember(memberInfo))
+        submitFamilyMember: (memberInfo) => dispatch(submitFamilyMember(memberInfo)),
+        getBadge: (desire) => dispatch(updateMemberInfo({badge: desire}))
     }
 }
 

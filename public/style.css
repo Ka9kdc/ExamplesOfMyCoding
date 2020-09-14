@@ -177,8 +177,12 @@ table.EventCalendar tr.Canceled {
 .form{
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
-  
+  justify-content: left;
+
+}
+
+.form div{
+  margin: 5px;
 }
 
 /*store*/
