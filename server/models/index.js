@@ -11,6 +11,8 @@ const User = require('./User')
 User.belongsTo(Member)
 Member.hasOne(User)
 
+Member.belongsToMany(Member, {as: 'Family', through: 'FamilyMembers'})
+
 Member.hasOne(Badge)
 Badge.belongsTo(Member)
 
@@ -20,7 +22,6 @@ Committee.belongsTo(Member)
 Member.hasMany(Payment)
 Payment.belongsTo(Member)
 
-Member.hasMany(Member)
 
 Attendee.hasOne(Payment)
 Payment.belongsTo(Attendee)

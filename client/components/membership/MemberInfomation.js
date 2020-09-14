@@ -28,7 +28,7 @@ const mapState = state => {
 
 const mapDispatch = dispatch => {
     return {
-        handleChange: (event) => dispatch(updateMemberInfo({contact:{[event.target.name]: event.target.value}}))
+        handleChange: (event) => dispatch(updateMemberInfo({[event.target.name]: event.target.value}))
 
     }
 }

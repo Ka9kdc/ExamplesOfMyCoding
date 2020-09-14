@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import Badge from './Badge'
 import MemberInformation from './MemberInfomation'
 import Commitees from './Committees'
-import { submitMember, updateMemberInfo, submitFamilyMember } from '../../redux/membership'
+import { submitMember, updateMemberInfo, submitFamilyMember, updateMemberBadge } from '../../redux/membership'
 
 
 class MembershipForm extends React.Component{
@@ -27,9 +27,9 @@ class MembershipForm extends React.Component{
         event.preventDefault()
         console.log('submit')
         if(this.state.familyCount >= 2) {
-            this.props.submitFamilyMember(this.props.member)
+            this.props.submitFamilyMember(this.props.all)
         }
-        this.props.submitMember(this.props.member)
+        this.props.submitMember(this.props.all)
     }
 
     addFamilyMember(){
@@ -37,12 +37,12 @@ class MembershipForm extends React.Component{
         console.log('family')
         const newCount = this.state.familyCount + 1
         this.setState({familyCount: newCount })
-        this.props.submitFamilyMember(this.props.member)
+        this.props.submitFamilyMember(this.props.all)
     }
     
 
     render() {
-        console.log(this.props.Desired)
+        console.log(this.props.member)
         return (
             <>
         <div className="Subtitle" >Membership Signup</div>
@@ -70,7 +70,7 @@ class MembershipForm extends React.Component{
                     <option value="Lifetime">Lifetime</option>
                 </select>
             </div>
-            <div><label>Today's Date: </label><input type="date" required name="date" onChange={this.handleChange} /></div>
+            <div><label>Today's Date: </label><input type="date" required name="RenewalDate" onChange={this.handleChange} /></div>
             <div><label>Due Year: </label>
                 <select required name="DueYear" onChange={this.handleChange} >
                     <option value='2021'>2021</option>
@@ -104,16 +104,17 @@ class MembershipForm extends React.Component{
 const mapState = state =>{
     return {
         member: state.member.contact,
-        Desired: state.member.badge.Desired
+        Desired: state.member.badge.Desired,
+        all:state.member
     }
 }
 
 const mapDispatch = dispatch => {
     return {
         submitMember: (memberInfo) => dispatch(submitMember(memberInfo)),
-        updateMemberInfo: (memberInfo) => dispatch(updateMemberInfo({contact: memberInfo})),
+        updateMemberInfo: (memberInfo) => dispatch(updateMemberInfo(memberInfo)),
         submitFamilyMember: (memberInfo) => dispatch(submitFamilyMember(memberInfo)),
-        getBadge: (desire) => dispatch(updateMemberInfo({badge: desire}))
+        getBadge: (desire) => dispatch(updateMemberBadge(desire))
     }
 }
 
