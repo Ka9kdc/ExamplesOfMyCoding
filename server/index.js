@@ -4,8 +4,9 @@ const path = require("path");
 const morgan = require('morgan')
 const {db, User} = require('./models')
 const session = require('express-session')
-const passport = require('passport')
+const passport = require('passport');
 const SequelizeStore = require('connect-session-sequelize')(session.Store)
+
 const dbStore = new SequelizeStore({db:db})
 
 const app = new express()
@@ -30,8 +31,8 @@ passport.serializeUser((user, done) =>{
   }
 })
 
-passport.deserializeUser((id,done) =>{
-  User.findById(id)
+passport.deserializeUser((id, done) =>{
+  User.findByPk(id.id)
   .then(user => done(null, user))
   .catch(done)
 })
@@ -66,7 +67,7 @@ const PORT = 1432;
       await db.sync({
         // force:true
       });
-  
+      
       app.listen(PORT, () => {
         console.log(`Listening at http://localhost:${PORT}`);
       });

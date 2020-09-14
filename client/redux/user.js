@@ -18,15 +18,15 @@ const removeCurrentUser = () => {
 }
 
 export const login = (credentials, history) => dispatch => {
+  console.log('login')
     axios.put('/api/user/login', credentials)
-    .then(res => setUserAndRedirect(res.data, history, dispatch))
+    .then(res => dispatch(setCurrentUser(res.data)))
     .catch(err => console.error(`Logging in with ${credentials.email} and ${credentials.password} was unsuccessful`, err))
 }
 
-export const logout = history => dispatch => {
+export const logout = () => dispatch => {
     axios.delete('api/user/logout')
       .then(res => dispatch(removeCurrentUser(res.data)))
-      .then(() => history.push('/login'))
       .catch(err => console.error('Logging out was unsuccesful', err))
   }
   
@@ -36,12 +36,6 @@ export const logout = history => dispatch => {
       .catch(err => console.error('Fetching current user failed', err))
   }
 
-  function setUserAndRedirect (user, history, dispatch) {
-    console.log('setUserAndRedirect')
-    dispatch(setCurrentUser(user))
-    dispatch(create(user))
-    history.push(`/memberPage`)
-  }
 
 
   export default function userReducer (currentUser = {}, action) {

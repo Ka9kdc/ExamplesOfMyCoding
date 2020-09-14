@@ -4,17 +4,18 @@ import {login} from '../../redux/user'
 
 const LoginForm = props =>{
     return (
-        <form onSubmit={props.handleSubmit}>
+        <form onSubmit={props.handleSubmit} id="login">
             <div>
-                <label htmlFor='email'>Email</label>
+            <div>
+                <label htmlFor='email'>Email: </label>
                 <input type='text' name="email" required />
             </div>
             <div>
-                <label htmlFor='password'>Password</label>
+                <label htmlFor='password'>Password: </label>
                 <input type="password" name="password" required />
             </div>
             <button type='submit'>Login</button>
-            
+            </div>
         </form>
     )
 }

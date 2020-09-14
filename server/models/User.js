@@ -4,10 +4,6 @@ const _ = require('lodash')
 const db = require('./db')
 
 const User = db.define('user', {
-    Callsign: {
-        type: Sequelize.STRING,
-        unique: true
-    },
     email:{
         type: Sequelize.STRING,
     },
@@ -33,9 +29,9 @@ const User = db.define('user', {
     }
 });
 
-User.prototype.correctPassword = function (candidatePassword){
+User.prototype.hasMatchingPassword = function (candidatePassword){
     // should return true or false for if the entered password matches
-      return this.Model.encryptPassword(candidatePassword, this.salt)
+      return User.encryptPassword(candidatePassword, this.salt)
   }
 
 User.prototype.sanitize = function () {
@@ -62,4 +58,4 @@ function setSaltAndPassword (user){
 }
 
 
-module.export = User
+module.exports = User

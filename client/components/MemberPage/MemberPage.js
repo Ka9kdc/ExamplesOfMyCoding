@@ -1,18 +1,22 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import { logout } from '../../redux/user'
+import { logout, fetchCurrentUser } from '../../redux/user'
 import LoginForm from './loginForm'
 
 
 class MemberPage extends React.Component {
+    componentDidMount(){
+        this.props.fetchCurrentUser()
+    }
     render(){
         if (!this.props.user.id) {
             return <LoginForm />
         } else {
-            <div>
-            <hi>Welcome Back {this.props.user.email}!</hi>
+           return ( <div>
+            <h1>Welcome Back {this.props.user.email}!</h1>
             <button onClick={() => this.props.logout()} >Logout</button>
             </div>
+           )
         }
         
     }
@@ -26,7 +30,8 @@ const mapState = state => {
 
 const mapDispatch = dispatch =>{
     return {
-        logout: () => dispatch(logout())
+        logout: () => dispatch(logout()),
+        fetchCurrentUser: () => dispatch(fetchCurrentUser())
     }
 }
 
