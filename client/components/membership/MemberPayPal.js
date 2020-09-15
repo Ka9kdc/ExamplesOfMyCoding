@@ -35,7 +35,6 @@ const mapState = state =>{
 }
 
 const mapDispatch = (dispatch, ownProps) => {
-  console.log(ownProps.history)
     return {
         payment: (memberInfo) => dispatch(payment(memberInfo, ownProps.history))
     }

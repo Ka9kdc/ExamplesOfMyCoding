@@ -28,7 +28,7 @@ class MemberConfirmation extends React.Component {
     }
 
     FamilyFinal(){
-        console.log('hello')
+
         this.props.submitFamilyMember(this.props.member)
         this.setState({readyToPay: true})
     }
@@ -42,17 +42,17 @@ class MemberConfirmation extends React.Component {
                 <div className="Subtitle" >Family Membership: The {contact.LastName} Family</div>
 
                <div className="Content">
-                <div>{contact.Membership} membership for {contact.DueYear} is ${amount}.</div>
+                <h2>{contact.Membership} membership for {contact.DueYear} is ${amount}.</h2>
                 {contact.FamilyMembers.map(member => (
-                    <div key={member.id}>
+                    <h3 key={member.id} className="form">
                         <div>Member: {member.FirstName}, {member.Callsign}</div>
                         <div>Phone: {member.Phone}</div>
                         <div>Email: {member.Email}</div>
-                        </div>
+                        </h3>
                 ))}
                 {!this.state.readyToPay ?
                 <div>
-                    <div>Next Member:</div>
+                    <h2>Next Member:</h2>
                         <div className="Right">
                             {badge.Desired 
                             ? <div>
@@ -71,21 +71,27 @@ class MemberConfirmation extends React.Component {
                             <button type="button" onClick={() => this.FamilyFinal()} >Submit Last Member and Pay</button>
                         </div>
                     </div>
-                    : <MemberPaypal history={this.props.history}/> }
-                <div id="paypal-button-container"></div></div> 
+                    : <div><MemberPaypal history={this.props.history} />{console.log('hello')}</div> }
+                <div id="paypal-button-container"></div>
+                </div> 
            </div>
             )
         } else {
             return (
                 <div>
                      <div className="Subtitle" >Membership Confirmation For {contact.FirstName} {contact.LastName}</div>     
-                     <div>{contact.Membership} membership for {contact.DueYear} is ${amount}.</div>
+                     <div className="Content">
+                     <h2> {contact.Membership} membership for {contact.DueYear} is ${amount}.</h2>
                      <div>Name: {contact.FirstName} {contact.LastName}, {contact.Callsign}</div>
                      <div>Phone: {contact.Phone}</div>
                      <div>Email: {contact.Email}</div>
-                     <div>Address: {contact.Street}</div>
-                     <div>{contact.City}, {contact.State} {contact.Zip}</div>
-                     <div>Badge: 
+                     <div className="form" ><div>Address: </div>
+                         <div>
+                             <div>{contact.Street}</div>
+                             <div>{contact.City}, {contact.State} {contact.Zip}</div>
+                        </div>
+                    </div>
+                     <div className="form">Badge: 
                          {badge.Desired ?
                          <div>
                          <div>License Year: {badge.LicenseYear}</div>
@@ -94,14 +100,14 @@ class MemberConfirmation extends React.Component {
                          <div>Badge Type: {badge.badgeType}</div>
                          {badge.badgeType === 'Landyard' ? <div>Landyard Color: {badge.Color}</div> : ''}
                          </div>
-                         : 'None'}
+                         : ' None'}
                      </div>
-                     <div>Committee Involvement:
-                         {groups.length ? groups.map((group, idx) => <div key={idx}>{group}</div>) : 'None'}
+                     <div className="form"><div>Committee Involvement: </div><div>
+                         {groups.length ? groups.map((group, idx) => <div key={idx}>{group}</div>) : 'None'}</div>
                      </div>
                      {contact.Membership === 'Lifetime' ? <button type="button" onClick={() => this.props.lifetimePayment(this.props.member)}>Confirm Membership Renewal</button>
                         :<div id="paypal-button-container"></div>} {this.state.readyToPay &&  contact.Membership !== 'Lifetime' ? <MemberPaypal history={this.props.history} /> : ''}
-
+                    </div>
                 </div>
             )
         }
