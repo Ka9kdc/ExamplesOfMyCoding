@@ -5,11 +5,22 @@ import { updateMemberCommittees } from '../../redux/membership'
 //this page needs redux added
 
 const Committees = (props) => {
+    // let committees = Object.keys(props.Committees)
+
     return ( 
     <div>
         Please indicate areas where you would like to assist or serve on a committee:
     
         <div id="commiteeSelection" name="Committee">
+            {/* {committees.map((committee, i) => {
+                if(committee === 'other') {
+                    return (<div key={i}>{props.Committees.other !== '' ? <div><input type="checkbox" name={committee} checked />  Other: <input type="text" name="other" onChange={() => props.updateOther()} value={props.Committees.other} /></div>
+                    : <div><input type="checkbox" name={committee}   />  Other: <input type="text" name="other" onChange={() => props.updateOther()} value={props.Committees.other} /></div>}</div>)
+                }
+                return (<div key={i}>{!props.Committees[committee] ? <div><input type="checkbox" name={committee} onChange={() => props.updateCommitteeInfo({[committee]: !props.Committees[committee]})} value={props.Committees[committee]}  /> {committee}</div>
+                    : <div><input checked type="checkbox" name={committee} onChange={() => props.updateCommitteeInfo({[committee]: !props.Committees[committee]})} value={props.Committees[committee]} /> {committee}</div>}</div>)
+            })} */}
+    
             <div><input type="checkbox" name="Repeaters" onChange={() => props.updateCommitteeInfo({Repeater: !props.Committees.Repeater})} value={props.Committees.Repeater} /> Repeater Advisory Board</div>
             <div><input type="checkbox" name="MeetingPrograms" onChange={() => props.updateCommitteeInfo({MeetingPrograms: !props.Committees.MeetingPrograms})} value={props.Committees.MeetingPrograms} /> Meeting Programs</div>
             <div><input type="checkbox" name="ClubOfficer" onChange={() => props.updateCommitteeInfo({ClubOfficer: !props.Committees.ClubOfficer})} value={props.Committees.ClubOfficer} /> Club Officer</div>
@@ -33,7 +44,7 @@ const Committees = (props) => {
 }
 const mapState = state => {
     return {
-        Committees: state.member.Committees
+        Committees: state.member.committees
     }
 }
 const mapDispatch = dispatch => {

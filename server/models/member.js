@@ -98,10 +98,10 @@ const Badge = db.define('badge', {
         type: Sequelize.BOOLEAN
     },
     Color: {
-        type: Sequelize.ENUM('Red', 'White', 'Black', 'Blue', 'Green', 'Red, White and Blue', 'Brown')
+        type: Sequelize.ENUM('Red', 'White', 'Black', 'Blue', 'Green', 'Red, White and Blue', 'Brown', '')
     },
     Type: {
-        type: Sequelize.ENUM('None', 'Lanyard', 'Pin', 'Magnet', 'Notch')
+        type: Sequelize.ENUM('NoPreference', 'Lanyard', 'Pin', 'Magnet', 'Notch')
     },
     LicenseYear: {
         type: Sequelize.INTEGER

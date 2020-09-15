@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 import Badge from './Badge'
 import MemberInformation from './MemberInfomation'
 import Commitees from './Committees'
@@ -19,44 +20,34 @@ class MembershipForm extends React.Component{
 
 
     handleChange(event){
-        console.log(event.target.value)
         this.props.updateMemberInfo({[event.target.name]: event.target.value})
     }
 
     handleSubmit(){
         event.preventDefault()
-        console.log('submit')
-        if(this.state.familyCount >= 2) {
-            this.props.submitFamilyMember(this.props.all)
-        }
         this.props.submitMember(this.props.all)
     }
 
     addFamilyMember(){
-        event.preventDefault()
-        console.log('family')
-        const newCount = this.state.familyCount + 1
-        this.setState({familyCount: newCount })
         this.props.submitFamilyMember(this.props.all)
     }
     
 
     render() {
-        console.log(this.props.member)
         return (
             <>
         <div className="Subtitle" >Membership Signup</div>
 
         <div className="Content">
 
-            <div >
-                <div className="Right">
-                    <div><input type="checkbox" name="Desired" onChange={() => this.props.getBadge({Desired: !this.props.Desired})}/> Get A Club Badge </div>
+            <div className="Right">
+                 {this.props.Desired ? <div >
+                   <div><input type="checkbox" name="Desired" onChange={() => this.props.getBadge({Desired: !this.props.Desired})} defaultChecked/> Get A Club Badge </div>
                     {/* <!--badge section only show up when checked?--> */}
-                    {this.props.Desired ? 
-                   <Badge />
-                        : ''}
-                   </div>
+                    
+                   <Badge /></div>
+                        : <div><input type="checkbox" name="Desired" onChange={() => this.props.getBadge({Desired: !this.props.Desired})}/> Get A Club Badge </div>}
+                   
             </div>
         <div className='form'>
             <div>
@@ -91,8 +82,10 @@ class MembershipForm extends React.Component{
            <Commitees />
             <div>
             
-           {this.props.member.Membership === 'Family' ?  <button type="button" style={{textAlign: "center"}} onClick={() => this.addFamilyMember()}>Add Family Member</button> : ''}
-           {this.props.member.Membership !== 'Family' || this.state.familyCount > 1 ? <button type="button" style={{textAlign: "center"}} onClick={() => this.handleSubmit()}>Submit Form</button> : ''}
+           {this.props.member.Membership === 'Family' 
+           ?  <Link to="/membershipConfirmation"><button type="button" style={{textAlign: "center"}} onClick={() => this.addFamilyMember()}>Add Family Member</button> </Link>
+           : <button type="button" style={{textAlign: "center"}} onClick={() => this.handleSubmit()}>Submit Form</button> }
+           
                 </div>
            
        
@@ -109,9 +102,9 @@ const mapState = state =>{
     }
 }
 
-const mapDispatch = dispatch => {
+const mapDispatch = (dispatch, ownProps) => {
     return {
-        submitMember: (memberInfo) => dispatch(submitMember(memberInfo)),
+        submitMember: (memberInfo) => dispatch(submitMember(memberInfo, ownProps.history)),
         updateMemberInfo: (memberInfo) => dispatch(updateMemberInfo(memberInfo)),
         submitFamilyMember: (memberInfo) => dispatch(submitFamilyMember(memberInfo)),
         getBadge: (desire) => dispatch(updateMemberBadge(desire))

@@ -14,10 +14,10 @@ const Checkout = (props) => {
     
             <div className="Content">
             <div> 
-            <form >
-                   
-                   <div><Order /> <VendorInformation /></div>
-                  
+                <form >
+                    
+                    <div><Order /> <VendorInformation /></div>
+                    
 
                 </form>
             </div>

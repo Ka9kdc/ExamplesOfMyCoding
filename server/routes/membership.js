@@ -3,7 +3,6 @@ const express = require('express')
 const { Member, Committee, Badge, Payment } = require('../models');
 
 
-
 const router = express.Router()
 
 
@@ -108,7 +107,13 @@ router.post('/committees', async (req, res, next) =>{
 
 router.post('/payment', async (req, res, next) =>{
     try{
-        const newPayment = await Payment.create(req.body);
+        let memberId = req.body.contact.id;
+        if(req.body.contact.Membership === 'Family') memberId = req.body.contact.FamilyMembers[0].id
+        const newPayment = await Payment.create({
+            Amount: req.body.amount,
+            PaymentDate: req.body.contact.RenewalDate,
+            memberId: memberId
+        });
         res.send(newPayment)
     } catch (error) {
         next(error)

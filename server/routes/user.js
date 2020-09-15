@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const {User} = require('../models')
+const { Member } = require('../models/member')
 
 router.get('/me', (req, res, next) =>{
     res.json(req.user)
@@ -24,10 +25,18 @@ router.put('/login', (req, res ,next) =>{
 })
 
 router.post('/signup', (req, res, next) =>{
-    User.Create({
-        Callsign: req.body.Callsign,
-        password: req.body.password
-    }).than(user =>{
+    Member.findOne({where: {
+        Callsign: req.body.Callsign
+    }}).then(member => {
+        if(!member) res.status(404).send('Membership not found')
+        else {
+            User.Create({
+                Callsign: req.body.Callsign,
+                name: member.FirstName,
+                password: req.body.password
+            })
+        }
+    }).then(user =>{
        req.login(user, err =>{
            if(err) next(err)
            else res.json(user)
