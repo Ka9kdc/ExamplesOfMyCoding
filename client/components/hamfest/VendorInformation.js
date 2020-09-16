@@ -9,8 +9,7 @@ class VendorInfromation extends React.Component{
     constructor(){
         super()
         this.state = {
-            readyToPay: false,
-            redirect: null
+            readyToPay: false
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -20,35 +19,20 @@ class VendorInfromation extends React.Component{
         this.props.update({[event.target.name]: event.target.value})
     }
 
-    handleSubmit(event){
+    handleSubmit(event, newVendor){
         event.preventDefault()
-        const order = this.props.cartItems.reduce((obj, item) =>{
-                obj[item.dataName] = item.qty
-                return obj
-            }, {})
-        order.Amount = this.props.cartTotal
-        order.OrderDate = new Date()
-        const information = this.props.customerInfo
-    
-        information.OrderDate = order.OrderDate;
-        const person = {
-            information,
-            order
-                }
         this.setState({readyToPay: true})
-        if(order.Tables) { 
-            this.props.submitVendor(person)
+        if(newVendor) { 
+            this.props.submitVendor(this.props.customerInfo)
         } else {
-            this.props.submitAttendee(person)
+            this.props.submitAttendee(this.props.customerInfo)
         }
     }
 
     
 
     render() {
-        if (this.state.redirect) {
-            return <Redirect to={this.state.redirect} />
-          }
+       
           const cart = this.props.cartItems.reduce((names, item) =>{
             names.push(item.dataName)
             return names
@@ -81,8 +65,8 @@ class VendorInfromation extends React.Component{
                 </div>
                 <p>Clicking Place order will take you to PayPal to pay. Please verify your contact information is currect before click Place Order.
                      Your order will not be consider placed until payment has been received.</p>
-                     <button type='button' onClick={() => this.handleSubmit(event)} >Place order</button>
-                     <div id="paypal-button-container"></div> {this.state.readyToPay ? <Paypal /> : ''}
+                     <button type='button' onClick={() => this.handleSubmit(event, newVendor)} >Place order</button>
+                     {this.state.readyToPay ? <Paypal /> : ''}
             </div>
             
         )

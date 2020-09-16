@@ -14,6 +14,7 @@ const initialState = {
 }
 
 const UPDATE_CUSTOMER_INFO = 'UPDATE_CUSTOMER_INFO'
+const PLACE_ORDER = 'PLACE_ORDER'
 
 export const updateCustomerInfo = (newCustomerInfo) => {
     return {
@@ -25,7 +26,7 @@ export const updateCustomerInfo = (newCustomerInfo) => {
 export const submitVendor = (vendorInfo) => {
     return async (dispatch) =>{
         try  { 
-            const response = await axios.post("/api/hamfest/vendor", vendorInfo)
+            const response = await axios.post("/api/hamfest/vendor/information", vendorInfo)
             const vendor = response.data
             dispatch(updateCustomerInfo(vendor))
         } catch (error){
@@ -37,7 +38,7 @@ export const submitVendor = (vendorInfo) => {
 export const submitAttendee = (attendeeInfo) =>{
     return async (dispatch) => {
         try {
-            const response = await axios.post("/api/hamfest/attendee", attendeeInfo)
+            const response = await axios.post("/api/hamfest/attendee/information", attendeeInfo)
             const attendee = response.data
             dispatch(updateCustomerInfo(attendee))
         } catch (error){
@@ -46,12 +47,19 @@ export const submitAttendee = (attendeeInfo) =>{
     }
 }
 
-
+export const hamfestPayment = (vendorInfo, history) => {
+    return () => {
+        axios.post('/api/hamfest/payment', vendorInfo)
+        .then(payment => history.push('/hamfest'))
+    .catch(error => console.log(error.message))
+}}
 
 const customerReducer = (customer = initialState, action) =>{
     switch (action.type){
         case UPDATE_CUSTOMER_INFO:
-            return {...customer, ...action.update}
+            return {...customer, ...action.update};
+        case PLACE_ORDER:
+            return {...customer, order: action.order}
         default:
             return customer
     }

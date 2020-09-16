@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import { useHistory } from 'react-router-dom';
+import {hamfestPayment} from '../../redux/customer'
 
 
 const Paypal = (props) => {
@@ -21,7 +22,7 @@ const Paypal = (props) => {
         // This function captures the funds from the transaction.
         return actions.order.capture().then(function(details) {
           // This function shows a transaction success message to your buyer.
-          history.push('/membership')
+          props.payment(props.customer, history)
           alert('Transaction completed by ' + details.payer.name.given_name);
         });
       }
@@ -34,4 +35,10 @@ const mapState = state =>{
         customer: state.customerInfo
     }
 }
-export default connect(mapState)(Paypal)
+
+const mapDispatch = (dispatch) => {
+  return {
+      payment: (customerInfo, history) => dispatch(hamfestPayment(customerInfo, history))
+  }
+}
+export default connect(mapState, mapDispatch)(Paypal)

@@ -8,6 +8,7 @@ const initialState = {
 const ADD_PRODUCT_TO_CART = 'ADD_PRODUCT_TO_CART'
 const REMOVE_PRODUCT_FROM_CART = "REMOVE_PRODUCT_FROM_CART"
 const CHANGE_QTY = 'CHANGE_QTY'
+const PLACE_ORDER = 'PLACE_ORDER'
 
 export const addProductToCart = (product) =>{
     return {
@@ -27,6 +28,46 @@ export const updateQty = (product) =>{
     return {
         type: CHANGE_QTY,
         product
+    }
+}
+
+export const placeOrder = (order, history) => {
+    return async dispatch => {
+        try {
+            const response = await axios.post('/api/hamfest/vendor/order', order)
+            const placed = response.data
+            dispatch({
+                type: PLACE_ORDER,
+                order: { 
+                    orderId: placed.id,
+                    OrderDate: placed.OrderDate,
+                    Amount: placed.Amount
+                }
+            })
+            history.push('/hamfestCheckout')
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
+}
+
+export const placeTickets = (order, history) => {
+    return async dispatch => {
+        try {
+            const response = await axios.post('/api/hamfest/attendee/order', order)
+            const placed = response.data
+            dispatch({
+                type: PLACE_ORDER,
+                order: { 
+                    ticketId: placed.id,
+                    OrderDate: placed.OrderDate,
+                    Amount: placed.Amount
+                }
+            })
+            history.push('/hamfestCheckout')
+        } catch (error) {
+            console.log(error.message)
+        }
     }
 }
 
@@ -53,6 +94,8 @@ const cartReducer = (shoppingCart = initialState, action) =>{
                 return total + item.total
              }, 0)
             return {cart: update, total: newTotal};
+        case PLACE_ORDER:
+            return {...shoppingCart, order: action.order}
         default:
             return shoppingCart
     }

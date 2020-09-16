@@ -38,7 +38,6 @@ class HamfestStore extends React.Component {
    
 
     render() {
-        
         return(
             <>
             <div className="Subtitle" >Hamfest Store</div>
@@ -46,7 +45,7 @@ class HamfestStore extends React.Component {
             <div className="Content">
             <div> 
                <form className="columns">
-                  <ShoppingCart />
+                  <ShoppingCart history={this.props.history}/>
                     <div className="body_container">
                          
                         {this.props.products.map(product =>{

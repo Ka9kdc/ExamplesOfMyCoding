@@ -3,6 +3,7 @@ const {User} = require('../models')
 const { Member } = require('../models/member')
 
 router.get('/me', (req, res, next) =>{
+    console.log(req.session)
     res.json(req.user)
 })
 

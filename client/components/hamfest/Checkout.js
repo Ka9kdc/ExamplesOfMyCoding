@@ -7,7 +7,7 @@ import VendorInformation from './VendorInformation'
 
 
 const Checkout = (props) => {
-      
+      console.log(props)
         return(
             <>
             <div className="Subtitle" >Hamfest Checkout</div>
@@ -16,7 +16,8 @@ const Checkout = (props) => {
             <div> 
                 <form >
                     
-                    <div><Order /> <VendorInformation /></div>
+                    <div><Order /> <VendorInformation history={props.history}/></div>
+                    <div id="paypal-button-container"></div>
                     
 
                 </form>

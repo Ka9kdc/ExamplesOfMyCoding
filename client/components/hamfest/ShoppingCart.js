@@ -1,8 +1,8 @@
 import React from 'react'
 import CartItem from './CartItem'
 import { connect } from 'react-redux'
-import { updateQty } from '../../redux/cart'
-import {Link} from 'react-router-dom'
+import { updateQty, placeOrder, placeTickets } from '../../redux/cart'
+
 
 
 
@@ -14,6 +14,7 @@ class ShoppingCart extends React.Component {
         super()
         this.increaseQty = this.increaseQty.bind(this)
         this.decreaseQty = this.decreaseQty.bind(this)
+        this.placeOrder = this.placeOrder.bind(this)
 
     }
 
@@ -41,6 +42,18 @@ class ShoppingCart extends React.Component {
         this.props.updateCart(updatedItem)
     }
 
+    placeOrder(){
+        const order = this.props.cartItems.reduce((obj, item) =>{
+            obj[item.dataName] = item.qty
+            return obj
+        }, {})
+        order.Amount = this.props.cartTotal
+        if(order.table){
+            this.props.vendorOrder(order, this.props)
+        } else {
+            this.props.ticketOrder(order, this.props)
+        }
+    }
     
 
     render() {
@@ -54,7 +67,7 @@ class ShoppingCart extends React.Component {
                 <div><label htmlFor="cartTotal"> Total: </label> 
                     <input type="hidden" name="Amount" />${this.props.cartTotal}</div>
                 
-                <Link to="/hamfestCheckout"> Checkout </Link>
+                <button type='button' onClick={() => this.placeOrder()} >Checkout</button>
             </div>
         )
     }
@@ -68,7 +81,9 @@ const mapStateToProps = (state) =>{
 
 const mapDispatchToProps = (dispatch) =>{
     return {
-        updateCart: (item) => dispatch(updateQty(item))
+        updateCart: (item) => dispatch(updateQty(item)),
+        vendorOrder: (order, ownProps) => dispatch(placeOrder(order, ownProps.history)),
+        ticketOrder: (order, ownProps) => dispatch(placeTickets(order, ownProps.history))
     }
 }
 
