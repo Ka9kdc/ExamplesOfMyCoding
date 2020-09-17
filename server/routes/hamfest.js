@@ -3,43 +3,12 @@ const { Product, Payment, Attendee, Order, Ticket, Vendor } = require("../models
 
 const router = express.Router()
 
-const tempProd = [
-    { name: 'Advanced Tickets',
-      dataName: 'Tickets',
-      price: 8,
-      onSale: true,
-      description: 'Entree Ticket with 4 raffle studs. Day off tickets come with only 1 stud and will be $10.',
-photo: '/Images/f89b7cbe4e61a04129304e6ce498afb2.png',
-id:4},
-   
-    {name: "Table",
-        dataName: "Tables",
-      description: '8 foot by 4 foot folding table.',
-      price: 25,
-      onSale: true,
-      photo: '/Images/download.jpeg',
-      id:3},
-       {name: "Extra chair",
-      dataName: "Chairs",
-      description: 'a metal folding chair. One chair is provided with each Vendor request.',
-      price: 2,
-      onSale: false,
-      photo: '/Images/folding-chair-garden-furniture-stainless-steel-chair.jpg',
-    id:1},
-    {name: "Electrical",
-    dataName: "Electrical",
-      description: 'An Electrical drop',
-      price: 15,
-      onSale: false,
-      photo: '/Images/electricOutlet.png',
-      id:2}
-     
-  ];
+
 
 router.get("/products", async (req, res, next) => {
     try{
         const products = await Product.findAll()
-      res.send(tempProd);
+      res.send(products);
     } catch (error) {
         next(error)
     }

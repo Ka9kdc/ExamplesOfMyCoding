@@ -6,23 +6,46 @@ const Attendee = db.define('attendee',{
         type: Sequelize.STRING,
         allowNull: false,
         validate: {
-            notEmpty: true
+            notEmpty: true,
+            isAlpha: true
         }
     },
     Callsign: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        validate: {
+            isAlphanumeric: true,
+            is: /^[AaWaKkNn][a-zA-Z]?[0-9][a-zA-Z]{1,3}$/
+        }
     },
     Phone: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        validate: {
+            is: /((\(\d{3}\)?)|(\d{3}))([\s-./]?)(\d{3})([\s-./]?)(\d{4})/i,
+        }
     },
     Street: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        validate: {
+            not: /^[-!$%^&*()_+|~=`{}[:;<>?@#\]]/g
+        }
     },
     City: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        validate: {
+            not: /^[-!$%^&*()_+|~=`{}[:;<>?,@#\]]/g
+        }
     },
     State: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        validate: {
+            is: /^(?:(A[KLRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|P[AR]|RI|S[CD]|T[NX]|UT|V[AIT]|W[AIVY]))$/
+        }
+    },
+    Zip: {
+        type: Sequelize.INTEGER,
+        validate: {
+            is: /^\d{5}(-\d{4})?$/
+        }
     },
     Email: {
         type: Sequelize.STRING,
@@ -42,7 +65,8 @@ const Ticket = db.define('ticket', {
         type: Sequelize.INTEGER,
         allowNull: false,
         validate: {
-            notEmpty: true
+            notEmpty: true,
+            min: 1
         }
     },
     Raffle:{

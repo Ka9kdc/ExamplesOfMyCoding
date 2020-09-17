@@ -6,7 +6,7 @@ import Membership from './membership/Membership'
 import Footer from './Footer'
 import MembershipForm from './membership/membershipForm'
 import HamfestStore from './hamfest/HamfestStore'
-import Checkout from './hamfest/Checkout';
+import Checkout from './hamfest/Checkout'
 import MemberPage from './MemberPage/MemberPage'
 import MembershipConfirmation from './membership/MemberConfirmation'
 import HamfestConfirmation from './hamfest/confirmation'

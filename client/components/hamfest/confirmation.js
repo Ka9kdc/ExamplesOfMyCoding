@@ -4,7 +4,6 @@ import PayPal from './paypal'
 import Order from './Order'
 
 const HamfestConfirmation = (props) => {
-    console.log(props.customer)
     const keys = Object.keys(props.customer)
     return (
         <>

@@ -1,5 +1,4 @@
 import React from 'react'
-
 import Order from "./Order"
 import VendorInformation from './VendorInformation'
 
@@ -7,7 +6,6 @@ import VendorInformation from './VendorInformation'
 
 
 const Checkout = (props) => {
-      console.log(props)
         return(
             <>
             <div className="Subtitle" >Hamfest Checkout</div>
