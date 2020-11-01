@@ -10,14 +10,14 @@ const pages = [
     {name: "Home", url: "/index.html"},
      {name: "News", url: "/News.html"},
      {name: "Events/Activities", url: "/Events.html"},
-     {name: "Repeaters", url: "/Repeaters.html"},
+     {name: "Repeaters", url: "/Repeaters"},
      {name: "Hamfest", url: "/hamfestStore"},
      {name: "Newsletter", url: "/Hamletter.html"},
      {name: "Training", url: "/Training.html"},
-     {name: "About Us", url: "/About.html"},
+     {name: "About Us", url: "/About"},
      {name: "Join WCRA", url: "/membership"},
-     {name: "Contact WCRA", url: "/Contacts.html"},
-     {name: "References", url: "/References.html"},
+     {name: "Contact WCRA", url: "/ContactUs"},
+     {name: "References", url: "/References"},
      {name: "Member Page", url: "/MemberPage"},
  ]
 

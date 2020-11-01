@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start-dev": "npm run start-server & npm run build-watch",
+    "start:dev": "npm run start-server & npm run build-watch",
     "start-server": "nodemon server/index.js --ignore public",
     "build-watch": "webpack -w",
     "start": "npm run start:dev",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV='test' mocha \"./server/**/*.spec.js\" \"./client/**/*.spec.js\" \"./script/**/*.spec.js\" --require @babel/polyfill --require @babel/register"
   },
   "author": "Kelsey",
   "license": "ISC",
@@ -32,10 +32,15 @@
   "devDependencies": {
     "@babel/core": "^7.11.4",
     "@babel/plugin-transform-runtime": "^7.11.0",
+    "@babel/polyfill": "^7.12.1",
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.10.4",
+    "@babel/register": "^7.12.1",
     "axios": "^0.20.0",
     "babel-loader": "^8.1.0",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "mocha": "^8.2.0",
     "redux-thunk": "^2.3.0",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
