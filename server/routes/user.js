@@ -31,17 +31,18 @@ router.post('/signup', (req, res, next) =>{
     }}).then(member => {
         if(!member) res.status(404).send('Membership not found')
         else {
-            User.Create({
+            User.create({
                 Callsign: req.body.Callsign,
                 name: member.FirstName,
-                password: req.body.password
+                password: req.body.password,
+                memberId: member.id
+            }).then(user =>{
+                req.login(user, err =>{
+                    if(err) next(err)
+                    else res.json(user)
+                })
             })
         }
-    }).then(user =>{
-       req.login(user, err =>{
-           if(err) next(err)
-           else res.json(user)
-       })
     }).catch(next)
 })
 

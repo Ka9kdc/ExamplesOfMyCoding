@@ -8,6 +8,7 @@
     "start-server": "nodemon server/index.js --ignore public",
     "build-watch": "webpack -w",
     "start": "npm run start:dev",
+    "seed": "node script/seed.js",
     "test": "NODE_ENV='test' mocha \"./server/**/*.spec.js\" \"./client/**/*.spec.js\" \"./script/**/*.spec.js\" --require @babel/polyfill --require @babel/register"
   },
   "author": "Kelsey",

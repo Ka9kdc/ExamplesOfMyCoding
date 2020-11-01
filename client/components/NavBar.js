@@ -15,7 +15,7 @@ const pages = [
      {name: "Newsletter", url: "/Hamletter.html"},
      {name: "Training", url: "/Training.html"},
      {name: "About Us", url: "/About"},
-     {name: "Join WCRA", url: "/membership"},
+     {name: "Join WCRA", url: "/Membership"},
      {name: "Contact WCRA", url: "/ContactUs"},
      {name: "References", url: "/References"},
      {name: "Member Page", url: "/MemberPage"},

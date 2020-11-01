@@ -1,4 +1,4 @@
-const {db, User, Product} = require('./server/models')
+const {db, User, Product} = require('../server/models')
 
 
 let newProducts = [

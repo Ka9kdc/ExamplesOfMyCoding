@@ -1,4 +1,5 @@
 import React from 'react'
+import AddressBlock from './addressblock'
 
 const ContactUs = props => {
     return (
@@ -109,16 +110,11 @@ chairperson or leader listed below.
 <h1>General Inquiries</h1>
 
 <p>
-General questions may be sent via email to
-<a href="mailto:info@w9ccu.org">info@w9ccu.org</a> or by postal mail to this
+General questions may be sent via email to <a href="mailto:info@w9ccu.org">info@w9ccu.org</a> or by postal mail to this
 address:
 </p>
 
-<div style={{paddingLeft: '2em'}}>
-<div>Wheaton Community Radio Amateurs (or WCRA)</div>
-<div>PO Box 1055</div>
-<div>Wheaton, IL 60187-1055</div>
-</div>
+<AddressBlock />
 
 <p>
 We can be reached by phone at (630) 923-5447. Leave a message. We will return your call.

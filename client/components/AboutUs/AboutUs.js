@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import AddressBlock from './addressblock'
 
 const AboutUs = props => {
     return (
@@ -27,7 +29,7 @@ following purposes:
 
 <p>
 Based on the above, WCRA should not be considered a "repeater club;" however,
-WCRA currently maintains <a href="Repeaters.html">several repeaters</a>.
+WCRA currently maintains <Link to="/Repeaters">several repeaters</Link>.
 </p>
 
 <h1>Activities</h1>
@@ -39,7 +41,7 @@ WCRA meetings are normally held on the first Friday of the month at 7:30 PM at
 First Presbyterian Church of Wheaton, 715 N Carlton St, Wheaton, IL. From time
 to time it is necessary to adjust either the date or specific room location for
 the meetings due to other activities and holidays, so it is advisable to check
-our web site, or listen in on our <a href="Repeaters.html">nets</a> to confirm
+our web site, or listen in on our <Link to="/Repeaters">nets</Link> to confirm
 when and where the meetings will be. Visitors are always welcome to attend
 meetings.
 </p>
@@ -47,10 +49,10 @@ meetings.
 <h2>ARRL Field Day</h2>
 
 <p>
-WCRA participates in the <a href="http://www.arrl.org/field-day">ARRL Field
-Day</a> event held in late June. Gasoline generators are typically used for
+WCRA participates in the <Link to="http://www.arrl.org/field-day">ARRL Field
+Day</Link> event held in late June. Gasoline generators are typically used for
 electrical power for the weekend event. Club members may put a station on the
-air for the event, but this must be coordinated through the <a href="/ContactUs">Field Day Committee</a>. Visitors and persons interested
+air for the event, but this must be coordinated through the <Link to="/ContactUs">Field Day Committee</Link>. Visitors and persons interested
 in Amateur Radio are invited and encouraged to come out and see what the fun of
 Field Day is all about!
 </p>
@@ -80,7 +82,7 @@ events include walkathons, bikeathons, various parades, etc.
 
 <p>
 WCRA club members are active in local and area wide amateur radio emergency
-service <a href="http://www.arrl.org/ares">(ARES)</a> activities. Emergency service activities include supporting the <a href="http://www.nws.noaa.gov">National Weather Service</a>.
+service <Link to="http://www.arrl.org/ares">(ARES)</Link> activities. Emergency service activities include supporting the <Link to="http://www.nws.noaa.gov">National Weather Service</Link>.
 </p>
 
 <h2>Social Events</h2>
@@ -111,9 +113,10 @@ of the club.
 </p>
 
 <p>
-To join WCRA club as a new member visit the <a href="Membership.html">Join
-WCRA</a> page and choose a membership application form. New full membership
+To join WCRA club as a new member visit the <Link to="/Membership">Join
+WCRA</Link> page and choose a membership application form. New full membership
 applicants must attach a photocopy of your current Amateur Radio license.
+{/* do new members still need to do this? */}
 (Renewing members need not do this.) Please include the appropriate dues in U.S.
 funds via check or money order. Mail the completed package to the address shown
 below.
@@ -130,7 +133,7 @@ year (January 1).
 </p>
 
 <p>
-If there are any questions on joining the club, please contact a <a href="/ContactUs">club officer.</a>
+If there are any questions on joining the club, please contact a <Link to="/ContactUs">club officer.</Link>
 </p>
 
 <h1>About the Club's Makeup</h1>
@@ -147,21 +150,16 @@ writing, gifts and/or donations to our club are <b>NOT</b> tax deductible.
 
 <p>
 There are five club officers, who also act as the board of directors for the
-corporation. Our current officers are listed on the <a href="/ContactUs">Contact Us</a> page.
+corporation. Our current officers are listed on the <Link to="/ContactUs">Contact Us</Link> page.
 </p>
 
 <p>
 If you are interested in further information or in seeing copies of our current
-Articles of Incorporation, please contact a <a href="/ContactUs">club officer</a> to arrange this. Read our <a href="/Bylaws">bylaws</a> to see how the club is run. 
+Articles of Incorporation, please contact a <Link to="/ContactUs">club officer</Link> to arrange this. Read our <Link to="/Bylaws">bylaws</Link> to see how the club is run. 
 </p>
 
 <h1>Mailing Address</h1>
-
-<div style={{paddingLeft: '2em'}}>
-<div>Wheaton Community Radio Amateurs (or WCRA)</div>
-<div>P.O. Box 1055</div>
-<div>Wheaton, IL 60187-1055</div>
-</div>
+<AddressBlock />
 
 </div>
         </div>

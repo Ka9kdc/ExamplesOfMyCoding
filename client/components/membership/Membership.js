@@ -1,5 +1,6 @@
 import React from 'react' 
 import {Link} from 'react-router-dom'
+import AddressBlock from '../AboutUs/addressblock'
 
 //this page is done for now
 
@@ -23,13 +24,7 @@ const Membership = (props) => {
                 printed (via <a href="TextApplication.html">HTML text</a> or <a href="Document/MembershipApplicationEditedB.pdf">PDF</a>) and 
                 dues can be brought to a club meeting or mailed to the club at the following address:</p>
 
-                <div style={{paddingLeft: "2em"}}> 
-                    <div>WCRA Membership</div>
-
-                    <div>P.O. Box 1055</div>
-
-                    <div>Wheaton, IL 60187-1055</div>
-                    </div>
+                <AddressBlock />
             </div>
         </div>
     )
