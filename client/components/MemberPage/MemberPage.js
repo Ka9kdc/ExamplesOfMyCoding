@@ -4,6 +4,7 @@ import { logout, fetchCurrentUser } from '../../redux/user'
 import LoginForm from './loginForm'
 
 
+
 class MemberPage extends React.Component {
     componentDidMount(){
         this.props.fetchCurrentUser()
@@ -11,11 +12,12 @@ class MemberPage extends React.Component {
     
     render(){
         if (!this.props.user.id) {
-            return <LoginForm />
+            return <div><LoginForm /></div>
         } else {
            return ( <div>
             <h1>Welcome Back {this.props.user.Callsign}!</h1>
             <button onClick={() => this.props.logout()} >Logout</button>
+            
             </div>
            )
         }

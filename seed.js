@@ -12,7 +12,7 @@ const seed = async () => {
     try {
         await  db.sync( {force: true})
         await User.create({Callsign: 'ka9kdc', password: '12345'})
-        newProducts.forEach(product => {
+        await newProducts.forEach( async product => {
             await Product.create(product)
         })
     } catch(error) {
@@ -23,7 +23,7 @@ const seed = async () => {
 seed()
 .then(() =>{
     console.log('Seeding success!');
-    db.close()
+    setTimeout(() => db.close(),1000) 
 }).catch((err) =>{
     console.log(err)
     db.close()

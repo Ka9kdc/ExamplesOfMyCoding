@@ -10,6 +10,7 @@ import Checkout from './hamfest/Checkout'
 import MemberPage from './MemberPage/MemberPage'
 import MembershipConfirmation from './membership/MemberConfirmation'
 import HamfestConfirmation from './hamfest/confirmation'
+import signup from './MemberPage/signup';
 
 
 export default class Main extends React.Component {
@@ -32,6 +33,7 @@ export default class Main extends React.Component {
                     <Route path="/hamfestCheckout" component={Checkout} />
                     <Route path='/hamfestConfirmation' component={HamfestConfirmation} />
                     <Route path='/memberPage' component={MemberPage} />
+                    <Route path='/MemberPageSignup' component={signup} />
 
                 </main>
                 </Router>

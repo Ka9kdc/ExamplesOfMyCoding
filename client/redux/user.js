@@ -3,6 +3,7 @@ import axios from 'axios';
 
 const SET_CURRENT_USER = 'SET_CURRENT_USER';
 const REMOVE_CURRENT_USER = 'REMOVE_CURRENT_USER';
+const SIGNUP = 'SIGNUP'
 
 const setCurrentUser = user =>{
     return {
@@ -36,7 +37,11 @@ export const logout = () => dispatch => {
       .catch(err => console.error('Fetching current user failed', err))
   }
 
-
+export const signUp = (newUser) => dispatch => {
+  axios.post('/api/user/signUp', newUser)
+  // .then(res => dispatch(setCurrentUser(res.data)))
+  .catch(err => console.error(err))
+}
 
   export default function userReducer (currentUser = {}, action) {
     switch (action.type) {

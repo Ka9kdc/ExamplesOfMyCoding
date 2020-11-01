@@ -1,9 +1,11 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {login} from '../../redux/user'
+import {Link} from 'react-router-dom'
 
 const LoginForm = props =>{
     return (
+        <div>
         <form onSubmit={props.handleSubmit} id="login">
             <div>
             <div>
@@ -17,6 +19,8 @@ const LoginForm = props =>{
             <button type='submit'>Login</button>
             </div>
         </form>
+        <button><Link to="/MemberPageSignup">Sign UP</Link></button>
+        </div>
     )
 }
 
