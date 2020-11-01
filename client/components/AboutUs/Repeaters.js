@@ -13,7 +13,7 @@ Repeater Association and adjacent state coordination, operates the following
 <b>Yaesu Fusion C4FM </b> repeaters:
 </p>
 
-<table className="Peaters">
+<table>
 <tbody>
 <tr>
   <th>Frequency (MHz)</th>
