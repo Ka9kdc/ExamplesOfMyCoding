@@ -4,6 +4,7 @@ import cartReducer from './cart'
 import customerReducer from './customer'
 import memberReducer from './membership'
 import userReducer from './user'
+import officerHistoryReducer from './OfficerHistory'
 
 
 
@@ -12,7 +13,8 @@ const appReducer = combineReducers({
     cart: cartReducer,
     customerInfo: customerReducer,
     member: memberReducer,
-    user: userReducer
+    user: userReducer,
+    officerHistory: officerHistoryReducer
 })
 
 export default appReducer

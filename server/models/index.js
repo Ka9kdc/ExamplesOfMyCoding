@@ -7,6 +7,7 @@ const { Attendee, Ticket } = require('./Attendees')
 const { Vendor, Order } = require('./vendors')
 const Product = require('./products')
 const User = require('./User')
+const OfficerHistory = require('./OfficerHistory')
 
 User.belongsTo(Member)
 Member.hasOne(User)
@@ -52,5 +53,6 @@ module.exports = {
     Ticket,
     Order,
     Product, 
-    User
+    User,
+    OfficerHistory
 }

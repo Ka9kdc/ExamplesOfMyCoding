@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import AddressBlock from './addressblock'
 
 const ContactUs = props => {
@@ -31,7 +32,7 @@ roster.
 </ul>
 
 <p>
-We also have a <a href="OfficerHistory.html">chronological list</a> of WCRA club
+We also have a <Link to="/OfficerHistory">chronological list</Link> of WCRA club
 officers since 1948.
 </p>
 

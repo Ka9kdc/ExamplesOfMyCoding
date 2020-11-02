@@ -14,6 +14,7 @@ import AboutUs from './AboutUs/AboutUs';
 import Bylaws from './AboutUs/Bylaws';
 import ContactUs from './AboutUs/ContactUs';
 import Repeaters from './AboutUs/Repeaters';
+import OfficerHistory from './AboutUs/OfficerHistory';
 
 
 const Routes = props => {
@@ -35,6 +36,7 @@ const Routes = props => {
             <Route path="/Bylaws" component={Bylaws} />
             <Route path='/ContactUs' component={ContactUs} />
             <Route path="/Repeaters" component={Repeaters} />
+            <Route path="/OfficerHistory" component={OfficerHistory} />
 
         </Switch>
             

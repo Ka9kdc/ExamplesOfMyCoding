@@ -358,3 +358,25 @@ table.EventCalendar tr.Canceled {
   padding: 10px;
   /* background-color: blue; */
 }
+
+/*officer history */
+table.Chrono {
+  /* font-size: 0.9em; */
+  text-align: center;
+  margin-left:auto; 
+  margin-right:auto;
+}
+
+table.Chrono th {
+  /* text-align: left; */
+  font-size: 1.5em;
+  border-bottom: solid 2px black;
+}
+
+table.Chrono tr:nth-child(even) {
+  background: #E0E0E0;
+}
+
+table.Chrono td {
+  padding: 0 0.8em 0 0.8em;
+}

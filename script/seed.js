@@ -1,4 +1,5 @@
-const {db, User, Product} = require('../server/models')
+const {db, User, Product, OfficerHistory} = require('../server/models')
+const { pastOfficers } = require('./officerHistorySeed')
 
 
 let newProducts = [
@@ -15,6 +16,9 @@ const seed = async () => {
         await newProducts.forEach( async product => {
             await Product.create(product)
         })
+        await pastOfficers.forEach( async officers => {
+            await OfficerHistory.create(officers)
+        })
     } catch(error) {
         console.log(error)
     }
@@ -23,7 +27,7 @@ const seed = async () => {
 seed()
 .then(() =>{
     console.log('Seeding success!');
-    setTimeout(() => db.close(),1000) 
+    setTimeout(() => db.close(),5000) 
 }).catch((err) =>{
     console.log(err)
     db.close()

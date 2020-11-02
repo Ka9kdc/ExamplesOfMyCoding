@@ -5,6 +5,9 @@ const router = express.Router()
 router.use('/membership', require('./membership'))
 router.use('/hamfest', require('./hamfest'))
 router.use('/user', require('./user'))
+router.use('/officerHistory', require('./officerHistory'))
+
+
 
 
 //404 routes - put after all routes aka just before the export
