@@ -1,9 +1,10 @@
+'use strict'
 const {expect} = require('chai')
 const { OfficerHistory, Product } = require('../server/models')
 
 const seed = require('./seed')
 
-describe.only('seed script', () => {
+describe('seed script', () => {
     it('completes successfully', seed)
     it('populates the database with at least four products', async () => {
         const hamfestProducts = await Product.findAll()

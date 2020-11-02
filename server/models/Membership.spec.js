@@ -5,7 +5,7 @@ const chaiAsPromised = require('chai-as-promised');
 chai.use(chaiAsPromised);
 const {db, Member, Badge, Committee, Payment} = require('.');
 
-describe.only('Basic Membership Tables set up', function(){
+describe('Basic Membership Tables set up', function(){
 
   // clear the database before all tests
   beforeEach(async() => {

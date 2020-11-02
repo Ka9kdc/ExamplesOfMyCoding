@@ -27,8 +27,11 @@ const seed = async () => {
 seed()
 .then(() =>{
     console.log('Seeding success!');
-    setTimeout(() => db.close(),5000) 
+   
+    setTimeout(() => db.close(), 10000) 
 }).catch((err) =>{
     console.log(err)
     db.close()
 })
+
+module.exports = seed
