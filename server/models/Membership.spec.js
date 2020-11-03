@@ -7,29 +7,31 @@ const {db, Member, Badge, Committee, Payment} = require('.');
 
 describe('Basic Membership Tables set up', function(){
 
-  // clear the database before all tests
-  beforeEach(async() => {
-    await db.sync({force: true});
-  });
-  
-let newMember = {
-    FirstName: 'Hannah',
-    LastName: "Green",
-    Callsign: "Ka9ddd",
-    Phone: 1234567890,
-    Street: "123 happy lane",
-    City: "st upidtown",
-    State: "MA",
-    Zip: 60606,
-    Membership: "Full",
-    Email: "abcde123@abc.com",
-    DueYear: "2020",
-    DATE: new Date
-}
+ 
 
 
   describe('Basic Membership Fields', () => {
       //alpha no numbers or symbols
+
+      // clear the database before all tests
+      beforeEach(async() => {
+        await db.sync({force: true});
+      });
+      
+    let newMember = {
+        FirstName: 'Hannah',
+        LastName: "Green",
+        Callsign: "Ka9ddd",
+        Phone: 1234567890,
+        Street: "123 happy lane",
+        City: "st upidtown",
+        State: "MA",
+        Zip: 60606,
+        Membership: "Full",
+        Email: "abcde123@abc.com",
+        DueYear: "2020",
+        DATE: new Date
+    }
     describe('FirstName', () => {
         let newMember2 = {
             LastName: "Green",
@@ -66,12 +68,24 @@ let newMember = {
 
       it('FirstName cannot be null', async () => {
         // We shouldn't be able to create a user without a name.
-        await expect(Member.create(newMember2)).to.be.rejected;
+        const testMember = Member.build(newMember2)
+        try {
+          await testMember.validate()
+          throw Error('validation should have failed without a first name');
+        } catch (err) {
+          expect(err.message).to.contain('FirstName cannot be null');
+        }
       });
 
       it('FirstName cannot be an empty string', async () => {
         // We also shouldn't be able to create a user with an empty name.
-        await expect(Member.create(newMember3)).to.be.rejected;
+        const testMember = Member.build(newMember3)
+        try {
+          await testMember.validate()
+          throw Error('validation should have failed with empty FirstName');
+        } catch (err) {
+          expect(err.message).to.contain('Validation notEmpty on FirstName failed');
+        }
       });
    
      it('FirstName cannot be null', async () => {
@@ -83,6 +97,7 @@ let newMember = {
         // We also shouldn't be able to create a user with an empty name.
         await expect(Member.create({ FirstName: '' })).to.be.rejected;
       });
+      
  });
 
     describe('LastName', () => {
@@ -119,14 +134,26 @@ let newMember = {
           expect(hannah.LastName).to.equal('Green');
         });
   
-        it('LaststName cannot be null', async () => {
+        it('LastName cannot be null', async () => {
             // We shouldn't be able to create a user without a name.
-            await expect(Member.create(newMember2)).to.be.rejected;
+            const testMember = Member.build(newMember2)
+            try {
+              await testMember.validate()
+              throw Error('validation should have failed without a Last name');
+            } catch (err) {
+              expect(err.message).to.contain('LastName cannot be null');
+            }
           });
     
           it('LastName cannot be an empty string', async () => {
             // We also shouldn't be able to create a user with an empty name.
-            await expect(Member.create(newMember3)).to.be.rejected;
+            const testMember = Member.build(newMember3)
+            try {
+              await testMember.validate()
+              throw Error('validation should have failed with empty LastName');
+            } catch (err) {
+              expect(err.message).to.contain('Validation notEmpty on LastName failed');
+            }
           });
 
         it('LastName cannot be null', async () => {
@@ -177,12 +204,24 @@ let newMember = {
   
         it('Callsign cannot be null', async () => {
             // We shouldn't be able to create a user without a name.
-            await expect(Member.create(newMember2)).to.be.rejected;
+            const testMember = Member.build(newMember2)
+            try {
+              await testMember.validate()
+              throw Error('validation should have failed without a callsign');
+            } catch (err) {
+              expect(err.message).to.contain('Callsign cannot be null');
+            }
           });
     
           it('Callsign cannot be an empty string', async () => {
             // We also shouldn't be able to create a user with an empty name.
-            await expect(Member.create(newMember3)).to.be.rejected;
+            const testMember = Member.build(newMember3)
+            try {
+              await testMember.validate()
+              throw Error('validation should have failed with empty Callsign');
+            } catch (err) {
+              expect(err.message).to.contain('Validation notEmpty on Callsign failed');
+            }
           });
 
         it('Callsign cannot be null', async () => {
@@ -249,12 +288,24 @@ let newMember = {
             
             it('Street cannot be null', async () => {
             // We shouldn't be able to create a user without a name.
-            await expect(Member.create(newMember2)).to.be.rejected;
+            const testMember = Member.build(newMember2)
+            try {
+              await testMember.validate()
+              throw Error('validation should have failed without a street');
+            } catch (err) {
+              expect(err.message).to.contain('Street cannot be null');
+            }
             });
 
             it('Street cannot be an empty string', async () => {
             // We also shouldn't be able to create a user with an empty name.
-            await expect(Member.create(newMember3)).to.be.rejected;
+            const testMember = Member.build(newMember3)
+            try {
+              await testMember.validate()
+              throw Error('validation should have failed with empty Street');
+            } catch (err) {
+              expect(err.message).to.contain('Validation notEmpty on Street failed');
+            }
             });
             it('Street cannot be null', async () => {
             // We shouldn't be able to create a user without a name.
@@ -303,12 +354,24 @@ let newMember = {
         
         it('City cannot be null', async () => {
         // We shouldn't be able to create a user without a name.
-        await expect(Member.create(newMember2)).to.be.rejected;
+        const testMember = Member.build(newMember2)
+        try {
+          await testMember.validate()
+          throw Error('validation should have failed without a city');
+        } catch (err) {
+          expect(err.message).to.contain('City cannot be null');
+        }
         });
 
         it('City cannot be an empty string', async () => {
         // We also shouldn't be able to create a user with an empty name.
-        await expect(Member.create(newMember3)).to.be.rejected;
+        const testMember = Member.build(newMember3)
+        try {
+          await testMember.validate()
+          throw Error('validation should have failed with empty City');
+        } catch (err) {
+          expect(err.message).to.contain('Validation notEmpty on City failed');
+        }
         });
         it('City cannot be null', async () => {
           // We shouldn't be able to create a user without a name.
@@ -358,12 +421,24 @@ let newMember = {
   
         it('State cannot be null', async () => {
             // We shouldn't be able to create a user without a name.
-            await expect(Member.create(newMember2)).to.be.rejected;
+            const testMember = Member.build(newMember2)
+            try {
+              await testMember.validate()
+              throw Error('validation should have failed without a state');
+            } catch (err) {
+              expect(err.message).to.contain('State cannot be null');
+            }
           });
     
           it('State cannot be an empty string', async () => {
             // We also shouldn't be able to create a user with an empty name.
-            await expect(Member.create(newMember3)).to.be.rejected;
+            const testMember = Member.build(newMember3)
+            try {
+              await testMember.validate()
+              throw Error('validation should have failed with empty State');
+            } catch (err) {
+              expect(err.message).to.contain('Validation notEmpty on State failed');
+            }
           });
 
         it('State cannot be null', async () => {
@@ -414,12 +489,24 @@ let newMember = {
   
         it('Zip cannot be null', async () => {
             // We shouldn't be able to create a user without a name.
-            await expect(Member.create(newMember2)).to.be.rejected;
+            const testMember = Member.build(newMember2)
+            try {
+              await testMember.validate()
+              throw Error('validation should have failed without zip');
+            } catch (err) {
+              expect(err.message).to.contain('Zip cannot be null');
+            }
           });
     
           it('Zip cannot be an empty string', async () => {
             // We also shouldn't be able to create a user with an empty name.
-            await expect(Member.create(newMember3)).to.be.rejected;
+            const testMember = Member.build(newMember3)
+            try {
+              await testMember.validate()
+              throw Error('validation should have failed with empty Zip');
+            } catch (err) {
+              expect(err.message).to.contain('Validation notEmpty on Zip failed');
+            }
           });
 
         it('Zip cannot be null', async () => {
@@ -502,12 +589,24 @@ let newMember = {
   
         it('Email cannot be null', async () => {
             // We shouldn't be able to create a user without a name.
-            await expect(Member.create(newMember2)).to.be.rejected;
+            const testMember = Member.build(newMember2)
+            try {
+              await testMember.validate()
+              throw Error('validation should have failed without a email');
+            } catch (err) {
+              expect(err.message).to.contain('Email cannot be null');
+            }
           });
     
         it('Email cannot be an empty string', async () => {
         // We also shouldn't be able to create a user with an empty name.
-        await expect(Member.create(newMember3)).to.be.rejected;
+        const testMember = Member.build(newMember3)
+        try {
+          await testMember.validate()
+          throw Error('validation should have failed with empty Email');
+        } catch (err) {
+          expect(err.message).to.contain('Validation notEmpty on Email failed');
+        }
         });
 
         it('Email cannot be null', async () => {
