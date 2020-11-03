@@ -10,6 +10,10 @@ module.exports = {
     //coding from babeljs.io
     module: {
       rules: [
+        {
+          test: /\.css$/,
+          use: ["style-loader", "css-loader"],
+        },
         { 
           test: /\.js$/, 
           exclude: /node_modules/, 
