@@ -3,7 +3,7 @@ const db = require('./db')
 
 
 
-const Event = db.define('event', {
+const CalendarEvent = db.define('calenderEvent', {
     Name: {
         type: sequelize.STRING,
         allowNull: false,
@@ -37,5 +37,5 @@ const Event = db.define('event', {
 })
 
 
-module.exports = Event
+module.exports = CalendarEvent
 
