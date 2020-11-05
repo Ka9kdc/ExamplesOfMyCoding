@@ -71,22 +71,22 @@ describe('User model', () => {
         }
       })
     })
-    // describe('Username', () => {
-    //   beforeEach(async () => {
-    //     return await User.create({
-    //       email: 'cody@puppybook.com',
-    //       username: 'cody12345',
-    //       password: 'bones'
-    //     })
-    //    })
-    //   it('Username must be unique', async () => {
-    //     try {
-    //       await User.create({ email: 'cdy@puppybook.com',username: 'cody12345', password: '12345'});
-    //       throw Error('validation should have failed without an unique username');
-    //     } catch (err) {
-    //       expect(err.message).to.contain('Validation error');
-    //     }
-    //   })
+    describe('Callsign', () => {
+      beforeEach(async () => {
+        return await User.create({
+          email: 'cody@puppybook.com',
+          Callsign: 'cody12345',
+          password: 'bones'
+        })
+       })
+      it('Callsign must be unique', async () => {
+        try {
+          await User.create({ email: 'cdy@puppybook.com',Callsign: 'cody12345', password: '12345'});
+          throw Error('validation should have failed without an unique Callsign');
+        } catch (err) {
+          expect(err.message).to.contain('Validation error');
+        }
+      })
 
-  // }) // end describe('instanceMethods')
+  }) // end describe('instanceMethods')
 }) // end describe('User model')

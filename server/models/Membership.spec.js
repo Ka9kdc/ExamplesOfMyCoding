@@ -5,7 +5,7 @@ const chaiAsPromised = require('chai-as-promised');
 chai.use(chaiAsPromised);
 const {db, Member, Badge, Committee, Payment} = require('.');
 
-describe('Basic Membership Tables set up', function(){
+describe.only('Basic Membership Tables set up', function(){
 
  
 
@@ -32,6 +32,38 @@ describe('Basic Membership Tables set up', function(){
         DueYear: "2020",
         DATE: new Date
     }
+    it("has a First name, last name and callsign fields", async () => {
+      newMember.notARealAttribute = "does not compute";
+      const testMember = await Member.create(newMember)
+      expect(testMember.FirstName).to.equal('Hannah')
+      expect(testMember.LastName).to.equal('Green')
+      expect(testMember.Callsign).to.equal('Ka9ddd')
+      expect(testMember.notARealAttribute).to.equal(undefined)
+    })
+    it("has a Phone, Street and  City fields", async () => {
+      newMember.notARealAttribute = "does not compute";
+      const testMember = await Member.create(newMember)
+      expect(testMember.Phone).to.equal('1234567890')
+      expect(testMember.Street).to.equal('123 happy lane')
+      expect(testMember.City).to.equal('st upidtown')
+      expect(testMember.notARealAttribute).to.equal(undefined)
+    })
+    it("has a State, Zip and  Membership fields", async () => {
+      newMember.notARealAttribute = "does not compute";
+      const testMember = await Member.create(newMember)
+      expect(testMember.State).to.equal("MA")
+      expect(testMember.Zip).to.equal(60606)
+      expect(testMember.Membership).to.equal('Full')
+      expect(testMember.notARealAttribute).to.equal(undefined)
+    })
+    it("has a Email, DueYear and  Date fields", async () => {
+      newMember.notARealAttribute = "does not compute";
+      const testMember = await Member.create(newMember)
+      expect(testMember.Email).to.equal("abcde123@abc.com")
+      expect(testMember.DueYear).to.equal(2020)
+      expect(testMember.DATE).to.equal(new Date)
+      expect(testMember.notARealAttribute).to.equal(undefined)
+    })
     describe('FirstName', () => {
         let newMember2 = {
             LastName: "Green",
