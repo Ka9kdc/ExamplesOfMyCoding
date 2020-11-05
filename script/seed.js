@@ -12,7 +12,7 @@ let newProducts = [
 const seed = async () => {
     try {
         await  db.sync( {force: true})
-        await User.create({Callsign: 'ka9kdc', password: '12345'})
+        await User.create({Callsign: 'ka9kdc', password: '12345', email: 'ka9kdc@gmail.com'})
         await newProducts.forEach( async product => {
             await Product.create(product)
         })
