@@ -33,6 +33,7 @@ const NavBar = (props) => {
                 }
               })
             }
+            <NavLink to='/Calendar' key='calendar' >Calendar</NavLink>
         </div>
     )
 }
