@@ -8,6 +8,7 @@ const { Vendor, Order } = require('./vendors')
 const Product = require('./products')
 const User = require('./User')
 const OfficerHistory = require('./OfficerHistory')
+const Event = require('./Events')
 
 User.belongsTo(Member)
 Member.hasOne(User)
@@ -54,5 +55,6 @@ module.exports = {
     Order,
     Product, 
     User,
-    OfficerHistory
+    OfficerHistory,
+    Event
 }
