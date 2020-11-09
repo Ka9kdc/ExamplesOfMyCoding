@@ -25,25 +25,31 @@ router.put('/login', (req, res ,next) =>{
     }).catch(next)
 })
 
-router.post('/signup', (req, res, next) =>{
-    Member.findOne({where: {
-        Callsign: req.body.Callsign
-    }}).then(member => {
+router.post('/signup', async (req, res, next) =>{
+    try {
+        const member =  await Member.findOne({where: {
+            Callsign: req.body.Callsign
+        }})
         if(!member) res.status(404).send('Membership not found')
         else {
-            User.create({
+            const user = await User.create({
                 Callsign: req.body.Callsign,
                 name: member.FirstName,
                 password: req.body.password,
                 memberId: member.id
-            }).then(user =>{
-                req.login(user, err =>{
+            })
+            req.login(user, err =>{
                     if(err) next(err)
                     else res.json(user)
                 })
-            })
         }
-    }).catch(next)
+    } catch (err) {
+        if (err.name === "SequelizeUniqueConstraintError") {
+          res.status(401).send("User already exists");
+        } else {
+          next(err);
+        }
+      }
 })
 
 router.delete('/logout', (req, res, next) =>{

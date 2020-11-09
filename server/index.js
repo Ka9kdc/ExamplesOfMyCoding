@@ -5,11 +5,13 @@ const morgan = require('morgan')
 const {db, User} = require('./models')
 const session = require('express-session')
 const passport = require('passport');
+const PORT = process.env.PORT || 1432;
+
 const SequelizeStore = require('connect-session-sequelize')(session.Store)
 
 const dbStore = new SequelizeStore({db:db})
 
-const app = new express()
+const app = express()
 
 dbStore.sync()
 
@@ -76,7 +78,6 @@ app.use((err, req, res, next) => {
 })
 
 
-const PORT = 1432;
   // Move to is own page later
   const init = async () => {
     try {
@@ -94,3 +95,5 @@ const PORT = 1432;
   };
   
   init();
+
+  module.exports = app
