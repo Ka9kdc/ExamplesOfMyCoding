@@ -3,7 +3,7 @@ const db = require('./db')
 const {Attendee} = require('./Attendees')
 
 
-//Still missing phone number, Due year, and SpecialRequests type tests
+//Still missing phone number, tests
 describe('Attendee Model', () => {
     
     before(() => db.sync({force:true}))
@@ -24,7 +24,7 @@ describe('Attendee Model', () => {
     })
 
     afterEach(() => db.sync({force:true}))
-describe('fields', () => {
+  describe('fields', () => {
     let testAttendee
     beforeEach(async () => {
         newAttendee.notARealAttribute = "does not compute";

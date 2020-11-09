@@ -1,4 +1,5 @@
-const {db, User, Product, OfficerHistory} = require('../server/models')
+const {db, User, Product, OfficerHistory, Annoucement} = require('../server/models')
+const newFeedHistory = require('./NewsFeedHistorySeed')
 const { pastOfficers } = require('./officerHistorySeed')
 
 
@@ -19,6 +20,9 @@ const seed = async () => {
         await pastOfficers.forEach( async officers => {
             await OfficerHistory.create(officers)
         })
+        await newFeedHistory.forEach(async announcement => {
+            await Annoucement.create(announcement)
+        })
     } catch(error) {
         console.log(error)
     }
@@ -33,7 +37,7 @@ if (require.main === module) {
     seed()
       .then(() => {
         console.log("Seeding success!");
-        db.close();
+        setTimeout( () => db.close(), 10000);
       })
       .catch((err) => {
         console.error("Oh noes! Something went wrong!");
