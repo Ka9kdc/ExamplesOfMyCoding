@@ -23,6 +23,7 @@ const Vendor = db.define('vendor',{
     },
     Phone: {
         type: Sequelize.STRING,
+        allowNull: false,
         validate: {
             notEmpty: true,
             is: /((\(\d{3}\)?)|(\d{3}))([\s-./]?)(\d{3})([\s-./]?)(\d{4})/i,
@@ -30,6 +31,7 @@ const Vendor = db.define('vendor',{
     },
     Street: {
         type: Sequelize.STRING,
+        allowNull: false,
         validate: {
             notEmpty: true,
             not: /^[-!$%^&*()_+|~=`{}[:;<>?@#\]]/g
@@ -37,6 +39,7 @@ const Vendor = db.define('vendor',{
     },
     City: {
         type: Sequelize.STRING,
+        allowNull: false,
         validate: {
             notEmpty: true,
             not: /^[-!$%^&*()_+|~=`{}[:;<>?,@#\]]/g
@@ -44,6 +47,7 @@ const Vendor = db.define('vendor',{
     },
     State: {
         type: Sequelize.STRING,
+        allowNull: false,
         validate: {
             notEmpty: true,
             is: /^(?:(A[KLRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|P[AR]|RI|S[CD]|T[NX]|UT|V[AIT]|W[AIVY]))$/
@@ -51,6 +55,7 @@ const Vendor = db.define('vendor',{
     },
     Zip: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         validate: {
             notEmpty:true,
             is: /^\d{5}(-\d{4})?$/
@@ -58,8 +63,9 @@ const Vendor = db.define('vendor',{
     },
     Email: {
         type: Sequelize.STRING,
-        isEmail: true,
+        allowNull: false,
         validate: {
+            isEmail: true,
             notEmpty: true,
         }
     },

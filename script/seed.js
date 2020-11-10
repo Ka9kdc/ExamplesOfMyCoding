@@ -1,5 +1,5 @@
-const {db, User, Product, OfficerHistory, CalendarEvent} = require('../server/models')
-const clubEvents = require('./eventSeed')
+const {db, User, Product, OfficerHistory, Annoucement} = require('../server/models')
+const newFeedHistory = require('./NewsFeedHistorySeed')
 const { pastOfficers } = require('./officerHistorySeed')
 
 
@@ -13,29 +13,35 @@ let newProducts = [
 const seed = async () => {
     try {
         await  db.sync( {force: true})
-        await User.create({Callsign: 'ka9kdc', password: '12345'})
+        await User.create({Callsign: 'ka9kdc', password: '12345', email: 'ka9kdc@gmail.com'})
         await newProducts.forEach( async product => {
             await Product.create(product)
         })
         await pastOfficers.forEach( async officers => {
             await OfficerHistory.create(officers)
         })
-        await clubEvents.forEach(async clubEvent => {
-            await CalendarEvent.create(clubEvent)
+        await newFeedHistory.forEach(async announcement => {
+            await Annoucement.create(announcement)
         })
     } catch(error) {
         console.log(error)
     }
 }
 
-seed()
-.then(() =>{
-    console.log('Seeding success!');
-   
-    setTimeout(() => db.close(), 10000) 
-}).catch((err) =>{
-    console.log(err)
-    db.close()
-})
 
 module.exports = seed
+// If this module is being required from another module, then we just export the
+// function, to be used as necessary. But it will run right away if the module
+// is executed directly (e.g. `node seed.js` or `npm run seed`)
+if (require.main === module) {
+    seed()
+      .then(() => {
+        console.log("Seeding success!");
+        setTimeout( () => db.close(), 10000);
+      })
+      .catch((err) => {
+        console.error("Oh noes! Something went wrong!");
+        console.error(err);
+        db.close();
+      });
+    }

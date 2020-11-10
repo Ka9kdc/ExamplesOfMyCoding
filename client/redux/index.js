@@ -5,7 +5,7 @@ import customerReducer from './customer'
 import memberReducer from './membership'
 import userReducer from './user'
 import officerHistoryReducer from './OfficerHistory'
-import calendarReducer from './calendar'
+import { allAnnouncementReducer, singleAnnouncementReducer } from './announcements'
 
 
 
@@ -16,7 +16,8 @@ const appReducer = combineReducers({
     member: memberReducer,
     user: userReducer,
     officerHistory: officerHistoryReducer,
-    calendarEvents: calendarReducer
+    newsHistory: allAnnouncementReducer,
+    lastestNews: singleAnnouncementReducer
 })
 
 export default appReducer

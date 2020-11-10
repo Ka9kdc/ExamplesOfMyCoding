@@ -18,7 +18,7 @@ const Attendee = db.define('attendee',{
         }
     },
     Phone: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         validate: {
             is: /((\(\d{3}\)?)|(\d{3}))([\s-./]?)(\d{3})([\s-./]?)(\d{4})/i,
         }
@@ -49,7 +49,9 @@ const Attendee = db.define('attendee',{
     },
     Email: {
         type: Sequelize.STRING,
-        isEmail: true,
+        validate: {
+            isEmail: true,
+        }
     },
     OrderDate: {
         type: Sequelize.DATE,
