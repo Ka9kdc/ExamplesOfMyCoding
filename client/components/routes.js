@@ -13,10 +13,10 @@ import References from './References';
 import AboutUs from './AboutUs/AboutUs';
 import Bylaws from './AboutUs/Bylaws';
 import ContactUs from './AboutUs/ContactUs';
-import Repeaters from './AboutUs/Repeaters';
+import Repeaters from './singlepages/Repeaters';
 import OfficerHistory from './AboutUs/OfficerHistory';
 import News from './News';
-import Home from './home';
+import Home from './singlepages/Home';
 
 
 const Routes = props => {
