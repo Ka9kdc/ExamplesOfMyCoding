@@ -8,7 +8,7 @@ import {NavLink} from 'react-router-dom'
 
 const pages = [
     {name: "Home", url: "/index.html"},
-     {name: "News", url: "/News.html"},
+     {name: "News", url: "/News"},
      {name: "Events/Activities", url: "/Events.html"},
      {name: "Repeaters", url: "/Repeaters"},
      {name: "Hamfest", url: "/hamfestStore"},
@@ -26,7 +26,7 @@ const NavBar = (props) => {
     return (
         <div className="Navbar ">
         { pages.map(page => {
-                if(page.name === 'Join WCRA' || page.name === 'Hamfest' || page.name === 'Member Page') {
+                if(page.name === 'Join WCRA' || page.name === 'Hamfest' || page.name === 'Member Page' || page.name === 'News') {
                 return  <NavLink to={page.url} key={page.name} >{page.name}</NavLink>
                 } else {
                     return <a href={page.url} key={page.name}>{page.name}</a>

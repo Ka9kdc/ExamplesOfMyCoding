@@ -2,20 +2,29 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { fetchAllAnnouncement } from '../redux/announcements'
 
+
+const makePost = (announcement) => {
+    const post = document.createElement('div')
+    post.innerHTML = announcement.message
+    post.style.borderColor = announcement.borderColor
+    post.style.backgroundColor = announcement.backgroundColor
+    post.className = 'NewsItem'
+    return post
+}
 class News extends React.Component {
     componentDidMount(){
         this.props.getNewsFeed()
     }
     render() {
         if(this.props.Announcements && this.props.Announcements.length){
-            return this.props.Announcements.map(announcement => {
-                return (
-                    <div style={{borderColor: `${announcement.borderColor}`, backgroundColor: `${announcement.backgroundColor}`}}>{announcement.message}</div>
-                )
+            const feed = document.getElementById('feed')
+            this.props.Announcements.map(announcement => {
+               const newPost =  makePost(announcement)
+                feed.prepend(newPost)
             })
-        } else {
-            return <div> Loading </div>
         }
+        return <div id='feed'></div>
+       
     }
 }
 

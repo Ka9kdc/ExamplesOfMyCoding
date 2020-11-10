@@ -6,7 +6,12 @@ const router = express.Router()
 
 router.get('/all', async (req, res, next) => {
     try {
-        const allAnnouncements = await Annoucement.findAll()
+        const allAnnouncements = await Annoucement.findAll({
+            order: [
+                ['PostDate', 'ASC']
+            ],
+            attributes: ['PostDate', 'message', 'borderColor', 'backgroundColor']
+        })
         res.send(allAnnouncements)
     } catch (error) {
         next(error)
