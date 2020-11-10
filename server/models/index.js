@@ -8,7 +8,7 @@ const { Vendor, Order } = require('./vendors')
 const Product = require('./products')
 const User = require('./User')
 const OfficerHistory = require('./OfficerHistory')
-const CalendarEvent = require('./Events')
+const Annoucement = require('./Annoucement')
 
 User.belongsTo(Member)
 Member.hasOne(User)
@@ -43,6 +43,9 @@ Payment.belongsTo(Vendor)
 Order.hasOne(Payment)
 Payment.belongsTo(Order)
 
+Annoucement.belongsTo(User)
+User.hasMany(Annoucement)
+
 module.exports = {
     db,
     Member,
@@ -56,5 +59,5 @@ module.exports = {
     Product, 
     User,
     OfficerHistory,
-    CalendarEvent
+    Annoucement
 }

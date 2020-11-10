@@ -6,7 +6,8 @@ router.use('/membership', require('./membership'))
 router.use('/hamfest', require('./hamfest'))
 router.use('/user', require('./user'))
 router.use('/officerHistory', require('./officerHistory'))
-router.use('/calendar', require('./calendar'))
+router.use('/Announcement', require('./Announcements'))
+
 
 
 

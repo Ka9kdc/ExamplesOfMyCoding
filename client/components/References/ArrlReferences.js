@@ -2,7 +2,7 @@ import React from 'react'
 
 const ArrlReferences = props => {
     return (
-        <div class="referance_container" id="arrl">
+        <div className="referance_container" id="arrl">
             <h1>Arrl</h1>
             <h2>HQ</h2>
             <h2>Division</h2>

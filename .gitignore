@@ -6,3 +6,4 @@ info.txt
 paypal-backend
 paypal-firstattempts
 secrets.js
+setup-linter-prettier.sh

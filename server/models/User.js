@@ -6,59 +6,87 @@ const db = require('./db')
 const User = db.define('user', {
     Callsign: {
         type: Sequelize.STRING,
+        unique: true,
     },
-    // email:{
-    //     type: Sequelize.STRING,
-    // },
+    email: {
+        type: Sequelize.STRING,
+        unique: true,
+        allowNull: false,
+        validate: {
+            notEmpty: true,
+            isEmail: true
+        }
+    },
     name: { 
         type: Sequelize.STRING,
     },
-    // googleId: {
-    //     type: Sequelize.STRING
-    // },
     password: {
-        type: Sequelize.STRING
-    },
-    salt: {
-        type: Sequelize.STRING
-    },
+        type: Sequelize.STRING,
+        // Making `.password` act like a func hides it when serializing to JSON.
+        // This is a hack to get around Sequelize's lack of a "private" option.
+        get() {
+          return () => this.getDataValue("password");
+        },
+      },
+      salt: {
+        type: Sequelize.STRING,
+        // Making `.salt` act like a function hides it when serializing to JSON.
+        // This is a hack to get around Sequelize's lack of a "private" option.
+        get() {
+          return () => this.getDataValue("salt");
+        },
+      },
+    //   googleId: {
+    //     type: Sequelize.STRING,
+    //   },
     onBoard: {
         type: Sequelize.BOOLEAN
     }
-}, {
-    hooks: {
-        beforeCreate: setSaltAndPassword,
-        beforeUpdate: setSaltAndPassword
-    }
 });
 
-User.prototype.hasMatchingPassword = function (candidatePassword){
-    // should return true or false for if the entered password matches
-      return User.encryptPassword(candidatePassword, this.salt)
-  }
 
-User.prototype.sanitize = function () {
-  return _.omit(this.toJSON(), ['password', 'salt'])
-}
 
-User.generateSalt = () => {
-    return crypto.randomBytes(16).toString('base64')
-}
+// User.prototype.sanitize = function () {
+//   return _.omit(this.toJSON(), ['password', 'salt'])
+// }
 
-User.encryptPassword = function (plainText, salt) {
-    
-    const hash = crypto.createHash('sha1')
-    hash.update(plainText)
-    hash.update(salt)
-    return hash.digest('hex')
-}
-
-function setSaltAndPassword (user){
-  if(user.changed('password')){
-      user.salt = User.generateSalt()
-      user.password = User.encryptPassword(user.password, user.salt)
-  }
-}
+/**
+ * instanceMethods
+ */
+User.prototype.correctPassword = function (candidatePwd) {
+    return User.encryptPassword(candidatePwd, this.salt()) === this.password();
+  };
+  
+  /**
+   * classMethods
+   */
+  User.generateSalt = function () {
+    return crypto.randomBytes(16).toString("base64");
+  };
+  
+  User.encryptPassword = function (plainText, salt) {
+    return crypto
+      .createHash("RSA-SHA256")
+      .update(plainText)
+      .update(salt)
+      .digest("hex");
+  };
+  
+  /**
+   * hooks
+   */
+  const setSaltAndPassword = (user) => {
+    if (user.changed("password")) {
+      user.salt = User.generateSalt();
+      user.password = User.encryptPassword(user.password(), user.salt());
+    }
+  };
+  
+  User.beforeCreate(setSaltAndPassword);
+  User.beforeUpdate(setSaltAndPassword);
+  User.beforeBulkCreate((users) => {
+    users.forEach(setSaltAndPassword);
+  });
 
 
 module.exports = User
