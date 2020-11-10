@@ -13,17 +13,18 @@ class MyCalender extends React.Component{
         this.props.getEvents()
     }
    render() {
-       console.log(this.props.myEventsList)
+       
         if(this.props.myEventsList){
+            console.log(this.props.myEventsList)
             return (
-                <div style={{height: '100vh'}}>
-                    <Calendar
-                        localizer={localizer}
-                        events={this.props.myEventsList}
-                        startAccessor="start"
-                        endAccessor="end"
-                        />
-                </div>
+                <Calendar
+                localizer={localizer}
+                defaultDate={new Date()}
+                defaultView="month"
+                events={this.props.myEventsList}
+                style={{ height: "100vh" }}
+              />
+               
             )
         } else {
             return <h1>Loading</h1>
