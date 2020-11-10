@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { fetchAllAnnouncement } from '../redux/announcements'
 
 
-const makePost = (announcement) => {
+export const makePost = (announcement) => {
     const post = document.createElement('div')
     post.innerHTML = announcement.message
     post.style.borderColor = announcement.borderColor
@@ -19,7 +19,7 @@ class News extends React.Component {
         if(this.props.Announcements && this.props.Announcements.length){
             const feed = document.getElementById('feed')
             this.props.Announcements.map(announcement => {
-               const newPost =  makePost(announcement)
+               const newPost = makePost(announcement)
                 feed.prepend(newPost)
             })
         }

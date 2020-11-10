@@ -21,7 +21,7 @@ router.get('/all', async (req, res, next) => {
 router.get('/last', async (req, res, next) => {
     try {
         const lastAnnouncement = await Annoucement.findAll({
-            order: ['PostDate'],
+            order: [['PostDate', 'DESC']],
             limit: 1
         })
         res.send(lastAnnouncement[0])

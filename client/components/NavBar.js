@@ -7,7 +7,7 @@ import {NavLink} from 'react-router-dom'
 {/* <table style="text-align: center; margin-left: auto; margin-right: auto */}
 
 const pages = [
-    {name: "Home", url: "/index.html"},
+    {name: "Home", url: "/Home"},
      {name: "News", url: "/News"},
      {name: "Events/Activities", url: "/Events.html"},
      {name: "Repeaters", url: "/Repeaters"},

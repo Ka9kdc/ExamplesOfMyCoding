@@ -16,6 +16,7 @@ import ContactUs from './AboutUs/ContactUs';
 import Repeaters from './AboutUs/Repeaters';
 import OfficerHistory from './AboutUs/OfficerHistory';
 import News from './News';
+import Home from './home';
 
 
 const Routes = props => {
@@ -39,6 +40,7 @@ const Routes = props => {
             <Route path="/Repeaters" component={Repeaters} />
             <Route path="/OfficerHistory" component={OfficerHistory} />
             <Route path="/News" component={News} />
+            <Route path="/Home" component={Home} />
 
         </Switch>
             
