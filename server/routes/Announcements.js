@@ -36,10 +36,10 @@ router.post('/', async (req, res, next) => {
             borderColor: req.body.borderColor,
             backgroundColor: req.body.backgroundColor,
             message: req.body.message,
-            PostDate: req.body.PostDate
+            PostDate: new Date
         })
         // newAnnouncement.setUser(req.body.user)
-        req.send(newAnnouncement)
+        res.send(newAnnouncement)
     } catch (error) {
         next(error)
     }

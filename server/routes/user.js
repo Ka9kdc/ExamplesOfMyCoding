@@ -15,7 +15,7 @@ router.put('/login', (req, res ,next) =>{
         }
     }).then(user => {
         if(!user) res.status(401).send('User not found')
-        else if (!user.hasMatchingPassword(req.body.password)) res.status(401).send('Incorrect Password')
+        else if (!user.correctPassword(req.body.password)) res.status(401).send('Incorrect Password')
         else {
             req.login(user, err => {
                 if(err) next(err);
