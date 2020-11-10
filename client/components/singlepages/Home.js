@@ -9,16 +9,15 @@ class Home extends React.Component {
     }
     render() {
         if(this.props.lastestNews.PostDate){
-            console.log(this.props.lastestNews)
             const lastestNews = makePost(this.props.lastestNews)
             const newsHolder = document.getElementById('newsHolder')
             newsHolder.prepend(lastestNews)
         }
         return (
             <div>
-                <div class="Title">WCRA's Home On The Web - W9CCU</div>
+                <div className="Title">WCRA's Home On The Web - W9CCU</div>
 
-                <div class="Content">
+                <div className="Content">
                     <div id='newsHolder'></div>
                     <div>
                     <h1>At First Glance</h1>

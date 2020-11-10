@@ -35,7 +35,6 @@ export const updateAnnouncement = newPost => {
 export const fetchLastAnnouncement = () => {
     return async dispatch => {
         try{
-            console.log('fetch')
             const res = await axios.get('/api/announcement/last')
             const announcement = res.data
             dispatch(setLastAnnouncment(announcement))
