@@ -15,7 +15,7 @@ import Bylaws from './AboutUs/Bylaws';
 import ContactUs from './AboutUs/ContactUs';
 import Repeaters from './singlepages/Repeaters';
 import OfficerHistory from './AboutUs/OfficerHistory';
-import News from './News';
+import News from './singlepages/News';
 import Home from './singlepages/Home';
 
 

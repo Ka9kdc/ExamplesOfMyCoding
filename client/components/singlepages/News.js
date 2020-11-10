@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { fetchAllAnnouncement } from '../redux/announcements'
+import { fetchAllAnnouncement } from '../../redux/announcements'
 
 
 export const makePost = (announcement) => {

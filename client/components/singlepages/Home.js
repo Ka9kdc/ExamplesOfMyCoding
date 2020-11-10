@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { fetchLastAnnouncement } from '../../redux/announcements'
-import { makePost } from '../News'
+import { makePost } from './News'
 
 class Home extends React.Component {
     componentDidMount(){
