@@ -6,7 +6,7 @@ import OnlineTesting from './OnlineTesting'
 
 const References = props => {
     return (
-        <div class="body_container">
+        <div className="body_container">
             <ArrlReferences />
             <LocalClubs />
             <OnlineTesting />

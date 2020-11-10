@@ -3,7 +3,7 @@ import {NavLink} from 'react-router-dom'
 
 //this page has no styling Marty had a seperate style sheet for the narbar
 //plus the following inline styling
-// div class="Navbar" style="background-color: #C0D0FF; text-align: center;">
+// div className="Navbar" style="background-color: #C0D0FF; text-align: center;">
 {/* <table style="text-align: center; margin-left: auto; margin-right: auto */}
 
 const pages = [

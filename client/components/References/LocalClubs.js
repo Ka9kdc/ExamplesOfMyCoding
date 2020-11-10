@@ -2,7 +2,7 @@ import React from 'react'
 
 const LocalClubs = props => {
     return (
-        <div class="referance_container" id="local_clubs">
+        <div className="referance_container" id="local_clubs">
                 <h1>Local Club Websites</h1>
                 <p>Dupage ARES: <a href="https://dupagecountyares.org">dupagecountyares.org</a></p>
                 <p>Algonguin: <a href="http://www.suhfars.org">Suburban UHF Amateur Repeater Society</a></p>
