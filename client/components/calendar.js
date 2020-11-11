@@ -14,19 +14,20 @@ class MyCalender extends React.Component{
     }
    render() {
         if(this.props.myEventsList.length){
-            console.log(this.props.myEventsList)
-            console.log(localizer)
+            console.log(this.props.myEventsList[0].Start)
+            console.log(localizer.formats.timeGutterFormat)
             return (
+                <div className="Content">
                 <Calendar
                 localizer={localizer}
                 events={this.props.myEventsList}
                 style={{ height: "100vh" }}
                 startAccessor='Start'
-                titleAccessor={ (event) => `${event.Start} ${event.Name}`}
+                titleAccessor={ (event) => `${moment(event.Start).format('LT')} ${event.Name}`}
                 endAccessor='End'
-                views={['month']}
+                views={['month', 'agenda']}
               />
-               
+                </div>
             )
         } else {
             return <h1>Loading</h1>
