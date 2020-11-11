@@ -3,7 +3,7 @@ import {Calendar, momentLocalizer} from 'react-big-calendar'
 import moment from 'moment'
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import { connect } from 'react-redux';
-import {fetchAllEvents} from '../redux/calendar'
+import {fetchAllEvents} from '../../redux/calendar'
 
 
 const localizer = momentLocalizer(moment)
@@ -14,8 +14,6 @@ class MyCalender extends React.Component{
     }
    render() {
         if(this.props.myEventsList.length){
-            console.log(this.props.myEventsList[0].Start)
-            console.log(localizer.formats.timeGutterFormat)
             return (
                 <div className="Content">
                 <Calendar

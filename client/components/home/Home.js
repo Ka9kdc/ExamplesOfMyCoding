@@ -1,7 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { fetchLastAnnouncement } from '../../redux/announcements'
-import { makePost } from './News'
+import { makePost } from '../singlepages/News'
+import Agenda from './Agenda'
 
 class Home extends React.Component {
     componentDidMount(){
@@ -19,6 +20,7 @@ class Home extends React.Component {
 
                 <div className="Content">
                     <div id='newsHolder'></div>
+                    <Agenda />
                     <div>
                     <h1>At First Glance</h1>
 
