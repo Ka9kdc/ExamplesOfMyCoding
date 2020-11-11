@@ -5,5 +5,7 @@ public/bundle.js.map
 info.txt
 paypal-backend
 paypal-firstattempts
+paypal-firstattempts/PayPalButtons.js
+paypal-firstattempts/PayPalButtonsBasic.js
 secrets.js
 setup-linter-prettier.sh
