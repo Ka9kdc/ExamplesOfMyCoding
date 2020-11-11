@@ -17,6 +17,7 @@ import Repeaters from './singlepages/Repeaters';
 import OfficerHistory from './AboutUs/OfficerHistory';
 import News from './singlepages/News';
 import Home from './singlepages/Home';
+import MyCalender from './calendar'
 
 
 const Routes = props => {
@@ -41,6 +42,7 @@ const Routes = props => {
             <Route path="/OfficerHistory" component={OfficerHistory} />
             <Route path="/News" component={News} />
             <Route path="/Home" component={Home} />
+            <Route path="/Calendar" component={MyCalender} />
 
         </Switch>
             

@@ -1,4 +1,5 @@
-const {db, User, Product, OfficerHistory, Annoucement} = require('../server/models')
+const {db, User, Product, OfficerHistory, Annoucement, CalendarEvent} = require('../server/models')
+const clubEvents = require('./eventSeed')
 const newFeedHistory = require('./NewsFeedHistorySeed')
 const { pastOfficers } = require('./officerHistorySeed')
 
@@ -19,6 +20,9 @@ const seed = async () => {
         })
         await pastOfficers.forEach( async officers => {
             await OfficerHistory.create(officers)
+        })
+        await clubEvents.forEach( async clubEvent => {
+            await CalendarEvent.create(clubEvent)
         })
         await newFeedHistory.forEach(async announcement => {
             await Annoucement.create(announcement)

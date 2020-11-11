@@ -6,6 +6,7 @@ import memberReducer from './membership'
 import userReducer from './user'
 import officerHistoryReducer from './OfficerHistory'
 import { allAnnouncementReducer, singleAnnouncementReducer } from './announcements'
+import calendarReducer from './calendar'
 
 
 
@@ -17,7 +18,8 @@ const appReducer = combineReducers({
     user: userReducer,
     officerHistory: officerHistoryReducer,
     newsHistory: allAnnouncementReducer,
-    lastestNews: singleAnnouncementReducer
+    lastestNews: singleAnnouncementReducer,
+    calendarEvents: calendarReducer
 })
 
 export default appReducer

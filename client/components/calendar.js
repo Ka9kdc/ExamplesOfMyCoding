@@ -13,16 +13,18 @@ class MyCalender extends React.Component{
         this.props.getEvents()
     }
    render() {
-       
-        if(this.props.myEventsList){
+        if(this.props.myEventsList.length){
             console.log(this.props.myEventsList)
+            console.log(localizer)
             return (
                 <Calendar
                 localizer={localizer}
-                defaultDate={new Date()}
-                defaultView="month"
                 events={this.props.myEventsList}
                 style={{ height: "100vh" }}
+                startAccessor='Start'
+                titleAccessor={ (event) => `${event.Start} ${event.Name}`}
+                endAccessor='End'
+                views={['month']}
               />
                
             )

@@ -7,6 +7,7 @@ router.use('/hamfest', require('./hamfest'))
 router.use('/user', require('./user'))
 router.use('/officerHistory', require('./officerHistory'))
 router.use('/Announcement', require('./Announcements'))
+router.use('/calendar', require('./calendar'))
 
 
 
