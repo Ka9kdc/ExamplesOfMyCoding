@@ -1,48 +1,56 @@
-import React, { useEffect } from 'react'
-import { connect } from 'react-redux'
-import { fetchAllEvents } from '../../redux/calendar'
-import moment from 'moment'
-
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { fetchAllEvents } from '../../redux/calendar';
+import moment from 'moment';
 
 class Agenda extends React.Component {
-    componentDidMount(){
-        this.props.getEvents()
-    }
+  componentDidMount() {
+    this.props.getEvents();
+  }
 
-    render() {
-        return (<div>
+  render() {
+    return (
+      <div>
         <table className="EventCalendar">
-            <thead>
-                <tr className='Announcement'><td colSpan="5">Event Calendar</td></tr>
-                <tr><td>Date</td><td>Name</td><td>Time</td><td>Location</td><td>Description</td></tr>
-                    </thead>
-            <tbody>{this.props.monthsEvents.map( monthEvent => {
-            return (<tr key={monthEvent.id} className={monthEvent.Type}>
-                <td>{moment(monthEvent.Start).format('LL')}</td>
-                <td>{monthEvent.Name}</td>
-                <td>{moment(monthEvent.Start).format('LT')} - {moment(monthEvent.End).format('LT')}</td>
-                <td>{monthEvent.Location}</td>
-                <td>{monthEvent.Description}</td>
+          <thead>
+            <tr className="Announcement">
+              <td colSpan="5">Event Calendar</td>
             </tr>
-            )})}</tbody>
-            
+          </thead>
+          <tbody>
+            {this.props.monthsEvents.map((monthEvent) => {
+              console.log(monthEvent.Type)
+              return (
+                <tr key={monthEvent.id} className={monthEvent.Type.split(' ').join('')}>
+                  <td>{moment(monthEvent.Start).format('LL')}</td>
+                  <td>{monthEvent.Name}</td>
+                  {monthEvent.Type === 'Special Event'?
+                  <td> 
+                    {moment(monthEvent.Start).format('LT')} - {moment(monthEvent.End).format('LT')}
+                  </td>
+                  :<td>{moment(monthEvent.Start).format('LT')}</td>}
+                  <td>{monthEvent.Location}</td>
+                  <td>{monthEvent.Description}</td>
+                </tr>
+              );
+            })}
+          </tbody>
         </table>
-    </div>)
-    }
-    
+      </div>
+    );
+  }
 }
 
-const mapState = state => {
-    return {
-        monthsEvents: state.calendarEvents
-    }
-}
+const mapState = (state) => {
+  return {
+    monthsEvents: state.calendarEvents,
+  };
+};
 
-const mapDispatch = dispatch => {
-    return {
-        getEvents: () => dispatch(fetchAllEvents())
-    }
-}
+const mapDispatch = (dispatch) => {
+  return {
+    getEvents: () => dispatch(fetchAllEvents()),
+  };
+};
 
-export default connect(mapState, mapDispatch)(Agenda)
-
+export default connect(mapState, mapDispatch)(Agenda);
