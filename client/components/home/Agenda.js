@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { fetchAllEvents } from '../../redux/calendar';
+import { fetchMonthsEvents } from '../../redux/calendar';
 import moment from 'moment';
 
 class Agenda extends React.Component {
@@ -49,7 +49,7 @@ const mapState = (state) => {
 
 const mapDispatch = (dispatch) => {
   return {
-    getEvents: () => dispatch(fetchAllEvents()),
+    getEvents: () => dispatch(fetchMonthsEvents())
   };
 };
 

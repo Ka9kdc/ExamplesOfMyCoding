@@ -22,6 +22,18 @@ export const fetchAllEvents = () => {
     }
 }
 
+export const fetchMonthsEvents = () => {
+    return async dispatch => {
+        try {
+            const res = await axios.get('/api/calendar/month')
+            const calendarEvents = res.data
+            dispatch(setEvents(calendarEvents))
+        } catch (error) {
+            console.error(error);
+        }
+    }
+}
+
 const calendarReducer = (state = [], action) => {
     switch (action.type) {
         case ALL_EVENTS:
