@@ -130,7 +130,7 @@ table.EventCalendar tr:nth-child(odd) {
   background-color: #F0F0F0;
 }
 
-table.EventCalendar tr.ClubEvent {
+table.EventCalendar tr.ClubMeeting {
   background-color: #E0FFE0;
 }
 
