@@ -18,6 +18,15 @@ const removeCurrentUser = () => {
     }
 }
 
+export const me = () => async dispatch => {
+  try {
+    const res = await axios.get('/api/user/me')
+    dispatch(setCurrentUser(res.data || defaultUser))
+  } catch (err) {
+    console.error(err)
+  }
+}
+
 export const login = (credentials, history) => dispatch => {
   console.log('login')
     axios.put('/api/user/login', credentials)

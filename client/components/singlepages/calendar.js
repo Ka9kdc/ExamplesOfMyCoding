@@ -4,6 +4,8 @@ import moment from 'moment'
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import { connect } from 'react-redux';
 import {fetchAllEvents} from '../../redux/calendar'
+import { me } from '../../redux/user';
+import NewEvent from './NewEvent';
 
 
 const localizer = momentLocalizer(moment)
@@ -11,11 +13,15 @@ const localizer = momentLocalizer(moment)
 class MyCalender extends React.Component{
     componentDidMount(){
         this.props.getEvents()
+        this.props.getMe()
     }
+
    render() {
+       console.log(this.props.user)
         if(this.props.myEventsList.length){
             return (
                 <div className="Content">
+                    {this.props.user.id ? <NewEvent/> : ''}
                 <Calendar
                 localizer={localizer}
                 events={this.props.myEventsList}
@@ -35,13 +41,15 @@ class MyCalender extends React.Component{
 
 const mapState = state => {
     return {
-        myEventsList: state.calendarEvents
+        myEventsList: state.calendarEvents,
+        user: state.user
     }
 }
 
 const mapDispatch = dispatch => {
     return {
-        getEvents: () => dispatch(fetchAllEvents())
+        getEvents: () => dispatch(fetchAllEvents()),
+        getMe: () => dispatch(me())
     }
 }
 
