@@ -4,6 +4,7 @@ import { fetchLastAnnouncement } from '../../redux/announcements';
 import FoxHunting from '../Activities/FoxHunting';
 import { makePost } from '../singlepages/News';
 import Agenda from './Agenda';
+import FaceBook from './facebook';
 
 class Home extends React.Component {
   componentDidMount() {
@@ -24,6 +25,7 @@ class Home extends React.Component {
           <div id="newsHolder"></div>
           <Agenda />
           <FoxHunting />
+          <FaceBook />
           </div>
           <div>
             <h1>At First Glance</h1>

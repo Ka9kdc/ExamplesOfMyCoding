@@ -4,6 +4,7 @@ import axios from 'axios';
 const SET_CURRENT_USER = 'SET_CURRENT_USER';
 const REMOVE_CURRENT_USER = 'REMOVE_CURRENT_USER';
 
+const defaultUser= {}
 
 const setCurrentUser = user =>{
     return {

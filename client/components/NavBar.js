@@ -19,7 +19,8 @@ const pages = [
      {name: "Contact WCRA", url: "/ContactUs"},
      {name: "References", url: "/References"},
      {name: "Member Page", url: "/MemberPage"},
-     {name: 'Calendar', url: '/Calendar'}
+     {name: 'Calendar', url: '/Calendar'},
+     {name: 'Facebook', url: 'https://www.facebook.com/groups/267873833946/'}
  ]
 
 
@@ -27,10 +28,10 @@ const NavBar = (props) => {
     return (
         <div className="Navbar ">
         { pages.map(page => {
-                if(page.name === 'Join WCRA' || page.name === 'Hamfest' || page.name === 'Member Page' || page.name === 'News') {
-                return  <NavLink to={page.url} key={page.name} >{page.name}</NavLink>
+                if(page.name === 'Facebook' || page.name === 'Training' || page.name === 'Newsletter') {
+                return <a href={page.url} key={page.name}>{page.name}</a>
                 } else {
-                    return <a href={page.url} key={page.name}>{page.name}</a>
+                    return  <NavLink to={page.url} key={page.name} >{page.name}</NavLink>
                 }
               })
             }

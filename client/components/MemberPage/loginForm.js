@@ -6,6 +6,8 @@ import {Link} from 'react-router-dom'
 const LoginForm = props =>{
     return (
         <div>
+        <div className="Subtitle" style={{textAlign: "center"}}>Login</div>
+
         <form onSubmit={props.handleSubmit} id="login">
             <div>
             <div>
