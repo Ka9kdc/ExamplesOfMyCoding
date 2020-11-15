@@ -8,10 +8,9 @@ import Routes from './routes';
 
 
 
-export default class Main extends React.Component {
-    render () {
+const Main = props => {
         return (
-            <div>
+            <div className='FullPage'>
                 <Header />
                 <NavBar />
                 <Routes />
@@ -19,4 +18,6 @@ export default class Main extends React.Component {
             </div>
         )
     }
-}
+
+    
+export default  Main

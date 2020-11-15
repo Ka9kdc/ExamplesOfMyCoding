@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { connect } from 'react-redux'
 
 
 const ALL_EVENTS = 'ALL_EVENTS'
@@ -41,6 +42,8 @@ export const fetchMonthsEvents = () => {
         }
     }
 }
+
+
 
 export const submitNewEvent = (newEventInfo) => {
     return async dispatch => {

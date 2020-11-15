@@ -41,6 +41,10 @@ router.get('/month', async (req, res, next) => {
   }
 });
 
+
+
+
+
 router.post('/newEvent', async (req, res, next) => {
   try {
     const newEvent = await CalendarEvent.create(req.body);

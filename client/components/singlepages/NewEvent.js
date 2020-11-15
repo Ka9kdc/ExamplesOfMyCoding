@@ -124,6 +124,7 @@ class NewEvent extends React.Component {
       'Net',
       'Club Meeting',
       'Special Event',
+      'Public Service Event'
     ];
     return (
       <div>

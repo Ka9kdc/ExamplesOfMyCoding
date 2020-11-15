@@ -10,7 +10,7 @@ class Agenda extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='NewsItem'>
         <table className="EventCalendar">
           <thead>
             <tr className="Announcement">

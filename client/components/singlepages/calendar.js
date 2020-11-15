@@ -20,6 +20,9 @@ class MyCalender extends React.Component{
        console.log(this.props.user)
         if(this.props.myEventsList.length){
             return (
+                <div>
+                <div class="Title">Calendar</div>
+
                 <div className="Content">
                     {this.props.user.id ? <NewEvent/> : ''}
                 <Calendar
@@ -32,9 +35,13 @@ class MyCalender extends React.Component{
                 views={['month', 'agenda']}
               />
                 </div>
+                </div>
             )
         } else {
-            return <h1>Loading</h1>
+            return (      <div>
+                <div class="Title">Calendar</div>
+
+                <div className="Content"><h1>Loading</h1></div></div>)
         }
     }
 }

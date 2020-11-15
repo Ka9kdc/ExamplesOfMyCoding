@@ -7,9 +7,9 @@ import {NavLink} from 'react-router-dom'
 {/* <table style="text-align: center; margin-left: auto; margin-right: auto */}
 
 const pages = [
-    {name: "Home", url: "/Home"},
+    {name: "Home", url: "/"},
      {name: "News", url: "/News"},
-     {name: "Events/Activities", url: "/Events.html"},
+     {name: "Events/Activities", url: "/Events"},
      {name: "Repeaters", url: "/Repeaters"},
      {name: "Hamfest", url: "/hamfestStore"},
      {name: "Newsletter", url: "/Hamletter.html"},
@@ -19,6 +19,7 @@ const pages = [
      {name: "Contact WCRA", url: "/ContactUs"},
      {name: "References", url: "/References"},
      {name: "Member Page", url: "/MemberPage"},
+     {name: 'Calendar', url: '/Calendar'}
  ]
 
 
@@ -33,7 +34,6 @@ const NavBar = (props) => {
                 }
               })
             }
-            <NavLink to='/Calendar' key='calendar' >Calendar</NavLink>
         </div>
     )
 }

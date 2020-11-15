@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchLastAnnouncement } from '../../redux/announcements';
+import FoxHunting from '../Activities/FoxHunting';
 import { makePost } from '../singlepages/News';
 import Agenda from './Agenda';
 
@@ -19,8 +20,11 @@ class Home extends React.Component {
         <div className="Title">WCRA's Home On The Web - W9CCU</div>
 
         <div className="Content">
+            <div>
           <div id="newsHolder"></div>
           <Agenda />
+          <FoxHunting />
+          </div>
           <div>
             <h1>At First Glance</h1>
 

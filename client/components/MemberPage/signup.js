@@ -4,6 +4,10 @@ import {signUp} from '../../redux/user'
 
 const SignUpForm = props =>{
     return (
+        <div>
+        <div class="Title">Sign Up</div>
+    
+        <div className="Content">
         <form onSubmit={props.handleSubmit} id="login">
             <div>
             <div>
@@ -20,7 +24,7 @@ const SignUpForm = props =>{
             </div>
             <button type='submit'>Signup</button>
             </div>
-        </form>
+        </form></div></div>
     )
 }
 

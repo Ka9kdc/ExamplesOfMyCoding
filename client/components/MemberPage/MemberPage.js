@@ -13,13 +13,19 @@ class MemberPage extends React.Component {
     
     render(){
         if (!this.props.user.id) {
-            return <div><LoginForm /></div>
+            return  (<div>
+            <div class="Title">Member Page</div>
+    
+            <div className="Content"><LoginForm /></div></div>)
         } else {
            return ( <div>
+                <div class="Title">Member Page</div>
+    
+    <div className="Content">
             <h1>Welcome Back {this.props.user.Callsign}!</h1>
             <NewPost />
             <button onClick={() => this.props.logout()} >Logout</button>
-            
+            </div>
             </div>
            )
         }

@@ -11,6 +11,7 @@ export const makePost = (announcement) => {
     post.className = 'NewsItem'
     return post
 }
+
 class News extends React.Component {
     componentDidMount(){
         this.props.getNewsFeed()
@@ -23,7 +24,9 @@ class News extends React.Component {
                 feed.prepend(newPost)
             })
         }
-        return <div id='feed'></div>
+        return (<div><div class="Title">Keep Up To Date</div>
+
+        <div class="Content"><div id='feed'></div></div></div>)
        
     }
 }

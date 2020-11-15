@@ -18,6 +18,7 @@ import OfficerHistory from './AboutUs/OfficerHistory';
 import News from './singlepages/News';
 import Home from './home/Home';
 import MyCalender from './singlepages/calendar'
+import Activities from './Activities/Activities';
 
 
 
@@ -42,8 +43,9 @@ const Routes = props => {
             <Route path="/Repeaters" component={Repeaters} />
             <Route path="/OfficerHistory" component={OfficerHistory} />
             <Route path="/News" component={News} />
-            <Route path="/Home" component={Home} />
+            <Route exact path="/" component={Home} />
             <Route path="/Calendar" component={MyCalender} />
+            <Route path="/Events" component={Activities} />
 
         </Switch>
             

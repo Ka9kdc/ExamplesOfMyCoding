@@ -18,8 +18,9 @@ const LoginForm = props =>{
             </div>
             <button type='submit'>Login</button>
             </div>
+            <button><Link to="/MemberPageSignup">Sign UP</Link></button>
         </form>
-        <button><Link to="/MemberPageSignup">Sign UP</Link></button>
+        
         </div>
     )
 }
