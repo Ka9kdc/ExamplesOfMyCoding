@@ -74,6 +74,7 @@ export const placeTickets = (order, history) => {
 const cartReducer = (shoppingCart = initialState, action) =>{
     switch (action.type) {
         case ADD_PRODUCT_TO_CART:
+            const updateTotal = shoppingCart.total +  (action.product.price * action.product.qty)
             return { cart:[...shoppingCart.cart, action.product], total: updateTotal};
         case REMOVE_PRODUCT_FROM_CART:
             const updatedCart = shoppingCart.cart.filter(item =>{

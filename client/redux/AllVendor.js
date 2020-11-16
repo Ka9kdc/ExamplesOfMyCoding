@@ -14,7 +14,7 @@ const allVendor = vendors => {
 export const fetchAllVendors = () => {
     return async dispatch => {
         try{
-            const res = await axios.get('/api/hamfest/vendors')
+            const res = await axios.get('/api/hamfest/vendor/all')
             const vendors = res.data || defaultVendors
             dispatch(allVendor(vendors))
         }catch (error){

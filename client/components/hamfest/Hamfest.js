@@ -5,7 +5,7 @@ import Sponsors from './Sponsors'
 const Hamfest = props => {
     return (
         <div>
-        <div className="Title">WCRA 2021 Mid-Winter Hamfest - WILL BE GONE VIRTUAL</div>
+        <div className="Title">WCRA 2021 Mid-Winter Hamfest - WILL BE VIRTUAL</div>
 
 <div className="Content">
 <div className="Subtitle" style={{textAlign: "center"}}>Ham Radio, Computer, and Hobby Electronics Flea Market</div>
@@ -24,9 +24,9 @@ const Hamfest = props => {
 	{/* <li>Food Vendor</li> */}
 </ul>
 </div>
-<div>
+<div >
 <h2>Forums for the 2021 Hamfest</h2>
-<ul><li>TBA</li></ul>
+<ul className="Presenter"><li>TBA</li></ul>
 </div>
 <div>
     <h2>General Admission</h2>
