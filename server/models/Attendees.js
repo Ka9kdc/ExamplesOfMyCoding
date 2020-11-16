@@ -1,94 +1,93 @@
-const Sequelize = require("sequelize");
-const db = require("./db")
+const Sequelize = require('sequelize');
+const db = require('./db');
 
-const Attendee = db.define('attendee',{
-    Name:{
-        type: Sequelize.STRING,
-        allowNull: false,
-        validate: {
-            notEmpty: true,
-            isAlpha: true
-        }
+const Attendee = db.define('attendee', {
+  Name: {
+    type: Sequelize.STRING,
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+      isAlpha: true,
     },
-    Callsign: {
-        type: Sequelize.STRING,
-        validate: {
-            isAlphanumeric: true,
-            is: /^[AaWaKkNn][a-zA-Z]?[0-9][a-zA-Z]{1,3}$/
-        }
+  },
+  Callsign: {
+    type: Sequelize.STRING,
+    validate: {
+      isAlphanumeric: true,
+      is: /^[AaWaKkNn][a-zA-Z]?[0-9][a-zA-Z]{1,3}$/,
     },
-    Phone: {
-        type: Sequelize.STRING,
-        validate: {
-            is: /((\(\d{3}\)?)|(\d{3}))([\s-./]?)(\d{3})([\s-./]?)(\d{4})/i,
-        }
+  },
+  Phone: {
+    type: Sequelize.STRING,
+    validate: {
+      is: /((\(\d{3}\)?)|(\d{3}))([\s-./]?)(\d{3})([\s-./]?)(\d{4})/i,
     },
-    Street: {
-        type: Sequelize.STRING,
-        validate: {
-            not: /^[-!$%^&*()_+|~=`{}[:;<>?@#\]]/g
-        }
+  },
+  Street: {
+    type: Sequelize.STRING,
+    validate: {
+      not: /^[-!$%^&*()_+|~=`{}[:;<>?@#\]]/g,
     },
-    City: {
-        type: Sequelize.STRING,
-        validate: {
-            not: /^[-!$%^&*()_+|~=`{}[:;<>?,@#\]]/g
-        }
+  },
+  City: {
+    type: Sequelize.STRING,
+    validate: {
+      not: /^[-!$%^&*()_+|~=`{}[:;<>?,@#\]]/g,
     },
-    State: {
-        type: Sequelize.STRING,
-        validate: {
-            is: /^(?:(A[KLRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|P[AR]|RI|S[CD]|T[NX]|UT|V[AIT]|W[AIVY]))$/
-        }
+  },
+  State: {
+    type: Sequelize.STRING,
+    validate: {
+      is: /^(?:(A[KLRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|P[AR]|RI|S[CD]|T[NX]|UT|V[AIT]|W[AIVY]))$/,
     },
-    Zip: {
-        type: Sequelize.INTEGER,
-        validate: {
-            is: /^\d{5}(-\d{4})?$/
-        }
+  },
+  Zip: {
+    type: Sequelize.INTEGER,
+    validate: {
+      is: /^\d{5}(-\d{4})?$/,
     },
-    Email: {
-        type: Sequelize.STRING,
-        validate: {
-            isEmail: true,
-        }
+  },
+  Email: {
+    type: Sequelize.STRING,
+    validate: {
+      isEmail: true,
     },
-    OrderDate: {
-        type: Sequelize.DATE,
-        validate: {
-            notEmpty: true
-        }
-    }
-})
-
+  },
+  OrderDate: {
+    type: Sequelize.DATE,
+    validate: {
+      notEmpty: true,
+    },
+  },
+});
 
 const Ticket = db.define('ticket', {
-    Tickets:{
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        validate: {
-            notEmpty: true,
-            min: 1
-        }
+  Tickets: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+      min: 1,
     },
-    Raffle:{
-        type: Sequelize.INTEGER
+  },
+  Raffle: {
+    type: Sequelize.INTEGER,
+  },
+  Amount: {
+    type: Sequelize.DECIMAL,
+    validate: {
+      notEmpty: true,
     },
-    Amount:{
-        type: Sequelize.DECIMAL,
-        validate: {
-            notEmpty: true
-        }
+  },
+  OrderDate: {
+    type: Sequelize.DATE,
+    validate: {
+      notEmpty: true,
     },
-    OrderDate: {
-        type: Sequelize.DATE,
-        validate: {
-            notEmpty: true
-        }
-    }
-})
+  },
+});
 
 module.exports = {
-    Attendee,
-    Ticket,
-}
+  Attendee,
+  Ticket,
+};
