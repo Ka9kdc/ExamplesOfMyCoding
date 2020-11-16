@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux'
+import moment from 'moment'
 
 const PublicServiceEvents = (props) => {
   const publicService = props.serviceEvents.filter(
@@ -27,16 +28,16 @@ const PublicServiceEvents = (props) => {
         {publicService && 
           publicService.map((service) => {
             return (
-              <div className="NewsItem">
+              <div className="NewsItem" key={service.id}>
                 <h3>{service.Name}</h3>
                 <p>
                   {' '}
-                  {moment(special.Start).format('LL')} from{' '}
-                  {moment(special.Start).format('LT')} to
-                  {moment(special.End).format('LT')}
+                  {moment(service.Start).format('LL')} from{' '}
+                  {moment(service.Start).format('LT')} to
+                  {moment(service.End).format('LT')}
                 </p>
-                <p>Where: {special.Location}</p>
-                <p>{special.Description}</p>
+                <p>Where: {service.Location}</p>
+                <p>{service.Description}</p>
               </div>
             );
           })}

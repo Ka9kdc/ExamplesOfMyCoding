@@ -19,6 +19,7 @@ import News from './singlepages/News';
 import Home from './home/Home';
 import MyCalender from './singlepages/calendar'
 import Activities from './Activities/Activities';
+import Training from './Training/Training';
 
 
 
@@ -31,7 +32,7 @@ const Routes = props => {
             <Route path="/Membership" component={Membership} />
             <Route path="/membershipConfirmation" component={MembershipConfirmation} />
             <Route path="/membershipForm" component={MembershipForm} />
-            <Route path="/hamfestStore" component={HamfestStore} />
+            <Route path="/HamfestStore" component={HamfestStore} />
             <Route path="/hamfestCheckout" component={Checkout} />
             <Route path='/hamfestConfirmation' component={HamfestConfirmation} />
             <Route path='/memberPage' component={MemberPage} />
@@ -46,6 +47,7 @@ const Routes = props => {
             <Route exact path="/" component={Home} />
             <Route path="/Calendar" component={MyCalender} />
             <Route path="/Events" component={Activities} />
+            <Route path="/Training" component={Training} />
 
         </Switch>
             

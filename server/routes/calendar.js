@@ -41,7 +41,31 @@ router.get('/month', async (req, res, next) => {
   }
 });
 
-
+router.get('/training', async (req, res, next) => {
+  try {
+    const today = new Date();
+    const events = await CalendarEvent.findAll({
+      where: {
+        [Op.and]: [
+          {
+            Start: {
+              [Op.gte]: today,
+            },
+          },
+          {
+            Type: {
+              [Op.or]: ['Training Class', 'Testing']
+            }
+          },
+        ],
+      },
+      order: [['Start', 'ASC']],
+    });
+    res.send(events);
+  } catch (error) {
+    next(error);
+  }
+});
 
 
 

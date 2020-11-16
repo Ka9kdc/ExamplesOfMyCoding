@@ -43,7 +43,17 @@ export const fetchMonthsEvents = () => {
     }
 }
 
-
+export const fetchTrainingEvents = () => {
+    return async dispatch => {
+        try {
+            const res = await axios.get('/api/calendar/training')
+            const calendarEvents = res.data || []
+            dispatch(setEvents(calendarEvents))
+        } catch (error) {
+            console.error(error);
+        }
+    }
+}
 
 export const submitNewEvent = (newEventInfo) => {
     return async dispatch => {

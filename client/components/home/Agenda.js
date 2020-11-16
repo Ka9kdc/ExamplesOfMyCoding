@@ -35,7 +35,6 @@ class Agenda extends React.Component {
                     <td>{moment(monthEvent.Start).format('LT')}</td>
                   )}
                   <td>{monthEvent.Location}</td>
-                  <td>{monthEvent.Description}</td>
                 </tr>
               );
             })}
