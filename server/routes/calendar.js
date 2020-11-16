@@ -54,8 +54,8 @@ router.get('/training', async (req, res, next) => {
           },
           {
             Type: {
-              [Op.or]: ['Training Class', 'Testing']
-            }
+              [Op.or]: ['Training Class', 'Testing'],
+            },
           },
         ],
       },
@@ -66,8 +66,6 @@ router.get('/training', async (req, res, next) => {
     next(error);
   }
 });
-
-
 
 router.post('/newEvent', async (req, res, next) => {
   try {
