@@ -21,7 +21,7 @@ const Membership = (props) => {
 
                 <p>Membership applications are now being accepted online with this
                     <Link to="/membershipForm"> form</Link> or a hardcopied can be
-                printed (via <a href="TextApplication.html">HTML text</a> or <a href="Document/MembershipApplicationEditedB.pdf">PDF</a>) and 
+                printed (via <Link to="TextApplication">HTML text</Link> or <a href="Document/MembershipApplicationEditedB.pdf">PDF</a>) and 
                 dues can be brought to a club meeting or mailed to the club at the following address:</p>
 
                 <AddressBlock />

@@ -19,10 +19,12 @@ body {
   min-height: 100vh;
   /* height: 100%; */
 }
+
 td {
   padding-left: 10px;
   padding-right: 10px;
 }
+
 .FullPage {
   width: 100%;
   position: absolute;
@@ -380,4 +382,19 @@ table.Chrono tr:nth-child(even) {
 
 table.Chrono td {
   padding: 0 0.8em 0 0.8em;
+}
+
+
+#textApplication {
+  border: solid 1px rgba(0, 0, 0, 0);
+  background: white;
+  width: 7.5in;
+  font-size: 13pt;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#textApplication input[type="checkbox"] {
+  width: 1.3em;
+  height: 1.3em;
 }

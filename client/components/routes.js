@@ -20,6 +20,7 @@ import Home from './home/Home';
 import MyCalender from './singlepages/calendar'
 import Activities from './Activities/Activities';
 import Training from './Training/Training';
+import TextApplication from './membership/TextApplication';
 
 
 
@@ -48,6 +49,7 @@ const Routes = props => {
             <Route path="/Calendar" component={MyCalender} />
             <Route path="/Events" component={Activities} />
             <Route path="/Training" component={Training} />
+            <Route path="/TextApplication" component={TextApplication} />
 
         </Switch>
             
