@@ -13,7 +13,7 @@ const Membership = (props) => {
                 <p><b>Full WCRA membership</b>
                 is open to anyone currently holding an Amateur Radio license of any class who is interested in the science and fraternity of
                 amateur radio. <b>Associate membership</b> is open to those who do not currently hold an amateur radio license. Read our 
-                 <a href="/Bylaws"> bylaws</a> to see how the club is run.</p>
+                 <Link to="/Bylaws"> bylaws</Link> to see how the club is run.</p>
 
                 <p>Annual dues are $26 for Full Membership, Family Memberships (same household) are $39; Senior Citizens (age 65 and over),
                     Associate memberships are $13 and Student Memberships are $13. Annual dues are due January 1st. Full dues are charged from 

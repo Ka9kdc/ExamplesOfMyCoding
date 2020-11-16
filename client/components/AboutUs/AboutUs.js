@@ -60,7 +60,7 @@ Field Day is all about!
 <h2>Amateur Radio License Classes</h2>
 
 <p>
-WCRA conducts <a href="Training.html">classes</a> for individuals interested in
+WCRA conducts <Link to="/Training">classes</Link> for individuals interested in
 obtaining an amateur radio license.
 </p>
 
@@ -74,7 +74,7 @@ Volunteer Examiners.
 <h2>Public Service Events</h2>
 
 <p>
-WCRA club members provide communication support to a number of area <a href="Events.html">public service events</a> during the year. Supported
+WCRA club members provide communication support to a number of area <Link to="/Events">public service events</Link> during the year. Supported
 events include walkathons, bikeathons, various parades, etc.
 </p>
 
@@ -96,7 +96,7 @@ of some of our folks. Stop by and see us some time!
 <h2>Hamfest</h2>
 
 <p>
-WCRA hosts a <a href="Hamfest.html">Hamfest</a> every January. This is a ham
+WCRA hosts a <Link to="/Hamfest">Hamfest</Link> every January. This is a ham
 radio, computer and hobby electronics flea market during which we host a variety
 of educational forums about Ham Radio. Visitors and persons interested in
 Amateur Radio are invited and encouraged to come out.

@@ -19,7 +19,7 @@ const Activities = (props) => {
 
           <p>
             Regular WCRA events are listed here and in our meeting minutes which
-            can be found on the <a href="Hamletter.html">hamletter page</a>.
+            can be found on the <Link to="Hamletter">hamletter page</Link>.
           </p>
 
           <h2>Meetings</h2>

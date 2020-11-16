@@ -117,7 +117,7 @@ for further club news.</h3>
             <li>No power cable or microphone included. Tested and working.</li>
         </ul>
         <h3>Club Elections</h3>
-        <p>According to the <a href="Bylaws.html">Club Bylaws</a>, the elections were to be held in April at the annual meeting.  
+        <p>According to the <Link to="/Bylaws">Club Bylaws</Link>, the elections were to be held in April at the annual meeting.  
         There are several law articles which address how Illinois Corporations can handle the annual meeting requirement. 
          The first option would for the Board to notify the shareholders. in our case the membership, the postponement of 
          the meeting and announcing the new date if one has been established.  We have previously announced that the election
@@ -283,7 +283,7 @@ for further club news.</h3>
         <p> Any paid, current, member may make a nomination. Officers up for (re)election this year are <b><u>President</u>, <u>Secretary</u>, and <u>Custodian</u></b>. Please either text, call or email said nominations to either <a href="mailto:markspoo@gmail.com">Mark Spoo</a> or <a href="mailto:kc9yfi@yahoo.com">Tim Wheeler</a>.</p>
         
         <h2>Where Are Your Dues?</h2>
-        <p>Your dues are now late. If you have not already paid your dues for the year, they can be paid at the next club meeting, through the mail or ONLINE though the <a href="Membership.html">Join WCRA</a> page.</p>
+        <p>Your dues are now late. If you have not already paid your dues for the year, they can be paid at the next club meeting, through the mail or ONLINE though the <Link to="/Membership">Join WCRA</a> page.</p>
         
         <h2> Please watch our website or <a href="https://www.facebook.com/groups/267873833946/?ref=bookmarks">Facebook</a> page for further club news. The board wishes everyone good health. Please try to stay healthy and help others in these trying times.</h2>`,
         PostDate: new Date(2020, 4, 10)
@@ -299,7 +299,7 @@ for further club news.</h3>
         <p> Any paid, current, member may make a nomination. Officers up for (re)election this year are <b><u>President</u>, <u>Secretary</u>, and <u>Custodian</u></b>. Please either text, call or email said nominations to either <a href="mailto:markspoo@gmail.com">Mark Spoo</a> or <a href="mailto:kc9yfi@yahoo.com">Tim Wheeler</a>.</p>
         
         <h2>Where Are Your Dues?</h2>
-        <p>Your dues are now late. If you have not already paid your dues for the year, they can be paid at the next club meeting, through the mail or ONLINE though the <a href="Membership.html">Join WCRA</a> page.</p>
+        <p>Your dues are now late. If you have not already paid your dues for the year, they can be paid at the next club meeting, through the mail or ONLINE though the <Link to="/Membership">Join WCRA</a> page.</p>
         
         <h2>  MAY'S MEETING - Via ZOOM</h2>
         <h3><a href="hamletter/MeetingMinutes/May_1_J_2020_Meeting_Agenda.pdf">May's meeting minutes are now online</a></h3>
@@ -346,9 +346,9 @@ for further club news.</h3>
         <p> Any paid, current, member may make a nomination. Officers up for (re)election this year are <b><u>President</u>, <u>Secretary</u>, and <u>Custodian</u></b>. Please either text, call or email said nominations to either <a href="mailto:markspoo@gmail.com">Mark Spoo</a> or <a href="mailto:kc9yfi@yahoo.com">Tim Wheeler</a>.</p>
         
         <h2>Where Are Your Dues?</h2>
-        <p>Your dues are now late. If you have not already paid your dues for the year, they can be paid at the next club meeting, through the mail or ONLINE though the <a href="Membership.html">Join WCRA</a> page.</p>
+        <p>Your dues are now late. If you have not already paid your dues for the year, they can be paid at the next club meeting, through the mail or ONLINE though the <Link to="/Membership">Join WCRA</Link> page.</p>
         
-        <h3><a href="hamletter/MeetingMinutes/march_minutes2020.pdf">March's meeting minutes are now available online.</a> We have also added the meeting minutes from the last few years to the <a href="Hamletter.html">newsletter</a> page.</h3>
+        <h3><a href="hamletter/MeetingMinutes/march_minutes2020.pdf">March's meeting minutes are now available online.</a> We have also added the meeting minutes from the last few years to the <Link to="/Hamletter">newsletter</Link> page.</h3>
         
         <h2>Raspberry Pi Class on Saturday April 4 is postponed indefinitely.</h2>
         <p>The Raspberry Pi program that was to be held at Addison fire district station number 72 on April 4th has been canceled due to a concern regarding the coronavirus. The date will be were rescheduled in the future, Once this issue has been resolved. If you have any questions please feel free to contact <a href="mailto:markspoo@gmail.com">Mark Spoo</a>.</p>
@@ -366,9 +366,9 @@ for further club news.</h3>
         <p>The April Program will be an intro to the Raspberry Pi for Amateur Radio.</p>
         
         <h2>Where Are Your Dues?</h2>
-        <p>Your dues are now late. If you have not already paid your dues for the year, they can be paid at the next club meeting, through the mail or ONLINE though the <a href="Membership.html">Join WCRA</a> page.</p>
+        <p>Your dues are now late. If you have not already paid your dues for the year, they can be paid at the next club meeting, through the mail or ONLINE though the <Link to="/Membership">Join WCRA</Link> page.</p>
         
-        <h3><a href="hamletter/MeetingMinutes/march_minutes2020.pdf">March's meeting minutes are now available online.</a> We have also added the meeting minutes from the last few years to the <a href="Hamletter.html">newsletter</a> page.</h3>
+        <h3><a href="hamletter/MeetingMinutes/march_minutes2020.pdf">March's meeting minutes are now available online.</a> We have also added the meeting minutes from the last few years to the <Link to="/Hamletter">newsletter</Link> page.</h3>
         
         <h1>Raspberry Pi Class on Saturday April 4 is postponed indefinitely</h1>
         <p>The Raspberry Pi program that was to be held at Addison fire district station number 72 on April 4th has been canceled due to a concern regarding the coronavirus. The date will be were rescheduled in the future, Once this issue has been resolved. If you have any questions please feel free to contact <a href="mailto:markspoo@gmail.com">Mark Spoo</a>.</p>
@@ -389,9 +389,9 @@ for further club news.</h3>
         <p>David Byrne, KC9ZVD is the Emergency Communications Coordinator of The Salvation Army  Metropolitan Division.  He has served on a number of large scale disaster teams including hurricanes Harvey and Michael. Among his duties David is the Divisional SATERN Coordinator. David is an active ham with experience in broadcasting."</p>
         
         <h2>Where Are Your Dues?</h2>
-        <p>The March membership meeting is when we have to cough up the annual dues. If you have not already taken care of this, it can be paid at the next club meeting, through the mail or ONLINE though the <a href="Membership.html">Join WCRA</a> page.</p>
+        <p>The March membership meeting is when we have to cough up the annual dues. If you have not already taken care of this, it can be paid at the next club meeting, through the mail or ONLINE though the <Link to="/Membership">Join WCRA</Link> page.</p>
         
-        <h3><a href="hamletter/MeetingMinutes/February_7_2020_Meeting_Agenda.pdf">February's meeting minutes are now available online.</a> We have also added the meeting minutes from the last few years to the <a href="Hamletter.html">newsletter</a> page.</h3>
+        <h3><a href="hamletter/MeetingMinutes/February_7_2020_Meeting_Agenda.pdf">February's meeting minutes are now available online.</a> We have also added the meeting minutes from the last few years to the <Link to="/Hamletter">newsletter</Link> page.</h3>
                                                  
         <h2><a href="https://www.facebook.com/groups/267873833946/?ref=bookmarks">Click here for WCRA's Facebook Page</a></h2>`,
         PostDate: new Date(2020, 2, 1)
@@ -407,17 +407,17 @@ for further club news.</h3>
         <h4>We were not deterred by the snow, cold, wind or rain.</h4>
         <p> The WCRA Hamfest Committee would like to thank all of the volunteers who donated their time to make this one of the best shows ever.</p>
         <p></i></b></p>
-        <h2>Membership is Due. It can be paid at the next club meeting, through the mail or ONLINE though the <a href="Membership.html">Join WCRA</a> page.<h2>
+        <h2>Membership is Due. It can be paid at the next club meeting, through the mail or ONLINE though the <Link to="/Membership">Join WCRA</Link> page.<h2>
         <h2><a href="https://www.facebook.com/groups/267873833946/?ref=bookmarks">Click here for WCRA's Facebook Page</a></h2>`,
         PostDate: new Date(2020, 1, 1)
     },{
         borderColor: '1e5631',
         backgroundColor: '#fdebd0',
         message: `<h1> 2020 Hamfest </h1>
-        <p> January 19, 2020 at the Kane County Fairgrounds. Kelsey has flyers and tickets. Click on the <a href="Hamfest.html">Hamfest</a> button above for updated information.</p>
+        <p> January 19, 2020 at the Kane County Fairgrounds. Kelsey has flyers and tickets. Click on the <Link to="/Hamfest">Hamfest</Link> button above for updated information.</p>
         <p>Tickets and Tables can now be ordered through our website.</p>
         <h2>Membership Dues</h2>
-        <p>Membership dues are due January 1st. They can be paid at the next club meeting, through the mail or online though the <a href="Membership.html">Join WCRA</a> page.</p>                                      
+        <p>Membership dues are due January 1st. They can be paid at the next club meeting, through the mail or online though the <Link to="/Membership">Join WCRA</Link> page.</p>                                      
         <h2><a href="https://www.facebook.com/groups/267873833946/?ref=bookmarks">Click here for WCRA's Facebook Page</a></h2>`,
         PostDate: new Date(2019, 11, 16)
     },{
