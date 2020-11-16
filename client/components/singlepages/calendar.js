@@ -16,7 +16,6 @@ class MyCalender extends React.Component {
   }
 
   render() {
-    console.log(this.props.user);
     if (this.props.myEventsList.length) {
       return (
         <div>

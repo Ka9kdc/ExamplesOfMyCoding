@@ -2,22 +2,24 @@ import React from 'react';
 
 const FoxHunting = (props) => {
   return (
-    <div className="Isolated" style={{color: "darkgreen", backgroundColor: "#E0FFE0"}}>
-      <div className="Announcement">
-        Saturday Night Fox Hunting
+    <div
+      className="Isolated"
+      style={{ color: 'darkgreen', backgroundColor: '#E0FFE0' }}
+    >
+      <div className="Announcement">Saturday Night Fox Hunting</div>
+      <div>
+        <p>
+          <b>Fox Hunting</b> is a just-for-fun activity in which the "hunters"
+          use radio direction finding (RDF) techniques to locate a transmitter
+          within a fixed geographical boundary.
+        </p>
+
+        <p>
+          Hunters gather about a half hour before the hunt. Everyone is invited
+          to participate or ride along (call in advance). All hunts start at
+          8PM.
+        </p>
       </div>
-
-      <p>
-        <b>Fox Hunting</b> is a just-for-fun activity in which the "hunters" use
-        radio direction finding (RDF) techniques to locate a transmitter within
-        a fixed geographical boundary.
-      </p>
-
-      <p>
-        Hunters gather about a half hour before the hunt. Everyone is invited to
-        participate or ride along (call in advance). All hunts start at 8PM.
-      </p>
-
       <table>
         <tbody>
           <tr>
@@ -57,4 +59,4 @@ const FoxHunting = (props) => {
   );
 };
 
-export default FoxHunting
+export default FoxHunting;

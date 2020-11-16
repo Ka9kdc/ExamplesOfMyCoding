@@ -9,7 +9,6 @@ class OfficerHistory extends React.Component {
     }
 
     render() {
-        console.log(this.props.officers)
         return (
             <div>
                 <div className="Title">Past Officers/Executive Boards</div>

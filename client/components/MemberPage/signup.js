@@ -5,9 +5,11 @@ import { signUp } from '../../redux/user';
 const SignUpForm = (props) => {
   return (
     <div>
-                  <div className="Title">Member Page</div>
+      <div className="Title">Member Page</div>
 
-        <div className="Subtitle" style={{textAlign: "center"}}>Sign Up</div>
+      <div className="Subtitle" style={{ textAlign: 'center' }}>
+        Sign Up
+      </div>
 
       <div className="Content">
         <form onSubmit={props.handleSubmit} id="login">

@@ -68,14 +68,19 @@ router.get('/vendor/all', async (req, res, next) => {
       order: [['Start', 'ASC']],
       limit: 1,
     });
-    const periodStart = new Date(hamfestDate[0].End.setFullYear(hamfestDate[0].End.getFullYear() -1))
-    const periodEnd = hamfestDate[0].Start
-    const vendors = await Vendor.findAll({where: {
+    const periodStart = new Date(
+      hamfestDate[0].End.setFullYear(hamfestDate[0].End.getFullYear() - 1)
+    );
+    const periodEnd = hamfestDate[0].Start;
+    const vendors = await Vendor.findAll({
+      where: {
         OrderDate: {
-            [Op.between]: [periodStart, periodEnd]
-        }
-    }})
-    res.send(vendors)
+          [Op.between]: [periodStart, periodEnd],
+        },
+      },
+      attributes: ['Company', 'Name'],
+    });
+    res.send(vendors);
   } catch (error) {
     next(error);
   }

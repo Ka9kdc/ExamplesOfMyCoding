@@ -3,7 +3,7 @@ import Agenda from '../home/Agenda';
 import FoxHunting from './FoxHunting';
 import PublicServiceEvents from './PublicServiceEvents';
 import SpecialEvents from './SpecialEvents';
-
+import { Link } from 'react-router-dom';
 
 const Activities = (props) => {
   return (
@@ -21,24 +21,25 @@ const Activities = (props) => {
             Regular WCRA events are listed here and in our meeting minutes which
             can be found on the <Link to="Hamletter">hamletter page</Link>.
           </p>
+          <div>
+            <h2>Meetings</h2>
 
-          <h2>Meetings</h2>
+            <p>
+              WCRA meets the first Friday of most months at the First
+              Presbyterian Church in Wheaton at 7:30 PM. WCRA was founded in
+              1948 and continues to be involved in all facets of Amateur Radio,
+              supporting the healthy growth of the hobby through diversification
+              and participation.
+            </p>
 
-          <p>
-            WCRA meets the first Friday of most months at the First Presbyterian
-            Church in Wheaton at 7:30 PM. WCRA was founded in 1948 and continues
-            to be involved in all facets of Amateur Radio, supporting the
-            healthy growth of the hobby through diversification and
-            participation.
-          </p>
-
-          <p>
-            Our members have always been our most important asset and we would
-            like to see you join us for our next meeting. Our business meetings
-            are followed by a break for conversation, coffee, soda pop, and
-            snacks. This is followed by an amateur radio related program. Come
-            to a meeting and share the enthusiasm!
-          </p>
+            <p>
+              Our members have always been our most important asset and we would
+              like to see you join us for our next meeting. Our business
+              meetings are followed by a break for conversation, coffee, soda
+              pop, and snacks. This is followed by an amateur radio related
+              program. Come to a meeting and share the enthusiasm!
+            </p>
+          </div>
         </div>
         <FoxHunting />
         <div>

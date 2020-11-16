@@ -127,7 +127,7 @@ export const submitFamilyMember = (memberInfo) => {
 }
 
 export const payment = (memberInfo, history) => {
-    console.log(memberInfo)
+    // console.log(memberInfo)
     return () => {
         axios.post('/api/membership/payment', memberInfo)
         .then(payment => history.push('/membership'))

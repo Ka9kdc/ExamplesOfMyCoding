@@ -13,21 +13,23 @@ const SpecialEvents = (props) => {
       style={{ borderColor: 'blue', backgroundColor: '#ECF4FF' }}
     >
       <h2> Special Events</h2>
-      {specialEvents &&
-        specialEvents.map((special) => {
-          return (
-            <div key={special.id} className="NewsItem">
-              <h2>{special.Name}</h2>
-              <p>
-                {moment(special.Start).format('LL')} from{' '}
-                {moment(special.Start).format('LT')} to
-                {moment(special.End).format('LT')}
-              </p>
-              <p>Where: {special.Location}</p>
-              <p>{special.Description}</p>
-            </div>
-          );
-        })}
+      <div>
+        {specialEvents &&
+          specialEvents.map((special) => {
+            return (
+              <div key={special.id} className="NewsItem">
+                <h2>{special.Name}</h2>
+                <p>
+                  {moment(special.Start).format('LL')} from{' '}
+                  {moment(special.Start).format('LT')} to
+                  {moment(special.End).format('LT')}
+                </p>
+                <p>Where: {special.Location}</p>
+                <p>{special.Description}</p>
+              </div>
+            );
+          })}
+      </div>
     </div>
   );
 };
