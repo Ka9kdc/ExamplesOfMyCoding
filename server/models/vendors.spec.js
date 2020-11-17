@@ -2,7 +2,7 @@ const { expect } = require('chai');
 const db = require('./db');
 const { Vendor } = require('./vendors');
 
-//Still missing phone number, Due year, and SpecialRequests type tests
+//Still missing phone number, OrderDate, and SpecialRequests type tests
 describe('Vendor Model', () => {
   before(() => db.sync({ force: true }));
 
