@@ -6,9 +6,9 @@ const Payment = require('./payment');
 const { Attendee, Ticket } = require('./Attendees');
 const { Vendor, Order } = require('./vendors');
 const Product = require('./products');
-const User = require('./User');
+const User = require('./PassingTests//User');
 const OfficerHistory = require('./OfficerHistory');
-const Annoucement = require('./Annoucement');
+const Annoucement = require('./PassingTests/Annoucement');
 const CalendarEvent = require('./Events');
 
 User.belongsTo(Member);

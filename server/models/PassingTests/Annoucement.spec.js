@@ -1,6 +1,8 @@
-const { expect } = require('chai');
-const db = require('./db');
+const { expect, assert } = require('chai');
+const db = require('../db');
 const Annoucement = require('./Annoucement');
+
+//Done for now passing all tests
 
 describe('Annoucement', () => {
   before(() => db.sync({ force: true }));
@@ -44,7 +46,7 @@ describe('Annoucement', () => {
         expect(err.message).to.contain('borderColor cannot be null');
       }
     });
-    xit('cannot be an empty string', async () => {
+    it('cannot be an empty string', async () => {
       newAnnoucement.borderColor = '';
       const testAnnoucement = await Annoucement.build(newAnnoucement);
       try {
@@ -75,7 +77,7 @@ describe('Annoucement', () => {
         expect(err.message).to.contain('backgroundColor cannot be null');
       }
     });
-    xit('cannot be an empty string', async () => {
+    it('cannot be an empty string', async () => {
       newAnnoucement.backgroundColor = '';
       const testAnnoucement = await Annoucement.build(newAnnoucement);
       try {
@@ -89,7 +91,7 @@ describe('Annoucement', () => {
     });
   });
   describe('message', () => {
-    it('message is a test', async () => {
+    it('message is a text', async () => {
       const testAnnoucement = await Annoucement.create(newAnnoucement);
       expect(testAnnoucement.message).to.equal(
         'asdf asdf asdf asdf asdf asdf asdf asdf'
@@ -108,7 +110,7 @@ describe('Annoucement', () => {
         expect(err.message).to.contain('message cannot be null');
       }
     });
-    xit('cannot be empty', async () => {
+    it('cannot be empty', async () => {
       newAnnoucement.message = '';
       const testAnnoucement = await Annoucement.build(newAnnoucement);
       try {
@@ -116,6 +118,35 @@ describe('Annoucement', () => {
         throw Error('validation should have failed with empty message');
       } catch (err) {
         expect(err.message).to.contain('Validation notEmpty on message failed');
+      }
+    });
+  });
+  describe('Post Date', () => {
+    it('Date is a date', async () => {
+      const testAnnoucement = await Annoucement.create(newAnnoucement);
+      assert.deepEqual(testAnnoucement.PostDate, newAnnoucement.PostDate);
+    });
+    it('cannot be null', async () => {
+      const testAnnoucement = await Annoucement.build({
+          borderColor: 'ff0000',
+          backgroundColor: '00ff00',
+          message: 'asdf asdf asdf asdf asdf asdf asdf asdf',
+      });
+      try {
+        await testAnnoucement.validate();
+        throw Error('validation should have failed without a post date');
+      } catch (err) {
+        expect(err.message).to.contain('PostDate cannot be null');
+      }
+    });
+    it('cannot be empty', async () => {
+      newAnnoucement.PostDate = '';
+      const testAnnoucement = await Annoucement.build(newAnnoucement);
+      try {
+        await testAnnoucement.validate();
+        throw Error('validation should have failed with empty post date');
+      } catch (err) {
+        expect(err.message).to.contain('Validation notEmpty on PostDate failed');
       }
     });
   });

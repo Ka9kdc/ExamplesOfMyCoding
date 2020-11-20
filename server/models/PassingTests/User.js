@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const crypto = require('crypto');
 const _ = require('lodash');
-const db = require('./db');
+const db = require('../db');
 
 //Q: Loggin in with callsign or email?
 const User = db.define('user', {
@@ -24,6 +24,10 @@ const User = db.define('user', {
   },
   name: {
     type: Sequelize.STRING,
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
   },
   password: {
     type: Sequelize.STRING,
