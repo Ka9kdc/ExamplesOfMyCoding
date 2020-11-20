@@ -92,6 +92,8 @@ const Member = db.define('member', {
     allowNull: false,
     validate: {
       notEmpty: true,
+      min: 2020,
+      max: 2050
     },
   },
   RenewalDate: {

@@ -1,5 +1,5 @@
 const { expect } = require('chai');
-const db = require('./db');
+const db = require('../db');
 const { Attendee } = require('./Attendees');
 
 //Still missing phone number, tests

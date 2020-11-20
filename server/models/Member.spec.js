@@ -19,7 +19,7 @@ describe('Member Model', () => {
       Zip: 60606,
       Membership: 'Full',
       Email: 'abcde123@abc.com',
-      DueYear: '2020',
+      DueYear: 2020,
       RenewalDate: new Date(),
     };
   });
@@ -366,7 +366,6 @@ describe('Member Model', () => {
       expect(testMember.Phone).to.equal('123.456.7890');
     });
   });
-  
   describe('Street', () => {
     it('Street is a string', async () => {
       const hannah = await Member.create(newMember);
@@ -421,7 +420,7 @@ describe('Member Model', () => {
       }
     });
   });
-  describe('city', () => {
+  describe('City', () => {
     it('City is a string', async () => {
       const hannah = await Member.create(newMember);
       expect(hannah.City).to.equal('st upidtown');
@@ -696,6 +695,74 @@ describe('Member Model', () => {
       }
     });
   });
+  describe('Due Year', () => {
+    it('Due year is a number', async () => {
+      const hannah = await Member.create(newMember);
+      expect(hannah.DueYear).to.equal(2020)
+    })
+    it('cannot be null', async () => {
+      const testMember = Member.build({
+        FirstName: 'Hannah',
+        LastName: 'Green',
+        Callsign: 'Ka9ddd',
+        Phone: 1234567890,
+        Street: '123 happy lane',
+        City: 'st upidtown',
+        State: 'MA',
+        Zip: 60606,
+        Membership: 'Full',
+        RenewalDate: new Date(),
+        email: 'cody@email.com'
+
+      });
+      try {
+        await testMember.validate();
+        throw Error('validation should have failed without a dueYear');
+      } catch (err) {
+        expect(err.message).to.contain('DueYear cannot be null');
+      }
+    })
+    it('cannot be empty', async () => {
+      newMember.DueYear = ''
+      const testMember = await Member.build(newMember)
+      try {
+        await testMember.validate();
+        throw Error('validation should have failed with empty DueYear');
+      } catch (err) {
+        expect(err.message).to.contain('Validation notEmpty on DueYear failed');
+      }
+    });
+    xit('must be a number', async () => {
+      newMember.DueYear = 'hello world'
+      const testMember = await Member.build(newMember)
+      try {
+        await testMember.validate();
+        throw Error('validation should have failed with a string');
+      } catch (err) {
+        expect(err.message).to.contain('Validation on DueYear failed');
+      }
+    });
+    it('must be a after 2020', async () => {
+      newMember.DueYear = 1990
+      const testMember = await Member.build(newMember)
+      try {
+        await testMember.validate();
+        throw Error('validation should have failed with a number smaller then 2020');
+      } catch (err) {
+        expect(err.message).to.contain('Validation min on DueYear failed');
+      }
+    });
+    it('must be before 2050', async () => {
+      newMember.DueYear = 30000
+      const testMember = await Member.build(newMember)
+      try {
+        await testMember.validate();
+        throw Error('validation should have failed with large number');
+      } catch (err) {
+        expect(err.message).to.contain('Validation max on DueYear failed');
+      }
+    });
+  })
   describe('Renewal Date', () => {
     it('Renewal Date is a date', async () => {
       const hannah = await Member.create(newMember);
