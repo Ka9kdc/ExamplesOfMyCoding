@@ -29,6 +29,7 @@ const Annoucement = db.define('annoucement', {
     type: sequelize.DATE,
     allowNull: false,
     validate: {
+      isDate: true,  
       notEmpty: true
     }
   },

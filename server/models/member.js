@@ -96,6 +96,11 @@ const Member = db.define('member', {
   },
   RenewalDate: {
     type: Sequelize.DATE,
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+      isDate: true, 
+    },
   },
 });
 

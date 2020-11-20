@@ -122,7 +122,7 @@ describe('Annoucement', () => {
     });
   });
   describe('Post Date', () => {
-    it('Date is a date', async () => {
+    it('Post Date is a date', async () => {
       const testAnnoucement = await Annoucement.create(newAnnoucement);
       assert.deepEqual(testAnnoucement.PostDate, newAnnoucement.PostDate);
     });
@@ -149,5 +149,16 @@ describe('Annoucement', () => {
         expect(err.message).to.contain('Validation notEmpty on PostDate failed');
       }
     });
+    it('must be a date', async () => {
+      newAnnoucement.PostDate = 'Hello world'
+      const testAnnoucement = await Annoucement.build(newAnnoucement);
+      try {
+        await testAnnoucement.validate();
+        throw Error('validation should have failed with a string');
+      } catch (err) {
+        expect(err.message).to.contain('Validation isDate on PostDate failed');
+      }
+
+   })
   });
 });

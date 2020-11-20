@@ -1,10 +1,9 @@
 const { expect, assert } = require('chai');
-const { test } = require('mocha');
 const db = require('./db');
 const { Member } = require('./member');
 
-//Still missing phone number, Due year, and membership type tests
-describe.only('Member Model', () => {
+//Still missing Due year, and membership type tests
+describe('Member Model', () => {
   before(() => db.sync({ force: true }));
 
   let newMember;
@@ -697,4 +696,51 @@ describe.only('Member Model', () => {
       }
     });
   });
+  describe('Renewal Date', () => {
+    it('Renewal Date is a date', async () => {
+      const hannah = await Member.create(newMember);
+      assert.deepEqual(hannah.RenewalDate, newMember.RenewalDate)
+    })
+    it('cannot be null', async () => {
+      const testMember = Member.build({
+        FirstName: 'Hannah',
+        LastName: 'Green',
+        Callsign: 'Ka9ddd',
+        Phone: 1234567890,
+        Street: '123 happy lane',
+        City: 'st upidtown',
+        State: 'MA',
+        Zip: 60606,
+        Membership: 'Full',
+        DueYear: '2020',
+       email: 'cody@email.com'
+      });
+      try {
+        await testMember.validate();
+        throw Error('validation should have failed without a date');
+      } catch (err) {
+        expect(err.message).to.contain('RenewalDate cannot be null');
+      }
+    })
+    it('cannot be empty', async () => {
+      newMember.RenewalDate = ''
+      const testMember = await Member.build(newMember)
+      try {
+        await testMember.validate();
+        throw Error('validation should have failed with empty Renewal date');
+      } catch (err) {
+        expect(err.message).to.contain('Validation notEmpty on RenewalDate failed');
+      }
+    });
+    it('must be a date', async () => {
+      newMember.RenewalDate = 'hello world'
+      const testMember = await Member.build(newMember)
+      try {
+        await testMember.validate();
+        throw Error('validation should have failed with a string');
+      } catch (err) {
+        expect(err.message).to.contain('Validation isDate on RenewalDate failed');
+      }
+    });
+  })
 });

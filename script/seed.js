@@ -51,6 +51,7 @@ const seed = async () => {
   try {
     await db.sync({ force: true });
     await User.create({
+      name: 'Kelsey',
       Callsign: 'ka9kdc',
       password: '12345',
       email: 'ka9kdc@gmail.com',
