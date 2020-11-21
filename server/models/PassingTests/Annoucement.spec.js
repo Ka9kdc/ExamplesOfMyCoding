@@ -4,7 +4,7 @@ const Annoucement = require('./Annoucement');
 
 //Done for now passing all tests
 
-describe('Annoucement', () => {
+describe.only('Annoucement', () => {
   before(() => db.sync({ force: true }));
   let newAnnoucement;
   beforeEach(() => {
@@ -32,6 +32,8 @@ describe('Annoucement', () => {
     it('borderColor', async () => {
       const testAnnoucement = await Annoucement.create(newAnnoucement);
       expect(testAnnoucement.borderColor).to.equal('ff0000');
+      expect(typeof testAnnoucement.borderColor).to.be('string')
+
     });
     it('cannot be null', async () => {
       const testAnnoucement = await Annoucement.build({
@@ -63,6 +65,8 @@ describe('Annoucement', () => {
     it('backgroundColor is a string', async () => {
       const testAnnoucement = await Annoucement.create(newAnnoucement);
       expect(testAnnoucement.backgroundColor).to.equal('00ff00');
+      expect(typeof testAnnoucement.backgroundColor).to.be('string')
+
     });
     it('cannot be null', async () => {
       const testAnnoucement = await Annoucement.build({
@@ -96,6 +100,8 @@ describe('Annoucement', () => {
       expect(testAnnoucement.message).to.equal(
         'asdf asdf asdf asdf asdf asdf asdf asdf'
       );
+      expect(typeof testAnnoucement.message).to.be('string')
+
     });
     it('cannot be null', async () => {
       const testAnnoucement = await Annoucement.build({
@@ -125,6 +131,7 @@ describe('Annoucement', () => {
     it('Post Date is a date', async () => {
       const testAnnoucement = await Annoucement.create(newAnnoucement);
       assert.deepEqual(testAnnoucement.PostDate, newAnnoucement.PostDate);
+      expect(typeof testAnnoucement.PostDate).to.be('object')
     });
     it('cannot be null', async () => {
       const testAnnoucement = await Annoucement.build({
