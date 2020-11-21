@@ -13,6 +13,7 @@ const Vendor = db.define('vendor', {
     validate: {
       isAlphanumeric: true,
       is: /^[AaWaKkNn][a-zA-Z]?[0-9][a-zA-Z]{1,3}$/,
+      len: [3,6],
     },
   },
   Company: {
@@ -22,11 +23,12 @@ const Vendor = db.define('vendor', {
     },
   },
   Phone: {
-    type: Sequelize.STRING(17),
+    type: Sequelize.STRING,
     allowNull: false,
     validate: {
       notEmpty: true,
       is: /((\(\d{3}\)?)|(\d{3}))([\s-./]?)(\d{3})([\s-./]?)(\d{4})/i,
+      len: [10,17],
     },
   },
   Street: {

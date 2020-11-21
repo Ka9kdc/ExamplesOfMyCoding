@@ -1,7 +1,7 @@
 const db = require('../db');
 const sequelize = require('sequelize');
 
-//Done for now passing all tests
+
 
 const Annoucement = db.define('annoucement', {
   borderColor: {
@@ -9,7 +9,8 @@ const Annoucement = db.define('annoucement', {
     allowNull: false,
     validate: {
       notEmpty: true,
-      is: /^#[0-9a-fA-F]{3,8}$/
+      is: /^#[0-9a-fA-F]{3,8}$/,
+      len: [4,7,9],
     }
   },
   backgroundColor: {
@@ -17,7 +18,8 @@ const Annoucement = db.define('annoucement', {
     allowNull: false,
     validate: {
       notEmpty: true,
-      is: /^#[0-9a-fA-F]{3,8}$/
+      is: /^#[0-9a-fA-F]{3,8}$/,
+      len: [4,7,9],
     }
   },
   message: {

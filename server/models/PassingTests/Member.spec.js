@@ -439,7 +439,7 @@ describe('Member Model', () => {
         throw Error('validation should have failed with out a nonvalid Phone number');
       } catch (err) {
         expect(err.message).to.contain(
-          'value too long for type character'
+          'Validation len on Phone failed'
         );
       }
     });

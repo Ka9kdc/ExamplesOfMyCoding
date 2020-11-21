@@ -25,14 +25,16 @@ const Member = db.define('member', {
       notEmpty: true,
       isAlphanumeric: true,
       is: /^[AaWaKkNn][a-zA-Z]?[0-9][a-zA-Z]{1,3}$/,
+      len: [3,6],
     },
   },
   Phone: {
-    type: Sequelize.STRING(17),
+    type: Sequelize.STRING,
     allowNull: false,
     validate: {
       notEmpty: true,
       is: /((\(\d{3}\)?)|(\d{3}))([\s-./]?)(\d{3})([\s-./]?)(\d{4})/i,
+      len: [10,17],
     },
   },
   Street: {
@@ -56,6 +58,7 @@ const Member = db.define('member', {
     allowNull: false,
     validate: {
       notEmpty: true,
+      len: [2],
       is: /^(?:(A[KLRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|P[AR]|RI|S[CD]|T[NX]|UT|V[AIT]|W[AIVY]))$/,
     },
   },
@@ -64,6 +67,7 @@ const Member = db.define('member', {
     allowNull: false,
     validate: {
       notEmpty: true,
+      len: [5,9],
       is: /^\d{5}(-\d{4})?$/,
     },
   },
