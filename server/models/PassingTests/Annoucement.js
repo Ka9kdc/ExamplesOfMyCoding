@@ -5,17 +5,19 @@ const sequelize = require('sequelize');
 
 const Annoucement = db.define('annoucement', {
   borderColor: {
-    type: sequelize.STRING,
+    type: sequelize.STRING(9),
     allowNull: false,
     validate: {
-      notEmpty: true
+      notEmpty: true,
+      is: /^#[0-9a-fA-F]{3,8}$/
     }
   },
   backgroundColor: {
-    type: sequelize.STRING,
+    type: sequelize.STRING(9),
     allowNull: false,
     validate: {
-      notEmpty: true
+      notEmpty: true,
+      is: /^#[0-9a-fA-F]{3,8}$/
     }
   },
   message: {

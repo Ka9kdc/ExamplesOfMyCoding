@@ -10,7 +10,7 @@ const clubEvents = require('./eventSeed');
 const newFeedHistory = require('./NewsFeedHistorySeed');
 const { pastOfficers } = require('./officerHistorySeed');
 
-let newProducts = [
+const newProducts = [
   {
     name: 'Advanced Tickets',
     dataName: 'Tickets',

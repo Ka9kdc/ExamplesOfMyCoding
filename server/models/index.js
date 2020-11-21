@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 
 const db = require('./db');
-const { Member, Badge, Committee } = require('./member');
+const { Member, Badge, Committee } = require('./PassingTests/member');
 const Payment = require('./payment');
 const { Attendee, Ticket } = require('./DontNeedToWorriedAboutTestingYet/Attendees');
 const { Vendor, Order } = require('./DontNeedToWorriedAboutTestingYet/vendors');

@@ -1,5 +1,5 @@
 const { expect, assert } = require('chai');
-const db = require('./db');
+const db = require('../db');
 const { Member } = require('./member');
 
 //72 tests written and passing. none pending or failing
