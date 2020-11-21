@@ -2,7 +2,7 @@ const { expect, assert } = require('chai');
 const db = require('../db');
 const { Vendor } = require('./vendors');
 
-//tests: 54 passing - 6 pending
+//tests: 63 passing - 6 pending
 describe('Vendor Model', () => {
   before(() => db.sync({ force: true }));
 
@@ -229,6 +229,113 @@ describe('Vendor Model', () => {
       } catch (err) {
         expect(err.message).to.contain(
           'Validation isAlphanumeric on Callsign failed'
+        );
+      }
+    });
+    it('Callsign cannot must be vaild', async () => {
+      newVendor.Callsign = 'abc123';
+      const testVendor = Vendor.build(newVendor);
+      try {
+        await testVendor.validate();
+        throw Error('validation should have failed with with a nonvalid callsign');
+      } catch (err) {
+        expect(err.message).to.contain(
+          'Validation is on Callsign failed'
+        );
+      }
+    });
+    it('CallSign cannot have symbols', async () => {
+      newVendor.Callsign = 'ka9;dd';
+      const testVendor = Vendor.build(newVendor);
+      try {
+        await testVendor.validate();
+        throw Error('validation should have failed with symbols in Callsign');
+      } catch (err) {
+        expect(err.message).to.contain(
+          'Validation isAlphanumeric on Callsign failed'
+        );
+      }
+    });
+    it('CallSign must be more then 2 charaters', async () => {
+      newVendor.Callsign = 'k9';
+      const testVendor = Vendor.build(newVendor);
+      try {
+        await testVendor.validate();
+        throw Error('validation should have failed with two short Callsign');
+      } catch (err) {
+        expect(err.message).to.contain(
+          'Validation is on Callsign failed'
+        );
+      }
+    });
+    it('CallSign must start with an A W K or N', async () => {
+      newVendor.Callsign = 'gk9df';
+      const testVendor = Vendor.build(newVendor);
+      try {
+        await testVendor.validate();
+        throw Error('validation should have failed with two short Callsign');
+      } catch (err) {
+        expect(err.message).to.contain(
+          'Validation is on Callsign failed'
+        );
+      }
+    });
+    it('CallSign must be less then 6 charaters', async () => {
+      newVendor.Callsign = 'kd9aasd';
+      const testVendor = Vendor.build(newVendor);
+      try {
+        await testVendor.validate();
+        throw Error('validation should have failed with more then 6 letters Callsign');
+      } catch (err) {
+        expect(err.message).to.contain(
+          'Validation is on Callsign failed'
+        );
+      }
+    });
+    it('CallSign name not start with 3 alphas', async () => {
+      newVendor.Callsign = 'kse9as';
+      const testVendor = Vendor.build(newVendor);
+      try {
+        await testVendor.validate();
+        throw Error('validation should have failed with 3 letters first Callsign');
+      } catch (err) {
+        expect(err.message).to.contain(
+          'Validation is on Callsign failed'
+        );
+      }
+    });it('CallSign cannot start with a number', async () => {
+      newVendor.Callsign = '9asdf';
+      const testVendor = Vendor.build(newVendor);
+      try {
+        await testVendor.validate();
+        throw Error('validation should have failed with a number first Callsign');
+      } catch (err) {
+        expect(err.message).to.contain(
+          'Validation is on Callsign failed'
+        );
+      }
+    });
+    it('CallSign can not have more then one number', async () => {
+      newVendor.Callsign = 'k9s6s'
+      const testVendor = Vendor.build(newVendor);
+      try {
+        await testVendor.validate();
+        throw Error('validation should have failed with two short Callsign');
+      } catch (err) {
+        expect(err.message).to.contain(
+          'Validation is on Callsign failed'
+        );
+      }
+    });
+    it('CallSign can not have more then one number', async () => {
+      newVendor.Callsign = 'k39eed';
+      const testVendor = Vendor.build(newVendor);
+      try {
+        await testVendor.validate();
+        throw Error('validation should have failed with two short Callsign');
+      } catch (err) {
+        expect(err.message).to.contain(
+          'Validation is on Callsign failed'
         );
       }
     });

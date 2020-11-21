@@ -51,10 +51,10 @@ const seed = async () => {
   try {
     await db.sync({ force: true });
     await User.create({
-      name: 'Kelsey',
+      Name: 'Kelsey',
       Callsign: 'ka9kdc',
       password: '12345',
-      email: 'ka9kdc@gmail.com',
+      Email: 'ka9kdc@gmail.com',
     });
     await newProducts.forEach(async (product) => {
       await Product.create(product);

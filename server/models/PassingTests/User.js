@@ -11,9 +11,11 @@ const User = db.define('user', {
     allowNull: false,
     validate: {
       notEmpty: true,
+      isAlphanumeric: true,
+      is: /^[AaWwKkNn][a-zA-Z]?[0-9][a-zA-Z]{1,3}$/,
     },
   },
-  email: {
+  Email: {
     type: Sequelize.STRING,
     unique: true,
     allowNull: false,
@@ -22,11 +24,12 @@ const User = db.define('user', {
       isEmail: true,
     },
   },
-  name: {
+  Name: {
     type: Sequelize.STRING,
     allowNull: false,
     validate: {
       notEmpty: true,
+      isAlpha: true
     },
   },
   password: {

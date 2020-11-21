@@ -2,7 +2,7 @@ const { expect, assert } = require('chai');
 const db = require('../db');
 const { Attendee } = require('./Attendees');
 
-//test 39 passing -> 17 pending
+//test 48 passing -> 17 pending
 describe('Attendee Model', () => {
   before(() => db.sync({ force: true }));
 
@@ -219,6 +219,113 @@ describe('Attendee Model', () => {
       } catch (err) {
         expect(err.message).to.contain(
           'Validation isAlphanumeric on Callsign failed'
+        );
+      }
+    });
+    it('Callsign cannot must be vaild', async () => {
+      newAttendee.Callsign = 'abc123';
+      const testAttendee = Attendee.build(newAttendee);
+      try {
+        await testAttendee.validate();
+        throw Error('validation should have failed with with a nonvalid callsign');
+      } catch (err) {
+        expect(err.message).to.contain(
+          'Validation is on Callsign failed'
+        );
+      }
+    });
+    it('CallSign cannot have symbols', async () => {
+      newAttendee.Callsign = 'ka9;dd';
+      const testAttendee = Attendee.build(newAttendee);
+      try {
+        await testAttendee.validate();
+        throw Error('validation should have failed with symbols in Callsign');
+      } catch (err) {
+        expect(err.message).to.contain(
+          'Validation isAlphanumeric on Callsign failed'
+        );
+      }
+    });
+    it('CallSign must be more then 2 charaters', async () => {
+      newAttendee.Callsign = 'k9';
+      const testAttendee = Attendee.build(newAttendee);
+      try {
+        await testAttendee.validate();
+        throw Error('validation should have failed with two short Callsign');
+      } catch (err) {
+        expect(err.message).to.contain(
+          'Validation is on Callsign failed'
+        );
+      }
+    });
+    it('CallSign must start with an A W K or N', async () => {
+      newAttendee.Callsign = 'gk9df';
+      const testAttendee = Attendee.build(newAttendee);
+      try {
+        await testAttendee.validate();
+        throw Error('validation should have failed with two short Callsign');
+      } catch (err) {
+        expect(err.message).to.contain(
+          'Validation is on Callsign failed'
+        );
+      }
+    });
+    it('CallSign must be less then 6 charaters', async () => {
+      newAttendee.Callsign = 'kd9aasd';
+      const testAttendee = Attendee.build(newAttendee);
+      try {
+        await testAttendee.validate();
+        throw Error('validation should have failed with more then 6 letters Callsign');
+      } catch (err) {
+        expect(err.message).to.contain(
+          'Validation is on Callsign failed'
+        );
+      }
+    });
+    it('CallSign name not start with 3 alphas', async () => {
+      newAttendee.Callsign = 'kse9as';
+      const testAttendee = Attendee.build(newAttendee);
+      try {
+        await testAttendee.validate();
+        throw Error('validation should have failed with 3 letters first Callsign');
+      } catch (err) {
+        expect(err.message).to.contain(
+          'Validation is on Callsign failed'
+        );
+      }
+    });it('CallSign cannot start with a number', async () => {
+      newAttendee.Callsign = '9asdf';
+      const testAttendee = Attendee.build(newAttendee);
+      try {
+        await testAttendee.validate();
+        throw Error('validation should have failed with a number first Callsign');
+      } catch (err) {
+        expect(err.message).to.contain(
+          'Validation is on Callsign failed'
+        );
+      }
+    });
+    it('CallSign can not have more then one number', async () => {
+      newAttendee.Callsign = 'k9s6s'
+      const testAttendee = Attendee.build(newAttendee);
+      try {
+        await testAttendee.validate();
+        throw Error('validation should have failed with two short Callsign');
+      } catch (err) {
+        expect(err.message).to.contain(
+          'Validation is on Callsign failed'
+        );
+      }
+    });
+    it('CallSign can not have more then one number', async () => {
+      newAttendee.Callsign = 'k39eed';
+      const testAttendee = Attendee.build(newAttendee);
+      try {
+        await testAttendee.validate();
+        throw Error('validation should have failed with two short Callsign');
+      } catch (err) {
+        expect(err.message).to.contain(
+          'Validation is on Callsign failed'
         );
       }
     });

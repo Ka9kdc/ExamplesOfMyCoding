@@ -66,7 +66,7 @@ describe('Member Model', () => {
       expect(typeof hannah.FirstName).to.equal('string')  
     });
     it('FirstName cannot be null', async () => {
-      // We shouldn't be able to create a user without a name.
+      // We shouldn't be able to create a Member without a name.
       const testMember = Member.build({
         LastName: 'Green',
         Callsign: 'Ka9ddd',
@@ -88,7 +88,7 @@ describe('Member Model', () => {
       }
     });
     it('FirstName cannot be an empty string', async () => {
-      // We also shouldn't be able to create a user with an empty name.
+      // We also shouldn't be able to create a Member with an empty name.
       newMember.FirstName = '';
       const testMember = Member.build(newMember);
       try {
@@ -101,7 +101,7 @@ describe('Member Model', () => {
       }
     });
     it('FirstName cannot have numbers', async () => {
-      // We also shouldn't be able to create a user with an empty name.
+      // We also shouldn't be able to create a Member with an empty name.
       newMember.FirstName = 'abc123';
       const testMember = Member.build(newMember);
       try {
@@ -114,7 +114,7 @@ describe('Member Model', () => {
       }
     });
     it('FirstName cannot have symbols', async () => {
-      // We also shouldn't be able to create a user with an empty name.
+      // We also shouldn't be able to create a Member with an empty name.
       newMember.FirstName = 'abc;jhg';
       const testMember = Member.build(newMember);
       try {
@@ -134,7 +134,7 @@ describe('Member Model', () => {
       expect(typeof hannah.LastName).to.equal('string')  
     });
     it('LastName cannot be null', async () => {
-      // We shouldn't be able to create a user without a name.
+      // We shouldn't be able to create a Member without a name.
       const testMember = Member.build({
         FirstName: 'Hannah',
         Callsign: 'Ka9ddd',
@@ -156,7 +156,7 @@ describe('Member Model', () => {
       }
     });
     it('LastName cannot be an empty string', async () => {
-      // We also shouldn't be able to create a user with an empty name.
+      // We also shouldn't be able to create a Member with an empty name.
       newMember.LastName = '';
       const testMember = Member.build(newMember);
       try {
@@ -169,7 +169,7 @@ describe('Member Model', () => {
       }
     });
     it('LastName cannot have numbers', async () => {
-      // We also shouldn't be able to create a user with an empty name.
+      // We also shouldn't be able to create a Member with an empty name.
       newMember.LastName = 'abc123';
       const testMember = Member.build(newMember);
       try {
@@ -182,7 +182,7 @@ describe('Member Model', () => {
       }
     });
     it('LastName cannot have symbols', async () => {
-      // We also shouldn't be able to create a user with an empty name.
+      // We also shouldn't be able to create a Member with an empty name.
       newMember.LastName = 'abc;jhg';
       const testMember = Member.build(newMember);
       try {
@@ -205,7 +205,7 @@ describe('Member Model', () => {
     });
 
     it('Callsign cannot be null', async () => {
-      // We shouldn't be able to create a user without a name.
+      // We shouldn't be able to create a Member without a name.
       const testMember = Member.build({
         FirstName: 'Hannah',
         LastName: 'Green',
@@ -228,7 +228,7 @@ describe('Member Model', () => {
     });
 
     it('Callsign cannot be an empty string', async () => {
-      // We also shouldn't be able to create a user with an empty name.
+      // We also shouldn't be able to create a Member with an empty name.
       newMember.Callsign = '';
       const testMember = Member.build(newMember);
       try {
@@ -264,6 +264,89 @@ describe('Member Model', () => {
         );
       }
     });
+    it('CallSign must be more then 2 charaters', async () => {
+      newMember.Callsign = 'k9';
+      const testMember = Member.build(newMember);
+      try {
+        await testMember.validate();
+        throw Error('validation should have failed with two short Callsign');
+      } catch (err) {
+        expect(err.message).to.contain(
+          'Validation is on Callsign failed'
+        );
+      }
+    });
+    it('CallSign must start with an A W K or N', async () => {
+      newMember.Callsign = 'gk9df';
+      const testMember = Member.build(newMember);
+      try {
+        await testMember.validate();
+        throw Error('validation should have failed with two short Callsign');
+      } catch (err) {
+        expect(err.message).to.contain(
+          'Validation is on Callsign failed'
+        );
+      }
+    });
+    it('CallSign must be less then 6 charaters', async () => {
+      newMember.Callsign = 'kd9aasd';
+      const testMember = Member.build(newMember);
+      try {
+        await testMember.validate();
+        throw Error('validation should have failed with more then 6 letters Callsign');
+      } catch (err) {
+        expect(err.message).to.contain(
+          'Validation is on Callsign failed'
+        );
+      }
+    });
+    it('CallSign name not start with 3 alphas', async () => {
+      newMember.Callsign = 'kse9as';
+      const testMember = Member.build(newMember);
+      try {
+        await testMember.validate();
+        throw Error('validation should have failed with 3 letters first Callsign');
+      } catch (err) {
+        expect(err.message).to.contain(
+          'Validation is on Callsign failed'
+        );
+      }
+    });it('CallSign cannot start with a number', async () => {
+      newMember.Callsign = '9asdf';
+      const testMember = Member.build(newMember);
+      try {
+        await testMember.validate();
+        throw Error('validation should have failed with a number first Callsign');
+      } catch (err) {
+        expect(err.message).to.contain(
+          'Validation is on Callsign failed'
+        );
+      }
+    });
+    it('CallSign can not have more then one number', async () => {
+      newMember.Callsign = 'k9s6s'
+      const testMember = Member.build(newMember);
+      try {
+        await testMember.validate();
+        throw Error('validation should have failed with two short Callsign');
+      } catch (err) {
+        expect(err.message).to.contain(
+          'Validation is on Callsign failed'
+        );
+      }
+    });
+    it('CallSign can not have more then one number', async () => {
+      newMember.Callsign = 'k39eed';
+      const testMember = Member.build(newMember);
+      try {
+        await testMember.validate();
+        throw Error('validation should have failed with two short Callsign');
+      } catch (err) {
+        expect(err.message).to.contain(
+          'Validation is on Callsign failed'
+        );
+      }
+    });
   });
   describe('Phone Number', () => {
     //is it a vaild Phone Number?
@@ -274,7 +357,7 @@ describe('Member Model', () => {
     });
 
     it('Phone Number cannot be null', async () => {
-      // We shouldn't be able to create a user without a name.
+      // We shouldn't be able to create a Member without a name.
       const testMember = Member.build({
         FirstName: 'Hannah',
         LastName: 'Green',
@@ -297,7 +380,7 @@ describe('Member Model', () => {
     });
 
     it('Phone Number cannot be an empty string', async () => {
-      // We also shouldn't be able to create a user with an empty phone number.
+      // We also shouldn't be able to create a Member with an empty phone number.
       newMember.Phone = '';
       const testMember = Member.build(newMember);
       try {
@@ -378,7 +461,7 @@ describe('Member Model', () => {
       expect(typeof hannah.Street).to.equal('string')  
     });
     it('Street cannot be null', async () => {
-      // We shouldn't be able to create a user without a name.
+      // We shouldn't be able to create a Member without a name.
       const testMember = Member.build({
         FirstName: 'Hannah',
         LastName: 'Green',
@@ -401,7 +484,7 @@ describe('Member Model', () => {
     });
 
     it('Street cannot be an empty string', async () => {
-      // We also shouldn't be able to create a user with an empty name.
+      // We also shouldn't be able to create a Member with an empty name.
       newMember.Street = '';
       const testMember = Member.build(newMember);
       try {
@@ -434,7 +517,7 @@ describe('Member Model', () => {
       expect(typeof hannah.City).to.equal('string')  
     });
     it('City cannot be null', async () => {
-      // We shouldn't be able to create a user without a name.
+      // We shouldn't be able to create a Member without a name.
       const testMember = Member.build({
         FirstName: 'Hannah',
         LastName: 'Green',
@@ -457,7 +540,7 @@ describe('Member Model', () => {
     });
 
     it('City cannot be an empty string', async () => {
-      // We also shouldn't be able to create a user with an empty name.
+      // We also shouldn't be able to create a Member with an empty name.
       newMember.City = '';
       const testMember = Member.build(newMember);
       try {
@@ -489,7 +572,7 @@ describe('Member Model', () => {
     });
 
     it('State cannot be null', async () => {
-      // We shouldn't be able to create a user without a name.
+      // We shouldn't be able to create a Member without a name.
       const testMember = Member.build({
         FirstName: 'Hannah',
         LastName: 'Green',
@@ -568,7 +651,7 @@ describe('Member Model', () => {
     });
 
     it('Zip cannot be null', async () => {
-      // We shouldn't be able to create a user without a name.
+      // We shouldn't be able to create a Member without a name.
       const testMember = Member.build({
         FirstName: 'Hannah',
         LastName: 'Green',
@@ -591,7 +674,7 @@ describe('Member Model', () => {
     });
 
     it('Zip cannot be an empty string', async () => {
-      // We also shouldn't be able to create a user with an empty name.
+      // We also shouldn't be able to create a Member with an empty name.
       newMember.Zip = '';
       const testMember = Member.build(newMember);
       try {
@@ -685,7 +768,7 @@ describe('Member Model', () => {
       expect(hannah.Membership).to.equal('Associate');
     })
     it('Membership defuals to Full when null is passed in', async () => {
-      // We shouldn't be able to create a user without a name.
+      // We shouldn't be able to create a Member without a name.
       const testMember = Member.build({
         FirstName: 'Hannah',
         LastName: 'Green',
@@ -731,7 +814,7 @@ describe('Member Model', () => {
       expect(typeof hannah.Email).to.equal('string')      
     });
     it('Email cannot be null', async () => {
-      // We shouldn't be able to create a user without a name.
+      // We shouldn't be able to create a Member without a name.
       const testMember = Member.build({
         FirstName: 'Hannah',
         LastName: 'Green',
@@ -754,7 +837,7 @@ describe('Member Model', () => {
     });
 
     it('Email cannot be an empty string', async () => {
-      // We also shouldn't be able to create a user with an empty name.
+      // We also shouldn't be able to create a Member with an empty name.
       newMember.Email = '';
       const testMember = Member.build(newMember);
       try {
