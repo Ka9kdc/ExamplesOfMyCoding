@@ -22,7 +22,7 @@ const Vendor = db.define('vendor', {
     },
   },
   Phone: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING(17),
     allowNull: false,
     validate: {
       notEmpty: true,
@@ -74,8 +74,10 @@ const Vendor = db.define('vendor', {
   },
   OrderDate: {
     type: Sequelize.DATE,
+    allowNull:false,
     validate: {
       notEmpty: true,
+      isDate: true
     },
   },
 });

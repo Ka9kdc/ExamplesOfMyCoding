@@ -28,7 +28,7 @@ const Member = db.define('member', {
     },
   },
   Phone: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING(17),
     allowNull: false,
     validate: {
       notEmpty: true,
@@ -76,7 +76,6 @@ const Member = db.define('member', {
       'Associate',
       'Lifetime'
     ),
-    allowNull: false,
     defaultValue: 'Full',
   },
   Email: {
@@ -93,7 +92,7 @@ const Member = db.define('member', {
     validate: {
       notEmpty: true,
       min: 2020,
-      max: 2050
+      max: 2999
     },
   },
   RenewalDate: {
