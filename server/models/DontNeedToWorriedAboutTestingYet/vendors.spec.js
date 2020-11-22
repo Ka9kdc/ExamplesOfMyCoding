@@ -1,6 +1,6 @@
 const { expect, assert } = require('chai');
 const db = require('../db');
-const { Vendor } = require('./vendors');
+const { Vendor } = require('../vendors');
 
 //tests: 63 passing - 6 pending
 describe('Vendor Model', () => {

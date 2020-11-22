@@ -1,6 +1,6 @@
 const { expect, assert } = require('chai');
 const db = require('../db');
-const { Order } = require('./vendors');
+const { Order } = require('../vendors');
 
 //Tests 32 tests written and passing. none pending or failing
 describe('Order Model', () => {

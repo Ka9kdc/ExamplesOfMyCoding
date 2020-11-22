@@ -4,8 +4,8 @@ const Payment = require('./payment');
 const {
   Attendee,
   Ticket,
-} = require('./DontNeedToWorriedAboutTestingYet/Attendees');
-const { Vendor, Order } = require('./DontNeedToWorriedAboutTestingYet/vendors');
+} = require('./Attendees');
+const { Vendor, Order } = require('./vendors');
 const Product = require('./DontNeedToWorriedAboutTestingYet/products');
 const User = require('./User');
 const OfficerHistory = require('./OfficerHistory');

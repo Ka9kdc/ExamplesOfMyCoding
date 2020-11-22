@@ -1,6 +1,6 @@
 'use strict';
 const { expect } = require('chai');
-const { OfficerHistory, Product, Annoucement } = require('../server/models');
+const { OfficerHistory, Product, Annoucement, CalendarEvent } = require('../server/models');
 
 const seed = require('./seed');
 
@@ -13,6 +13,10 @@ describe('seed script', () => {
   it('populates the database with at least 10 news posts', async () => {
     const posts = await Annoucement.findAll();
     expect(posts).to.have.lengthOf.at.least(8);
+  });
+  it('populates the database with at least 10 news events', async () => {
+    const clubEvents = await CalendarEvent.findAll();
+    expect(clubEvents).to.have.lengthOf.at.least(10);
   });
   it('populates the database with at least 70 years of officer data', async () => {
     const officerHistory = await OfficerHistory.findAll();

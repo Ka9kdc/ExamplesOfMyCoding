@@ -38,7 +38,7 @@ const newProducts = [
     photo: '/Images/folding-chair-garden-furniture-stainless-steel-chair.jpg',
   },
   {
-    name: 'Electrical',
+    name: 'Electrical Drop',
     dataName: 'Electrical',
     description: 'An Electrical drop',
     price: 15,

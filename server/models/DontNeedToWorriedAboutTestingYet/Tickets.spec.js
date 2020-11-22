@@ -1,6 +1,6 @@
 const { expect, assert } = require('chai');
 const db = require('../db');
-const { Ticket } = require('./Attendees');
+const { Ticket } = require('../Attendees');
 
 //Tests 19 tests written and passing. none pending or failing
 describe('Ticket Model', () => {
