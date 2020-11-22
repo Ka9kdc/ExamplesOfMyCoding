@@ -1,10 +1,7 @@
 const db = require('./db');
 const { Member, Badge, Committee } = require('./member');
 const Payment = require('./payment');
-const {
-  Attendee,
-  Ticket,
-} = require('./Attendees');
+const { Attendee, Ticket } = require('./Attendees');
 const { Vendor, Order } = require('./vendors');
 const Product = require('./Products');
 const User = require('./User');

@@ -1,6 +1,11 @@
 'use strict';
 const { expect } = require('chai');
-const { OfficerHistory, Product, Annoucement, CalendarEvent } = require('../server/models');
+const {
+  OfficerHistory,
+  Product,
+  Annoucement,
+  CalendarEvent,
+} = require('../server/models');
 
 const seed = require('./seed');
 
