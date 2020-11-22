@@ -130,11 +130,11 @@ const Badge = db.define('badge', {
       'Brown',
       ''
     ),
-    defaultValue: ''
+    defaultValue: '',
   },
   Type: {
     type: Sequelize.ENUM('NoPreference', 'Lanyard', 'Pin', 'Magnet', 'Notch'),
-  defaultValue: 'NoPreference'
+    defaultValue: 'NoPreference',
   },
   LicenseYear: {
     type: Sequelize.INTEGER,
@@ -206,8 +206,8 @@ const Committee = db.define('committee', {
     type: Sequelize.STRING,
     validate: {
       notEmpty: true,
-      isAlpha: true
-    }
+      isAlpha: true,
+    },
   },
 });
 

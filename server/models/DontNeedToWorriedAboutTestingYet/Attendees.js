@@ -78,8 +78,8 @@ const Ticket = db.define('ticket', {
     type: Sequelize.INTEGER,
     validate: {
       notEmpty: true,
-      min: 0
-    }
+      min: 0,
+    },
   },
   Amount: {
     type: Sequelize.INTEGER, //storing amount as pennies
@@ -89,7 +89,7 @@ const Ticket = db.define('ticket', {
       min: 0,
     },
   },
- OrderDate: {
+  OrderDate: {
     type: Sequelize.DATE,
     allowNull: false,
     validate: {

@@ -1,6 +1,6 @@
 const { expect, assert } = require('chai');
 const db = require('../db');
-const {Order} = require('./vendors');
+const { Order } = require('./vendors');
 
 //Tests 32 tests written and passing. none pending or failing
 describe('Order Model', () => {
@@ -9,11 +9,11 @@ describe('Order Model', () => {
   let newOrder;
   beforeEach(() => {
     newOrder = {
-        Tickets: 1,
-        Tables: 1,
-        Chairs: 1,
-        Electical: true,
-        Raffle: 1,
+      Tickets: 1,
+      Tables: 1,
+      Chairs: 1,
+      Electical: true,
+      Raffle: 1,
       Amount: 12345,
       OrderDate: new Date(),
     };
@@ -133,7 +133,7 @@ describe('Order Model', () => {
       }
     });
     it('cannot have decimal places', async () => {
-      newOrder.Tables= 12345.6789;
+      newOrder.Tables = 12345.6789;
       const testOrder = await Order.build(newOrder);
       try {
         await testOrder.save();
@@ -191,17 +191,19 @@ describe('Order Model', () => {
       expect(typeof hannah.Electical).to.equal('boolean');
     });
     it('can be false', async () => {
-        newOrder.Electical = false
+      newOrder.Electical = false;
       const hannah = await Order.create(newOrder);
       expect(hannah.Electical).to.equal(false);
     });
     it('can be null', async () => {
-      const hannah = await Order.create({Tickets: 1,
+      const hannah = await Order.create({
+        Tickets: 1,
         Tables: 1,
         Chairs: 1,
         Raffle: 1,
-      Amount: 12345,
-      OrderDate: new Date(),});
+        Amount: 12345,
+        OrderDate: new Date(),
+      });
       expect(hannah.Electical).to.equal(null);
     });
   });
@@ -335,9 +337,7 @@ describe('Order Model', () => {
         await testOrder.validate();
         throw Error('validation should have failed with a string');
       } catch (err) {
-        expect(err.message).to.contain(
-          'Validation isDate on OrderDate failed'
-        );
+        expect(err.message).to.contain('Validation isDate on OrderDate failed');
       }
     });
   });

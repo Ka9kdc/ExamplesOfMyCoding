@@ -1,6 +1,6 @@
 const { expect, assert } = require('chai');
 const db = require('../db');
-const {Ticket} = require('./Attendees');
+const { Ticket } = require('./Attendees');
 
 //Tests 19 tests written and passing. none pending or failing
 describe('Ticket Model', () => {
@@ -9,8 +9,8 @@ describe('Ticket Model', () => {
   let newTicket;
   beforeEach(() => {
     newTicket = {
-        Tickets: 1,
-        Raffle: 1,
+      Tickets: 1,
+      Raffle: 1,
       Amount: 12345,
       OrderDate: new Date(),
     };
@@ -207,9 +207,7 @@ describe('Ticket Model', () => {
         await testTicket.validate();
         throw Error('validation should have failed with a string');
       } catch (err) {
-        expect(err.message).to.contain(
-          'Validation isDate on OrderDate failed'
-        );
+        expect(err.message).to.contain('Validation isDate on OrderDate failed');
       }
     });
   });

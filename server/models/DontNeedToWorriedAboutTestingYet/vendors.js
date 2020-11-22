@@ -115,8 +115,8 @@ const Order = db.define('order', {
     type: Sequelize.INTEGER,
     validate: {
       notEmpty: true,
-      min: 0
-    }
+      min: 0,
+    },
   },
   Amount: {
     type: Sequelize.INTEGER, //storing amount as pennies
@@ -126,7 +126,7 @@ const Order = db.define('order', {
       min: 0,
     },
   },
- OrderDate: {
+  OrderDate: {
     type: Sequelize.DATE,
     allowNull: false,
     validate: {

@@ -5,18 +5,33 @@ const Product = db.define('product', {
   name: {
     type: Sequelize.STRING,
     allowNull: false,
+    validate: {
+      notEmpty: true,
+      isAlpha: true,
+    },
   },
   dataName: {
     type: Sequelize.STRING,
     allowNull: false,
+    validate: {
+      notEmpty: true,
+      isAlpha: true,
+    },
   },
   description: {
     type: Sequelize.TEXT,
     allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
   },
   price: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.INTEGER, //storing amount as pennies
     allowNull: false,
+    validate: {
+      notEmpty: true,
+      min: 0,
+    },
   },
   onSale: {
     type: Sequelize.BOOLEAN,
@@ -24,6 +39,9 @@ const Product = db.define('product', {
   },
   photo: {
     type: Sequelize.STRING,
+    validate: {
+      notEmpty: true,
+    },
   },
 });
 
