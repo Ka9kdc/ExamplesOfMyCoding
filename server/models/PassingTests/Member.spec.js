@@ -3,7 +3,7 @@ const db = require('../db');
 const { Member } = require('./member');
 
 //79 tests written and passing. none pending or failing
-describe.only('Member Model', () => {
+describe('Member Model', () => {
   before(() => db.sync({ force: true }));
 
   let newMember;

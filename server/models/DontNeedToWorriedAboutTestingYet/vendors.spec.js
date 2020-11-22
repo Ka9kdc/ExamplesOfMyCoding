@@ -406,8 +406,8 @@ describe('Vendor Model', () => {
       newVendor.Phone = '12345678901234567890';
       const testVendor = Vendor.build(newVendor);
       try {
-        await testVendor.save();
-        console.log(testVendor.Phone);
+        await testVendor.validate();
+
         throw Error(
           'validation should have failed with out a nonvalid Phone number'
         );
@@ -415,10 +415,37 @@ describe('Vendor Model', () => {
         expect(err.message).to.contain('Validation len on Phone failed');
       }
     });
+    it('Phone Number can have -', async () => {
+      newVendor.Phone = '123-456-7890';
+      const testVendor = await Vendor.create(newVendor);
+      expect(testVendor.Phone).to.equal('123-456-7890');
+    });
+    it('Phone Number can have spaces', async () => {
+      newVendor.Phone = '123 456 7890';
+      const testVendor = await Vendor.create(newVendor);
+      expect(testVendor.Phone).to.equal('123 456 7890');
+    });
+    it('Phone Number can have () and spaces', async () => {
+      newVendor.Phone = '(123) 456-7890';
+      const testVendor = await Vendor.create(newVendor);
+      expect(testVendor.Phone).to.equal('(123) 456-7890');
+    });
+    it('Phone Number can have (), - and spaces', async () => {
+      newVendor.Phone = '(123)-456-7890';
+      const testVendor = await Vendor.create(newVendor);
+      expect(testVendor.Phone).to.equal('(123)-456-7890');
+    });
     it('Phone Number can have ()', async () => {
       newVendor.Phone = '(123) - (456) - (7890)';
-      const testVendor = await Vendor.create(newVendor);
-      expect(testVendor.Phone).to.equal('(123) - (456) - (7890)');
+      const testVendor = await Vendor.build(newVendor);
+      try {
+        await testVendor.save();
+        throw Error(
+          'validation should have failed with out a nonvalid Phone number'
+        );
+      } catch (err) {
+        expect(err.message).to.contain('Validation len on Phone failed');
+      }
     });
     it('Phone Number can have .', async () => {
       newVendor.Phone = '123.456.7890';
@@ -472,8 +499,7 @@ describe('Vendor Model', () => {
       newVendor.Street = ')ab-c ^ 12%3(';
       const testVendor = Vendor.build(newVendor);
       try {
-        await testVendor.save();
-        console.log('street -<', testVendor);
+        await testVendor.validate();
         throw Error(
           'validation should have failed with with a nonvalid Street'
         );
@@ -691,7 +717,7 @@ describe('Vendor Model', () => {
         expect(err.message).to.contain('Validation is on Zip failed');
       }
     });
-    it('Zip must be vaild - can have 9 numbers', async () => {
+    xit('Zip must be vaild - can have 9 numbers', async () => {
       newVendor.Zip = 123456789;
       const testVendor = await Vendor.create(newVendor);
       expect(testVendor.Zip).to.equal(newVendor.Zip);
