@@ -6,7 +6,7 @@ const {
   Ticket,
 } = require('./Attendees');
 const { Vendor, Order } = require('./vendors');
-const Product = require('./DontNeedToWorriedAboutTestingYet/products');
+const Product = require('./Products');
 const User = require('./User');
 const OfficerHistory = require('./OfficerHistory');
 const Annoucement = require('./Annoucement');
