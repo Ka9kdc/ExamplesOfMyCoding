@@ -1,6 +1,6 @@
 const { expect } = require('chai');
 const db = require('../db');
-const OfficerHistory = require('./OfficerHistory');
+const OfficerHistory = require('../OfficerHistory');
 
 //Tests 27 passing. 10 pending or 0 failing
 describe('office history Model', () => {

@@ -1,7 +1,7 @@
 const { expect, assert } = require('chai');
-const { db, CalendarEvent } = require('.');
+const { db, CalendarEvent } = require('..');
 
-describe.only('CalendarEvent model', () => {
+describe('CalendarEvent model', () => {
   before(() => db.sync({ force: true }));
   let newCalendarEvent;
   beforeEach(() => {

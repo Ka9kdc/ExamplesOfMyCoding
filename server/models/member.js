@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const db = require('../db');
+const db = require('./db');
 
 const Member = db.define('member', {
   FirstName: {
@@ -130,9 +130,11 @@ const Badge = db.define('badge', {
       'Brown',
       ''
     ),
+    defaultValue: ''
   },
   Type: {
     type: Sequelize.ENUM('NoPreference', 'Lanyard', 'Pin', 'Magnet', 'Notch'),
+  defaultValue: 'NoPreference'
   },
   LicenseYear: {
     type: Sequelize.INTEGER,
@@ -143,6 +145,11 @@ const Badge = db.define('badge', {
   },
   RenewalDate: {
     type: Sequelize.DATE,
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+      isDate: true,
+    },
   },
 });
 

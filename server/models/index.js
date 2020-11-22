@@ -1,15 +1,15 @@
 const db = require('./db');
-const { Member, Badge, Committee } = require('./PassingTests/member');
-const Payment = require('./PassingTests/payment');
+const { Member, Badge, Committee } = require('./member');
+const Payment = require('./payment');
 const {
   Attendee,
   Ticket,
 } = require('./DontNeedToWorriedAboutTestingYet/Attendees');
 const { Vendor, Order } = require('./DontNeedToWorriedAboutTestingYet/vendors');
 const Product = require('./DontNeedToWorriedAboutTestingYet/products');
-const User = require('./PassingTests/User');
-const OfficerHistory = require('./PassingTests/OfficerHistory');
-const Annoucement = require('./PassingTests/Annoucement');
+const User = require('./User');
+const OfficerHistory = require('./OfficerHistory');
+const Annoucement = require('./Annoucement');
 const CalendarEvent = require('./Events');
 
 User.belongsTo(Member);

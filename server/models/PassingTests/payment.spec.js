@@ -1,6 +1,6 @@
 const { expect, assert } = require('chai');
 const db = require('../db');
-const Payment = require('./payment');
+const Payment = require('../payment');
 
 //Tests 9 tests written and passing. none pending or failing
 describe('Payment Model', () => {

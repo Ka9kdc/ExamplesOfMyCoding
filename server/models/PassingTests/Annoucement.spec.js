@@ -1,9 +1,9 @@
 const { expect, assert } = require('chai');
 const db = require('../db');
-const Annoucement = require('./Annoucement');
+const Annoucement = require('../Annoucement');
 
 //Tests 26 passing 0 pending
-/*TODO: figure out how to set and test if a string is a hexidecimal*/
+/* figure out how to set and test if a string is a hexidecimal*/
 describe('Annoucement', () => {
   before(() => db.sync({ force: true }));
   let newAnnoucement;
