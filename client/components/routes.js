@@ -27,7 +27,10 @@ const Routes = (props) => {
   return (
     <Switch>
       <Route path="/Membership" component={Membership} />
-      <Route path="/membershipConfirmation" component={MembershipConfirmation} />
+      <Route
+        path="/membershipConfirmation"
+        component={MembershipConfirmation}
+      />
       <Route path="/membershipForm" component={MembershipForm} />
       <Route path="/TextApplication" component={TextApplication} />
 

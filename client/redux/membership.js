@@ -100,21 +100,23 @@ export const submitMember = (memberInfo, history) => {
         memberInfo.contact
       );
       const member = response.data;
-      if (memberInfo.badge.Desired)
+      if (memberInfo.badge.Desired) {
         axios.post('/api/membership/badge', {
           member,
           badge: memberInfo.badge,
         });
+      }
       const groups = Object.keys(memberInfo.committees).filter(
         (committee) =>
           memberInfo.committees[committee] &&
           memberInfo.committees[committee] !== ''
       );
-      if (groups.length)
+      if (groups.length) {
         axios.post('/api/membership/committees', {
           member,
           committee: memberInfo.committees,
         });
+      }
       dispatch(updateMemberInfo(member));
       history.push('/membershipConfirmation');
     } catch (error) {
@@ -131,21 +133,23 @@ export const submitFamilyMember = (memberInfo) => {
         memberInfo.contact
       );
       const FamilyMember = response.data;
-      if (memberInfo.badge.Desired)
+      if (memberInfo.badge.Desired) {
         await axios.post('/api/membership/badge', {
           member: FamilyMember,
           badge: memberInfo.badge,
         });
+      }
       const groups = Object.keys(memberInfo.committees).filter(
         (committee) =>
           memberInfo.committees[committee] &&
           memberInfo.committees[committee] !== ''
       );
-      if (groups.length)
+      if (groups.length) {
         await axios.post('/api/membership/committees', {
           member: FamilyMember,
           committee: memberInfo.committees,
         });
+      }
       dispatch(addFamilyMember(FamilyMember));
     } catch (error) {
       console.log(error.message);

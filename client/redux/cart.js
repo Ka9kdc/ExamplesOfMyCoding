@@ -92,7 +92,9 @@ const cartReducer = (shoppingCart = initialState, action) => {
       const update = shoppingCart.cart.map((item) => {
         if (item.id === action.product.id) {
           return action.product;
-        } else return item;
+        } else {
+          return item;
+        }
       });
       const newTotal = update.reduce((total, item) => {
         return total + item.total;

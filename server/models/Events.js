@@ -14,6 +14,7 @@ const CalendarEvent = db.define('calenderEvent', {
     allowNull: false,
     validate: {
       notEmpty: true,
+      isDate: true,
     },
   },
   End: {
@@ -30,7 +31,15 @@ const CalendarEvent = db.define('calenderEvent', {
     type: sequelize.STRING,
   },
   Type: {
-    type: sequelize.STRING,
+    type: sequelize.ENUM(
+      'Net',
+      'Club Meeting',
+      'Special Event',
+      'Public Service Event',
+      'Training Class',
+      'Testing',
+      'CSU'
+    ),
   },
 });
 

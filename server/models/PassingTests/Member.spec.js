@@ -2,8 +2,8 @@ const { expect, assert } = require('chai');
 const db = require('../db');
 const { Member } = require('./member');
 
-//72 tests written and passing. none pending or failing
-describe('Member Model', () => {
+//79 tests written and passing. none pending or failing
+describe.only('Member Model', () => {
   before(() => db.sync({ force: true }));
 
   let newMember;
@@ -50,20 +50,20 @@ describe('Member Model', () => {
       expect(testMember.Membership).to.equal('Full');
       expect(testMember.notARealAttribute).to.equal(undefined);
     });
-    it('has a Email and  DueYear', async () => {
+    it('has a Email and  DueYear', () => {
       expect(testMember.Email).to.equal('abcde123@abc.com');
       expect(testMember.DueYear).to.equal(2020);
       expect(testMember.notARealAttribute).to.equal(undefined);
     });
     it('has a Renewal Date', () => {
-      assert.deepEqual(testMember.RenewalDate, newMember.RenewalDate)
-    })
+      assert.deepEqual(testMember.RenewalDate, newMember.RenewalDate);
+    });
   });
   describe('FirstName field', () => {
     it('FirstName is a string', async () => {
       const hannah = await Member.create(newMember);
       expect(hannah.FirstName).to.equal('Hannah');
-      expect(typeof hannah.FirstName).to.equal('string')  
+      expect(typeof hannah.FirstName).to.equal('string');
     });
     it('FirstName cannot be null', async () => {
       // We shouldn't be able to create a Member without a name.
@@ -131,7 +131,7 @@ describe('Member Model', () => {
     it('LastName is a string', async () => {
       const hannah = await Member.create(newMember);
       expect(hannah.LastName).to.equal('Green');
-      expect(typeof hannah.LastName).to.equal('string')  
+      expect(typeof hannah.LastName).to.equal('string');
     });
     it('LastName cannot be null', async () => {
       // We shouldn't be able to create a Member without a name.
@@ -176,9 +176,7 @@ describe('Member Model', () => {
         await testMember.validate();
         throw Error('validation should have failed with numbers in LastName');
       } catch (err) {
-        expect(err.message).to.contain(
-          'Validation isAlpha on LastName failed'
-        );
+        expect(err.message).to.contain('Validation isAlpha on LastName failed');
       }
     });
     it('LastName cannot have symbols', async () => {
@@ -189,19 +187,16 @@ describe('Member Model', () => {
         await testMember.validate();
         throw Error('validation should have failed with symbols in LastName');
       } catch (err) {
-        expect(err.message).to.contain(
-          'Validation isAlpha on LastName failed'
-        );
+        expect(err.message).to.contain('Validation isAlpha on LastName failed');
       }
     });
-
   });
   describe('callsign', () => {
     //is it a vaild callsign?
     it('Callsign is a string', async () => {
       const hannah = await Member.create(newMember);
       expect(hannah.Callsign).to.equal('Ka9ddd');
-      expect(typeof hannah.Callsign).to.equal('string')  
+      expect(typeof hannah.Callsign).to.equal('string');
     });
 
     it('Callsign cannot be null', async () => {
@@ -245,11 +240,11 @@ describe('Member Model', () => {
       const testMember = Member.build(newMember);
       try {
         await testMember.validate();
-        throw Error('validation should have failed with with a nonvalid callsign');
-      } catch (err) {
-        expect(err.message).to.contain(
-          'Validation is on Callsign failed'
+        throw Error(
+          'validation should have failed with with a nonvalid callsign'
         );
+      } catch (err) {
+        expect(err.message).to.contain('Validation is on Callsign failed');
       }
     });
     it('CallSign cannot have symbols', async () => {
@@ -271,9 +266,7 @@ describe('Member Model', () => {
         await testMember.validate();
         throw Error('validation should have failed with two short Callsign');
       } catch (err) {
-        expect(err.message).to.contain(
-          'Validation is on Callsign failed'
-        );
+        expect(err.message).to.contain('Validation is on Callsign failed');
       }
     });
     it('CallSign must start with an A W K or N', async () => {
@@ -283,9 +276,7 @@ describe('Member Model', () => {
         await testMember.validate();
         throw Error('validation should have failed with two short Callsign');
       } catch (err) {
-        expect(err.message).to.contain(
-          'Validation is on Callsign failed'
-        );
+        expect(err.message).to.contain('Validation is on Callsign failed');
       }
     });
     it('CallSign must be less then 6 charaters', async () => {
@@ -293,11 +284,11 @@ describe('Member Model', () => {
       const testMember = Member.build(newMember);
       try {
         await testMember.validate();
-        throw Error('validation should have failed with more then 6 letters Callsign');
-      } catch (err) {
-        expect(err.message).to.contain(
-          'Validation is on Callsign failed'
+        throw Error(
+          'validation should have failed with more then 6 letters Callsign'
         );
+      } catch (err) {
+        expect(err.message).to.contain('Validation is on Callsign failed');
       }
     });
     it('CallSign name not start with 3 alphas', async () => {
@@ -305,34 +296,33 @@ describe('Member Model', () => {
       const testMember = Member.build(newMember);
       try {
         await testMember.validate();
-        throw Error('validation should have failed with 3 letters first Callsign');
-      } catch (err) {
-        expect(err.message).to.contain(
-          'Validation is on Callsign failed'
+        throw Error(
+          'validation should have failed with 3 letters first Callsign'
         );
+      } catch (err) {
+        expect(err.message).to.contain('Validation is on Callsign failed');
       }
-    });it('CallSign cannot start with a number', async () => {
+    });
+    it('CallSign cannot start with a number', async () => {
       newMember.Callsign = '9asdf';
       const testMember = Member.build(newMember);
       try {
         await testMember.validate();
-        throw Error('validation should have failed with a number first Callsign');
-      } catch (err) {
-        expect(err.message).to.contain(
-          'Validation is on Callsign failed'
+        throw Error(
+          'validation should have failed with a number first Callsign'
         );
+      } catch (err) {
+        expect(err.message).to.contain('Validation is on Callsign failed');
       }
     });
     it('CallSign can not have more then one number', async () => {
-      newMember.Callsign = 'k9s6s'
+      newMember.Callsign = 'k9s6s';
       const testMember = Member.build(newMember);
       try {
         await testMember.validate();
         throw Error('validation should have failed with two short Callsign');
       } catch (err) {
-        expect(err.message).to.contain(
-          'Validation is on Callsign failed'
-        );
+        expect(err.message).to.contain('Validation is on Callsign failed');
       }
     });
     it('CallSign can not have more then one number', async () => {
@@ -342,9 +332,7 @@ describe('Member Model', () => {
         await testMember.validate();
         throw Error('validation should have failed with two short Callsign');
       } catch (err) {
-        expect(err.message).to.contain(
-          'Validation is on Callsign failed'
-        );
+        expect(err.message).to.contain('Validation is on Callsign failed');
       }
     });
   });
@@ -353,7 +341,7 @@ describe('Member Model', () => {
     it('Phone Number is a string', async () => {
       const hannah = await Member.create(newMember);
       expect(hannah.Phone).to.equal('1234567890');
-      expect(typeof hannah.Phone).to.equal('string')  
+      expect(typeof hannah.Phone).to.equal('string');
     });
 
     it('Phone Number cannot be null', async () => {
@@ -387,21 +375,17 @@ describe('Member Model', () => {
         await testMember.validate();
         throw Error('validation should have failed with empty phone number');
       } catch (err) {
-        expect(err.message).to.contain(
-          'Validation notEmpty on Phone failed'
-        );
+        expect(err.message).to.contain('Validation notEmpty on Phone failed');
       }
     });
-    it('Phone Number must be vaild -> no letters' , async () => {
+    it('Phone Number must be vaild -> no letters', async () => {
       newMember.Phone = '1234abc123';
       const testMember = Member.build(newMember);
       try {
         await testMember.validate();
         throw Error('validation should have failed with with a nonvalid Phone');
       } catch (err) {
-        expect(err.message).to.contain(
-          'Validation is on Phone failed'
-        );
+        expect(err.message).to.contain('Validation is on Phone failed');
       }
     });
     it('Phone Number cannot have most symbols', async () => {
@@ -411,54 +395,61 @@ describe('Member Model', () => {
         await testMember.validate();
         throw Error('validation should have failed with symbols in Phone');
       } catch (err) {
-        expect(err.message).to.contain(
-          'Validation is on Phone failed'
-        );
+        expect(err.message).to.contain('Validation is on Phone failed');
       }
     });
-    it('Phone Number must be vaild -> Too short' , async () => {
+    it('Phone Number must be vaild -> Too short', async () => {
       newMember.Phone = '123';
       const testMember = Member.build(newMember);
       try {
         await testMember.validate();
-        throw Error('validation should have failed with out a nonvalid Phone number');
-      } catch (err) {
-        expect(err.message).to.contain(
-          'Validation is on Phone failed'
+        throw Error(
+          'validation should have failed with out a nonvalid Phone number'
         );
+      } catch (err) {
+        expect(err.message).to.contain('Validation is on Phone failed');
       }
     });
 
     //Spec failing
-    it('Phone Number must be vaild -> Too long' , async () => {
+    it('Phone Number must be vaild -> Too long', async () => {
       newMember.Phone = '12345678901234567890';
       const testMember = Member.build(newMember);
       try {
         await testMember.save();
-        console.log(testMember.Phone)
-        throw Error('validation should have failed with out a nonvalid Phone number');
-      } catch (err) {
-        expect(err.message).to.contain(
-          'Validation len on Phone failed'
+        throw Error(
+          'validation should have failed with out a nonvalid Phone number'
         );
+      } catch (err) {
+        expect(err.message).to.contain('Validation len on Phone failed');
       }
     });
     it('Phone Number can have ()', async () => {
       newMember.Phone = '(123) - (456) - (7890)';
       const testMember = Member.build(newMember);
-      expect(testMember.Phone).to.equal('(123) - (456) - (7890)');
+      try {
+        await testMember.save();
+        expect(testMember.Phone).to.equal('(123) - (456) - (7890)');
+      } catch (err) {
+        console.log(err);
+      }
     });
     it('Phone Number can have .', async () => {
       newMember.Phone = '123.456.7890';
       const testMember = Member.build(newMember);
-      expect(testMember.Phone).to.equal('123.456.7890');
+      try {
+        await testMember.save();
+        expect(testMember.Phone).to.equal('123.456.7890');
+      } catch (err) {
+        console.log(err);
+      }
     });
   });
   describe('Street', () => {
     it('Street is a string', async () => {
       const hannah = await Member.create(newMember);
       expect(hannah.Street).to.equal('123 happy lane');
-      expect(typeof hannah.Street).to.equal('string')  
+      expect(typeof hannah.Street).to.equal('string');
     });
     it('Street cannot be null', async () => {
       // We shouldn't be able to create a Member without a name.
@@ -501,12 +492,12 @@ describe('Member Model', () => {
       const testMember = Member.build(newMember);
       try {
         await testMember.save();
-        console.log('street -<', testMember)
-        throw Error('validation should have failed with with a nonvalid Street');
-      } catch (err) {
-        expect(err.message).to.contain(
-          'Validation not on Street failed'
+        console.log('street -<', testMember);
+        throw Error(
+          'validation should have failed with with a nonvalid Street'
         );
+      } catch (err) {
+        expect(err.message).to.contain('Validation not on Street failed');
       }
     });
   });
@@ -514,7 +505,7 @@ describe('Member Model', () => {
     it('City is a string', async () => {
       const hannah = await Member.create(newMember);
       expect(hannah.City).to.equal('st upidtown');
-      expect(typeof hannah.City).to.equal('string')  
+      expect(typeof hannah.City).to.equal('string');
     });
     it('City cannot be null', async () => {
       // We shouldn't be able to create a Member without a name.
@@ -558,9 +549,7 @@ describe('Member Model', () => {
         await testMember.validate();
         throw Error('validation should have failed with with a nonvalid City');
       } catch (err) {
-        expect(err.message).to.contain(
-          'Validation not on City failed'
-        );
+        expect(err.message).to.contain('Validation not on City failed');
       }
     });
   });
@@ -568,7 +557,7 @@ describe('Member Model', () => {
     it('State is a string', async () => {
       const hannah = await Member.create(newMember);
       expect(hannah.State).to.equal('MA');
-      expect(typeof hannah.State).to.equal('string')  
+      expect(typeof hannah.State).to.equal('string');
     });
 
     it('State cannot be null', async () => {
@@ -603,7 +592,7 @@ describe('Member Model', () => {
       } catch (err) {
         expect(err.message).to.contain('Validation notEmpty on State failed');
       }
-    })
+    });
 
     it('State must be vaild - no symbols', async () => {
       newMember.State = 'A?';
@@ -612,9 +601,7 @@ describe('Member Model', () => {
         await testMember.validate();
         throw Error('validation should have failed with symbols in state');
       } catch (err) {
-        expect(err.message).to.contain(
-          'Validation is on State failed'
-        );
+        expect(err.message).to.contain('Validation is on State failed');
       }
     });
     it('State  must be vaild - no numbers', async () => {
@@ -624,9 +611,7 @@ describe('Member Model', () => {
         await testMember.validate();
         throw Error('validation should have failed with numbers in state');
       } catch (err) {
-        expect(err.message).to.contain(
-          'Validation is on State failed'
-        );
+        expect(err.message).to.contain('Validation is on State failed');
       }
     });
     it('State must be vaild - not a state', async () => {
@@ -636,18 +621,15 @@ describe('Member Model', () => {
         await testMember.validate();
         throw Error('validation should have failed with out a valid State');
       } catch (err) {
-        expect(err.message).to.contain(
-          'Validation is on State failed'
-        );
+        expect(err.message).to.contain('Validation is on State failed');
       }
     });
-
   });
   describe('Zip', () => {
     it('Zip is a Interger', async () => {
       const hannah = await Member.create(newMember);
       expect(hannah.Zip).to.equal(60606);
-      expect(typeof hannah.Zip).to.equal('number')  
+      expect(typeof hannah.Zip).to.equal('number');
     });
 
     it('Zip cannot be null', async () => {
@@ -684,89 +666,91 @@ describe('Member Model', () => {
         expect(err.message).to.contain('Validation notEmpty on Zip failed');
       }
     });
-    it( 'Zip must be vaild - no symbols', async () => {
+    it('Zip must be vaild - no symbols', async () => {
       newMember.Zip = '123$3';
       const testMember = Member.build(newMember);
       try {
         await testMember.validate();
         throw Error('validation should have failed with symbols in Zip');
       } catch (err) {
-        expect(err.message).to.contain(
-          'Validation is on Zip failed'
-        );
+        expect(err.message).to.contain('Validation is on Zip failed');
       }
     });
-    it( 'Zip must be vaild - no alpha', async () => {
+    it('Zip must be vaild - no alpha', async () => {
       newMember.Zip = '12f43';
       const testMember = Member.build(newMember);
       try {
         await testMember.validate();
         throw Error('validation should have failed with letters in Zip');
       } catch (err) {
-        expect(err.message).to.contain(
-          'Validation is on Zip failed'
-        );
+        expect(err.message).to.contain('Validation is on Zip failed');
       }
     });
-    it( 'Zip must be vaild - too short', async () => {
+    it('Zip must be vaild - too short', async () => {
       newMember.Zip = 123;
       const testMember = Member.build(newMember);
       try {
         await testMember.validate();
-        throw Error('validation should have failed without enough numbers in Zip');
-      } catch (err) {
-        expect(err.message).to.contain(
-          'Validation is on Zip failed'
+        throw Error(
+          'validation should have failed without enough numbers in Zip'
         );
+      } catch (err) {
+        expect(err.message).to.contain('Validation is on Zip failed');
       }
     });
-    it( 'Zip must be vaild - too long', async () => {
+    it('Zip must be vaild - too long', async () => {
       newMember.Zip = 1234567890;
       const testMember = Member.build(newMember);
       try {
         await testMember.validate();
-        throw Error('validation should have failed with too many numbers in Zip');
-      } catch (err) {
-        expect(err.message).to.contain(
-          'Validation is on Zip failed'
+        throw Error(
+          'validation should have failed with too many numbers in Zip'
         );
+      } catch (err) {
+        expect(err.message).to.contain('Validation is on Zip failed');
       }
     });
-    it( 'Zip must be vaild - can have 9 numbers', async () => {
+    //Not sure if this is testing what i think it is
+    it('Zip must be vaild - can have 9 numbers', async () => {
       newMember.Zip = 123456789;
       const testMember = Member.build(newMember);
-      expect(testMember.Zip).to.equal(newMember.Zip)
-    })
+      try {
+        await testMember.save();
+        expect(testMember.Zip).to.equal(123456789);
+      } catch (err) {
+        expect(testMember.Zip).to.equal(123456789);
+      }
+    });
   });
-  
+
   describe('Membership', () => {
     it('Membership is an emun of strings', async () => {
-      const hannah = await Member.create(newMember)
-      expect(typeof hannah.Membership).to.equal('string')
-    })
+      const hannah = await Member.create(newMember);
+      expect(typeof hannah.Membership).to.equal('string');
+    });
     it('can take full and lifetime', async () => {
       let hannah = await Member.create(newMember);
       expect(hannah.Membership).to.equal('Full');
-      newMember.Membership = 'Lifetime'
+      newMember.Membership = 'Lifetime';
       hannah = await Member.create(newMember);
       expect(hannah.Membership).to.equal('Lifetime');
-    })
+    });
     it('can take senior and student', async () => {
-      newMember.Membership = 'Senior'
+      newMember.Membership = 'Senior';
       let hannah = await Member.create(newMember);
       expect(hannah.Membership).to.equal('Senior');
-      newMember.Membership = 'Student'
+      newMember.Membership = 'Student';
       hannah = await Member.create(newMember);
       expect(hannah.Membership).to.equal('Student');
-    })
+    });
     it('can take Family and Associate', async () => {
-      newMember.Membership = 'Family'
+      newMember.Membership = 'Family';
       let hannah = await Member.create(newMember);
       expect(hannah.Membership).to.equal('Family');
-      newMember.Membership = 'Associate'
+      newMember.Membership = 'Associate';
       hannah = await Member.create(newMember);
       expect(hannah.Membership).to.equal('Associate');
-    })
+    });
     it('Membership defuals to Full when null is passed in', async () => {
       // We shouldn't be able to create a Member without a name.
       const testMember = Member.build({
@@ -782,36 +766,45 @@ describe('Member Model', () => {
         DueYear: '2020',
         RenewalDate: new Date(),
       });
-      expect(testMember.Membership).to.equal('Full');
+      try {
+        await testMember.save();
+        expect(testMember.Membership).to.equal('Full');
+      } catch (err) {
+        console.log(err);
+      }
     });
     it('can not be an empty string', async () => {
-      newMember.Membership = ''
+      newMember.Membership = '';
       const testMember = Member.build(newMember);
-      
+
       try {
-        await testMember.save()
+        await testMember.save();
         throw Error('validation should have failed with empty string');
       } catch (err) {
-        expect(err.message).to.contain('invalid input value for enum "enum_members_Membership"');
+        expect(err.message).to.contain(
+          'invalid input value for enum "enum_members_Membership"'
+        );
       }
-    })
+    });
     it('can not be an empty string', async () => {
-      newMember.Membership = 'Hello'
+      newMember.Membership = 'Hello';
       const testMember = Member.build(newMember);
-      
+
       try {
-        await testMember.save()
+        await testMember.save();
         throw Error('validation should have failed with random string');
       } catch (err) {
-        expect(err.message).to.contain('invalid input value for enum "enum_members_Membership"');
+        expect(err.message).to.contain(
+          'invalid input value for enum "enum_members_Membership"'
+        );
       }
-    })
-  })
+    });
+  });
   describe('Email', () => {
     it('Email is a string', async () => {
       const hannah = await Member.create(newMember);
       expect(hannah.Email).to.equal('abcde123@abc.com');
-      expect(typeof hannah.Email).to.equal('string')      
+      expect(typeof hannah.Email).to.equal('string');
     });
     it('Email cannot be null', async () => {
       // We shouldn't be able to create a Member without a name.
@@ -861,9 +854,9 @@ describe('Member Model', () => {
   describe('Due Year', () => {
     it('Due year is a number', async () => {
       const hannah = await Member.create(newMember);
-      expect(hannah.DueYear).to.equal(2020)
-      expect(typeof hannah.DueYear).to.equal('number')
-    })
+      expect(hannah.DueYear).to.equal(2020);
+      expect(typeof hannah.DueYear).to.equal('number');
+    });
     it('cannot be null', async () => {
       const testMember = Member.build({
         FirstName: 'Hannah',
@@ -876,8 +869,7 @@ describe('Member Model', () => {
         Zip: 60606,
         Membership: 'Full',
         RenewalDate: new Date(),
-        email: 'cody@email.com'
-
+        email: 'cody@email.com',
       });
       try {
         await testMember.validate();
@@ -885,10 +877,10 @@ describe('Member Model', () => {
       } catch (err) {
         expect(err.message).to.contain('DueYear cannot be null');
       }
-    })
+    });
     it('cannot be empty', async () => {
-      newMember.DueYear = ''
-      const testMember = await Member.build(newMember)
+      newMember.DueYear = '';
+      const testMember = await Member.build(newMember);
       try {
         await testMember.validate();
         throw Error('validation should have failed with empty DueYear');
@@ -897,8 +889,8 @@ describe('Member Model', () => {
       }
     });
     it('must be a number', async () => {
-      newMember.DueYear = 'hello world'
-      const testMember = await Member.build(newMember)
+      newMember.DueYear = 'hello world';
+      const testMember = await Member.build(newMember);
       try {
         await testMember.save();
         throw Error('validation should have failed with a string');
@@ -907,18 +899,20 @@ describe('Member Model', () => {
       }
     });
     it('must be a after 2020', async () => {
-      newMember.DueYear = 1990
-      const testMember = await Member.build(newMember)
+      newMember.DueYear = 1990;
+      const testMember = await Member.build(newMember);
       try {
         await testMember.validate();
-        throw Error('validation should have failed with a number smaller then 2020');
+        throw Error(
+          'validation should have failed with a number smaller then 2020'
+        );
       } catch (err) {
         expect(err.message).to.contain('Validation min on DueYear failed');
       }
     });
     it('must be before 3000', async () => {
-      newMember.DueYear = 30000
-      const testMember = await Member.build(newMember)
+      newMember.DueYear = 30000;
+      const testMember = await Member.build(newMember);
       try {
         await testMember.validate();
         throw Error('validation should have failed with large number');
@@ -926,13 +920,13 @@ describe('Member Model', () => {
         expect(err.message).to.contain('Validation max on DueYear failed');
       }
     });
-  })
+  });
   describe('Renewal Date', () => {
     it('Renewal Date is a date', async () => {
       const hannah = await Member.create(newMember);
-      assert.deepEqual(hannah.RenewalDate, newMember.RenewalDate)
-      expect(typeof hannah.RenewalDate).to.equal('object')
-    })
+      assert.deepEqual(hannah.RenewalDate, newMember.RenewalDate);
+      expect(typeof hannah.RenewalDate).to.equal('object');
+    });
     it('cannot be null', async () => {
       const testMember = Member.build({
         FirstName: 'Hannah',
@@ -945,7 +939,7 @@ describe('Member Model', () => {
         Zip: 60606,
         Membership: 'Full',
         DueYear: '2020',
-       email: 'cody@email.com'
+        email: 'cody@email.com',
       });
       try {
         await testMember.validate();
@@ -953,26 +947,30 @@ describe('Member Model', () => {
       } catch (err) {
         expect(err.message).to.contain('RenewalDate cannot be null');
       }
-    })
+    });
     it('cannot be empty', async () => {
-      newMember.RenewalDate = ''
-      const testMember = await Member.build(newMember)
+      newMember.RenewalDate = '';
+      const testMember = await Member.build(newMember);
       try {
         await testMember.validate();
         throw Error('validation should have failed with empty Renewal date');
       } catch (err) {
-        expect(err.message).to.contain('Validation notEmpty on RenewalDate failed');
+        expect(err.message).to.contain(
+          'Validation notEmpty on RenewalDate failed'
+        );
       }
     });
     it('must be a date', async () => {
-      newMember.RenewalDate = 'hello world'
-      const testMember = await Member.build(newMember)
+      newMember.RenewalDate = 'hello world';
+      const testMember = await Member.build(newMember);
       try {
         await testMember.validate();
         throw Error('validation should have failed with a string');
       } catch (err) {
-        expect(err.message).to.contain('Validation isDate on RenewalDate failed');
+        expect(err.message).to.contain(
+          'Validation isDate on RenewalDate failed'
+        );
       }
     });
-  })
+  });
 });

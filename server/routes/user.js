@@ -13,10 +13,11 @@ router.put('/login', (req, res, next) => {
     },
   })
     .then((user) => {
-      if (!user) res.status(401).send('User not found');
-      else if (!user.correctPassword(req.body.password))
+      if (!user) {
+        res.status(401).send('User not found');
+      } else if (!user.correctPassword(req.body.password)) {
         res.status(401).send('Incorrect Password');
-      else {
+      } else {
         req.login(user, (err) => {
           if (err) next(err);
           else res.json(user);
@@ -33,8 +34,9 @@ router.post('/signup', async (req, res, next) => {
         Callsign: req.body.Callsign,
       },
     });
-    if (!member) res.status(404).send('Membership not found');
-    else {
+    if (!member) {
+      res.status(404).send('Membership not found');
+    } else {
       const user = await User.create({
         Callsign: req.body.Callsign,
         name: member.FirstName,

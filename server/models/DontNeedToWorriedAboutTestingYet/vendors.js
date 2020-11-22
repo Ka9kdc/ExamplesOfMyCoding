@@ -13,7 +13,7 @@ const Vendor = db.define('vendor', {
     validate: {
       isAlphanumeric: true,
       is: /^[AaWaKkNn][a-zA-Z]?[0-9][a-zA-Z]{1,3}$/,
-      len: [3,6],
+      len: [3, 6],
     },
   },
   Company: {
@@ -28,7 +28,7 @@ const Vendor = db.define('vendor', {
     validate: {
       notEmpty: true,
       is: /((\(\d{3}\)?)|(\d{3}))([\s-./]?)(\d{3})([\s-./]?)(\d{4})/i,
-      len: [10,17],
+      len: [10, 17],
     },
   },
   Street: {
@@ -76,10 +76,10 @@ const Vendor = db.define('vendor', {
   },
   OrderDate: {
     type: Sequelize.DATE,
-    allowNull:false,
+    allowNull: false,
     validate: {
       notEmpty: true,
-      isDate: true
+      isDate: true,
     },
   },
 });

@@ -55,8 +55,8 @@ const LocalClubs = (props) => {
         </a>
       </p>
       <p>
-        Evanston: <a href="http://www.w9smc.com"></a>Societ of Midwest
-        Contesters
+        Evanston: <a href="http://www.w9smc.com" />
+        Societ of Midwest Contesters
       </p>
       <p>
         Harvey:{' '}

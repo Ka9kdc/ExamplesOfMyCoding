@@ -3,15 +3,15 @@ function ValidateAddresses (addresses){
     const zipRegEx = /^\d{5}(-\d{4})?$/
     const notCity = /[-!$%^&*()_+|~=`{}[:;<>?,@#\]]/g
     const notStreet = /[-!$%^&*()_+|~=`{}[:;<>?@\]]/g
-    if(!stateRegEx.test(addresses.state)) return false;
-    if(!zipRegEx.test(addresses.zip)) return false;
-    if(notCity.test(addresses.city)) return false;
-    if(notStreet.test(addresses.street)) return false;
+    if (!stateRegEx.test(addresses.state)) return false;
+    if (!zipRegEx.test(addresses.zip)) return false;
+    if (notCity.test(addresses.city)) return false;
+    if (notStreet.test(addresses.street)) return false;
     return true
 }
 
 function ValidatePhone (phone){
-    const phoneReq =/((\(\d{3}\)?)|(\d{3}))([\s-./]?)(\d{3})([\s-./]?)(\d{4})/i
+    const phoneReq = /((\(\d{3}\)?)|(\d{3}))([\s-./]?)(\d{3})([\s-./]?)(\d{4})/i
     return phoneReq.test(phone)
 }
 
@@ -29,7 +29,7 @@ function ValidateCallsign (callsign){
 }
 
 function ValidateEmail (email){
-    const reg = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/)
+    const reg = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
     return reg.test(email)
 }
 

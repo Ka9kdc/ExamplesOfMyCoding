@@ -46,7 +46,7 @@ class HamfestStore extends React.Component {
               <ShoppingCart history={this.props.history} />
               <div className="body_container">
                 {this.props.products.map((product) => {
-                  if (product.name !== 'Electrical')
+                  if (product.name !== 'Electrical') {
                     return (
                       <Product
                         product={product}
@@ -54,7 +54,7 @@ class HamfestStore extends React.Component {
                         addToCartOnClick={this.addToCartOnClick}
                       />
                     );
-                  else
+                  } else {
                     return (
                       <Electrical
                         product={product}
@@ -62,6 +62,7 @@ class HamfestStore extends React.Component {
                         addToCartOnClick={this.addToCartOnClick}
                       />
                     );
+                  }
                 })}
               </div>
             </form>

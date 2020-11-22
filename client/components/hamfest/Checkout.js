@@ -14,7 +14,7 @@ const Checkout = (props) => {
               <Order />
               <VendorInformation history={props.history} />
             </div>
-            <div id="paypal-button-container"></div>
+            <div id="paypal-button-container" />
           </form>
         </div>
       </div>

@@ -28,7 +28,7 @@ class News extends React.Component {
         <div className="Title">Keep Up To Date</div>
 
         <div className="Content">
-          <div id="feed"></div>
+          <div id="feed" />
         </div>
       </div>
     );

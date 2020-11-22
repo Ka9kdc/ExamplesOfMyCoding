@@ -22,7 +22,7 @@ class Home extends React.Component {
 
         <div className="Content">
           <div>
-            <div id="newsHolder"></div>
+            <div id="newsHolder" />
             <Agenda />
             <FoxHunting />
             <FaceBook />

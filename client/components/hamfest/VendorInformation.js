@@ -145,7 +145,7 @@ class VendorInfromation extends React.Component {
                   cols="50"
                   value={this.props.customerInfo.SpecialRequests}
                   onChange={() => this.handleChange(event)}
-                ></textarea>
+                />
               </div>
             ) : (
               ''

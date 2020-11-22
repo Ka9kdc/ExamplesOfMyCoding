@@ -74,9 +74,9 @@ const Repeaters = (props) => {
                 <td>Sunday (5th)</td>
                 <td>8:00pm</td>
                 <td>444.475</td>
-                <td style={{ paddingLeft: '1em' }}></td>
+                <td style={{ paddingLeft: '1em' }} />
               </tr>
-              <tr></tr>
+              <tr />
             </tbody>
           </table>
           <p>

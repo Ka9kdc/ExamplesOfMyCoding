@@ -25,7 +25,7 @@ const HamfestConfirmation = (props) => {
                 );
               }
             })}
-            <div id="paypal-button-container"></div>
+            <div id="paypal-button-container" />
             <PayPal />
           </form>
         </div>

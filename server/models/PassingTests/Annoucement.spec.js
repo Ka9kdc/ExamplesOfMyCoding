@@ -3,7 +3,7 @@ const db = require('../db');
 const Annoucement = require('./Annoucement');
 
 //Tests 26 passing 0 pending
-//TODO: fingure out how to set and test if a string is a hexidecimal
+/*TODO: figure out how to set and test if a string is a hexidecimal*/
 describe('Annoucement', () => {
   before(() => db.sync({ force: true }));
   let newAnnoucement;
@@ -25,15 +25,13 @@ describe('Annoucement', () => {
     expect(testAnnoucement.message).to.equal(
       'asdf asdf asdf asdf asdf asdf asdf asdf'
     );
-    expect(testAnnoucement.PostDate).to.be.exist;
     expect(testAnnoucement.notARealAttribute).to.equal(undefined);
   });
   describe('borderColor', () => {
     it('borderColor', async () => {
       const testAnnoucement = await Annoucement.create(newAnnoucement);
       expect(testAnnoucement.borderColor).to.equal('#ff0000');
-      expect(typeof testAnnoucement.borderColor).to.equal('string')
-
+      expect(typeof testAnnoucement.borderColor).to.equal('string');
     });
     it('cannot be null', async () => {
       const testAnnoucement = await Annoucement.build({
@@ -65,11 +63,11 @@ describe('Annoucement', () => {
       const testAnnoucement = await Annoucement.build(newAnnoucement);
       try {
         await testAnnoucement.validate();
-        throw Error('validation should have failed with symbols expect for hastag in borderColor');
-      } catch (err) {
-        expect(err.message).to.contain(
-          'Validation is on borderColor failed'
+        throw Error(
+          'validation should have failed with symbols expect for hastag in borderColor'
         );
+      } catch (err) {
+        expect(err.message).to.contain('Validation is on borderColor failed');
       }
     });
     it('cannot have symbols expect for hastag', async () => {
@@ -77,11 +75,11 @@ describe('Annoucement', () => {
       const testAnnoucement = await Annoucement.build(newAnnoucement);
       try {
         await testAnnoucement.validate();
-        throw Error('validation should have failed with symbols expect for hastagin borderColor');
-      } catch (err) {
-        expect(err.message).to.contain(
-          'Validation is on borderColor failed'
+        throw Error(
+          'validation should have failed with symbols expect for hastagin borderColor'
         );
+      } catch (err) {
+        expect(err.message).to.contain('Validation is on borderColor failed');
       }
     });
     it('cannot be more then 8 charters', async () => {
@@ -89,11 +87,11 @@ describe('Annoucement', () => {
       const testAnnoucement = await Annoucement.build(newAnnoucement);
       try {
         await testAnnoucement.save();
-        throw Error('validation should have failed with too many char in border');
-      } catch (err) {
-        expect(err.message).to.contain(
-          'Validation is on borderColor failed'
+        throw Error(
+          'validation should have failed with too many char in border'
         );
+      } catch (err) {
+        expect(err.message).to.contain('Validation is on borderColor failed');
       }
     });
     it('cannot be less then 3 charters', async () => {
@@ -101,11 +99,11 @@ describe('Annoucement', () => {
       const testAnnoucement = await Annoucement.build(newAnnoucement);
       try {
         await testAnnoucement.save();
-        throw Error('validation should have failed with too few char in border');
-      } catch (err) {
-        expect(err.message).to.contain(
-          'Validation is on borderColor failed'
+        throw Error(
+          'validation should have failed with too few char in border'
         );
+      } catch (err) {
+        expect(err.message).to.contain('Validation is on borderColor failed');
       }
     });
     it('cannot have letter besides a-f', async () => {
@@ -115,9 +113,7 @@ describe('Annoucement', () => {
         await testAnnoucement.save();
         throw Error('validation should have failed with bad letters in border');
       } catch (err) {
-        expect(err.message).to.contain(
-          'Validation is on borderColor failed'
-        );
+        expect(err.message).to.contain('Validation is on borderColor failed');
       }
     });
     it('must start with hashtag', async () => {
@@ -125,11 +121,11 @@ describe('Annoucement', () => {
       const testAnnoucement = await Annoucement.build(newAnnoucement);
       try {
         await testAnnoucement.save();
-        throw Error('validation should have failed with missing hashtag in border');
-      } catch (err) {
-        expect(err.message).to.contain(
-          'Validation is on borderColor failed'
+        throw Error(
+          'validation should have failed with missing hashtag in border'
         );
+      } catch (err) {
+        expect(err.message).to.contain('Validation is on borderColor failed');
       }
     });
   });
@@ -137,8 +133,7 @@ describe('Annoucement', () => {
     it('backgroundColor is a string', async () => {
       const testAnnoucement = await Annoucement.create(newAnnoucement);
       expect(testAnnoucement.backgroundColor).to.equal('#00ff00');
-      expect(typeof testAnnoucement.backgroundColor).to.equal('string')
-
+      expect(typeof testAnnoucement.backgroundColor).to.equal('string');
     });
     it('cannot be null', async () => {
       const testAnnoucement = await Annoucement.build({
@@ -170,7 +165,9 @@ describe('Annoucement', () => {
       const testAnnoucement = await Annoucement.build(newAnnoucement);
       try {
         await testAnnoucement.validate();
-        throw Error('validation should have failed with symbols  expect for hastag in background');
+        throw Error(
+          'validation should have failed with symbols  expect for hastag in background'
+        );
       } catch (err) {
         expect(err.message).to.contain(
           'Validation is on backgroundColor failed'
@@ -182,7 +179,9 @@ describe('Annoucement', () => {
       const testAnnoucement = await Annoucement.build(newAnnoucement);
       try {
         await testAnnoucement.validate();
-        throw Error('validation should have failed with symbols expect for hastag in background');
+        throw Error(
+          'validation should have failed with symbols expect for hastag in background'
+        );
       } catch (err) {
         expect(err.message).to.contain(
           'Validation is on backgroundColor failed'
@@ -194,7 +193,9 @@ describe('Annoucement', () => {
       const testAnnoucement = await Annoucement.build(newAnnoucement);
       try {
         await testAnnoucement.save();
-        throw Error('validation should have failed with too many char in background');
+        throw Error(
+          'validation should have failed with too many char in background'
+        );
       } catch (err) {
         expect(err.message).to.contain(
           'Validation is on backgroundColor failed'
@@ -206,7 +207,9 @@ describe('Annoucement', () => {
       const testAnnoucement = await Annoucement.build(newAnnoucement);
       try {
         await testAnnoucement.save();
-        throw Error('validation should have failed with too few char in background');
+        throw Error(
+          'validation should have failed with too few char in background'
+        );
       } catch (err) {
         expect(err.message).to.contain(
           'Validation is on backgroundColor failed'
@@ -218,7 +221,9 @@ describe('Annoucement', () => {
       const testAnnoucement = await Annoucement.build(newAnnoucement);
       try {
         await testAnnoucement.save();
-        throw Error('validation should have failed with bad letters in background');
+        throw Error(
+          'validation should have failed with bad letters in background'
+        );
       } catch (err) {
         expect(err.message).to.contain(
           'Validation is on backgroundColor failed'
@@ -230,7 +235,9 @@ describe('Annoucement', () => {
       const testAnnoucement = await Annoucement.build(newAnnoucement);
       try {
         await testAnnoucement.save();
-        throw Error('validation should have failed with missing hashtag in background');
+        throw Error(
+          'validation should have failed with missing hashtag in background'
+        );
       } catch (err) {
         expect(err.message).to.contain(
           'Validation is on backgroundColor failed'
@@ -244,8 +251,7 @@ describe('Annoucement', () => {
       expect(testAnnoucement.message).to.equal(
         'asdf asdf asdf asdf asdf asdf asdf asdf'
       );
-      expect(typeof testAnnoucement.message).to.equal('string')
-
+      expect(typeof testAnnoucement.message).to.equal('string');
     });
     it('cannot be null', async () => {
       const testAnnoucement = await Annoucement.build({
@@ -270,19 +276,18 @@ describe('Annoucement', () => {
         expect(err.message).to.contain('Validation notEmpty on message failed');
       }
     });
-   
   });
   describe('Post Date', () => {
     it('Post Date is a date', async () => {
       const testAnnoucement = await Annoucement.create(newAnnoucement);
       assert.deepEqual(testAnnoucement.PostDate, newAnnoucement.PostDate);
-      expect(typeof testAnnoucement.PostDate).to.equal('object')
+      expect(typeof testAnnoucement.PostDate).to.equal('object');
     });
     it('cannot be null', async () => {
       const testAnnoucement = await Annoucement.build({
-          borderColor: '#ff0000',
-          backgroundColor: '#00ff00',
-          message: 'asdf asdf asdf asdf asdf asdf asdf asdf',
+        borderColor: '#ff0000',
+        backgroundColor: '#00ff00',
+        message: 'asdf asdf asdf asdf asdf asdf asdf asdf',
       });
       try {
         await testAnnoucement.validate();
@@ -298,11 +303,13 @@ describe('Annoucement', () => {
         await testAnnoucement.validate();
         throw Error('validation should have failed with empty post date');
       } catch (err) {
-        expect(err.message).to.contain('Validation notEmpty on PostDate failed');
+        expect(err.message).to.contain(
+          'Validation notEmpty on PostDate failed'
+        );
       }
     });
     it('must be a date', async () => {
-      newAnnoucement.PostDate = 'Hello world'
+      newAnnoucement.PostDate = 'Hello world';
       const testAnnoucement = await Annoucement.build(newAnnoucement);
       try {
         await testAnnoucement.validate();
@@ -310,7 +317,6 @@ describe('Annoucement', () => {
       } catch (err) {
         expect(err.message).to.contain('Validation isDate on PostDate failed');
       }
-
-   })
+    });
   });
 });

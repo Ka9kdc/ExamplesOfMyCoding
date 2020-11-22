@@ -25,7 +25,7 @@ const Member = db.define('member', {
       notEmpty: true,
       isAlphanumeric: true,
       is: /^[AaWaKkNn][a-zA-Z]?[0-9][a-zA-Z]{1,3}$/,
-      len: [3,6],
+      len: [3, 6],
     },
   },
   Phone: {
@@ -34,7 +34,7 @@ const Member = db.define('member', {
     validate: {
       notEmpty: true,
       is: /((\(\d{3}\)?)|(\d{3}))([\s-./]?)(\d{3})([\s-./]?)(\d{4})/i,
-      len: [10,17],
+      len: [10, 17],
     },
   },
   Street: {
@@ -67,7 +67,7 @@ const Member = db.define('member', {
     allowNull: false,
     validate: {
       notEmpty: true,
-      len: [5,9],
+      len: [5, 9],
       is: /^\d{5}(-\d{4})?$/,
     },
   },
@@ -96,7 +96,7 @@ const Member = db.define('member', {
     validate: {
       notEmpty: true,
       min: 2020,
-      max: 2999
+      max: 2999,
     },
   },
   RenewalDate: {
@@ -104,7 +104,7 @@ const Member = db.define('member', {
     allowNull: false,
     validate: {
       notEmpty: true,
-      isDate: true, 
+      isDate: true,
     },
   },
 });

@@ -60,7 +60,7 @@ const Attendee = db.define('attendee', {
     allowNull: false,
     validate: {
       notEmpty: true,
-      isDate: true
+      isDate: true,
     },
   },
 });

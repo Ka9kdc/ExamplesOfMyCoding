@@ -29,7 +29,7 @@ const MemberPaypal = (props) => {
       },
     })
     .render('#paypal-button-container');
-  return <div></div>;
+  return <div />;
 };
 const mapState = (state) => {
   return {

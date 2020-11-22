@@ -1,5 +1,3 @@
-/* global describe beforeEach it */
-
 const { expect } = require('chai');
 const { db, User } = require('../index');
 
@@ -37,8 +35,8 @@ describe('User model', () => {
     });
   });
   describe('user Name', () => {
-    beforeEach(async () => {
-      return await User.create({
+    beforeEach(() => {
+      return User.create({
         Email: 'cody@puppybook.com',
         Callsign: 'ka9ccu',
         password: 'bones',
@@ -53,7 +51,7 @@ describe('User model', () => {
         password: '12345',
       });
       expect(hannah.Name).to.equal('Hannah');
-      expect(typeof hannah.Name).to.equal('string')  
+      expect(typeof hannah.Name).to.equal('string');
     });
     it('Name cannot be empty', async () => {
       const emptyNameUser = User.build({
@@ -82,7 +80,7 @@ describe('User model', () => {
         expect(err.message).to.contain('Name cannot be null');
       }
     });
-    
+
     it('Name cannot have numbers', async () => {
       // We also shouldn't be able to create a user with an empty name.
       const emptyNameUser = User.build({
@@ -95,9 +93,7 @@ describe('User model', () => {
         await emptyNameUser.validate();
         throw Error('validation should have failed with numbers in Name');
       } catch (err) {
-        expect(err.message).to.contain(
-          'Validation isAlpha on Name failed'
-        );
+        expect(err.message).to.contain('Validation isAlpha on Name failed');
       }
     });
     it('Name cannot have symbols', async () => {
@@ -111,15 +107,13 @@ describe('User model', () => {
         await emptyNameUser.validate();
         throw Error('validation should have failed with symbols in Name');
       } catch (err) {
-        expect(err.message).to.contain(
-          'Validation isAlpha on Name failed'
-        );
+        expect(err.message).to.contain('Validation isAlpha on Name failed');
       }
     });
   });
   describe('user Email', () => {
-    beforeEach(async () => {
-      return await User.create({
+    beforeEach(() => {
+      return User.create({
         Email: 'cody@puppybook.com',
         Callsign: 'ka9ccu',
         password: 'bones',
@@ -127,12 +121,14 @@ describe('User model', () => {
       });
     });
     it('Email is a string', async () => {
-      const hannah = await User.create({Email: 'abcde123@abc.com',
-      Callsign: 'w9cc',
-      Name: 'cody',
-      password: '12345'});
+      const hannah = await User.create({
+        Email: 'abcde123@abc.com',
+        Callsign: 'w9cc',
+        Name: 'cody',
+        password: '12345',
+      });
       expect(hannah.Email).to.equal('abcde123@abc.com');
-      expect(typeof hannah.Email).to.equal('string')      
+      expect(typeof hannah.Email).to.equal('string');
     });
     it('Email cannot be empty', async () => {
       const emptyEmailUser = User.build({
@@ -189,26 +185,28 @@ describe('User model', () => {
     });
   });
   describe('Callsign', () => {
-    let hannah
+    let hannah;
     beforeEach(async () => {
-      hannah  = await User.create({
+      hannah = await User.create({
         Email: 'cody@puppybook.com',
         Callsign: 'w9ccu',
         password: 'bones',
         Name: 'cody',
       });
     });
-    it('Callsign is a string', async () => {
+    it('Callsign is a string', () => {
       expect(hannah.Callsign).to.equal('w9ccu');
-      expect(typeof hannah.Callsign).to.equal('string')  
+      expect(typeof hannah.Callsign).to.equal('string');
     });
     it('Callsign must be unique', async () => {
       try {
-        const testUser = User.build({ Email: 'cody@puppybook.com',
-        Callsign: 'w9ccu',
-        password: 'bones',
-        Name: 'cody'});
-          await testUser.save();
+        const testUser = User.build({
+          Email: 'cody@puppybook.com',
+          Callsign: 'w9ccu',
+          password: 'bones',
+          Name: 'cody',
+        });
+        await testUser.save();
         throw Error('validation should have failed without an unique Callsign');
       } catch (err) {
         expect(err.message).to.contain('Validation error');
@@ -244,24 +242,28 @@ describe('User model', () => {
       }
     });
     it('Callsign must be vaild', async () => {
-      const testUser = User.build({ Email: 'cody@puppybook.com',
-      Callsign: 'abc123',
-      password: 'bones',
-      Name: 'cody'});
-      try { 
+      const testUser = User.build({
+        Email: 'cody@puppybook.com',
+        Callsign: 'abc123',
+        password: 'bones',
+        Name: 'cody',
+      });
+      try {
         await testUser.validate();
-        throw Error('validation should have failed with with a nonvalid callsign');
-      } catch (err) {
-        expect(err.message).to.contain(
-          'Validation is on Callsign failed'
+        throw Error(
+          'validation should have failed with with a nonvalid callsign'
         );
+      } catch (err) {
+        expect(err.message).to.contain('Validation is on Callsign failed');
       }
     });
     it('CallSign cannot have symbols', async () => {
-      const testUser = User.build({Email: 'cody@puppybook.com',
-      Callsign: 'ka9;dd',
-      password: 'bones',
-      Name: 'cody'});
+      const testUser = User.build({
+        Email: 'cody@puppybook.com',
+        Callsign: 'ka9;dd',
+        password: 'bones',
+        Name: 'cody',
+      });
       try {
         await testUser.validate();
         throw Error('validation should have failed with symbols in Callsign');
@@ -272,100 +274,107 @@ describe('User model', () => {
       }
     });
     it('CallSign must be more then 2 charaters', async () => {
-      const testUser = User.build({Email: 'cody@puppybook.com',
-      Callsign: 'k9',
-      password: 'bones',
-      Name: 'cody'});
+      const testUser = User.build({
+        Email: 'cody@puppybook.com',
+        Callsign: 'k9',
+        password: 'bones',
+        Name: 'cody',
+      });
       try {
         await testUser.validate();
         throw Error('validation should have failed with two short Callsign');
       } catch (err) {
-        expect(err.message).to.contain(
-          'Validation is on Callsign failed'
-        );
+        expect(err.message).to.contain('Validation is on Callsign failed');
       }
     });
     it('CallSign must start with an A W K or N', async () => {
-      const testUser = User.build({Email: 'cody@puppybook.com',
-      Callsign: 'd9kdk',
-      password: 'bones',
-      Name: 'cody'});
+      const testUser = User.build({
+        Email: 'cody@puppybook.com',
+        Callsign: 'd9kdk',
+        password: 'bones',
+        Name: 'cody',
+      });
       try {
         await testUser.validate();
         throw Error('validation should have failed with two short Callsign');
       } catch (err) {
-        expect(err.message).to.contain(
-          'Validation is on Callsign failed'
-        );
+        expect(err.message).to.contain('Validation is on Callsign failed');
       }
     });
     it('CallSign must be less then 6 charaters', async () => {
-      const testUser = User.build({Email: 'cody@puppybook.com',
-      Callsign: 'ka9wwuu',
-      password: 'bones',
-      Name: 'cody'});
+      const testUser = User.build({
+        Email: 'cody@puppybook.com',
+        Callsign: 'ka9wwuu',
+        password: 'bones',
+        Name: 'cody',
+      });
       try {
         await testUser.validate();
-        throw Error('validation should have failed with more then 6 letters Callsign');
-      } catch (err) {
-        expect(err.message).to.contain(
-          'Validation is on Callsign failed'
+        throw Error(
+          'validation should have failed with more then 6 letters Callsign'
         );
+      } catch (err) {
+        expect(err.message).to.contain('Validation is on Callsign failed');
       }
     });
     it('CallSign Name not start with 3 alphas', async () => {
-      const testUser = User.build({Email: 'cody@puppybook.com',
-      Callsign: 'khs9h',
-      password: 'bones',
-      Name: 'cody'});
+      const testUser = User.build({
+        Email: 'cody@puppybook.com',
+        Callsign: 'khs9h',
+        password: 'bones',
+        Name: 'cody',
+      });
       try {
         await testUser.validate();
-        throw Error('validation should have failed with 3 letters first Callsign');
-      } catch (err) {
-        expect(err.message).to.contain(
-          'Validation is on Callsign failed'
+        throw Error(
+          'validation should have failed with 3 letters first Callsign'
         );
+      } catch (err) {
+        expect(err.message).to.contain('Validation is on Callsign failed');
       }
-    });it('CallSign cannot start with a number', async () => {
-      const testUser = User.build({Email: 'cody@puppybook.com',
-      Callsign: '9kdd',
-      password: 'bones',
-      Name: 'cody'});
+    });
+    it('CallSign cannot start with a number', async () => {
+      const testUser = User.build({
+        Email: 'cody@puppybook.com',
+        Callsign: '9kdd',
+        password: 'bones',
+        Name: 'cody',
+      });
       try {
         await testUser.validate();
-        throw Error('validation should have failed with a number first Callsign');
-      } catch (err) {
-        expect(err.message).to.contain(
-          'Validation is on Callsign failed'
+        throw Error(
+          'validation should have failed with a number first Callsign'
         );
+      } catch (err) {
+        expect(err.message).to.contain('Validation is on Callsign failed');
       }
     });
     it('CallSign can not have more then one number', async () => {
-      const testUser = User.build({Email: 'cody@puppybook.com',
-      Callsign: 'k9s6s',
-      password: 'bones',
-      Name: 'cody'});
+      const testUser = User.build({
+        Email: 'cody@puppybook.com',
+        Callsign: 'k9s6s',
+        password: 'bones',
+        Name: 'cody',
+      });
       try {
         await testUser.validate();
         throw Error('validation should have failed with two short Callsign');
       } catch (err) {
-        expect(err.message).to.contain(
-          'Validation is on Callsign failed'
-        );
+        expect(err.message).to.contain('Validation is on Callsign failed');
       }
     });
     it('CallSign can not have more then one number', async () => {
-      const testUser = User.build({Email: 'cody@puppybook.com',
-      Callsign: 'k39eed',
-      password: 'bones',
-      Name: 'cody'});
+      const testUser = User.build({
+        Email: 'cody@puppybook.com',
+        Callsign: 'k39eed',
+        password: 'bones',
+        Name: 'cody',
+      });
       try {
         await testUser.validate();
         throw Error('validation should have failed with two short Callsign');
       } catch (err) {
-        expect(err.message).to.contain(
-          'Validation is on Callsign failed'
-        );
+        expect(err.message).to.contain('Validation is on Callsign failed');
       }
     });
   }); // end describe('instanceMethods')

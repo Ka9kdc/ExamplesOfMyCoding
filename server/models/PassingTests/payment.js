@@ -7,16 +7,16 @@ const Payment = db.define('payment', {
     allowNull: false,
     validate: {
       notEmpty: true,
-      min:0
+      min: 0,
     },
   },
   PaymentDate: {
     type: Sequelize.DATE,
     allowNull: false,
     validate: {
-      isDate: true,  
-      notEmpty: true
-    }
+      isDate: true,
+      notEmpty: true,
+    },
   },
 });
 
