@@ -1,7 +1,7 @@
 const sequelize = require('sequelize');
 const db = require('./db');
 
-const CalendarEvent = db.define('calenderEvent', {
+const CalendarEvent = db.define('calendarEvent', {
   Name: {
     type: sequelize.STRING,
     allowNull: false,
@@ -19,6 +19,11 @@ const CalendarEvent = db.define('calenderEvent', {
   },
   End: {
     type: sequelize.DATE,
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+      isDate: true,
+    },
   },
   Location: {
     type: sequelize.STRING,
@@ -29,6 +34,9 @@ const CalendarEvent = db.define('calenderEvent', {
   },
   Description: {
     type: sequelize.STRING,
+    validate: {
+      notEmpty: true,
+    },
   },
   Type: {
     type: sequelize.ENUM(
@@ -38,8 +46,10 @@ const CalendarEvent = db.define('calenderEvent', {
       'Public Service Event',
       'Training Class',
       'Testing',
-      'CSU'
+      'CSU',
+      'Other'
     ),
+    defaultValue: 'Other',
   },
 });
 
