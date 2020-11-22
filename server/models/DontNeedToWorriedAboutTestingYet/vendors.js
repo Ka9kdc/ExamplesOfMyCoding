@@ -103,23 +103,34 @@ const Order = db.define('order', {
   },
   Chairs: {
     type: Sequelize.INTEGER,
+    validate: {
+      notEmpty: true,
+      min: 0,
+    },
   },
   Electical: {
     type: Sequelize.BOOLEAN,
   },
   Raffle: {
     type: Sequelize.INTEGER,
+    validate: {
+      notEmpty: true,
+      min: 0
+    }
   },
   Amount: {
-    type: Sequelize.DECIMAL,
+    type: Sequelize.INTEGER, //storing amount as pennies
     allowNull: false,
     validate: {
       notEmpty: true,
+      min: 0,
     },
   },
-  OrderDate: {
+ OrderDate: {
     type: Sequelize.DATE,
+    allowNull: false,
     validate: {
+      isDate: true,
       notEmpty: true,
     },
   },

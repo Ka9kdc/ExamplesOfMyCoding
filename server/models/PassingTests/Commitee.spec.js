@@ -1,5 +1,5 @@
 const {expect} = require('chai')
-const { db, Committee } = require('.')
+const { db, Committee } = require('..')
 
 //Tests: 36 passing, 0 pending and 0 failing
 describe('Committee', () => {

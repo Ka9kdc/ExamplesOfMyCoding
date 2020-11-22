@@ -1,6 +1,6 @@
 const { expect, assert } = require('chai');
-const db = require('./db');
-const { Badge } = require('./member');
+const db = require('../db');
+const { Badge } = require('../member');
 
 //Tests: 30 passing 4 pending
 describe('Badge', () => {

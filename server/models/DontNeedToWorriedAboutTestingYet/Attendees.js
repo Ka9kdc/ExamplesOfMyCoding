@@ -76,16 +76,24 @@ const Ticket = db.define('ticket', {
   },
   Raffle: {
     type: Sequelize.INTEGER,
-  },
-  Amount: {
-    type: Sequelize.DECIMAL,
     validate: {
       notEmpty: true,
+      min: 0
+    }
+  },
+  Amount: {
+    type: Sequelize.INTEGER, //storing amount as pennies
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+      min: 0,
     },
   },
-  OrderDate: {
+ OrderDate: {
     type: Sequelize.DATE,
+    allowNull: false,
     validate: {
+      isDate: true,
       notEmpty: true,
     },
   },
