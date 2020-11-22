@@ -204,6 +204,10 @@ const Committee = db.define('committee', {
   },
   other: {
     type: Sequelize.STRING,
+    validate: {
+      notEmpty: true,
+      isAlpha: true
+    }
   },
 });
 
