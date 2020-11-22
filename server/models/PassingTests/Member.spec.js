@@ -424,25 +424,42 @@ describe('Member Model', () => {
         expect(err.message).to.contain('Validation len on Phone failed');
       }
     });
+    it('Phone Number can have -', async () => {
+      newMember.Phone = '123-456-7890';
+      const testMember = await Member.create(newMember);
+      expect(testMember.Phone).to.equal('123-456-7890');
+    });
+    it('Phone Number can have spaces', async () => {
+      newMember.Phone = '123 456 7890';
+      const testMember = await Member.create(newMember);
+      expect(testMember.Phone).to.equal('123 456 7890');
+    });
+    it('Phone Number can have () and spaces', async () => {
+      newMember.Phone = '(123) 456-7890';
+      const testMember = await Member.create(newMember);
+      expect(testMember.Phone).to.equal('(123) 456-7890');
+    });
+    it('Phone Number can have (), - and spaces', async () => {
+      newMember.Phone = '(123)-456-7890';
+      const testMember = await Member.create(newMember);
+      expect(testMember.Phone).to.equal('(123)-456-7890');
+    });
     it('Phone Number can have ()', async () => {
       newMember.Phone = '(123) - (456) - (7890)';
-      const testMember = Member.build(newMember);
+      const testMember = await Member.build(newMember);
       try {
         await testMember.save();
-        expect(testMember.Phone).to.equal('(123) - (456) - (7890)');
+        throw Error(
+          'validation should have failed with out a nonvalid Phone number'
+        );
       } catch (err) {
-        console.log(err);
+        expect(err.message).to.contain('Validation len on Phone failed');
       }
     });
     it('Phone Number can have .', async () => {
       newMember.Phone = '123.456.7890';
-      const testMember = Member.build(newMember);
-      try {
-        await testMember.save();
-        expect(testMember.Phone).to.equal('123.456.7890');
-      } catch (err) {
-        console.log(err);
-      }
+      const testMember = await Member.create(newMember);
+      expect(testMember.Phone).to.equal('123.456.7890');
     });
   });
   describe('Street', () => {
@@ -492,7 +509,6 @@ describe('Member Model', () => {
       const testMember = Member.build(newMember);
       try {
         await testMember.save();
-        console.log('street -<', testMember);
         throw Error(
           'validation should have failed with with a nonvalid Street'
         );
