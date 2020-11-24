@@ -11,7 +11,7 @@ const {
   Ticket,
   Attendee,
   Annoucement,
-} = require('.');
+} = require('..');
 
 describe('Model Relationships', () => {
   before(() => db.sync({ force: true }));
@@ -20,22 +20,22 @@ describe('Model Relationships', () => {
   const payment = { PaymentDate: today, Amount: 20 };
   let testPayment;
   let testMember;
+  const member = {
+    FirstName: 'Hannah',
+    LastName: 'Green',
+    Callsign: 'Ka9ddd',
+    Phone: '1234567890',
+    Street: '123 happy lane',
+    City: 'st upidtown',
+    State: 'MA',
+    Zip: 60606,
+    Membership: 'Full',
+    Email: 'abcde123@abc.com',
+    DueYear: 2020,
+    RenewalDate: today,
+  };
   afterEach(() => db.sync({ force: true }));
   describe('Membership Models - member, badge, committees and payment', () => {
-    const member = {
-      FirstName: 'Hannah',
-      LastName: 'Green',
-      Callsign: 'Ka9ddd',
-      Phone: '1234567890',
-      Street: '123 happy lane',
-      City: 'st upidtown',
-      State: 'MA',
-      Zip: 60606,
-      Membership: 'Full',
-      Email: 'abcde123@abc.com',
-      DueYear: 2020,
-      RenewalDate: today,
-    };
     beforeEach(async () => {
       testMember = await Member.create(member);
       testPayment = await Payment.create(payment);
@@ -130,6 +130,8 @@ describe('Model Relationships', () => {
         OrderDate: today,
       });
       testPayment = await Payment.create(payment);
+      await testPayment.setVendor(testVendor);
+      await testPayment.setOrder(testOrder);
     });
     it('vendor can have one order', async () => {
       await testOrder.setVendor(testVendor);
@@ -138,13 +140,15 @@ describe('Model Relationships', () => {
     });
     //matched is return as null or undefined
     xit('Vendor has one Payment', async () => {
-      await testPayment.setVendor(testVendor);
+      // console.log('testPaynmet --> ', Object.keys(testPayment.__proto__));
       const matched = await testPayment.getVendor();
+      console.log('---Payment', testPayment);
+      console.log('...Vendor...', testVendor);
+      console.log('matched ===', matched);
       expect(matched.Name).to.equal('Hannah');
       assert.deepEqual(matched.OrderDate, testPayment.PaymentDate);
     });
     xit('Vendor has one Payment', async () => {
-      await testPayment.setOrder(testOrder);
       const matched = await testPayment.getOrder();
       expect(matched.Amount).to.equal(20);
       assert.deepEqual(matched.OrderDate, testPayment.PaymentDate);
@@ -194,14 +198,17 @@ describe('Model Relationships', () => {
       assert.deepEqual(matched.OrderDate, testPayment.PaymentDate);
     });
   });
-  describe.skip('User - Announcement', () => {
-    it('user can have many Announcements', async () => {
-      const testuser = await User.create({
+  describe('User - Announcement', () => {
+    let testuser;
+    beforeEach(async () => {
+      testMember = await Member.create(member);
+      testuser = await User.create({
         Callsign: testMember.Callsign,
         Email: testMember.Email,
         Name: testMember.FirstName,
         password: '123456',
       });
+      await testuser.setMember(testMember);
       const testAnnouncement1 = await Annoucement.create({
         borderColor: '#ff0000',
         backgroundColor: '#00ff00',
@@ -223,16 +230,29 @@ describe('Model Relationships', () => {
         PostDate: today,
       });
       await testAnnouncement3.setUser(testuser.id);
-      console.log(testuser);
+    });
+    it('user can have many Announcements', async () => {
+      // console.log(Object.keys(testuser.__proto__));
       //   console.log(testAnnouncement1)
 
-      const matchedAnnoucements = await testuser.countAnnouncements();
-      console.log(matchedAnnoucements);
+      const announcementCount = await testuser.countAnnoucements();
+      expect(announcementCount).to.equal(3);
+    });
+    it('user can have many', async () => {
+      const matched = await testuser.getAnnoucements();
+      let matchedAnnoucements = [];
+      for (let i = 0; i < matched.length; i++) {
+        matchedAnnoucements.push(matched[i].borderColor);
+      }
       expect(matchedAnnoucements).to.deep.equal([
         '#ff0000',
         '#ff00aa',
         '#ff0004',
       ]);
+    });
+    it('user has a member', async () => {
+      const match = await testuser.getMember();
+      expect(match.FirstName).to.equal('Hannah');
     });
   });
 });
