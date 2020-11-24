@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { User } = require('../models');
 const { Member } = require('../models/member');
 
+// GET /api/user/me
 router.get('/me', (req, res, next) => {
   res.json(req.user);
 });
@@ -39,8 +40,9 @@ router.post('/signup', async (req, res, next) => {
     } else {
       const user = await User.create({
         Callsign: req.body.Callsign,
-        name: member.FirstName,
+        Name: member.FirstName,
         password: req.body.password,
+        Email: member.Email,
         memberId: member.id,
       });
       req.login(user, (err) => {
