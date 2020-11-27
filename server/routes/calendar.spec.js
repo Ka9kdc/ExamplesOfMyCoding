@@ -2,8 +2,9 @@ const {expect} = require('chai')
 const {db, CalendarEvent} = require('../models')
 const app = require('..')
 const request = require('supertest')
+const sinon = require('sinon')
 
-//Tests: 5 passing 3 pending,
+//Tests: 8 passing 0 pending,
 //Get routes are not timing out and returning 500
 describe('Calendar Events Routes', () => {
     before(() => db.sync({force: true}))
@@ -62,17 +63,38 @@ describe('Calendar Events Routes', () => {
         })
     })
     describe('returns 500 when database is done', () => {
-        xit('get /api/calendar/', async () => {
+        const UserMethods = [
+            'findAll',
+            'findOne',
+            'findByPk',
+            'findOrCreate',
+            'create',
+            'bulkCreate',
+            'destroy',
+            'update',
+          ];
+          beforeEach(() => {
+            const error = new Error('OH NO! The database is on fire!');
+            UserMethods.forEach((method) => {
+              sinon.stub(CalendarEvent, method).rejects(error);
+            });
+          });
+          afterEach(() => {
+            UserMethods.forEach((method) => {
+              CalendarEvent[method].restore();
+            });
+          });
+        it('get /api/calendar/', async () => {
             const res = await request(app).get('/api/calendar/').timeout(200)
 
             expect(res.status).to.equal(500)
         })
-        xit('get /api/calendar/month', async () => {
+        it('get /api/calendar/month', async () => {
             const res = await request(app).get('/api/calendar/month').timeout(200)
 
             expect(res.status).to.equal(500)
         })
-        xit('GET /api/calendar/training', async () => {
+        it('GET /api/calendar/training', async () => {
             const res = await request(app).get('/api/calendar/training').timeout(200)
 
             expect(res.status).to.equal(500)

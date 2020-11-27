@@ -2,9 +2,10 @@ const { expect } = require('chai');
 const { db, Annoucement } = require('../models');
 const request = require('supertest');
 const app = require('../index');
+const sinon = require('sinon')
 
 
-//Tests: 4 passing, 0 pending, 2 failing
+//Tests: 6 passing, 0 pending, 0 failing
 describe('Anouncement routes', () => {
   before(() => db.sync({ force: true }));
   beforeEach(async () => {
@@ -46,12 +47,33 @@ describe('Anouncement routes', () => {
     });
   });
   describe('returns 500 if the database is down', () => {
-    xit('GET /all', async () => {
+    const UserMethods = [
+      'findAll',
+      'findOne',
+      'findByPk',
+      'findOrCreate',
+      'create',
+      'bulkCreate',
+      'destroy',
+      'update',
+    ];
+    beforeEach(() => {
+      const error = new Error('OH NO! The database is on fire!');
+      UserMethods.forEach((method) => {
+        sinon.stub(Annoucement, method).rejects(error);
+      });
+    });
+    afterEach(() => {
+      UserMethods.forEach((method) => {
+        Annoucement[method].restore();
+      });
+    });
+    it('GET /all', async () => {
       const res = await request(app).get('/api/Announcement/all').timeout(200);
 
       expect(res.status).to.equal(500);
     });
-    xit('GET /last', async () => {
+    it('GET /last', async () => {
       const res = await request(app).get('/api/Announcement/last').timeout(200);
 
       expect(res.status).to.equal(500);

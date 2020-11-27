@@ -1,9 +1,10 @@
 const {expect} = require('chai')
 const request = require('supertest')
 const {db, OfficerHistory} = require('../models')
-const app = require('../index')
+const app = require('../index');
+const sinon = require('sinon')
 
-//Tests: 2 passing, 0 pending, 1 failing
+//Tests: 3 passing, 0 pending, 0 failing
 describe('/api/OfficerHistory routes', () => {
    
     beforeEach(async () => {
@@ -36,6 +37,7 @@ describe('/api/OfficerHistory routes', () => {
             Custodian: 'Unknown',
           })
         })
+      after(() => OfficerHistory['findAll'].restore())
     it('GET /api/officerHistory/', async () => {
         const res = await request(app)
         .get('/api/officerHistory/')
@@ -56,7 +58,8 @@ describe('/api/OfficerHistory routes', () => {
         expect(res.body[1].startYear).to.be.equal(1949)
         expect(res.body[2].startYear).to.be.equal(1948)
     })
-    xit('GET /api/officerHistory - return 500 when database is done', async () => {
+    it('GET /api/officerHistory - return 500 when database is done', async () => {
+      sinon.stub(OfficerHistory, 'findAll').rejects(new Error('OH NO! The database is on fire!'))
       const res = await request(app).get('/api/officerHistory/').timeout(200);
 
       expect(res.status).to.equal(500);

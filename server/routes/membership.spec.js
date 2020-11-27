@@ -154,6 +154,7 @@ describe('/api/membership routes', () => {
     });
   });
   describe('response with 500 if database is down', () => {
+    
     it('POST /api/membership/member', async () => {
       const res = await request(app)
         .post('/api/membership/member', {
