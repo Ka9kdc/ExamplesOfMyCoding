@@ -43,8 +43,9 @@ router.post('/family', async (req, res, next) => {
       DueYear: req.body.DueYear,
     });
     if (req.body.FamilyMembers && req.body.FamilyMembers.length) {
-      req.body.FamilyMembers.forEach((member) => {
-        newMember.addFamily(member.id);
+     console.log('hello')
+      await req.body.FamilyMembers.forEach(async (member) => {
+       await  newMember.addFamily(member.id);
       });
     }
 
@@ -105,8 +106,9 @@ router.post('/committees', async (req, res, next) => {
 router.post('/payment', async (req, res, next) => {
   try {
     let memberId = req.body.contact.id;
-    if (req.body.contact.Membership === 'Family')
+    if (req.body.contact.Membership === 'Family'){
       memberId = req.body.contact.FamilyMembers[0].id;
+    }
     const newPayment = await Payment.create({
       Amount: req.body.amount,
       PaymentDate: req.body.contact.RenewalDate,

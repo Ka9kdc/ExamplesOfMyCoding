@@ -10,6 +10,7 @@
     "start": "npm run start:dev",
     "seed": "node script/seed.js",
     "test": "NODE_ENV='test' mocha \"./server/**/*.spec.js\" \"./client/**/*.spec.js\" \"./script/**/*.spec.js\" --require @babel/polyfill --require @babel/register",
+    "route-test": "NODE_ENV='test' mocha \"./server/routes/**/*.spec.js\" --require @babel/polyfill --require @babel/register",
     "lint": "eslint ./ --ignore-path .gitignore",
     "lint-fix": "npm run lint -- --fix",
     "prettier": "npm run lint-fix && prettier --write ./ --ignore-path .gitignore"

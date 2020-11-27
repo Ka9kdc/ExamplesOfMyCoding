@@ -3,12 +3,11 @@ const request = require('supertest')
 const {db, OfficerHistory} = require('../models')
 const app = require('../index')
 
-
+//Tests: 2 passing, 0 pending, 0 failing
 describe('/api/OfficerHistory routes', () => {
-    before(async () =>  {
-        await db.sync({force: true})
-    })
+   
     beforeEach(async () => {
+        await db.sync({force: true})
         await OfficerHistory.create({
             startYear: 1948,
             endYear: 1949,
@@ -46,5 +45,15 @@ describe('/api/OfficerHistory routes', () => {
         expect(res.body[2].President).to.be.equal('D.C.Burger, W9MYK')
         expect(res.body[1].VicePresident).to.be.equal('Unknown')
         expect(res.body[0].Secretary).to.be.equal('Unknown')
+    })
+    it('GET /api/officerHistory return history in descenting order -most recent first', async() => {
+        const res = await request(app)
+        .get('/api/officerHistory/')
+        .expect(200)
+
+        expect(res.body).to.be.an('array')
+        expect(res.body[0].startYear).to.be.equal(1950)
+        expect(res.body[1].startYear).to.be.equal(1949)
+        expect(res.body[2].startYear).to.be.equal(1948)
     })
 })

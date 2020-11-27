@@ -3,6 +3,8 @@ const request = require('supertest');
 const { db, User, Member } = require('../models');
 const app = require('../index');
 
+
+//Tests 6 passing, 1 pending/failing
 describe('/api/user routes', () => {
   before(() => {
     return db.sync({ force: true });
