@@ -2,7 +2,7 @@ const { expect, assert } = require('chai');
 const db = require('../db');
 const { Attendee } = require('../Attendees');
 
-//test 51 passing -> 18 pending
+//Tests: 51 passing -> 18 pending
 describe('Attendee Model', () => {
   before(() => db.sync({ force: true }));
 

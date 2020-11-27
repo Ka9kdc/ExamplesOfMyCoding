@@ -1,6 +1,7 @@
 const { expect, assert } = require('chai');
 const { db, CalendarEvent } = require('..');
 
+//Tests: 24 passing 0 pending
 describe('CalendarEvent model', () => {
   before(() => db.sync({ force: true }));
   let newCalendarEvent;
@@ -49,7 +50,7 @@ describe('CalendarEvent model', () => {
       }
     });
   });
-  describe('Last name', () => {
+  describe('Location', () => {
     it('Location is a string', async () => {
       const hannah = await CalendarEvent.create(newCalendarEvent);
       expect(hannah.Location).to.equal('Zoom');

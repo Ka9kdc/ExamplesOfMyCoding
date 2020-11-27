@@ -13,6 +13,7 @@ const {
   Annoucement,
 } = require('..');
 
+//Tests: 10 passing 3 pending
 describe('Model Relationships', () => {
   before(() => db.sync({ force: true }));
 

@@ -5,7 +5,6 @@ const request = require('supertest');
 const sinon = require('sinon');
 
 //Tests: 8 passing 0 pending,
-//Get routes are not timing out and returning 500
 describe('Calendar Events Routes', () => {
   before(() => db.sync({ force: true }));
   const today = new Date();
