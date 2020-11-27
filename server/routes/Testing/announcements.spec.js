@@ -1,7 +1,7 @@
 const { expect } = require('chai');
-const { db, Annoucement } = require('../models');
+const { db, Annoucement } = require('../../models');
 const request = require('supertest');
-const app = require('../index');
+const app = require('../../index');
 const sinon = require('sinon')
 
 

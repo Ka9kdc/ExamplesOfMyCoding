@@ -1,7 +1,7 @@
 const { expect } = require('chai');
 const request = require('supertest');
-const { db, User, Member } = require('../models');
-const app = require('../index');
+const { db, User, Member } = require('../../models');
+const app = require('../../index');
 
 
 //Tests 8 passing, 1 pending/failing

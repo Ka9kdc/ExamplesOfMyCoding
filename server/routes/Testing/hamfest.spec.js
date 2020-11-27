@@ -4,9 +4,9 @@ const {
   Product,
   Vendor,
   CalendarEvent
-} = require('../models');
+} = require('../../models');
 const request = require('supertest');
-const app = require('../index');
+const app = require('../../index');
 const sinon = require('sinon');
 
 //Tests: 13 passing, 2 failing

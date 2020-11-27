@@ -1,8 +1,8 @@
 const { expect, assert } = require('chai');
 const request = require('supertest');
-const db = require('../models/db');
-const app = require('../index');
-const { Member } = require('../models');
+const db = require('../../models/db');
+const app = require('../../index');
+const { Member } = require('../../models');
 
 //Tests:  11 passing, 0 pending 0 failing
 describe('/api/membership routes', () => {

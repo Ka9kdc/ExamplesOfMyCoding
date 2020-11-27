@@ -1,6 +1,6 @@
 const {expect} = require('chai')
-const {db, CalendarEvent} = require('../models')
-const app = require('..')
+const {db, CalendarEvent} = require('../../models')
+const app = require('../..')
 const request = require('supertest')
 const sinon = require('sinon')
 

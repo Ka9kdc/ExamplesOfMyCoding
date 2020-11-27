@@ -1,7 +1,7 @@
 const {expect} = require('chai')
 const request = require('supertest')
-const {db, OfficerHistory} = require('../models')
-const app = require('../index');
+const {db, OfficerHistory} = require('../../models')
+const app = require('../../index');
 const sinon = require('sinon')
 
 //Tests: 3 passing, 0 pending, 0 failing
