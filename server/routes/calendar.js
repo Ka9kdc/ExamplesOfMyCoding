@@ -7,6 +7,7 @@ const Op = sequelize.Op;
 router.get('/', async (req, res, next) => {
   try {
     const events = await CalendarEvent.findAll();
+    console.log('hello')
     res.send(events);
   } catch (error) {
     next(error);
