@@ -2,8 +2,7 @@ const { expect } = require('chai');
 const { db, Annoucement } = require('../../models');
 const request = require('supertest');
 const app = require('../../index');
-const sinon = require('sinon')
-
+const sinon = require('sinon');
 
 //Tests: 6 passing, 0 pending, 0 failing
 describe('Anouncement routes', () => {

@@ -43,9 +43,9 @@ router.post('/family', async (req, res, next) => {
       DueYear: req.body.DueYear,
     });
     if (req.body.FamilyMembers && req.body.FamilyMembers.length) {
-     console.log('hello')
+      console.log('hello');
       await req.body.FamilyMembers.forEach(async (member) => {
-       await  newMember.addFamily(member.id);
+        await newMember.addFamily(member.id);
       });
     }
 
@@ -106,7 +106,7 @@ router.post('/committees', async (req, res, next) => {
 router.post('/payment', async (req, res, next) => {
   try {
     let memberId = req.body.contact.id;
-    if (req.body.contact.Membership === 'Family'){
+    if (req.body.contact.Membership === 'Family') {
       memberId = req.body.contact.FamilyMembers[0].id;
     }
     const newPayment = await Payment.create({

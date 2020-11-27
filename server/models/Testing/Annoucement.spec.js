@@ -1,5 +1,5 @@
 const { expect, assert } = require('chai');
-const {db, Annoucement} = require('..');
+const { db, Annoucement } = require('..');
 
 //Tests 26 passing 0 pending
 /* figure out how to set and test if a string is a hexidecimal*/
@@ -24,7 +24,7 @@ describe('Annoucement', () => {
     expect(testAnnoucement.message).to.equal(
       'asdf asdf asdf asdf asdf asdf asdf asdf'
     );
-    assert.deepEqual(newAnnoucement.PostDate, testAnnoucement.PostDate)
+    assert.deepEqual(newAnnoucement.PostDate, testAnnoucement.PostDate);
     expect(testAnnoucement.notARealAttribute).to.equal(undefined);
   });
   describe('borderColor', () => {

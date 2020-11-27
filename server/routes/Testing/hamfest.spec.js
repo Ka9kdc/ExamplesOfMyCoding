@@ -1,10 +1,5 @@
 const { expect } = require('chai');
-const {
-  db,
-  Product,
-  Vendor,
-  CalendarEvent
-} = require('../../models');
+const { db, Product, Vendor, CalendarEvent } = require('../../models');
 const request = require('supertest');
 const app = require('../../index');
 const sinon = require('sinon');

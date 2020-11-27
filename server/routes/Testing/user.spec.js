@@ -3,7 +3,6 @@ const request = require('supertest');
 const { db, User, Member } = require('../../models');
 const app = require('../../index');
 
-
 //Tests 8 passing, 1 pending/failing
 describe('/api/user routes', () => {
   before(() => {
@@ -66,13 +65,13 @@ describe('/api/user routes', () => {
       expect(res.error.text).to.be.equal('Incorrect Password');
     });
     it('PUT /api/user/login must be a valid user', async () => {
-        const res = await request(app)
-          .put('/api/user/login')
-          .send({ Callsign: 'Ka9doo', password: '123456' })
-          .expect(401);
-  
-        expect(res.error.text).to.be.equal('User not found');
-      });
+      const res = await request(app)
+        .put('/api/user/login')
+        .send({ Callsign: 'Ka9doo', password: '123456' })
+        .expect(401);
+
+      expect(res.error.text).to.be.equal('User not found');
+    });
   });
   describe('SignUp routes', () => {
     it('POST /api/user/signup creates a new user', async () => {
@@ -129,21 +128,22 @@ describe('/api/user routes', () => {
   describe('response with 500 if database is down', () => {
     it('PUT /api/user/login', async () => {
       const res = await request(app)
-        .put('/api/user/login', { Callsign: 'Ka9ddd', password: '123456' }).timeout(200);
+        .put('/api/user/login', { Callsign: 'Ka9ddd', password: '123456' })
+        .timeout(200);
 
       expect(res.status).to.equal(500);
     });
     it('POST /api/user/signup creates a new user', async () => {
       const res = await request(app)
         .post('/api/user/signup', {
-            Name: 'Jane',
+          Name: 'Jane',
           Callsign: 'Ka9Doe',
           Email: 'doe@email.com',
           password: 'doe',
-        }).timeout(200);
+        })
+        .timeout(200);
 
       expect(res.status).to.equal(500);
     });
-  })
-    
+  });
 });
