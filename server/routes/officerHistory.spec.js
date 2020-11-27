@@ -3,7 +3,7 @@ const request = require('supertest')
 const {db, OfficerHistory} = require('../models')
 const app = require('../index')
 
-//Tests: 2 passing, 0 pending, 0 failing
+//Tests: 2 passing, 0 pending, 1 failing
 describe('/api/OfficerHistory routes', () => {
    
     beforeEach(async () => {
@@ -56,4 +56,9 @@ describe('/api/OfficerHistory routes', () => {
         expect(res.body[1].startYear).to.be.equal(1949)
         expect(res.body[2].startYear).to.be.equal(1948)
     })
+    xit('GET /api/officerHistory - return 500 when database is done', async () => {
+      const res = await request(app).get('/api/officerHistory/').timeout(200);
+
+      expect(res.status).to.equal(500);
+    });
 })

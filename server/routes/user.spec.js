@@ -4,7 +4,7 @@ const { db, User, Member } = require('../models');
 const app = require('../index');
 
 
-//Tests 6 passing, 1 pending/failing
+//Tests 8 passing, 1 pending/failing
 describe('/api/user routes', () => {
   before(() => {
     return db.sync({ force: true });
@@ -126,4 +126,24 @@ describe('/api/user routes', () => {
       expect(res.error.text).to.be.equal('Membership not found');
     });
   });
+  describe('response with 500 if database is down', () => {
+    it('PUT /api/user/login', async () => {
+      const res = await request(app)
+        .put('/api/user/login', { Callsign: 'Ka9ddd', password: '123456' }).timeout(200);
+
+      expect(res.status).to.equal(500);
+    });
+    it('POST /api/user/signup creates a new user', async () => {
+      const res = await request(app)
+        .post('/api/user/signup', {
+            Name: 'Jane',
+          Callsign: 'Ka9Doe',
+          Email: 'doe@email.com',
+          password: 'doe',
+        }).timeout(200);
+
+      expect(res.status).to.equal(500);
+    });
+  })
+    
 });
