@@ -11,6 +11,9 @@
     "seed": "node script/seed.js",
     "test": "NODE_ENV='test' mocha \"./server/**/*.spec.js\" \"./client/**/*.spec.js\" \"./script/**/*.spec.js\" --require @babel/polyfill --require @babel/register",
     "route-test": "NODE_ENV='test' mocha \"./server/routes/**/*.spec.js\" --require @babel/polyfill --require @babel/register",
+    "model-test": "NODE_ENV='test' mocha \"./server/models/**/*.spec.js\" --require @babel/polyfill --require @babel/register",
+    "redux-test": "NODE_ENV='test' mocha \"./client/redux/**/*.spec.js\" --require @babel/polyfill --require @babel/register",
+    "react-test": "NODE_ENV='test' mocha \"./server/components/**/*.spec.js\" --require @babel/polyfill --require @babel/register",
     "lint": "eslint ./ --ignore-path .gitignore",
     "lint-fix": "npm run lint -- --fix",
     "prettier": "npm run lint-fix && prettier --write ./ --ignore-path .gitignore"
@@ -20,13 +23,11 @@
   "dependencies": {
     "@paypal/checkout-server-sdk": "^1.0.2",
     "connect-session-sequelize": "^7.0.1",
-    "eslint-config-fullstack": "^6.0.0",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "lodash": "^4.17.20",
     "moment": "^2.29.1",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.4",
     "passport": "^0.4.1",
     "pg": "^8.3.3",
     "react": "^16.13.1",
@@ -35,8 +36,7 @@
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",
-    "sequelize": "^6.3.4",
-    "supertest": "^6.0.1"
+    "sequelize": "^6.3.4"
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",
@@ -52,14 +52,17 @@
     "chai-as-promised": "^7.1.1",
     "css-loader": "^5.0.0",
     "eslint": "^7.13.0",
+    "eslint-config-fullstack": "^6.0.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-react": "^7.21.5",
     "ignore-styles": "^5.0.1",
     "mocha": "^8.2.0",
+    "nodemon": "^2.0.6",
     "prettier": "2.1.2",
     "redux-thunk": "^2.3.0",
     "sinon": "^9.2.1",
     "style-loader": "^2.0.0",
+    "supertest": "^6.0.1",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
   }
