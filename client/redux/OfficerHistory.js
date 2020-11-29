@@ -4,7 +4,7 @@ const initialHistory = [];
 
 const GET_OFFICER_HISTORY = 'GET_OFFICER_HISTORY';
 
-const setOfficerHistory = (officers) => {
+export const setOfficerHistory = (officers) => {
   return {
     type: GET_OFFICER_HISTORY,
     officers,

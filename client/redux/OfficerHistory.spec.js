@@ -5,7 +5,7 @@ import configureMockStore from 'redux-mock-store';
 import thunkMiddleware from 'redux-thunk';
 import { createStore } from 'redux';
 import appReducer from './index';
-import { fetchAllProducts, getAllProducts } from './products';
+import { getOfficerHistory, setOfficerHistory } from './OfficerHistory';
 
 const middlewares = [thunkMiddleware];
 const mockStore = configureMockStore(middlewares);
@@ -14,15 +14,15 @@ describe('User - Redux', () => {
   let store;
   let mockAxios;
 
-  const initialState = { products: [] };
-  const mockProduct = [{
-    name: 'Electrical Drop',
-      dataName: 'Electrical',
-      description: 'An Electrical drop',
-      price: 15,
-      onSale: false,
-      photo: '/Images/electricOutlet.png',
-  }];
+  const initialState = { officerHistory: [] };
+  const mockOfficerHistory = [{
+    startYear: 1948,
+      endYear: 1949,
+      President: 'D.C.Burger, W9MYK',
+      VicePresident: 'Frank Golder, W9AAM',
+      Secretary: 'Craig Allen, W9IHT',
+      Treasurer: 'Alice Newcomb, W9QMS',
+      Custodian: 'Unknown'}]
   before(() => {
     mockAxios = new mockAdapter(axios);
     store = mockStore(initialState);
@@ -32,19 +32,19 @@ describe('User - Redux', () => {
     store.clearActions();
   });
   describe('Action Creators', () => {
-    expect(getAllProducts(mockProduct)).to.deep.equal({
-        type: 'GET_PRODUCTS',
-        products: mockProduct,
+    expect(setOfficerHistory(mockOfficerHistory)).to.deep.equal({
+        type: 'GET_OFFICER_HISTORY',
+        officers: mockOfficerHistory,
     });
   });
 
   describe('Thunks', () => {
-    it('fetchAllProducts - eventually dispatches the GET_PRODUCTS action', async () => {
-      mockAxios.onGet('/api/hamfest/products').replyOnce(200, mockProduct);
-      await store.dispatch(fetchAllProducts());
+    it('getOfficerHistory - eventually dispatches the GET_officerHistory action', async () => {
+      mockAxios.onGet('/api/officerHistory/').replyOnce(200, mockOfficerHistory);
+      await store.dispatch(getOfficerHistory());
       const actions = store.getActions();
-      expect(actions[0].type).to.be.equal('GET_PRODUCTS');
-      expect(actions[0].products).to.be.deep.equal(mockProduct);
+      expect(actions[0].type).to.be.equal('GET_OFFICER_HISTORY');
+      expect(actions[0].officers).to.be.deep.equal(mockOfficerHistory);
     });
   });
 
@@ -54,26 +54,26 @@ describe('User - Redux', () => {
     beforeEach(() => {
       testStore = createStore(appReducer);
     });
-    it('reduces on GET_PRODUCTS', () => {
-      const action = { type: 'GET_PRODUCTS', products: mockProduct };
+    it('reduces on GET_OFFICER_HISTORY', () => {
+      const action = { type: 'GET_OFFICER_HISTORY', officers: mockOfficerHistory };
 
       const prevState = testStore.getState();
       testStore.dispatch(action);
       const newState = testStore.getState();
 
-      expect(newState).to.be.deep.equal(mockProduct);
+      expect(newState).to.be.deep.equal(mockOfficerHistory);
       expect(newState).to.not.be.equal(prevState);
     });
 
     it('returns the initial state on default', () => {
-      const action = { type: 'SET_PROFILE', products: mockProduct };
+      const action = { type: 'SET_PROFILE', officers: mockOfficerHistory };
 
       const prevState = testStore.getState();
       testStore.dispatch(action);
       const newState = testStore.getState();
 
       expect(newState).to.be.deep.equal(prevState);
-      expect(newState).to.not.be.equal(mockProduct);
+      expect(newState).to.not.be.equal(mockOfficerHistory);
     });
   });
 });
