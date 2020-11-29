@@ -10,7 +10,9 @@ import { fetchAllProducts, getAllProducts } from './products';
 const middlewares = [thunkMiddleware];
 const mockStore = configureMockStore(middlewares);
 
-describe('User - Redux', () => {
+
+//Tests: 4 passing
+describe('Products - Redux', () => {
   let store;
   let mockAxios;
 
@@ -23,7 +25,7 @@ describe('User - Redux', () => {
       onSale: false,
       photo: '/Images/electricOutlet.png',
   }];
-  before(() => {
+  beforeEach(() => {
     mockAxios = new mockAdapter(axios);
     store = mockStore(initialState);
   });
@@ -32,9 +34,11 @@ describe('User - Redux', () => {
     store.clearActions();
   });
   describe('Action Creators', () => {
-    expect(getAllProducts(mockProduct)).to.deep.equal({
+      it('get all products', () => {
+          expect(getAllProducts(mockProduct)).to.deep.equal({
         type: 'GET_PRODUCTS',
         products: mockProduct,
+      })
     });
   });
 
@@ -45,6 +49,7 @@ describe('User - Redux', () => {
       const actions = store.getActions();
       expect(actions[0].type).to.be.equal('GET_PRODUCTS');
       expect(actions[0].products).to.be.deep.equal(mockProduct);
+      expect(actions[0].products[0]).to.be.deep.equal(mockProduct[0]);
     });
   });
 
@@ -61,7 +66,7 @@ describe('User - Redux', () => {
       testStore.dispatch(action);
       const newState = testStore.getState();
 
-      expect(newState).to.be.deep.equal(mockProduct);
+      expect(newState.products).to.be.deep.equal(mockProduct);
       expect(newState).to.not.be.equal(prevState);
     });
 
