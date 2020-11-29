@@ -112,7 +112,7 @@ describe('User - Redux', () => {
       expect(newState).to.not.be.equal(prevState);
     });
     it('returns the initial state on default', () => {
-      const action = { type: 'SET_PROFILE', mockUser };
+      const action = { type: 'SET_PROFILE', user: mockUser };
 
       const prevState = testStore.getState();
       testStore.dispatch(action);
