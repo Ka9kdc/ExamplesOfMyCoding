@@ -5,7 +5,7 @@ const REMOVE_CURRENT_USER = 'REMOVE_CURRENT_USER';
 
 const defaultUser = {};
 
-const setCurrentUser = (user) => {
+export const setCurrentUser = (user) => {
   return {
     type: SET_CURRENT_USER,
     user,
