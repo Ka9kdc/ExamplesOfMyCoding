@@ -3,14 +3,14 @@ import axios from 'axios';
 const ALL_EVENTS = 'ALL_EVENTS';
 const ADD_EVENT = 'ADD_EVENT';
 
-const setEvents = (calendarEvents) => {
+export const setEvents = (calendarEvents) => {
   return {
     type: ALL_EVENTS,
     calendarEvents,
   };
 };
 
-const addEvent = (newEvent) => {
+export const addEvent = (newEvent) => {
   return {
     type: ADD_EVENT,
     newEvent,

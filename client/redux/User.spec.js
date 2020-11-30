@@ -46,6 +46,7 @@ describe('User - Redux', () => {
   });
 
   describe('Thunks', () => {
+    // These test only work if thunks were written in try/catch blocks and not promise chains
     it('me - eventually dispatches the SET Current USER action', async () => {
       mockAxios.onGet('/api/user/me').replyOnce(200, mockUser);
       await store.dispatch(me());
@@ -55,16 +56,15 @@ describe('User - Redux', () => {
       expect(actions[0].user).to.be.deep.equal(mockUser);
     });
 
-    xit('fetchCurrentUser - eventually dispatches the SET Current USER action', async () => {
+    it('fetchCurrentUser - eventually dispatches the SET Current USER action', async () => {
       mockAxios.onGet('/api/user/me').replyOnce(200, mockUser);
       await store.dispatch(fetchCurrentUser());
       const actions = store.getActions();
-      console.log(actions);
       expect(actions[0].type).to.be.equal('SET_CURRENT_USER');
       expect(actions[0].user).to.be.deep.equal(mockUser);
     });
 
-    xit('login - ecentual dispatches the SET_CURRENT_USER action', async () => {
+    it('login - eventually  dispatches the SET_CURRENT_USER action', async () => {
       mockAxios.onPut('/api/user/login', mockUser).replyOnce(200, mockUser);
       await store.dispatch(login(mockUser, 'history'));
       const actions = store.getActions();
@@ -73,7 +73,7 @@ describe('User - Redux', () => {
       expect(actions[0].user).to.be.deep.equal(mockUser);
     });
 
-    xit('logout: eventually dispatches the REMOVE_CURRENT_USER action', async () => {
+    it('logout: eventually dispatches the REMOVE_CURRENT_USER action', async () => {
       mockAxios.onDelete('/api/user/logout').replyOnce(204);
       await store.dispatch(logout());
 
@@ -83,7 +83,7 @@ describe('User - Redux', () => {
       //   expect(history.location.pathname).to.be.equal('/login');
     });
 
-    xit('signUp = eventually dispatched SET CURRENT USER', async () => {
+    it('signUp = eventually dispatched SET CURRENT USER', async () => {
       mockAxios.onPost('/api/user/signup', mockUser).replyOnce(200, mockUser);
       await store.dispatch(signUp(mockUser));
       const actions = store.getActions();
