@@ -7,3 +7,5 @@ paypal-backend
 paypal-firstattempts
 secrets.js
 setup-linter-prettier.sh
+client/redux/index.spec.js
+client/redux/mock-axios.js

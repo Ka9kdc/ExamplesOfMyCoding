@@ -37,12 +37,12 @@ describe('User - Redux', () => {
     store.clearActions();
   });
   describe('Action Creators', () => {
-      it('set current user', () => {
-          expect(setCurrentUser(mockUser)).to.deep.equal({
-      type: 'SET_CURRENT_USER',
-      user: mockUser,
+    it('set current user', () => {
+      expect(setCurrentUser(mockUser)).to.deep.equal({
+        type: 'SET_CURRENT_USER',
+        user: mockUser,
+      });
     });
-      })
   });
 
   describe('Thunks', () => {
@@ -50,25 +50,25 @@ describe('User - Redux', () => {
       mockAxios.onGet('/api/user/me').replyOnce(200, mockUser);
       await store.dispatch(me());
       const actions = store.getActions();
-     
+
       expect(actions[0].type).to.be.equal('SET_CURRENT_USER');
       expect(actions[0].user).to.be.deep.equal(mockUser);
     });
-    
+
     xit('fetchCurrentUser - eventually dispatches the SET Current USER action', async () => {
       mockAxios.onGet('/api/user/me').replyOnce(200, mockUser);
       await store.dispatch(fetchCurrentUser());
       const actions = store.getActions();
-       console.log(actions)
+      console.log(actions);
       expect(actions[0].type).to.be.equal('SET_CURRENT_USER');
       expect(actions[0].user).to.be.deep.equal(mockUser);
     });
 
     xit('login - ecentual dispatches the SET_CURRENT_USER action', async () => {
-        mockAxios.onPut('/api/user/login', mockUser).replyOnce(200, mockUser);
+      mockAxios.onPut('/api/user/login', mockUser).replyOnce(200, mockUser);
       await store.dispatch(login(mockUser, 'history'));
       const actions = store.getActions();
-   
+
       expect(actions[0].type).to.be.equal('SET_CURRENT_USER');
       expect(actions[0].user).to.be.deep.equal(mockUser);
     });
@@ -76,13 +76,12 @@ describe('User - Redux', () => {
     xit('logout: eventually dispatches the REMOVE_CURRENT_USER action', async () => {
       mockAxios.onDelete('/api/user/logout').replyOnce(204);
       await store.dispatch(logout());
-     
-      const actions = store.getActions();
-       
-      expect(actions[0].type).to.be.equal('REMOVE_CURRENT_USER');
-    //   expect(history.location.pathname).to.be.equal('/login');
-    });
 
+      const actions = store.getActions();
+
+      expect(actions[0].type).to.be.equal('REMOVE_CURRENT_USER');
+      //   expect(history.location.pathname).to.be.equal('/login');
+    });
 
     xit('signUp = eventually dispatched SET CURRENT USER', async () => {
       mockAxios.onPost('/api/user/signup', mockUser).replyOnce(200, mockUser);

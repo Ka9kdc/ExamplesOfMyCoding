@@ -10,21 +10,22 @@ import { fetchAllProducts, getAllProducts } from './products';
 const middlewares = [thunkMiddleware];
 const mockStore = configureMockStore(middlewares);
 
-
 //Tests: 4 passing
 describe('Products - Redux', () => {
   let store;
   let mockAxios;
 
   const initialState = { products: [] };
-  const mockProduct = [{
-    name: 'Electrical Drop',
+  const mockProduct = [
+    {
+      name: 'Electrical Drop',
       dataName: 'Electrical',
       description: 'An Electrical drop',
       price: 15,
       onSale: false,
       photo: '/Images/electricOutlet.png',
-  }];
+    },
+  ];
   beforeEach(() => {
     mockAxios = new mockAdapter(axios);
     store = mockStore(initialState);
@@ -34,11 +35,11 @@ describe('Products - Redux', () => {
     store.clearActions();
   });
   describe('Action Creators', () => {
-      it('get all products', () => {
-          expect(getAllProducts(mockProduct)).to.deep.equal({
+    it('get all products', () => {
+      expect(getAllProducts(mockProduct)).to.deep.equal({
         type: 'GET_PRODUCTS',
         products: mockProduct,
-      })
+      });
     });
   });
 

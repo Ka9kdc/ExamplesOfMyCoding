@@ -46,9 +46,7 @@ describe('User - Redux', () => {
 
   describe('Thunks', () => {
     it('getOfficerHistory - eventually dispatches the GET_officerHistory action', async () => {
-      mockAxios
-        .onGet('/api/officerHistory')
-        .replyOnce(200, mockOfficerHistory);
+      mockAxios.onGet('/api/officerHistory').replyOnce(200, mockOfficerHistory);
       await store.dispatch(getOfficerHistory());
       const actions = store.getActions();
       expect(actions[0].type).to.be.equal('GET_OFFICER_HISTORY');
