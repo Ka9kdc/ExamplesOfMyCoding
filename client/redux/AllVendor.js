@@ -4,7 +4,7 @@ const defaultVendors = [];
 
 const ALL_VENDOR = 'ALL_VENDOR';
 
-const allVendor = (vendors) => {
+export const allVendor = (vendors) => {
   return {
     type: ALL_VENDOR,
     vendors,
