@@ -127,7 +127,7 @@ describe('User - Redux', () => {
       const newState = testStore.getState();
 
       expect(newState).to.be.deep.equal(prevState);
-      expect(newState).to.not.be.equal(mockUser);
+      expect(newState.user).to.not.be.equal(mockUser);
     });
   });
 });

@@ -11,14 +11,14 @@ const SET_ANNOUNCEMENT_HISTORY = 'SET_ANNOUNCEMENT_HISTORY';
 const SET_LAST_ANNOUNCEMENT = 'SET_LAST_ANNOUNCEMENT';
 const UPDATE_ANNOUNCEMENT = 'UPDATE_ANNOUNCEMENT';
 
-const setAnnounmentHistory = (announcements) => {
+export const setAnnounmentHistory = (announcements) => {
   return {
     type: SET_ANNOUNCEMENT_HISTORY,
     announcements,
   };
 };
 
-const setLastAnnouncment = (announcement) => {
+export const setLastAnnouncment = (announcement) => {
   return {
     type: SET_LAST_ANNOUNCEMENT,
     announcement,

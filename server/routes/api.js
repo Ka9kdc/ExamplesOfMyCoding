@@ -6,7 +6,7 @@ router.use('/membership', require('./membership'));
 router.use('/hamfest', require('./hamfest'));
 router.use('/user', require('./user'));
 router.use('/officerHistory', require('./officerHistory'));
-router.use('/Announcement', require('./Announcements'));
+router.use('/announcement', require('./Announcements'));
 router.use('/calendar', require('./calendar'));
 
 //404 routes - put after all routes aka just before the export
