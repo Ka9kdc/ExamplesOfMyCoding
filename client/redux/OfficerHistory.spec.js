@@ -11,7 +11,7 @@ const middlewares = [thunkMiddleware];
 const mockStore = configureMockStore(middlewares);
 
 //Tests: 4 passing 0 pending/failing
-describe('User - Redux', () => {
+describe('Officer History - Redux', () => {
   let store;
   let mockAxios;
 
