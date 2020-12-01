@@ -10,9 +10,9 @@ import {
   login,
   fetchCurrentUser,
   signUp,
-} from './user';
+} from '../user';
 import { createStore } from 'redux';
-import appReducer from './index';
+import appReducer from '../index';
 
 const middlewares = [thunkMiddleware];
 const mockStore = configureMockStore(middlewares);

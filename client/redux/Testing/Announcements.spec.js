@@ -4,7 +4,7 @@ import mockAdapter from 'axios-mock-adapter';
 import configureMockStore from 'redux-mock-store';
 import thunkMiddleware from 'redux-thunk';
 import { createStore } from 'redux';
-import appReducer from './index';
+import appReducer from '../index';
 import {
   updateAnnouncement,
   setAnnounmentHistory,
@@ -12,7 +12,7 @@ import {
   fetchLastAnnouncement,
   fetchAllAnnouncement,
   postNewAnnouncement,
-} from './announcements';
+} from '../announcements';
 
 const middleware = [thunkMiddleware];
 const mockStore = configureMockStore(middleware);

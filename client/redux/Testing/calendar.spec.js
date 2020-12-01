@@ -4,7 +4,7 @@ import mockAdapter from 'axios-mock-adapter';
 import configureMockStore from 'redux-mock-store';
 import thunkMiddleware from 'redux-thunk';
 import { createStore } from 'redux';
-import appReducer from './index';
+import appReducer from '../index';
 import {
   addEvent,
   fetchAllEvents,
@@ -12,7 +12,7 @@ import {
   fetchTrainingEvents,
   setEvents,
   submitNewEvent,
-} from './calendar';
+} from '../calendar';
 
 const middleware = [thunkMiddleware];
 const mockStore = configureMockStore(middleware);

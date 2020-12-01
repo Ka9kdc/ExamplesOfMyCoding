@@ -4,8 +4,8 @@ import mockAdapter from 'axios-mock-adapter';
 import configureMockStore from 'redux-mock-store';
 import thunkMiddleware from 'redux-thunk';
 import { createStore } from 'redux';
-import appReducer from './index';
-import { fetchAllProducts, getAllProducts } from './products';
+import appReducer from '../index';
+import { fetchAllProducts, getAllProducts } from '../products';
 
 const middlewares = [thunkMiddleware];
 const mockStore = configureMockStore(middlewares);

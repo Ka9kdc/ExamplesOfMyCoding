@@ -4,7 +4,7 @@ import mockAdapter from 'axios-mock-adapter';
 import configureMockStore from 'redux-mock-store';
 import thunkMiddleware from 'redux-thunk';
 import { createStore } from 'redux';
-import appReducer from './index';
+import appReducer from '../index';
 import {
   addFamilyMember,
   setAmount,
@@ -13,7 +13,7 @@ import {
   updateMemberBadge,
   updateMemberCommittees,
   updateMemberInfo,
-} from './membership';
+} from '../membership';
 
 const middleware = [thunkMiddleware];
 const mockStore = configureMockStore(middleware);
