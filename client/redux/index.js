@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import productsReducer from './products';
-import cartReducer from './HamfestStoreStuff/cart';
-import customerReducer from './HamfestStoreStuff/customer';
+import cartReducer from './cart';
+import customerReducer from './customer';
 import memberReducer from './membership';
 import userReducer from './user';
 import officerHistoryReducer from './OfficerHistory';

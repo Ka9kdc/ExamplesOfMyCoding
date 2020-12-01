@@ -6,7 +6,7 @@ import MembershipForm from './membership/membershipForm';
 import HamfestStore from './hamfest/HamfestStore';
 import Checkout from './hamfest/Checkout';
 import MemberPage from './MemberPage/MemberPage';
-import MembershipConfirmation from './membership/MemberConfirmation';
+import MemberConfirmation from './membership/MemberConfirmation';
 import HamfestConfirmation from './hamfest/confirmation';
 import signup from './MemberPage/signup';
 import References from './References';
@@ -29,7 +29,7 @@ const Routes = (props) => {
       <Route path="/Membership" component={Membership} />
       <Route
         path="/membershipConfirmation"
-        component={MembershipConfirmation}
+        component={MemberConfirmation}
       />
       <Route path="/membershipForm" component={MembershipForm} />
       <Route path="/TextApplication" component={TextApplication} />
