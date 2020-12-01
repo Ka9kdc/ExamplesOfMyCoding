@@ -17,16 +17,18 @@ import {
 const middleware = [thunkMiddleware];
 const mockStore = configureMockStore(middleware);
 
-
 //Tests: 13 passing 0 pending/failing
 describe('Announcement -Redux', () => {
   let store;
   let mockAxios;
-  const initialState = { newsHistory: [], lastestNews: {
-    message: '',
-    backgroundColor: '#ffffff',
-    borderColor: '#000000',
-  } };
+  const initialState = {
+    newsHistory: [],
+    lastestNews: {
+      message: '',
+      backgroundColor: '#ffffff',
+      borderColor: '#000000',
+    },
+  };
   const fakeNews = {
     borderColor: 'red',
     backgroundColor: '#fff0ef',
