@@ -87,7 +87,7 @@ describe('CalendarEvent model', () => {
     });
   });
   describe('Type', () => {
-    it('Type is an emun of strings', async () => {
+    it('Type is a string', async () => {
       const hannah = await CalendarEvent.create(newCalendarEvent);
       expect(typeof hannah.Type).to.equal('string');
     });
@@ -122,7 +122,7 @@ describe('CalendarEvent model', () => {
       hannah = await CalendarEvent.create(newCalendarEvent);
       expect(hannah.Type).to.equal('Other');
     });
-    it('Type defuals to other when null is passed in', async () => {
+    it('Type defaults to other when null is passed in', async () => {
       const testCalendarEvent = await CalendarEvent.create({
         Name: 'Club Meeting',
         Start: new Date(),
@@ -141,11 +141,11 @@ describe('CalendarEvent model', () => {
         throw Error('validation should have failed with empty string');
       } catch (err) {
         expect(err.message).to.contain(
-          'invalid input value for enum "enum_calendarEvents_Type"'
+          'Validation isIn on Type failed'
         );
       }
     });
-    it('can not be an empty string', async () => {
+    it('can not be a random string', async () => {
       newCalendarEvent.Type = 'Hello';
       const testCalendarEvent = CalendarEvent.build(newCalendarEvent);
 
@@ -154,7 +154,7 @@ describe('CalendarEvent model', () => {
         throw Error('validation should have failed with random string');
       } catch (err) {
         expect(err.message).to.contain(
-          'invalid input value for enum "enum_calendarEvents_Type"'
+          'Validation isIn on Type failed'
         );
       }
     });

@@ -120,7 +120,10 @@ const Badge = db.define('badge', {
     type: Sequelize.BOOLEAN,
   },
   Color: {
-    type: Sequelize.ENUM(
+    type: Sequelize.STRING,
+    defaultValue: '',
+    validate: {
+      isIn: [[
       'Red',
       'White',
       'Black',
@@ -129,12 +132,15 @@ const Badge = db.define('badge', {
       'Red, White and Blue',
       'Brown',
       ''
-    ),
-    defaultValue: '',
+      ]]
+    },
   },
   Type: {
-    type: Sequelize.ENUM('NoPreference', 'Lanyard', 'Pin', 'Magnet', 'Notch'),
+    type: Sequelize.STRING,
     defaultValue: 'NoPreference',
+    validate: {
+      isIn: [['NoPreference', 'Lanyard', 'Pin', 'Magnet', 'Notch']]
+    }
   },
   LicenseYear: {
     type: Sequelize.INTEGER,

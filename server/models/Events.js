@@ -39,17 +39,18 @@ const CalendarEvent = db.define('calendarEvent', {
     },
   },
   Type: {
-    type: sequelize.ENUM(
-      'Net',
+    type: sequelize.STRING,
+    defaultValue: 'Other',
+    validate: {
+      isIn:  [['Net',
       'Club Meeting',
       'Special Event',
       'Public Service Event',
       'Training Class',
       'Testing',
       'CSU',
-      'Other'
-    ),
-    defaultValue: 'Other',
+      'Other']]
+    }
   },
 });
 

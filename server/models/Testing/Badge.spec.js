@@ -3,7 +3,7 @@ const db = require('../db');
 const { Badge } = require('../member');
 
 //Tests: 30 passing 4 pending
-describe('Badge', () => {
+describe.only('Badge', () => {
   before(() => db.sync({ force: true }));
 
   let newBadge;
@@ -228,7 +228,7 @@ describe('Badge', () => {
       hannah = await Badge.create(newBadge);
       expect(hannah.Color).to.equal('');
     });
-    it('Color defualts to an empty string when null is passed in', async () => {
+    it('Color defaults to an empty string when null is passed in', async () => {
       // We shouldn't be able to create a Badge without a name.
       const testBadge = Badge.build({
         Desired: true,
@@ -253,7 +253,7 @@ describe('Badge', () => {
         throw Error('validation should have failed with random string');
       } catch (err) {
         expect(err.message).to.contain(
-          'invalid input value for enum "enum_badges_Color"'
+          'Validation isIn on Color failed'
         );
       }
     });
@@ -308,7 +308,7 @@ describe('Badge', () => {
         throw Error('validation should have failed with empty string');
       } catch (err) {
         expect(err.message).to.contain(
-          'invalid input value for enum "enum_badges_Type"'
+          'Validation isIn on Type failed'
         );
       }
     });
@@ -320,7 +320,7 @@ describe('Badge', () => {
         throw Error('validation should have failed with random string');
       } catch (err) {
         expect(err.message).to.contain(
-          'invalid input value for enum "enum_badges_Type"'
+          'Validation isIn on Type failed'
         );
       }
     });
