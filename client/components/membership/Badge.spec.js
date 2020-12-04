@@ -9,7 +9,7 @@ import { updateMemberBadge } from '../../redux/membership';
 
 
 //Tests 29 passing 0pending/failing
-describe.only('MembershipForm Badge', () => {
+describe('MembershipForm Badge', () => {
     let badgeForm;
     let inputs;
     before(async () => {

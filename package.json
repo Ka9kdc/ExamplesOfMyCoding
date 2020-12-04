@@ -9,7 +9,7 @@
     "build-watch": "webpack -w",
     "start": "npm run start:dev",
     "seed": "node script/seed.js",
-    "test": "NODE_ENV='test' mocha \"./server/**/*.spec.js\" \"./client/**/*.spec.js\" \"./script/**/*.spec.js\" --require @babel/polyfill --require @babel/register",
+    "test": "NODE_ENV='test' mocha \"./server/**/*.spec.js\" \"./client/**/*.spec.js\" \"./script/**/*.spec.js\" --require @babel/polyfill --require @babel/register --require ignore-styles",
     "route-test": "NODE_ENV='test' mocha \"./server/routes/**/*.spec.js\" --require @babel/polyfill --require @babel/register",
     "model-test": "NODE_ENV='test' mocha \"./server/models/**/*.spec.js\" --require @babel/polyfill --require @babel/register",
     "redux-test": "NODE_ENV='test' mocha \"./client/redux/**/*.spec.js\" --require @babel/polyfill --require @babel/register",
