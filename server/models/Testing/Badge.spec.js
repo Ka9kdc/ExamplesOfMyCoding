@@ -3,7 +3,7 @@ const db = require('../db');
 const { Badge } = require('../member');
 
 //Tests: 30 passing 4 pending
-describe.only('Badge', () => {
+describe('Badge', () => {
   before(() => db.sync({ force: true }));
 
   let newBadge;

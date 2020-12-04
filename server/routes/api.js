@@ -2,6 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 
+//api/membership/
 router.use('/membership', require('./membership'));
 router.use('/hamfest', require('./hamfest'));
 router.use('/user', require('./user'));

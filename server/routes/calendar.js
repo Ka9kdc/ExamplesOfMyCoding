@@ -1,6 +1,6 @@
 const router = require('express')();
 const sequelize = require('sequelize');
-const { CalendarEvent } = require('../models');
+const { CalendarEvent } = require('../models/index');
 
 const Op = sequelize.Op;
 

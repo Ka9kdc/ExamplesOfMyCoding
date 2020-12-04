@@ -25,7 +25,7 @@ const pages = [
   { name: 'Facebook', url: 'https://www.facebook.com/groups/267873833946/' },
 ];
 
-const NavBar = (props) => {
+const NavBar = () => {
   return (
     <div className="Navbar ">
       {pages.map((page) => {

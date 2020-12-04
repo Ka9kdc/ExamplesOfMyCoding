@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Repeaters = (props) => {
+const Repeaters = () => {
   return (
     <div>
       <div className="Title">WCRA Radio Repeaters</div>
@@ -29,7 +29,7 @@ const Repeaters = (props) => {
               <tr>
                 <td>145.390/144.790</td>
                 <td>107.2 (1B) PL Encode/Decode</td>
-                <td>Auto In/Auto Out </td>
+                <td>Auto In/Auto Out</td>
                 <td>*OFF THE AIR INDEFINITELY*</td>
               </tr>
               <tr>

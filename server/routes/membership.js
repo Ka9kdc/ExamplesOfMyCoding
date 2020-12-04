@@ -4,6 +4,7 @@ const { Member, Committee, Badge, Payment } = require('../models');
 
 const router = express.Router();
 
+//  route    /api/membership/member
 router.post('/member', async (req, res, next) => {
   try {
     const newMember = await Member.create({

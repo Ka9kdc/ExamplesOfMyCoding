@@ -23,7 +23,7 @@ import Training from './Training/Training';
 import TextApplication from './membership/TextApplication';
 import Hamfest from './hamfest/Hamfest';
 
-const Routes = (props) => {
+const Routes = () => {
   return (
     <Switch>
       <Route path="/Membership" component={Membership} />
