@@ -5,7 +5,7 @@ import PublicServiceEvents from './PublicServiceEvents';
 import SpecialEvents from './SpecialEvents';
 import { Link } from 'react-router-dom';
 
-const Activities = (props) => {
+const Activities = () => {
   return (
     <div>
       <div className="Title">WCRA Events</div>

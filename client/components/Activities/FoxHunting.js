@@ -35,7 +35,7 @@ const FoxHunting = () => {
           <tr>
             <td>2nd</td>
             <td>
-              Downers Grove Golf Club parking lot, Belmont Rd south of Odgen Av
+              Downers Grove Golf Club parking lot, Belmont Rd south of Odgen Ave
             </td>
             <td>Simplex 146.565 MHz</td>
           </tr>
