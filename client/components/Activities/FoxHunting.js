@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FoxHunting = (props) => {
+const FoxHunting = () => {
   return (
     <div
       className="Isolated"

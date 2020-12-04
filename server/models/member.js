@@ -123,24 +123,26 @@ const Badge = db.define('badge', {
     type: Sequelize.STRING,
     defaultValue: '',
     validate: {
-      isIn: [[
-      'Red',
-      'White',
-      'Black',
-      'Blue',
-      'Green',
-      'Red, White and Blue',
-      'Brown',
-      ''
-      ]]
+      isIn: [
+        [
+          'Red',
+          'White',
+          'Black',
+          'Blue',
+          'Green',
+          'Red, White and Blue',
+          'Brown',
+          '',
+        ],
+      ],
     },
   },
   Type: {
     type: Sequelize.STRING,
     defaultValue: 'NoPreference',
     validate: {
-      isIn: [['NoPreference', 'Lanyard', 'Pin', 'Magnet', 'Notch']]
-    }
+      isIn: [['NoPreference', 'Lanyard', 'Pin', 'Magnet', 'Notch']],
+    },
   },
   LicenseYear: {
     type: Sequelize.INTEGER,

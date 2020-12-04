@@ -5,8 +5,7 @@ import { NavLink } from 'react-router-dom';
 //plus the following inline styling
 // div className="Navbar" style="background-color: #C0D0FF; text-align: center;">
 
-  /* <table style="text-align: center; margin-left: auto; margin-right: auto */
-
+/* <table style="text-align: center; margin-left: auto; margin-right: auto */
 
 const pages = [
   { name: 'Home', url: '/' },

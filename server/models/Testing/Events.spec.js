@@ -140,9 +140,7 @@ describe('CalendarEvent model', () => {
         await testCalendarEvent.save();
         throw Error('validation should have failed with empty string');
       } catch (err) {
-        expect(err.message).to.contain(
-          'Validation isIn on Type failed'
-        );
+        expect(err.message).to.contain('Validation isIn on Type failed');
       }
     });
     it('can not be a random string', async () => {
@@ -153,9 +151,7 @@ describe('CalendarEvent model', () => {
         await testCalendarEvent.save();
         throw Error('validation should have failed with random string');
       } catch (err) {
-        expect(err.message).to.contain(
-          'Validation isIn on Type failed'
-        );
+        expect(err.message).to.contain('Validation isIn on Type failed');
       }
     });
   });

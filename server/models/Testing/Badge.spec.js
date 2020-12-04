@@ -252,9 +252,7 @@ describe('Badge', () => {
         await testBadge.save();
         throw Error('validation should have failed with random string');
       } catch (err) {
-        expect(err.message).to.contain(
-          'Validation isIn on Color failed'
-        );
+        expect(err.message).to.contain('Validation isIn on Color failed');
       }
     });
   });
@@ -307,9 +305,7 @@ describe('Badge', () => {
         await testBadge.save();
         throw Error('validation should have failed with empty string');
       } catch (err) {
-        expect(err.message).to.contain(
-          'Validation isIn on Type failed'
-        );
+        expect(err.message).to.contain('Validation isIn on Type failed');
       }
     });
     it('can not be an random string', async () => {
@@ -319,9 +315,7 @@ describe('Badge', () => {
         await testBadge.save();
         throw Error('validation should have failed with random string');
       } catch (err) {
-        expect(err.message).to.contain(
-          'Validation isIn on Type failed'
-        );
+        expect(err.message).to.contain('Validation isIn on Type failed');
       }
     });
   });

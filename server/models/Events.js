@@ -42,15 +42,19 @@ const CalendarEvent = db.define('calendarEvent', {
     type: sequelize.STRING,
     defaultValue: 'Other',
     validate: {
-      isIn:  [['Net',
-      'Club Meeting',
-      'Special Event',
-      'Public Service Event',
-      'Training Class',
-      'Testing',
-      'CSU',
-      'Other']]
-    }
+      isIn: [
+        [
+          'Net',
+          'Club Meeting',
+          'Special Event',
+          'Public Service Event',
+          'Training Class',
+          'Testing',
+          'CSU',
+          'Other',
+        ],
+      ],
+    },
   },
 });
 
