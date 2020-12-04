@@ -1,4 +1,12 @@
 {
   "extends": "fullstack",
-  "root": true
+  "root": true,
+  "overrides": [
+    {
+        "files": ["*.test.js", "*.spec.js"],
+        "rules": {
+            "no-unused-expressions": "off"
+        }
+    }
+]
 }

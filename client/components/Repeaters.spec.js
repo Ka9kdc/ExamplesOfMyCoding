@@ -1,3 +1,4 @@
+'use strict'
 import React from 'react';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
@@ -147,9 +148,9 @@ describe('Repeater component/page', () => {
     it('has 5 rows', () => {
       expect(rows).to.have.lengthOf(5);
     });
-    // it('last row is empty', () => {
-    //   expect(rows[4].props).to.be.empty;
-    // });
+    it('last row is empty', () => {
+      expect(rows[4].props).to.be.empty;
+    });
     describe('header', () => {
       let headers;
       before(() => {
@@ -230,9 +231,9 @@ describe('Repeater component/page', () => {
       it('frequency column = 44 machine', () => {
         expect(net[2]).to.be.equal('444.475');
       });
-      //   it('net control column = undefined', () => {
-      //     expect(net[3]).to.be.undefined;
-      //   });
+        it('net control column = undefined', () => {
+          expect(net[3]).to.be.undefined;
+        });
     });
   });
 });

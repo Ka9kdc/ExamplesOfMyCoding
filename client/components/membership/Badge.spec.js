@@ -7,8 +7,8 @@ import * as rrd from 'react-router-dom';
 import Badge from './Badge';
 import { updateMemberBadge } from '../../redux/membership';
 
-//Tests 29 passing 0pending/failing
-//handle change tests are commented out they pass but are not testing what i want them to
+// Tests 29 passing 0pending/failing
+// handle change tests are commented out they pass but are not testing what i want them to
 describe('MembershipForm Badge', () => {
   let badgeForm;
   let inputs;
@@ -37,10 +37,10 @@ describe('MembershipForm Badge', () => {
     it('type is a number', () => {
       expect(inputField.type).to.be.equal('number');
     });
-    // it('handles change', () => {
-    //     //not sure if this expect is written right
-    //     expect(inputField.onChange).to.be.a.change
-    // })
+     it('handles change', () => {
+        //  not sure if this expect is written right
+         expect(inputField.onChange).to.be.a.change
+     })
   });
   describe('Second input field - Badge Name', () => {
     let inputField;
@@ -53,9 +53,9 @@ describe('MembershipForm Badge', () => {
     it('type is a text', () => {
       expect(inputField.type).to.be.equal('text');
     });
-    //  it('handles change', () => {
-    //      expect(inputField.onChange).to.be.a.change
-    //  })
+      it('handles change', () => {
+          expect(inputField.onChange).to.be.a.change
+      })
     it('has a placeholder of name', () => {
       expect(inputField.placeholder).to.be.equal('Name');
     });
@@ -71,9 +71,9 @@ describe('MembershipForm Badge', () => {
     it('type is a checkbox', () => {
       expect(inputField.type).to.be.equal('checkbox');
     });
-    //  it('handles change', () => {
-    //      expect(inputField.onChange).to.be.a.change
-    //  })
+      it('handles change', () => {
+          expect(inputField.onChange).to.be.a.change
+      })
   });
   describe('badgeTypes', () => {
     let radioFields;
@@ -101,12 +101,12 @@ describe('MembershipForm Badge', () => {
       expect(radioFields[2].name).to.be.equal('badgeType');
       expect(radioFields[3].name).to.be.equal('badgeType');
     });
-    //  it('handles change', () => {
-    //     expect(radioFields[0].onChange).to.be.a.change
-    //     expect(radioFields[1].onChange).to.be.a.change
-    //     expect(radioFields[2].onChange).to.be.a.change
-    //     expect(radioFields[3].onChange).to.be.a.change
-    // })
+      it('handles change', () => {
+         expect(radioFields[0].onChange).to.be.a.change
+         expect(radioFields[1].onChange).to.be.a.change
+         expect(radioFields[2].onChange).to.be.a.change
+         expect(radioFields[3].onChange).to.be.a.change
+     })
   });
   describe('Color options', () => {
     let colorSelector;
@@ -121,11 +121,11 @@ describe('MembershipForm Badge', () => {
     it('has a name of Color', () => {
       expect(colorSelector[0].name).to.be.equal('Color');
     });
-    //  it('handles changes', () => {
-    //      //not working the way i want it to be
-    //      //I want these to detect if onchange is a function
-    //      expect(colorSelector[0].onChange).to.be.a.change
-    //  })
+      it('handles changes', () => {
+          // not working the way i want it to be
+          // I want these to detect if onchange is a function
+          expect(colorSelector[0].onChange).to.be.a.change
+      })
     it('First option have a value of an empty string and the text reads Choose a color', () => {
       expect(colorOptions[0].value).to.be.equal('');
       expect(colorOptions[0].children).to.be.equal('Choose-A-Color');
