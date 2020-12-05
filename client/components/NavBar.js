@@ -30,7 +30,6 @@ const NavBar = () => {
       {pages.map((page) => {
         if (
           page.name === 'Facebook' ||
-          page.name === 'Training' ||
           page.name === 'Newsletter'
         ) {
           return (

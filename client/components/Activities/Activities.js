@@ -19,7 +19,7 @@ const Activities = () => {
 
           <p>
             Regular WCRA events are listed here and in our meeting minutes which
-            can be found on the <Link to="Hamletter">hamletter page</Link>.
+            can be found on the <Link to="/Hamletter">hamletter page</Link>.
           </p>
           <div>
             <h2>Meetings</h2>

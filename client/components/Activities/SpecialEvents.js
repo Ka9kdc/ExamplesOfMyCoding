@@ -12,13 +12,12 @@ const SpecialEvents = (props) => {
       className="NewsItem"
       style={{ borderColor: 'blue', backgroundColor: '#ECF4FF' }}
     >
-      <h2> Special Events</h2>
+      <h2>Special Events</h2>
       <div>
         {specialEvents &&
-          specialEvents.map((special) => {
-            return (
+          specialEvents.map((special) => (
               <div key={special.id} className="NewsItem">
-                <h2>{special.Name}</h2>
+                <h3>{special.Name}</h3>
                 <p>
                   {moment(special.Start).format('LL')} from{' '}
                   {moment(special.Start).format('LT')} to
@@ -27,8 +26,7 @@ const SpecialEvents = (props) => {
                 <p>Where: {special.Location}</p>
                 <p>{special.Description}</p>
               </div>
-            );
-          })}
+            ))}
       </div>
     </div>
   );

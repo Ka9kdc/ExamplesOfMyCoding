@@ -14,7 +14,7 @@ class Agenda extends React.Component {
         <table className="EventCalendar">
           <thead>
             <tr className="Announcement">
-              <td colSpan="5">Event Calendar</td>
+              <td colSpan="5"><h4>Event Calendar</h4></td>
             </tr>
           </thead>
           <tbody>
