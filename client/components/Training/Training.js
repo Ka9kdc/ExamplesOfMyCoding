@@ -1,12 +1,12 @@
 import React from 'react';
 import TrainingEvents from './TrainingEvents';
 
-const Training = (props) => {
+const Training = () => {
   return (
-    <div>
+    <>
       <div className="Title">Amateur Radio Classes & Testing</div>
       <div className="Content">
-        <div>
+        <>
           <p>
             WCRA has volunteer instructors that teach classes to prepare
             prospective hams for the Technician class license exam, and current
@@ -17,8 +17,8 @@ const Training = (props) => {
             more info.
           </p>
           <TrainingEvents />
-        </div>
-        <div>
+        </>
+        <>
           <h1>Additional Resources</h1>
 
           <p>
@@ -32,9 +32,9 @@ const Training = (props) => {
             <a href="Document/trainingreference.pdf">Training Reference</a>{' '}
             guide (PDF). It is our hope that you will find this helpful.
           </p>
-        </div>
+        </>
       </div>
-    </div>
+    </>
   );
 };
 

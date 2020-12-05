@@ -2,13 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import AddressBlock from './addressblock';
 
-const ContactUs = (props) => {
+const ContactUs = () => {
   return (
-    <div>
+    <>
       <div className="Title">Contacting WCRA</div>
 
       <div className="Content">
-        <div>
+        <>
           <h1>WCRA Officers</h1>
 
           <p>
@@ -48,8 +48,8 @@ const ContactUs = (props) => {
             We also have a <Link to="/OfficerHistory">chronological list</Link>{' '}
             of WCRA club officers since 1948.
           </p>
-        </div>
-        <div>
+        </>
+        <>
           <h1>Committees</h1>
 
           <p>
@@ -87,8 +87,7 @@ const ContactUs = (props) => {
                 </td>
                 <td>
                   <a href="mailto:hamfest@w9ccu.org">
-                    Scott, KB9VRW <br />
-                    Roger
+                    Scott, KB9VRW <br /> Roger
                   </a>
                 </td>
               </tr>
@@ -162,8 +161,8 @@ const ContactUs = (props) => {
               </tr>
             </tbody>
           </table>
-        </div>
-        <div>
+        </>
+        <>
           <h1>General Inquiries</h1>
 
           <p>
@@ -178,9 +177,9 @@ const ContactUs = (props) => {
             We can be reached by phone at (630) 923-5447. Leave a message. We
             will return your call.
           </p>
-        </div>
+        </>
       </div>
-    </div>
+    </>
   );
 };
 

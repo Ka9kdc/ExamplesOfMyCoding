@@ -15,8 +15,8 @@ class TrainingEvents extends React.Component {
       (training) => training.Type === 'Training Class'
     );
     return (
-      <div>
-        <div>
+      <>
+        <>
           <h1>Upcoming Technician Class Training and License Examination</h1>
           {trainingClass && trainingClass.length ? (
             trainingClass.map((training) => (
@@ -40,8 +40,8 @@ class TrainingEvents extends React.Component {
               </p>
             </div>
           )}
-        </div>
-        <div>
+        </>
+        <>
           <h1>Additional Exam Sessions</h1>
           {testing && testing.length ? (
             testing.map((testingEvent) => (
@@ -75,11 +75,11 @@ class TrainingEvents extends React.Component {
             more info. You can find information on other local testing using the{' '}
             <a href="http://www.arrl.org/exam_sessions/">
               ARRL Amateur Radio License Exam search
-            </a>
+            </a>{' '}
             .
           </p>
-        </div>
-      </div>
+        </>
+      </>
     );
   }
 }

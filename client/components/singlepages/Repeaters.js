@@ -6,12 +6,11 @@ const Repeaters = () => {
       <div className="Title">WCRA Radio Repeaters</div>
 
       <div className="Content">
-        <div>
+        <>
           <p>
             Wheaton Community Radio Amateurs, with coordination approval from
             the Illinois Repeater Association and adjacent state coordination,
-            operates the following
-            <b> Yaesu Fusion C4FM </b> repeaters:
+            operates the following <b> Yaesu Fusion C4FM </b> repeaters:
           </p>
 
           <table>
@@ -44,8 +43,8 @@ const Repeaters = () => {
               </tr>
             </tbody>
           </table>
-        </div>
-        <div>
+        </>
+        <>
           <h1>On-Air Nets</h1>
 
           <h2>Net Schedule</h2>
@@ -90,7 +89,7 @@ const Repeaters = () => {
             on the active nets, or contact our{' '}
             <a href="mailto:nets@w9ccu.org">Nets Coordinator</a>.
           </p>
-        </div>
+        </>
       </div>
     </div>
   );

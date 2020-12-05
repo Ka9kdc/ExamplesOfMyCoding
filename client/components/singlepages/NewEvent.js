@@ -30,10 +30,10 @@ class NewEvent extends React.Component {
   handleChange(event) {
     if (event.target.name === 'StartTime') {
       const startArr = event.target.value.split(':');
-      let endMinute = parseInt(startArr[1]) + 15;
+      let endMinute = parseInt(startArr[1], 10) + 15;
 
       if (endMinute >= 60) {
-        let endHour = parseInt(startArr[0]);
+        let endHour = parseInt(startArr[0], 10);
         endMinute -= 60;
         endHour++;
         if (endMinute < 10) {

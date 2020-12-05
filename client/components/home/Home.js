@@ -97,14 +97,14 @@ class Home extends React.Component {
                   </td>
                   <td>
                     <div>
-                      Solar X-rays:
+                      Solar X-rays:{' '}
                       <img
                         alt=""
                         src="http://www.n3kl.org/sun/images/status.gif"
                       />
                     </div>
                     <div>
-                      Geomagnetic Field:
+                      Geomagnetic Field:{' '}
                       <img
                         alt=""
                         src="http://www.n3kl.org/sun/images/kpstatus.gif"

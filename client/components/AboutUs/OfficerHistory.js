@@ -10,7 +10,7 @@ class OfficerHistory extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         <div className="Title">Past Officers/Executive Boards</div>
 
         <div className="Content">
@@ -31,7 +31,7 @@ class OfficerHistory extends React.Component {
             </tbody>
           </table>
         </div>
-      </div>
+      </>
     );
   }
 }

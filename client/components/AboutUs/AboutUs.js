@@ -2,13 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import AddressBlock from './addressblock';
 
-const AboutUs = (props) => {
+const AboutUs = () => {
   return (
-    <div>
+    <>
       <div className="Title">About WCRA</div>
 
       <div className="Content">
-        <div>
+        <>
           <h1>Purpose</h1>
 
           <p>
@@ -34,10 +34,10 @@ const AboutUs = (props) => {
             however, WCRA currently maintains{' '}
             <Link to="/Repeaters">several repeaters</Link>.
           </p>
-        </div>
-        <div>
+        </>
+        <>
           <h1>Activities</h1>
-          <div>
+          <>
             <h2>Meetings</h2>
 
             <p>
@@ -50,8 +50,8 @@ const AboutUs = (props) => {
               confirm when and where the meetings will be. Visitors are always
               welcome to attend meetings.
             </p>
-          </div>
-          <div>
+          </>
+          <>
             <h2>ARRL Field Day</h2>
 
             <p>
@@ -65,24 +65,24 @@ const AboutUs = (props) => {
               encouraged to come out and see what the fun of Field Day is all
               about!
             </p>
-          </div>
-          <div>
+          </>
+          <>
             <h2>Amateur Radio License Classes</h2>
 
             <p>
               WCRA conducts <Link to="/Training">classes</Link> for individuals
               interested in obtaining an amateur radio license.
             </p>
-          </div>
-          <div>
+          </>
+          <>
             <h2>Volunteer Examiner Exams</h2>
 
             <p>
               Examinations for amateur radio licenses are given throughout the
               year by WCRA Volunteer Examiners.
             </p>
-          </div>
-          <div>
+          </>
+          <>
             <h2>Public Service Events</h2>
 
             <p>
@@ -91,8 +91,8 @@ const AboutUs = (props) => {
               year. Supported events include walkathons, bikeathons, various
               parades, etc.
             </p>
-          </div>
-          <div>
+          </>
+          <>
             <h2>Emergency Services Support</h2>
 
             <p>
@@ -103,8 +103,8 @@ const AboutUs = (props) => {
               <Link to="http://www.nws.noaa.gov">National Weather Service</Link>
               .
             </p>
-          </div>
-          <div>
+          </>
+          <>
             <h2>Social Events</h2>
 
             <p>
@@ -113,8 +113,8 @@ const AboutUs = (props) => {
               information. This is a nice gathering of some of our folks. Stop
               by and see us some time!
             </p>
-          </div>
-          <div>
+          </>
+          <>
             <h2>Hamfest</h2>
 
             <p>
@@ -124,8 +124,8 @@ const AboutUs = (props) => {
               Radio. Visitors and persons interested in Amateur Radio are
               invited and encouraged to come out.
             </p>
-          </div>
-          <div>
+          </>
+          <>
             <h1>Membership</h1>
 
             <p>
@@ -162,9 +162,9 @@ const AboutUs = (props) => {
               If there are any questions on joining the club, please contact a{' '}
               <Link to="/ContactUs">club officer.</Link>
             </p>
-          </div>
-        </div>
-        <div>
+          </>
+        </>
+        <>
           <h1>About the Club's Makeup</h1>
 
           <p>
@@ -194,9 +194,9 @@ const AboutUs = (props) => {
 
           <h1>Mailing Address</h1>
           <AddressBlock />
-        </div>
+        </>
       </div>
-    </div>
+    </>
   );
 };
 

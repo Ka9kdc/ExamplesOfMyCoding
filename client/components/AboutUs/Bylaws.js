@@ -1,12 +1,12 @@
 import React from 'react';
 
-const Bylaws = (props) => {
+const Bylaws = () => {
   return (
-    <div>
+    <>
       <div className="Title">WHEATON COMMUNITY RADIO AMATEURS BYLAWS</div>
 
       <div className="Content">
-        <div>
+        <>
           <h1>DEFINITIONS</h1>
 
           <p>
@@ -14,8 +14,8 @@ const Bylaws = (props) => {
             mean Wheaton Community Radio Amateurs. The term FULL member shall
             mean other than ASSOCIATE member, as referred to in Article IV.
           </p>
-        </div>
-        <div>
+        </>
+        <>
           <h1>ARTICLE I: PARLIAMENTARY PROCEDURE</h1>
 
           <p>
@@ -23,8 +23,8 @@ const Bylaws = (props) => {
             by this organization except in those cases covered specifically by
             the constitution or By-Laws.
           </p>
-        </div>
-        <div>
+        </>
+        <>
           <h1>ARTICLE II: OFFICERS</h1>
 
           <p>
@@ -43,7 +43,7 @@ const Bylaws = (props) => {
             the annual meeting.
           </p>
 
-          <div>
+          <>
             <h2>Executive Board</h2>
 
             <p>
@@ -56,7 +56,7 @@ const Bylaws = (props) => {
               during executive sessions.
             </p>
 
-            <div>
+            <>
               <h3>President</h3>
 
               <p>
@@ -69,8 +69,8 @@ const Bylaws = (props) => {
                 he/she shall turn over all records and items belonging to the
                 club to the successor.
               </p>
-            </div>
-            <div>
+            </>
+            <>
               <h3>Vice President</h3>
 
               <p>
@@ -83,8 +83,8 @@ const Bylaws = (props) => {
                 over all records and items belonging to the club to the
                 successor.
               </p>
-            </div>
-            <div>
+            </>
+            <>
               <h3>Secretary</h3>
 
               <p>
@@ -95,8 +95,8 @@ const Bylaws = (props) => {
                 he/she shall turn over all records and items belonging to the
                 Club to the successor.
               </p>
-            </div>
-            <div>
+            </>
+            <>
               <h3>Treasurer</h3>
 
               <p>
@@ -108,8 +108,8 @@ const Bylaws = (props) => {
                 shall turn over everything in his/her possession belonging to
                 the Club to his/her successor.
               </p>
-            </div>
-            <div>
+            </>
+            <>
               <h3>Property Custodian</h3>
 
               <p>
@@ -130,10 +130,10 @@ const Bylaws = (props) => {
                 everything in his/her possession belonging to the Club to
                 his/her successor.
               </p>
-            </div>
-          </div>
-        </div>
-        <div>
+            </>
+          </>
+        </>
+        <>
           <h1>ARTICLE III: COMMITTEES</h1>
 
           <p>
@@ -141,7 +141,7 @@ const Bylaws = (props) => {
             committees:
           </p>
 
-          <div>
+          <>
             <h2>Program Committee</h2>
 
             <p>
@@ -149,8 +149,8 @@ const Bylaws = (props) => {
               President as chairperson. It shall be the duty of this committee
               to provide programs and refreshments for the regular meetings.
             </p>
-          </div>
-          <div>
+          </>
+          <>
             <h2>Training Committee</h2>
 
             <p>
@@ -159,8 +159,8 @@ const Bylaws = (props) => {
               program for future amateur radio operators. Schedules and meetings
               shall be set up with members of the Club serving as instructors.
             </p>
-          </div>
-          <div>
+          </>
+          <>
             <h2>Public Service/Emergency Committee</h2>
 
             <p>
@@ -175,8 +175,8 @@ const Bylaws = (props) => {
               also coordinate activities with agencies such as DuPage County
               Office of Emergency Management.
             </p>
-          </div>
-          <div>
+          </>
+          <>
             <h2>Public Relations Committee</h2>
 
             <p>
@@ -185,8 +185,8 @@ const Bylaws = (props) => {
               other work of the Club to help the public understand the Club's
               activities.
             </p>
-          </div>
-          <div>
+          </>
+          <>
             <h2>Field Day Committee</h2>
 
             <p>
@@ -196,8 +196,8 @@ const Bylaws = (props) => {
               Field Day, as authorized by the Club, including the provision of
               food for the Field Day workers.
             </p>
-          </div>
-          <div>
+          </>
+          <>
             <h2>Interference Committee</h2>
 
             <p>
@@ -205,8 +205,8 @@ const Bylaws = (props) => {
               interference complaints referred to it or to the Club. This
               committee shall consist of up to three members.
             </p>
-          </div>
-          <div>
+          </>
+          <>
             <h2>Hamfest Committee</h2>
 
             <p>
@@ -216,8 +216,8 @@ const Bylaws = (props) => {
               chairperson shall be in charge of coordinating the subcommittees
               used for this event
             </p>
-          </div>
-          <div>
+          </>
+          <>
             <h2>Other positions</h2>
 
             <p>
@@ -226,9 +226,9 @@ const Bylaws = (props) => {
               Membership, Health & Welfare, Club Newsletter, Christmas Party,
               Club Historian and Picnic.
             </p>
-          </div>
-        </div>
-        <div>
+          </>
+        </>
+        <>
           <h1>ARTICLE IV: MEMBERSHIP</h1>
 
           <p>
@@ -255,8 +255,8 @@ const Bylaws = (props) => {
             application form. An acceptable application may be approved by a
             two-thirds vote of the FULL members present at any regular meeting.
           </p>
-        </div>
-        <div>
+        </>
+        <>
           <h1>ARTICLE V: FORFEITURE OF MEMBERSHIP</h1>
 
           <p>Members may be dropped from membership if:</p>
@@ -321,8 +321,8 @@ const Bylaws = (props) => {
             The Executive Board may defer dropping a member for non-payment of
             dues.
           </p>
-        </div>
-        <div>
+        </>
+        <>
           <h1>ARTICLE VI: DUES</h1>
 
           <p>
@@ -355,8 +355,8 @@ const Bylaws = (props) => {
             payment of dues for the current year on a semi-annual prorated
             basis.
           </p>
-        </div>
-        <div>
+        </>
+        <>
           <h1>ARTICLE VII: VACANCIES</h1>
 
           <p>
@@ -365,8 +365,8 @@ const Bylaws = (props) => {
             regular elections are held. The Executive Board shall promptly make
             appointments to fill any interim committee chairperson vacancies.
           </p>
-        </div>
-        <div>
+        </>
+        <>
           <h1>ARTICLE VIII: TIME OF MEETINGS</h1>
 
           <p>
@@ -374,16 +374,16 @@ const Bylaws = (props) => {
             except December, unless changed by the Executive Board. The annual
             meeting shall replace the regular meeting in April.
           </p>
-        </div>
-        <div>
+        </>
+        <>
           <h1>ARTICLE IX: QUORUM</h1>
 
           <p>
             A quorum shall be the FULL members present at any regular scheduled
             meeting.
           </p>
-        </div>
-        <div>
+        </>
+        <>
           <h1>ARTICLE X: CLUB STATION LICENSE TRUSTEE</h1>
 
           <p>
@@ -405,8 +405,8 @@ const Bylaws = (props) => {
             responsibility for maintaining the validity of the Club station
             license.
           </p>
-        </div>
-        <div>
+        </>
+        <>
           <h1>ARTICLE XI: REPEATER ADMINISTRATIVE BOARD</h1>
 
           <p>
@@ -414,15 +414,15 @@ const Bylaws = (props) => {
             operation and maintenance of all Club repeaters.
           </p>
 
-          <div>
+          <>
             <h2>Organization</h2>
 
             <p>
               The RAB shall consist of five members: Chairman, Trustee,
               Secretary, and two (2) standing members.
             </p>
-          </div>
-          <div>
+          </>
+          <>
             <h2>Meetings</h2>
 
             <p>
@@ -433,8 +433,8 @@ const Bylaws = (props) => {
               however, the Club President will ask, at each regular meeting, if
               the RAB has a report to give.
             </p>
-          </div>
-          <div>
+          </>
+          <>
             <h2>Selection of Members</h2>
 
             <p>
@@ -467,8 +467,8 @@ const Bylaws = (props) => {
                 present at a regular meeting.
               </li>
             </ol>
-          </div>
-          <div>
+          </>
+          <>
             <h2>Administrative Functions</h2>
 
             <p>
@@ -481,7 +481,7 @@ const Bylaws = (props) => {
               <li>Planning and implementing new repeater features.</li>
             </ol>
 
-            <div>
+            <>
               <h2>Requesting RAB Action</h2>
 
               <p>
@@ -491,8 +491,8 @@ const Bylaws = (props) => {
                 RAB for action. The request shall not be discussed until the RAB
                 reports on the request.
               </p>
-            </div>
-            <div>
+            </>
+            <>
               <h2>Reports</h2>
 
               <p>
@@ -503,8 +503,8 @@ const Bylaws = (props) => {
                 at the regular meeting immediately following implementation of
                 said changes.
               </p>
-            </div>
-            <div>
+            </>
+            <>
               <h2>Vetoing RAB Action</h2>
 
               <p>
@@ -527,11 +527,11 @@ const Bylaws = (props) => {
                   of the petition shall be required to pass the veto.
                 </li>
               </ol>
-            </div>
-          </div>
-        </div>
+            </>
+          </>
+        </>
       </div>
-    </div>
+    </>
   );
 };
 
