@@ -37,12 +37,12 @@ describe('MembershipForm Badge', () => {
     it('type is a checkbox', () => {
       expect(inputField.type).to.be.equal('checkbox');
     });
-     it('handles change', () => {
-       expect(inputField.onChange).to.be.a.change;
-     });
-     xit('has a default value of false', () => {
-       expect(inputField.value).to.be.false;
-     });
+    it('handles change', () => {
+      expect(inputField.onChange).to.be.a.change;
+    });
+    xit('has a default value of false', () => {
+      expect(inputField.value).to.be.false;
+    });
   });
   describe('Checkbox - meeting programs', () => {
     let inputField;
@@ -55,12 +55,12 @@ describe('MembershipForm Badge', () => {
     it('type is a checkbox', () => {
       expect(inputField.type).to.be.equal('checkbox');
     });
-     it('handles change', () => {
-       expect(inputField.onChange).to.be.a.change;
-     });
-     it('has a default value of false', () => {
-       expect(inputField.value).to.be.false;
-     });
+    it('handles change', () => {
+      expect(inputField.onChange).to.be.a.change;
+    });
+    it('has a default value of false', () => {
+      expect(inputField.value).to.be.false;
+    });
   });
   describe('Checkbox - Club Officer', () => {
     let inputField;
@@ -73,12 +73,12 @@ describe('MembershipForm Badge', () => {
     it('type is a checkbox', () => {
       expect(inputField.type).to.be.equal('checkbox');
     });
-     it('handles change', () => {
-       expect(inputField.onChange).to.be.a.change;
-     });
-     it('has a default value of false', () => {
-       expect(inputField.value).to.be.false;
-     });
+    it('handles change', () => {
+      expect(inputField.onChange).to.be.a.change;
+    });
+    it('has a default value of false', () => {
+      expect(inputField.value).to.be.false;
+    });
   });
   describe('Checkbox - Membership', () => {
     let inputField;
@@ -91,12 +91,12 @@ describe('MembershipForm Badge', () => {
     it('type is a checkbox', () => {
       expect(inputField.type).to.be.equal('checkbox');
     });
-     it('handles change', () => {
-       expect(inputField.onChange).to.be.a.change;
-     });
-     it('has a default value of false', () => {
-       expect(inputField.value).to.be.false;
-     });
+    it('handles change', () => {
+      expect(inputField.onChange).to.be.a.change;
+    });
+    it('has a default value of false', () => {
+      expect(inputField.value).to.be.false;
+    });
   });
   describe('Checkbox - Public Service', () => {
     let inputField;
@@ -109,12 +109,12 @@ describe('MembershipForm Badge', () => {
     it('type is a checkbox', () => {
       expect(inputField.type).to.be.equal('checkbox');
     });
-     it('handles change', () => {
-       expect(inputField.onChange).to.be.a.change;
-     });
-     it('has a default value of false', () => {
-       expect(inputField.value).to.be.false;
-     });
+    it('handles change', () => {
+      expect(inputField.onChange).to.be.a.change;
+    });
+    it('has a default value of false', () => {
+      expect(inputField.value).to.be.false;
+    });
   });
   describe('Checkbox - Field Day', () => {
     let inputField;
@@ -127,12 +127,12 @@ describe('MembershipForm Badge', () => {
     it('type is a checkbox', () => {
       expect(inputField.type).to.be.equal('checkbox');
     });
-     it('handles change', () => {
-       expect(inputField.onChange).to.be.a.change;
-     });
-     it('has a default value of false', () => {
-       expect(inputField.value).to.be.false;
-     });
+    it('handles change', () => {
+      expect(inputField.onChange).to.be.a.change;
+    });
+    it('has a default value of false', () => {
+      expect(inputField.value).to.be.false;
+    });
   });
   describe('Checkbox - Fundraising', () => {
     let inputField;
@@ -145,12 +145,12 @@ describe('MembershipForm Badge', () => {
     it('type is a checkbox', () => {
       expect(inputField.type).to.be.equal('checkbox');
     });
-     it('handles change', () => {
-       expect(inputField.onChange).to.be.a.change;
-     });
-     it('has a default value of false', () => {
-       expect(inputField.value).to.be.false;
-     });
+    it('handles change', () => {
+      expect(inputField.onChange).to.be.a.change;
+    });
+    it('has a default value of false', () => {
+      expect(inputField.value).to.be.false;
+    });
   });
   describe('Checkbox - VE Testing', () => {
     let inputField;
@@ -163,12 +163,12 @@ describe('MembershipForm Badge', () => {
     it('type is a checkbox', () => {
       expect(inputField.type).to.be.equal('checkbox');
     });
-     it('handles change', () => {
-       expect(inputField.onChange).to.be.a.change;
-     });
-     it('has a default value of false', () => {
-       expect(inputField.value).to.be.false;
-     });
+    it('handles change', () => {
+      expect(inputField.onChange).to.be.a.change;
+    });
+    it('has a default value of false', () => {
+      expect(inputField.value).to.be.false;
+    });
   });
   describe('Checkbox - Training', () => {
     let inputField;
@@ -181,12 +181,12 @@ describe('MembershipForm Badge', () => {
     it('type is a checkbox', () => {
       expect(inputField.type).to.be.equal('checkbox');
     });
-     it('handles change', () => {
-       expect(inputField.onChange).to.be.a.change;
-     });
-     it('has a default value of false', () => {
-       expect(inputField.value).to.be.false;
-     });
+    it('handles change', () => {
+      expect(inputField.onChange).to.be.a.change;
+    });
+    it('has a default value of false', () => {
+      expect(inputField.value).to.be.false;
+    });
   });
   describe('Checkbox - Net', () => {
     let inputField;
@@ -199,12 +199,12 @@ describe('MembershipForm Badge', () => {
     it('type is a checkbox', () => {
       expect(inputField.type).to.be.equal('checkbox');
     });
-     it('handles change', () => {
-       expect(inputField.onChange).to.be.a.change;
-     });
-     it('has a default value of false', () => {
-       expect(inputField.value).to.be.false;
-     });
+    it('handles change', () => {
+      expect(inputField.onChange).to.be.a.change;
+    });
+    it('has a default value of false', () => {
+      expect(inputField.value).to.be.false;
+    });
   });
   describe('Checkbox - csuTrailer', () => {
     let inputField;
@@ -217,12 +217,12 @@ describe('MembershipForm Badge', () => {
     it('type is a checkbox', () => {
       expect(inputField.type).to.be.equal('checkbox');
     });
-     it('handles change', () => {
-       expect(inputField.onChange).to.be.a.change;
-     });
-     it('has a default value of false', () => {
-       expect(inputField.value).to.be.false;
-     });
+    it('handles change', () => {
+      expect(inputField.onChange).to.be.a.change;
+    });
+    it('has a default value of false', () => {
+      expect(inputField.value).to.be.false;
+    });
   });
   describe('Checkbox - Publicity', () => {
     let inputField;
@@ -235,12 +235,12 @@ describe('MembershipForm Badge', () => {
     it('type is a checkbox', () => {
       expect(inputField.type).to.be.equal('checkbox');
     });
-     it('handles change', () => {
-       expect(inputField.onChange).to.be.a.change;
-     });
-     it('has a default value of false', () => {
-       expect(inputField.value).to.be.false;
-     });
+    it('handles change', () => {
+      expect(inputField.onChange).to.be.a.change;
+    });
+    it('has a default value of false', () => {
+      expect(inputField.value).to.be.false;
+    });
   });
   describe('Checkbox - Hamfest', () => {
     let inputField;
@@ -253,12 +253,12 @@ describe('MembershipForm Badge', () => {
     it('type is a checkbox', () => {
       expect(inputField.type).to.be.equal('checkbox');
     });
-     it('handles change', () => {
-       expect(inputField.onChange).to.be.a.change;
-     });
-     it('has a default value of false', () => {
-       expect(inputField.value).to.be.false;
-     });
+    it('handles change', () => {
+      expect(inputField.onChange).to.be.a.change;
+    });
+    it('has a default value of false', () => {
+      expect(inputField.value).to.be.false;
+    });
   });
   describe('Checkbox - Youth Programs', () => {
     let inputField;
@@ -271,12 +271,12 @@ describe('MembershipForm Badge', () => {
     it('type is a checkbox', () => {
       expect(inputField.type).to.be.equal('checkbox');
     });
-     it('handles change', () => {
-       expect(inputField.onChange).to.be.a.change;
-     });
-     it('has a default value of false', () => {
-       expect(inputField.value).to.be.false;
-     });
+    it('handles change', () => {
+      expect(inputField.onChange).to.be.a.change;
+    });
+    it('has a default value of false', () => {
+      expect(inputField.value).to.be.false;
+    });
   });
   describe('Checkbox - Hamletter', () => {
     let inputField;
@@ -289,12 +289,12 @@ describe('MembershipForm Badge', () => {
     it('type is a checkbox', () => {
       expect(inputField.type).to.be.equal('checkbox');
     });
-     it('handles change', () => {
-       expect(inputField.onChange).to.be.a.change;
-     });
-     it('has a default value of false', () => {
-       expect(inputField.value).to.be.false;
-     });
+    it('handles change', () => {
+      expect(inputField.onChange).to.be.a.change;
+    });
+    it('has a default value of false', () => {
+      expect(inputField.value).to.be.false;
+    });
   });
   describe('Checkbox - Website', () => {
     let inputField;
@@ -307,9 +307,9 @@ describe('MembershipForm Badge', () => {
     it('type is a checkbox', () => {
       expect(inputField.type).to.be.equal('checkbox');
     });
-     it('handles change', () => {
-       expect(inputField.onChange).to.be.a.change;
-     });
+    it('handles change', () => {
+      expect(inputField.onChange).to.be.a.change;
+    });
     it('has a default value of false', () => {
       expect(inputField.value).to.be.false;
     });

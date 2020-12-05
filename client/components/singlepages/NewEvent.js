@@ -129,7 +129,7 @@ class NewEvent extends React.Component {
       'CSU',
     ];
     return (
-      <div>
+      <>
         <div>
           <label htmlFor="Name">Event Name</label>
           <input
@@ -217,7 +217,7 @@ class NewEvent extends React.Component {
         <button type="submit" onClick={this.handleSubmit}>
           Submit Events
         </button>
-      </div>
+      </>
     );
   }
 }

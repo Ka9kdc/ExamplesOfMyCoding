@@ -18,7 +18,7 @@ class MyCalender extends React.Component {
   render() {
     if (this.props.myEventsList.length) {
       return (
-        <div>
+        <>
           <div className="Title">Calendar</div>
 
           <div className="Content">
@@ -35,7 +35,7 @@ class MyCalender extends React.Component {
               views={['month', 'agenda']}
             />
           </div>
-        </div>
+        </>
       );
     } else {
       return (

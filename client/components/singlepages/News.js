@@ -24,13 +24,13 @@ class News extends React.Component {
       });
     }
     return (
-      <div>
+      <>
         <div className="Title">Keep Up To Date</div>
 
         <div className="Content">
           <div id="feed" />
         </div>
-      </div>
+      </>
     );
   }
 }

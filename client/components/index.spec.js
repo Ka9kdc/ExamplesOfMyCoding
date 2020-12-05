@@ -52,7 +52,6 @@ export const fakecalendarEvents = [
   fakeServiceEvent,
 ];
 
-
 const jsdom = new JSDOM('<!doctype html><html><body></body></html>');
 const { window } = jsdom;
 

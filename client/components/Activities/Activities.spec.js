@@ -10,8 +10,11 @@ import Agenda from '../home/Agenda';
 import SpecialEvents from './SpecialEvents';
 import PublicServiceEvents from './PublicServiceEvents';
 import { setEvents } from '../../redux/calendar';
-import { fakecalendarEvents, fakeServiceEvent, fakeSpecialEvent } from '../index.spec';
-
+import {
+  fakecalendarEvents,
+  fakeServiceEvent,
+  fakeSpecialEvent,
+} from '../index.spec';
 
 //Tests: 33 passing 0 pending/failing
 describe('Activites/Events page', () => {
@@ -73,7 +76,6 @@ describe('Activites/Events page', () => {
         expect(link[0].children).to.be.equal('hamletter page');
       });
       it('links to /Hamletter', () => {
-        console.log(link);
         expect(link[0].to).to.be.equal('/Hamletter');
       });
     });
@@ -179,7 +181,6 @@ describe('Activites/Events page', () => {
         expect(link[0].children).to.be.equal('hamletter page');
       });
       it('links to /Hamletter', () => {
-        console.log(link);
         expect(link[0].to).to.be.equal('/Hamletter');
       });
     });

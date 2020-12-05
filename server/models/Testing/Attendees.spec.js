@@ -361,7 +361,7 @@ describe('Attendee Model', () => {
       const testAttendee = Attendee.build(newAttendee);
       try {
         await testAttendee.save();
-        console.log('street -<', testAttendee);
+        // console.log('street -<', testAttendee);
         throw Error(
           'validation should have failed with with a nonvalid Street'
         );
@@ -708,7 +708,7 @@ describe('Attendee Model', () => {
       const testAttendee = Attendee.build(newAttendee);
       try {
         await testAttendee.validate();
-        console.log(testAttendee.Phone);
+        // console.log(testAttendee.Phone);
         throw Error(
           'validation should have failed with out a nonvalid Phone number'
         );

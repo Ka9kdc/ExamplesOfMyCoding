@@ -28,10 +28,7 @@ const NavBar = () => {
   return (
     <div className="Navbar ">
       {pages.map((page) => {
-        if (
-          page.name === 'Facebook' ||
-          page.name === 'Newsletter'
-        ) {
+        if (page.name === 'Facebook' || page.name === 'Newsletter') {
           return (
             <a href={page.url} key={page.name}>
               {page.name}

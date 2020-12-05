@@ -16,17 +16,17 @@ const SpecialEvents = (props) => {
       <div>
         {specialEvents &&
           specialEvents.map((special) => (
-              <div key={special.id} className="NewsItem">
-                <h3>{special.Name}</h3>
-                <p>
-                  {moment(special.Start).format('LL')} from{' '}
-                  {moment(special.Start).format('LT')} to{' '}
-                  {moment(special.End).format('LT')}
-                </p>
-                <p>Where: {special.Location}</p>
-                <p>{special.Description}</p>
-              </div>
-            ))}
+            <div key={special.id} className="NewsItem">
+              <h3>{special.Name}</h3>
+              <p>
+                {moment(special.Start).format('LL')} from{' '}
+                {moment(special.Start).format('LT')} to{' '}
+                {moment(special.End).format('LT')}
+              </p>
+              <p>Where: {special.Location}</p>
+              <p>{special.Description}</p>
+            </div>
+          ))}
       </div>
     </div>
   );

@@ -17,17 +17,17 @@ class Home extends React.Component {
       newsHolder.prepend(lastestNews);
     }
     return (
-      <div>
+      <>
         <div className="Title">WCRA's Home On The Web - W9CCU</div>
 
         <div className="Content">
-          <div>
+          <>
             <div id="newsHolder" />
             <Agenda />
             <FoxHunting />
             <FaceBook />
-          </div>
-          <div>
+          </>
+          <>
             <div>
               <h1>At First Glance</h1>
 
@@ -82,8 +82,8 @@ class Home extends React.Component {
                 camaraderie among its members.
               </p>
             </div>
-          </div>
-          <div>
+          </>
+          <>
             <table style={{ margin: '2em auto auto auto' }}>
               <tbody>
                 <tr>
@@ -118,9 +118,9 @@ class Home extends React.Component {
                 </tr>
               </tbody>
             </table>
-          </div>
+          </>
         </div>
-      </div>
+      </>
     );
   }
 }
