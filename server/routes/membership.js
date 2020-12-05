@@ -44,7 +44,6 @@ router.post('/family', async (req, res, next) => {
       DueYear: req.body.DueYear,
     });
     if (req.body.FamilyMembers && req.body.FamilyMembers.length) {
-      console.log('hello');
       await req.body.FamilyMembers.forEach(async (member) => {
         await newMember.addFamily(member.id);
       });

@@ -43,7 +43,7 @@ const mapDispatch = (dispatch, ownProps) => ({
       const newUser = { Callsign, password };
       dispatch(signUp(newUser, ownProps.history));
     } else {
-      console.log('passwords dont match');
+      console.error('passwords dont match');
     }
   },
 });

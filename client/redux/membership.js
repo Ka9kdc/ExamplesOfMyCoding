@@ -120,7 +120,7 @@ export const submitMember = (memberInfo, history) => {
       dispatch(updateMemberInfo(member));
       history.push('/membershipConfirmation');
     } catch (error) {
-      console.log(error.message);
+      console.error(error.message);
     }
   };
 };
@@ -152,7 +152,7 @@ export const submitFamilyMember = (memberInfo) => {
       }
       dispatch(addFamilyMember(FamilyMember));
     } catch (error) {
-      console.log(error.message);
+      console.error(error.message);
     }
   };
 };
@@ -163,7 +163,7 @@ export const payment = (memberInfo, history) => {
     axios
       .post('/api/membership/payment', memberInfo)
       .then((payment) => history.push('/membership'))
-      .catch((error) => console.log(error.message));
+      .catch((error) => console.error(error.message));
   };
 };
 

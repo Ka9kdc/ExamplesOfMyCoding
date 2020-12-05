@@ -46,7 +46,7 @@ export const placeOrder = (order, history) => {
       });
       history.push('/hamfestCheckout');
     } catch (error) {
-      console.log(error.message);
+      console.error(error.message);
     }
   };
 };
@@ -66,7 +66,7 @@ export const placeTickets = (order, history) => {
       });
       history.push('/hamfestCheckout');
     } catch (error) {
-      console.log(error.message);
+      console.error(error.message);
     }
   };
 };

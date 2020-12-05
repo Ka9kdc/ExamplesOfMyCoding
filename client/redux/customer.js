@@ -33,7 +33,7 @@ export const submitVendor = (vendorInfo) => {
       const vendor = response.data;
       dispatch(updateCustomerInfo(vendor));
     } catch (error) {
-      console.log(error.message);
+      console.error(error.message);
     }
   };
 };
@@ -48,7 +48,7 @@ export const submitAttendee = (attendeeInfo) => {
       const attendee = response.data;
       dispatch(updateCustomerInfo(attendee));
     } catch (error) {
-      console.log(error.message);
+      console.error(error.message);
     }
   };
 };
@@ -58,7 +58,7 @@ export const hamfestPayment = (vendorInfo, history) => {
     axios
       .post('/api/hamfest/payment', vendorInfo)
       .then((payment) => history.push('/hamfest'))
-      .catch((error) => console.log(error.message));
+      .catch((error) => console.error(error.message));
   };
 };
 

@@ -143,9 +143,9 @@ describe('Model Relationships', () => {
     xit('Vendor has one Payment', async () => {
       // console.log('testPaynmet --> ', Object.keys(testPayment.__proto__));
       const matched = await testPayment.getVendor();
-      console.log('---Payment', testPayment);
-      console.log('...Vendor...', testVendor);
-      console.log('matched ===', matched);
+      // console.log('---Payment', testPayment);
+      // console.log('...Vendor...', testVendor);
+      // console.log('matched ===', matched);
       expect(matched.Name).to.equal('Hannah');
       assert.deepEqual(matched.OrderDate, testPayment.PaymentDate);
     });

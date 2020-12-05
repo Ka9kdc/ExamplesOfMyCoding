@@ -242,7 +242,7 @@ describe('Badge', () => {
         await testBadge.save();
         expect(testBadge.Color).to.equal('');
       } catch (err) {
-        console.log(err);
+        console.error(err);
       }
     });
     it('can not be a random string', async () => {
@@ -295,7 +295,7 @@ describe('Badge', () => {
         await testBadge.save();
         expect(testBadge.Type).to.equal('NoPreference');
       } catch (err) {
-        console.log(err);
+        console.error(err);
       }
     });
     it('can not be an empty string', async () => {

@@ -69,7 +69,7 @@ const seed = async () => {
       await Annoucement.create(announcement);
     });
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 

@@ -4,7 +4,6 @@ const { Member } = require('../models/member');
 
 // GET /api/user/me
 router.get('/me', (req, res, next) => {
-  console.log('hello');
   res.json(req.user);
 });
 

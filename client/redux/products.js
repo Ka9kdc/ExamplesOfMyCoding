@@ -18,7 +18,7 @@ export const fetchAllProducts = () => {
       const products = response.data;
       dispatch(getAllProducts(products));
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 };

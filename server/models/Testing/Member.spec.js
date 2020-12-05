@@ -786,7 +786,7 @@ describe('Member Model', () => {
         await testMember.save();
         expect(testMember.Membership).to.equal('Full');
       } catch (err) {
-        console.log(err);
+        console.error(err);
       }
     });
     it('can not be an empty string', async () => {

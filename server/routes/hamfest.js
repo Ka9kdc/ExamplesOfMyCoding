@@ -105,7 +105,7 @@ router.post('/vendor/information', async (req, res, next) => {
 
     res.send(vendor);
   } catch (error) {
-    console.log(error);
+    console.error(error);
     next(error);
   }
 });
@@ -126,7 +126,7 @@ router.post('/vendor/order', async (req, res, next) => {
     // req.session.order = order
     res.send(order);
   } catch (error) {
-    console.log(error);
+    console.error(error);
     next(error);
   }
 });
@@ -151,7 +151,7 @@ router.post('/payment', async (req, res, next) => {
     }
     res.send(payment);
   } catch (error) {
-    console.log(error);
+    console.error(error);
     next(error);
   }
 });
