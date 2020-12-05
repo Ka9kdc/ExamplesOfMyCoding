@@ -32,9 +32,8 @@ const PublicServiceEvents = (props) => {
               <div className="NewsItem" key={service.id}>
                 <h3>{service.Name}</h3>
                 <p>
-                  {' '}
                   {moment(service.Start).format('LL')} from{' '}
-                  {moment(service.Start).format('LT')} to
+                  {moment(service.Start).format('LT')} to{' '}
                   {moment(service.End).format('LT')}
                 </p>
                 <p>Where: {service.Location}</p>

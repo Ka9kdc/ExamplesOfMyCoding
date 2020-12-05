@@ -20,7 +20,7 @@ const SpecialEvents = (props) => {
                 <h3>{special.Name}</h3>
                 <p>
                   {moment(special.Start).format('LL')} from{' '}
-                  {moment(special.Start).format('LT')} to
+                  {moment(special.Start).format('LT')} to{' '}
                   {moment(special.End).format('LT')}
                 </p>
                 <p>Where: {special.Location}</p>

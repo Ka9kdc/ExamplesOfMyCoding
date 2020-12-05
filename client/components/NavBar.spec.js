@@ -21,7 +21,6 @@ describe('NavBar component', () => {
     );
     navbar = wrapper.find('a').map((node) => node.get(0).props);
     navbarChildern = navbar.map((props) => props.children);
-    console.log(navbar)
   });
 describe('All buttons seen', () => {
 

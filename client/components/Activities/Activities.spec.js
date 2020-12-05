@@ -10,6 +10,7 @@ import Agenda from '../home/Agenda';
 import SpecialEvents from './SpecialEvents';
 import PublicServiceEvents from './PublicServiceEvents';
 import { setEvents } from '../../redux/calendar';
+import { fakecalendarEvents, fakeServiceEvent, fakeSpecialEvent } from '../index.spec';
 
 
 //Tests: 33 passing 0 pending/failing
@@ -78,35 +79,6 @@ describe('Activites/Events page', () => {
     });
   });
   describe('full mount /deep render', () => {
-    const fakeSpecialEvent = {
-      id: 1,
-      Name: 'Hamfest',
-      Start: '2021-01-17T14:00:00.000Z',
-      End: '2021-01-17T22:00:00.000Z',
-      Location: 'Zoom',
-      Type: 'Special Event',
-    };
-    const fakeServiceEvent = {
-      id: 2,
-      Name: 'Weekly Club Net',
-      Start: '2021-01-04T02:00:00.000Z',
-      End: '2021-01-04T02:30:00.000Z',
-      Location: '145.310',
-      Type: 'Public Service Event',
-    };
-    const fakeTrainingEvent = {
-      id: 3,
-      Name: 'Weather Net',
-      Start: '2020-11-11T01:00:00.000Z',
-      End: '2020-11-11T01:15:00.000Z',
-      Location: '444.475',
-      Type: 'Training',
-    };
-    const fakecalendarEvents = [
-      fakeSpecialEvent,
-      fakeTrainingEvent,
-      fakeServiceEvent,
-    ];
     let activitesPage;
     let sections;
     before(async () => {
