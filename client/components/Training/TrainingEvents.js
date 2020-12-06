@@ -17,13 +17,13 @@ class TrainingEvents extends React.Component {
     return (
       <>
         <>
-          <h1>Upcoming Technician Class Training and License Examination</h1>
+          <h2>Upcoming Technician Class Training and License Examination</h2>
           {trainingClass && trainingClass.length ? (
             trainingClass.map((training) => (
               <div className="NewsItem" key={training.id}>
-                <h2>
+                <h3>
                   {training.Name} on {moment(training.Start).format('LL')}
-                </h2>
+                </h3>
                 <p>
                   Time: {moment(training.Start).format('LT')} to{' '}
                   {moment(training.End).format('LT')}
@@ -42,14 +42,14 @@ class TrainingEvents extends React.Component {
           )}
         </>
         <>
-          <h1>Additional Exam Sessions</h1>
+          <h2>Additional Exam Sessions</h2>
           {testing && testing.length ? (
             testing.map((testingEvent) => (
               <div className="NewsItem" key={testingEvent.id}>
-                <h2>
+                <h3>
                   {testingEvent.Name} on{' '}
                   {moment(testingEvent.Start).format('LL')}
-                </h2>
+                </h3>
                 <p>
                   Time: {moment(testingEvent.Start).format('LT')} to{' '}
                   {moment(testingEvent.End).format('LT')}
@@ -75,7 +75,7 @@ class TrainingEvents extends React.Component {
             more info. You can find information on other local testing using the{' '}
             <a href="http://www.arrl.org/exam_sessions/">
               ARRL Amateur Radio License Exam search
-            </a>{' '}
+            </a>{''}
             .
           </p>
         </>

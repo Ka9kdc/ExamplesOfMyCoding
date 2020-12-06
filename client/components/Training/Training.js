@@ -19,7 +19,7 @@ const Training = () => {
           <TrainingEvents />
         </>
         <>
-          <h1>Additional Resources</h1>
+          <h2>Additional Resources</h2>
 
           <p>
             Whether you are new to the hobby looking for new information, or a

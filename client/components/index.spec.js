@@ -44,7 +44,7 @@ export const fakeTrainingEvent = {
   Start: '2020-11-11T01:00:00.000Z',
   End: '2020-11-11T01:15:00.000Z',
   Location: '444.475',
-  Type: 'Training',
+  Type: 'Training Class',
 };
 export const fakecalendarEvents = [
   fakeSpecialEvent,
