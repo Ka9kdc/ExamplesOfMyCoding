@@ -2,9 +2,9 @@ import React from 'react';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
 import { Provider } from 'react-redux';
-import store from '../store';
+import store from '../../store';
 import * as rrd from 'react-router-dom';
-import Repeaters from './singlepages/Repeaters';
+import Repeaters from './Repeaters';
 
 //Tests: 46 passing 0 pending/failing
 describe('Repeater component/page', () => {

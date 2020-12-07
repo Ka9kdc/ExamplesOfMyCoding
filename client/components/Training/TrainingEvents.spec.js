@@ -7,10 +7,13 @@ import * as rrd from 'react-router-dom';
 import { setEvents } from '../../redux/calendar';
 import { fakecalendarEvents, fakeTrainingEvent} from '../index.spec';
 import TrainingEvents from './TrainingEvents';
+import axios from 'axios';
+import mockAdapter from 'axios-mock-adapter';
 
 //Tests 20 passing 0pending/failing
 //Add axios calles and check that they are called
 describe('Training - Event Section', () => {
+    let mockAxios
   const fakeEvent2 = {
     id: 4,
     Name: 'Tech',
@@ -37,6 +40,15 @@ describe('Training - Event Section', () => {
     Type: 'Testing',
     Description: 'General',
   };
+  beforeEach(async() => {
+      mockAxios = new mockAdapter(axios)
+    await mockAxios.onGet('/api/calendar/training').replyOnce(200, [])
+  })
+
+  afterEach(() => {
+    mockAxios.restore();
+  })
+
   describe('titles', () => {
       let titles;
       before(() => {
@@ -62,6 +74,7 @@ describe('Training - Event Section', () => {
   describe('no scheduled events', () => {
     let news;
     before(async() => {
+
         await store.dispatch(setEvents([]));
     let section = mount(
             <Provider store={store}>

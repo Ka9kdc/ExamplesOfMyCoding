@@ -18,9 +18,12 @@ import Adapter from 'enzyme-adapter-react-16';
 import store from '../store';
 import chai from 'chai';
 
+
 require('mocha-suppress-logs')();
 
 Enzyme.configure({ adapter: new Adapter() });
+
+
 
 export const fakeSpecialEvent = {
   id: 1,
