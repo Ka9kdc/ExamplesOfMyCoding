@@ -15,8 +15,8 @@ const { JSDOM } = require('jsdom');
 
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import store from '../store';
-import chai from 'chai';
+// import store from '../store';
+// import chai from 'chai';
 
 
 require('mocha-suppress-logs')();

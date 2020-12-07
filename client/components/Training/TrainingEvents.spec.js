@@ -230,7 +230,7 @@ describe('Training - Event Section', () => {
           expect(links[1].href).to.be.equal("http://www.arrl.org/exam_sessions/")
       })
       it('the links says  ARRL Amateur Radio License Exam search ', () => {
-          expect(links[1].children).to.be.equal('ARRL Amateur Radio License Exam search')
+          expect(links[1].children).to.be.equal('ARRL Amateur Radio License Exam search.')
       })
   })
 });

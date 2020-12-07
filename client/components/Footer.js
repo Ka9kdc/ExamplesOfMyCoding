@@ -11,10 +11,10 @@ const Footer = () => {
       </>
 
       <>
-        Contents copyright &copy; 2016-2020, Wheaton Community Radio Amateurs.
+        Contents copyright &copy; 2016-2021, Wheaton Community Radio Amateurs.
         All rights reserved.
         <>
-          Last modified: August 2020 &nbsp;&nbsp;{' '}
+          Last modified: January 2021 &nbsp;&nbsp;{' '}
           <a href="mailto:webmaster@w9ccu.org">Webmaster feedback</a>
         </>
       </>

@@ -6,7 +6,7 @@ import NavBar from './NavBar';
 import Footer from './Footer';
 import Routes from './routes';
 
-const Main = (props) => {
+const Main = () => {
   return (
     <div className="FullPage">
       <Header />

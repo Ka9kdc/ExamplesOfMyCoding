@@ -74,9 +74,8 @@ class TrainingEvents extends React.Component {
             <a href="mailto:ve-testing@w9ccu.org">Tim Wheeler, KC9YFI</a> for
             more info. You can find information on other local testing using the{' '}
             <a href="http://www.arrl.org/exam_sessions/">
-              ARRL Amateur Radio License Exam search
-            </a>{''}
-            .
+              ARRL Amateur Radio License Exam search.
+            </a>
           </p>
         </>
       </>

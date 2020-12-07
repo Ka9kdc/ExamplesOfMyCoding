@@ -2,7 +2,7 @@ import React from 'react';
 
 //this page is done for now
 
-const Header = (props) => {
+const Header = () => {
   return (
     <div className="wcra">
       <img alt="" src="Images/LittleLogo.png" className="logo" />
