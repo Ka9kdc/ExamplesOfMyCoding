@@ -75,7 +75,7 @@ class TrainingEvents extends React.Component {
             more info. You can find information on other local testing using the{' '}
             <a href="http://www.arrl.org/exam_sessions/">
               ARRL Amateur Radio License Exam search
-            </a>{''}
+            </a>
             .
           </p>
         </>
