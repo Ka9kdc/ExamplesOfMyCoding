@@ -20,6 +20,6 @@ describe('footer', () => {
         expect(footerTextBox.children[1].props.children[1]).to.be.equal(' • P.O. Box 1055 • Wheaton, Illinois • 60187-1055 • (630) 923-5447 • www.w9ccu.org')
     })
     it('has a copywrite at the bottom', () => {
-        expect(footerTextBox.children[2].props.children[0]).to.be.equal('Contents copyright © 2016-2021, Wheaton Community Radio Amateurs. All rights reserved.')
+        expect(footerTextBox.children[2].props.children[0]).to.include('Contents copyright ©')
     })
 })
