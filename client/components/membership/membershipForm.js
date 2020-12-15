@@ -11,6 +11,7 @@ import {
   updateMemberBadge,
 } from '../../redux/membership';
 
+
 class MembershipForm extends React.Component {
   constructor() {
     super();
@@ -74,7 +75,7 @@ class MembershipForm extends React.Component {
           </div>
           <div className="form">
             <div>
-              <label>Membership Type: </label>
+              <label htmlFor="MembershipType">Membership Type: </label>
               <select name="Membership" required onChange={this.handleChange}>
                 <option value="Full">Regular $26.00 USD</option>
                 <option value="Senior">
@@ -89,7 +90,7 @@ class MembershipForm extends React.Component {
               </select>
             </div>
             <div>
-              <label>Today's Date: </label>
+              <label htmlFor="todaysDate">Today's Date: </label>
               <input
                 type="date"
                 required
@@ -98,7 +99,7 @@ class MembershipForm extends React.Component {
               />
             </div>
             <div>
-              <label>Due Year: </label>
+              <label htmlFor="DueYear">Due Year: </label>
               <select required name="DueYear" onChange={this.handleChange}>
                 <option value="2021">2021</option>
                 <option value="2020">2020</option>
