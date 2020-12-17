@@ -12,7 +12,7 @@ import Committees from './Committees';
 import MemberInfomation from './MemberInfomation';
 
 //Tests: 33 passing 0 pending/failling - should add more to account for conditional renders
-describe.only('membership online renewal form', () => {
+describe('membership online renewal form', () => {
   let membershipForm;
   describe('full mount', () => {
     let sections;
@@ -25,7 +25,7 @@ describe.only('membership online renewal form', () => {
         </Provider>
       );
       sections = membershipForm.find('div').map((node) => node.get(0).props);
-      // console.log(inputs)
+
     });
     it('does not initially render the badge component', () => {
       expect(membershipForm.find(Badge)).to.have.lengthOf(0);
@@ -53,7 +53,6 @@ describe.only('membership online renewal form', () => {
         labels = membershipForm
           .find('label')
           .map((node) => node.get(0).props.children);
-        console.log(form[0]);
       });
       it('renders 3 input fields with labels', () => {
         expect(form).to.have.lengthOf(3);
