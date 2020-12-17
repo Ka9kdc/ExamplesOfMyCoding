@@ -240,7 +240,7 @@ describe('Training - Event Section', () => {
     });
     it('the links says  ARRL Amateur Radio License Exam search ', () => {
       expect(links[1].children).to.be.equal(
-        'ARRL Amateur Radio License Exam search'
+        'ARRL Amateur Radio License Exam search.'
       );
     });
   });

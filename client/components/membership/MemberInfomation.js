@@ -32,11 +32,11 @@ const MemberInformation = (props) => {
         />
       </div>
       <div>
-        <label htmlFor="CallSign">Callsign: </label>
+        <label htmlFor="Callsign">Callsign: </label>
         <input
           name="Callsign"
           value={props.member.Callsign}
-          placeholder="callsign"
+          placeholder="Callsign"
           type="text"
           required
           onChange={() => props.handleChange(event)}
@@ -51,7 +51,6 @@ const MemberInformation = (props) => {
           required
           size="48"
           type="email"
-          required
           onChange={() => props.handleChange(event)}
         />
       </div>
@@ -75,7 +74,7 @@ const MemberInformation = (props) => {
           size="40%"
           value={props.member.Street}
           required
-          size="48"
+          // size="48"
           onChange={() => props.handleChange(event)}
         />
       </div>
