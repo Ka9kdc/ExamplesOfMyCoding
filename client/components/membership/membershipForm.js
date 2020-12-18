@@ -11,7 +11,6 @@ import {
   updateMemberBadge,
 } from '../../redux/membership';
 
-
 class MembershipForm extends React.Component {
   constructor() {
     super();

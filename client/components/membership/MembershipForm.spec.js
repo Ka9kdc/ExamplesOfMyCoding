@@ -13,7 +13,7 @@ import MemberInfomation from './MemberInfomation';
 import { updateMemberBadge, updateMemberInfo } from '../../redux/membership';
 
 //Tests: 76 passing 0 pending/failling - should add more to account for conditional renders
-describe.only('membership online renewal form', () => {
+describe('membership online renewal form', () => {
   let membershipForm;
   describe('full mount', () => {
     let sections;
@@ -251,10 +251,8 @@ describe.only('membership online renewal form', () => {
   describe('full mount with badge desired and lifeTime', () => {
     let sections;
     before(() => {
-      store.dispatch(
-        updateMemberBadge({ Desired: true })
-      );
-      store.dispatch(updateMemberInfo({Membership: 'Lifetime'}))
+      store.dispatch(updateMemberBadge({ Desired: true }));
+      store.dispatch(updateMemberInfo({ Membership: 'Lifetime' }));
       membershipForm = mount(
         <Provider store={store}>
           <rrd.MemoryRouter initialEntries={['./MembershipForm']}>
@@ -281,8 +279,10 @@ describe.only('membership online renewal form', () => {
       expect(membershipForm.find('button').text()).to.equal('Submit Form');
     });
     it('has a message regarding lifetime', () => {
-        expect(membershipForm.find('h2').text()).to.include('Lifetime Membership status')
-    })
+      expect(membershipForm.find('h2').text()).to.include(
+        'Lifetime Membership status'
+      );
+    });
     describe('badge div when badge desired = true', () => {
       let badgeForm;
       let check;
@@ -330,7 +330,6 @@ describe.only('membership online renewal form', () => {
         labels = membershipForm
           .find('label')
           .map((node) => node.get(0).props.children);
-
       });
       it('renders 3 input fields with labels', () => {
         expect(form).to.have.lengthOf(3);
@@ -374,7 +373,7 @@ describe.only('membership online renewal form', () => {
   describe('full mount with family membership', () => {
     let sections;
     before(() => {
-      store.dispatch(updateMemberInfo({Membership: 'Family'}))
+      store.dispatch(updateMemberInfo({ Membership: 'Family' }));
       membershipForm = mount(
         <Provider store={store}>
           <rrd.MemoryRouter initialEntries={['./MembershipForm']}>
@@ -399,21 +398,23 @@ describe.only('membership online renewal form', () => {
     });
 
     describe('has an initially has a submit form button', () => {
-        let button;
-        before(() => {
-          button = membershipForm.find('button');
-        });
-        it('has text of Add Family Member', () => {
-          expect(button.text()).to.equal('Add Family Member');
-        });
-        it('adds a family member  when clicked', () => {
-          let click = button.map((node) => node.get(0).props)[0].onClick;
-          expect(typeof click).to.be.equal('function');
-        });
-        it('is a link "/membershipConfirmation"', () => {
-            expect(membershipForm.find('a').get(0).props.href).to.be.equal("/membershipConfirmation")
-        })
+      let button;
+      before(() => {
+        button = membershipForm.find('button');
       });
+      it('has text of Add Family Member', () => {
+        expect(button.text()).to.equal('Add Family Member');
+      });
+      it('adds a family member  when clicked', () => {
+        let click = button.map((node) => node.get(0).props)[0].onClick;
+        expect(typeof click).to.be.equal('function');
+      });
+      it('is a link "/membershipConfirmation"', () => {
+        expect(membershipForm.find('a').get(0).props.href).to.be.equal(
+          '/membershipConfirmation'
+        );
+      });
+    });
 
     describe('form div', () => {
       let form;
@@ -427,7 +428,6 @@ describe.only('membership online renewal form', () => {
         labels = membershipForm
           .find('label')
           .map((node) => node.get(0).props.children);
-
       });
       it('still renders the same 3 input fields with labels', () => {
         expect(form).to.have.lengthOf(3);

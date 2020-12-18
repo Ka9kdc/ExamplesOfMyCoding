@@ -1,11 +1,10 @@
 import React from 'react';
 import { expect } from 'chai';
-import { mount} from 'enzyme';
+import { mount } from 'enzyme';
 import { Provider } from 'react-redux';
 import store from '../../store';
 import * as rrd from 'react-router-dom';
 import MemberInfomation from './MemberInfomation';
-
 
 //Tests 73 passing 0 pending/failing
 describe('membership information', () => {
