@@ -6,6 +6,8 @@ import store from '../../store';
 import * as rrd from 'react-router-dom';
 import Training from './Training';
 import TrainingEvents from './TrainingEvents';
+import mockAdapter from 'axios-mock-adapter';
+import axios from 'axios';
 
 //Tests 11 passing 0pending/failing
 describe('Training Page', () => {
@@ -35,7 +37,10 @@ describe('Training Page', () => {
   });
   describe('full mount', () => {
     let trainingPage;
-    before(() => {
+    let mockAxios
+    before(async() => {
+      mockAxios = new mockAdapter(axios)
+      await mockAxios.onGet('/api/calendar/training').replyOnce(200, []);
       trainingPage = mount(
         <Provider store={store}>
           <rrd.MemoryRouter initialEntries={['/training']}>
@@ -43,6 +48,9 @@ describe('Training Page', () => {
           </rrd.MemoryRouter>
         </Provider>
       );
+    });
+    after(() => {
+      mockAxios.restore();
     });
     it('renders a title of WCRA Radio Repeaters', () => {
       let [title] = trainingPage
