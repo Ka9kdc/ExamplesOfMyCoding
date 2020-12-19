@@ -13,10 +13,8 @@ const {
   Annoucement,
 } = require('..');
 
-//Tests: 10 passing 3 pending
+//Tests: 16 passing 0 pending/failing
 describe('Model Relationships', () => {
-  before(() => db.sync({ force: true }));
-
   const today = new Date();
   const payment = { PaymentDate: today, Amount: 20 };
   let testPayment;
@@ -35,7 +33,7 @@ describe('Model Relationships', () => {
     DueYear: 2020,
     RenewalDate: today,
   };
-  afterEach(() => db.sync({ force: true }));
+
   describe('Membership Models - member, badge, committees and payment', () => {
     beforeEach(async () => {
       testMember = await Member.create(member);
@@ -107,7 +105,7 @@ describe('Model Relationships', () => {
   describe('Hamfest Vendor Associations', () => {
     let testVendor;
     let testOrder;
-    before(async () => {
+    beforeEach(async () => {
       testVendor = await Vendor.create({
         Name: 'Hannah',
         Company: 'Green',
@@ -131,44 +129,47 @@ describe('Model Relationships', () => {
         OrderDate: today,
       });
       testPayment = await Payment.create(payment);
+      await testOrder.setVendor(testVendor);
       await testPayment.setVendor(testVendor);
       await testPayment.setOrder(testOrder);
     });
     it('vendor can have one order', async () => {
-      await testOrder.setVendor(testVendor);
       const matched = await testOrder.getVendor();
       expect(matched.Name).to.equal('Hannah');
+      assert.deepEqual(matched.OrderDate, testOrder.OrderDate);
+
     });
     //matched is return as null or undefined
-    xit('Vendor has one Payment', async () => {
-      // console.log('testPaynmet --> ', Object.keys(testPayment.__proto__));
+    it('Vendor has one Payment', async () => {
       const matched = await testPayment.getVendor();
-      // console.log('---Payment', testPayment);
-      // console.log('...Vendor...', testVendor);
-      // console.log('matched ===', matched);
       expect(matched.Name).to.equal('Hannah');
       assert.deepEqual(matched.OrderDate, testPayment.PaymentDate);
     });
-    xit('Vendor has one Payment', async () => {
+    it('Order has one Payment', async () => {
       const matched = await testPayment.getOrder();
       expect(matched.Amount).to.equal(20);
       assert.deepEqual(matched.OrderDate, testPayment.PaymentDate);
     });
+    it('Payment has both an order and a vendor with the same date', async () => {
+      const matchedVendor = await testPayment.getVendor();
+      const matchedOrder = await testPayment.getOrder();
+      expect(matchedVendor.Name).to.equal('Hannah');
+      expect(matchedOrder.Amount).to.equal(20);
+      assert.deepEqual(matchedOrder.OrderDate, matchedVendor.OrderDate);
+    })
   });
   describe('Hamfest Attendee Associations', () => {
     let testAttendee;
     let testTicket;
-    before(async () => {
+    beforeEach(async () => {
       testAttendee = await Attendee.create({
         Name: 'Hannah',
-
         Callsign: 'Ka9ddd',
         Phone: '1234567890',
         Street: '123 happy lane',
         City: 'st upidtown',
         State: 'MA',
         Zip: 60606,
-
         Email: 'abcde123@abc.com',
         OrderDate: today,
       });
@@ -179,25 +180,33 @@ describe('Model Relationships', () => {
         OrderDate: today,
       });
       testPayment = await Payment.create(payment);
-    });
-    it('vendor can have one order', async () => {
       await testTicket.setAttendee(testAttendee);
+      await testPayment.setAttendee(testAttendee);
+      await testPayment.setTicket(testTicket);
+    });
+    it('Attendee can have one ticket order', async () => {
       const matched = await testTicket.getAttendee();
       expect(matched.Name).to.equal('Hannah');
+      assert.deepEqual(matched.OrderDate, testTicket.OrderDate);      
     });
     //matched is return as null or undefined
-    xit('Attendee has one Payment', async () => {
-      await testPayment.setAttendee(testAttendee);
+    it('Attendee has one Payment', async () => {
       const matched = await testPayment.getAttendee();
       expect(matched.Name).to.equal('Hannah');
       assert.deepEqual(matched.OrderDate, testPayment.PaymentDate);
     });
-    xit('Ticket has one Payment', async () => {
-      await testPayment.setTicket(testTicket);
+    it('Ticket has one Payment', async () => {
       const matched = await testPayment.getTicket();
       expect(matched.Amount).to.equal(20);
       assert.deepEqual(matched.OrderDate, testPayment.PaymentDate);
     });
+    it('Payment has both an ticket and a Attendee with the same date', async () => {
+      const matchedAttendee = await testPayment.getAttendee();
+      const matchedTicket = await testPayment.getTicket();
+      expect(matchedAttendee.Name).to.equal('Hannah');
+      expect(matchedTicket.Amount).to.equal(20);
+      assert.deepEqual(matchedTicket.OrderDate, matchedAttendee.OrderDate);
+    })
   });
   describe('User - Announcement', () => {
     let testuser;
