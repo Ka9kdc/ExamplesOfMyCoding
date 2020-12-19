@@ -72,15 +72,17 @@ const Member = db.define('member', {
     },
   },
   Membership: {
-    type: Sequelize.ENUM(
-      'Full',
+    type: Sequelize.STRING,
+    defaultValue: 'Full',
+    validate: {
+      notEmpty: true,
+      isIn: [ ['Full',
       'Senior',
       'Student',
       'Family',
       'Associate',
-      'Lifetime'
-    ),
-    defaultValue: 'Full',
+      'Lifetime']]
+    }
   },
   Email: {
     type: Sequelize.STRING,
