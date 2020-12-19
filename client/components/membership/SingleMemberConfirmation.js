@@ -1,10 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import MemberPaypal from './MemberPayPal';
-import {
-  setAmount,
-  payment,
-} from '../../redux/membership';
+import { setAmount, payment } from '../../redux/membership';
 
 const SingleMemberConfirmation = (props) => {
   console.log(props.history);
@@ -57,7 +54,7 @@ const SingleMemberConfirmation = (props) => {
           <div>Committee Involvement: </div>
           <div>
             {groups.length
-              ? groups.map(group => <div key={group}>{group}</div>)
+              ? groups.map((group) => <div key={group}>{group}</div>)
               : 'None'}
           </div>
         </div>

@@ -76,13 +76,8 @@ const Member = db.define('member', {
     defaultValue: 'Full',
     validate: {
       notEmpty: true,
-      isIn: [ ['Full',
-      'Senior',
-      'Student',
-      'Family',
-      'Associate',
-      'Lifetime']]
-    }
+      isIn: [['Full', 'Senior', 'Student', 'Family', 'Associate', 'Lifetime']],
+    },
   },
   Email: {
     type: Sequelize.STRING,

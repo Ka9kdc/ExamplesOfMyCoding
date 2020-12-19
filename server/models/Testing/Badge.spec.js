@@ -7,8 +7,8 @@ describe('Badge', () => {
   // before(() => db.sync({ force: true }));
 
   let newBadge;
-  beforeEach(async() => {
-    await db.sync({ force: true })
+  beforeEach(async () => {
+    await db.sync({ force: true });
     newBadge = {
       Desired: true,
       Name: 'Cody',

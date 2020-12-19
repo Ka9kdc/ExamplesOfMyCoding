@@ -7,7 +7,7 @@ describe('Annoucement', () => {
   // before(() => db.sync({ force: true }));
   let newAnnoucement;
   beforeEach(async () => {
-    await db.sync({ force: true })
+    await db.sync({ force: true });
     newAnnoucement = {
       borderColor: '#ff0000',
       backgroundColor: '#00ff00',

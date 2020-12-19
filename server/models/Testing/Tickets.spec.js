@@ -7,8 +7,8 @@ describe('Ticket Model', () => {
   // before(() => db.sync({ force: true }));
 
   let newTicket;
-  beforeEach(async() => {
-    await db.sync({ force: true })
+  beforeEach(async () => {
+    await db.sync({ force: true });
     newTicket = {
       Tickets: 1,
       Raffle: 1,

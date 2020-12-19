@@ -7,8 +7,8 @@ describe('Payment Model', () => {
   // before(() => db.sync({ force: true }));
 
   let newPayment;
-  beforeEach(async() => {
-    await db.sync({ force: true })
+  beforeEach(async () => {
+    await db.sync({ force: true });
     newPayment = {
       Amount: 12345,
       PaymentDate: new Date(),

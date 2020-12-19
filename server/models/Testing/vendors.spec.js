@@ -7,8 +7,8 @@ describe('Vendor Model', () => {
   // before(() => db.sync({ force: true }));
 
   let newVendor;
-  beforeEach(async() => {
-    await db.sync({ force: true })
+  beforeEach(async () => {
+    await db.sync({ force: true });
     newVendor = {
       Name: 'Hannah',
       Company: 'Green',

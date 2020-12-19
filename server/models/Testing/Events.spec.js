@@ -5,8 +5,8 @@ const { db, CalendarEvent } = require('..');
 describe('CalendarEvent model', () => {
   // before(() => db.sync({ force: true }));
   let newCalendarEvent;
-  beforeEach(async() => {
-    await db.sync({ force: true })
+  beforeEach(async () => {
+    await db.sync({ force: true });
     newCalendarEvent = {
       Name: 'Club Meeting',
       Start: new Date(),

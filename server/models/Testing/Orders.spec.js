@@ -7,8 +7,8 @@ describe('Order Model', () => {
   // before(() => db.sync({ force: true }));
 
   let newOrder;
-  beforeEach(async() => {
-    await db.sync({ force: true })
+  beforeEach(async () => {
+    await db.sync({ force: true });
     newOrder = {
       Tickets: 1,
       Tables: 1,

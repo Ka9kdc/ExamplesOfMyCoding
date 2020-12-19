@@ -12,7 +12,7 @@ import { updateMemberBadge } from '../../redux/membership';
 describe('MembershipForm Badge', () => {
   let badgeForm;
   let inputs;
-  let checkText
+  let checkText;
   before(async () => {
     await store.dispatch(updateMemberBadge({ badgeType: 'Lanyard' }));
     badgeForm = mount(
@@ -23,20 +23,22 @@ describe('MembershipForm Badge', () => {
       </Provider>
     );
     inputs = badgeForm.find('input').map((node) => node.get(0).props);
-    checkText = badgeForm.find('div').map(node => node.get(0).props.children).reduce((arr, child) => {
-      if (Array.isArray(child)){
-        let str = child.filter(prop => typeof prop === 'string' && prop !== ' ')
-        arr.push(...str)
-        return arr
-      } else {
-        console.log('object')
-        return arr
-      }
-    }, [])
+    checkText = badgeForm
+      .find('div')
+      .map((node) => node.get(0).props.children)
+      .reduce((arr, child) => {
+        if (Array.isArray(child)) {
+          let str = child.filter(
+            (prop) => typeof prop === 'string' && prop !== ' '
+          );
+          arr.push(...str);
+        }
+        return arr;
+      }, []);
   });
   it('7 input fields', () => {
     expect(inputs).to.have.lengthOf(7);
-    expect(checkText).to.have.lengthOf.greaterThan(7)
+    expect(checkText).to.have.lengthOf.greaterThan(7);
   });
 
   describe('first input field - Year Lisecned', () => {
@@ -55,8 +57,8 @@ describe('MembershipForm Badge', () => {
       expect(typeof inputField.onChange).to.equal('function');
     });
     it('has text Year Licensed', () => {
-      expect(checkText[0]).to.be.equal('Year licensed:')
-    })
+      expect(checkText[0]).to.be.equal('Year licensed:');
+    });
   });
   describe('Second input field - Badge Name', () => {
     let inputField;
@@ -76,8 +78,8 @@ describe('MembershipForm Badge', () => {
       expect(inputField.placeholder).to.be.equal('Name');
     });
     it('has text Badge name', () => {
-      expect(checkText[1]).to.be.equal('Badge name:')
-    })
+      expect(checkText[1]).to.be.equal('Badge name:');
+    });
   });
   describe('Checkbox - Arrl logo', () => {
     let inputField;
@@ -91,11 +93,11 @@ describe('MembershipForm Badge', () => {
       expect(inputField.type).to.be.equal('checkbox');
     });
     it('handles change', () => {
-       expect(typeof inputField.onChange).to.equal('function');
+      expect(typeof inputField.onChange).to.equal('function');
     });
     it('has text Arrl Logo', () => {
-      expect(checkText[2]).to.be.equal('ARRL logo')
-    })
+      expect(checkText[2]).to.be.equal('ARRL logo');
+    });
   });
   describe('badgeTypes', () => {
     let radioFields;
@@ -107,19 +109,19 @@ describe('MembershipForm Badge', () => {
     });
     it('option 1 = Notch', () => {
       expect(radioFields[0].value).to.be.equal('Notch');
-      expect(checkText).to.includes('Notch  ')
+      expect(checkText).to.includes('Notch  ');
     });
     it('option 2 = Magnet', () => {
       expect(radioFields[1].value).to.be.equal('Magnet');
-      expect(checkText).to.includes('Magnet')
+      expect(checkText).to.includes('Magnet');
     });
     it('option 3 = Lanyard', () => {
       expect(radioFields[2].value).to.be.equal('Lanyard');
-      expect(checkText).to.include('Lanyard  ')
+      expect(checkText).to.include('Lanyard  ');
     });
     it('option 4 = Pin', () => {
       expect(radioFields[3].value).to.be.equal('Pin');
-      expect(checkText).to.include('Pin')
+      expect(checkText).to.include('Pin');
     });
     it('name = badgeType', () => {
       expect(radioFields[0].name).to.be.equal('badgeType');
@@ -145,8 +147,8 @@ describe('MembershipForm Badge', () => {
       expect(colorOptions).to.have.lengthOf(8);
     });
     it('has text Color', () => {
-      expect(checkText[7]).to.be.equal('Color:')
-    })
+      expect(checkText[7]).to.be.equal('Color:');
+    });
     it('has a name of Color', () => {
       expect(colorSelector[0].name).to.be.equal('Color');
     });

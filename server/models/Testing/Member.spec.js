@@ -7,8 +7,8 @@ describe('Member Model', () => {
   // before(() => db.sync({ force: true }));
 
   let newMember;
-  beforeEach(async() => {
-    await db.sync({ force: true })
+  beforeEach(async () => {
+    await db.sync({ force: true });
     newMember = {
       FirstName: 'Hannah',
       LastName: 'Green',
@@ -811,9 +811,7 @@ describe('Member Model', () => {
         await testMember.save();
         throw Error('validation should have failed with random string');
       } catch (err) {
-        expect(err.message).to.contain(
-          'Validation isIn on Membership failed'
-        );
+        expect(err.message).to.contain('Validation isIn on Membership failed');
       }
     });
   });

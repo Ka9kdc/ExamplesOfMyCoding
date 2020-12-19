@@ -3,8 +3,8 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import TextApplication from './TextApplication';
 
-//Next.js
-describe.only('Text Application', () => {
+//Tests: 24 passing 0 pending/failing
+describe('Text Application', () => {
   let application;
   let pageText;
   let checkText;
@@ -15,10 +15,10 @@ describe.only('Text Application', () => {
       .map((node) => node.get(0).props.children);
     let td = application.find('td').map((node) => node.get(0).props.children);
     checkText = td.reduce((arr, child) => {
-       let str =  child.filter(props => typeof props === 'string')
-       arr.push(...str)
-        return arr
-    }, [])
+      let str = child.filter((props) => typeof props === 'string');
+      arr.push(...str);
+      return arr;
+    }, []);
   });
   it('has the club name at the top', () => {
     expect(pageText).to.includes('Wheaton Community Radio Amateurs');
@@ -30,31 +30,30 @@ describe.only('Text Application', () => {
   });
   describe('membershiptypes', () => {
     it('has Full Membership $26', () => {
-        expect(checkText).to.includes(' Full Membership $26');
-      });
-      it('has Student/Sr Citizen $13', () => {
-        expect(checkText).to.includes(' Student/Sr Citizen $13');
-      });
-      it('has Lifetime Member $0', () => {
-        expect(checkText).to.includes(' Lifetime Member $0');
-      });
-      it('has Membership - Associate (no license) $13', () => {
-        expect(checkText).to.includes(' Associate (no license) $13');
-      });
-  })
+      expect(checkText).to.includes(' Full Membership $26');
+    });
+    it('has Student/Sr Citizen $13', () => {
+      expect(checkText).to.includes(' Student/Sr Citizen $13');
+    });
+    it('has Lifetime Member $0', () => {
+      expect(checkText).to.includes(' Lifetime Member $0');
+    });
+    it('has Membership - Associate (no license) $13', () => {
+      expect(checkText).to.includes(' Associate (no license) $13');
+    });
+  });
   describe('badge', () => {
     it('has variouscolors', () => {
-        expect(checkText).to.includes(' red, white & blue');
-        expect(checkText).to.includes(' red');
-        expect(checkText).to.includes(' blue');
-        expect(checkText).to.includes(' white');
-        expect(checkText).to.includes(' black');
-        expect(checkText).to.includes(' green');
-        expect(checkText).to.includes(' brown');
-        expect(checkText).to.includes(' brown');
-      });
-
-  })
+      expect(checkText).to.includes(' red, white & blue');
+      expect(checkText).to.includes(' red');
+      expect(checkText).to.includes(' blue');
+      expect(checkText).to.includes(' white');
+      expect(checkText).to.includes(' black');
+      expect(checkText).to.includes(' green');
+      expect(checkText).to.includes(' brown');
+      expect(checkText).to.includes(' brown');
+    });
+  });
   describe('commetties listed', () => {
     it('has ClubOfficer', () => {
       expect(checkText).to.includes(' Club Officer');

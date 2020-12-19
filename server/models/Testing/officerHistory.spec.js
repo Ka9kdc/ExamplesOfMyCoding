@@ -7,8 +7,8 @@ describe('office history Model', () => {
   // before(() =>  db.sync({ force: true }));
 
   let newOfficerHistory;
-  beforeEach(async() => {
-    await db.sync({ force: true })
+  beforeEach(async () => {
+    await db.sync({ force: true });
     newOfficerHistory = {
       startYear: 1950,
       endYear: 1951,

@@ -6,8 +6,8 @@ const Product = require('../Products');
 describe('Products Model', () => {
   // before(() => db.sync({ force: true }));
   let newProduct;
-  beforeEach(async() => {
-    await db.sync({ force: true })
+  beforeEach(async () => {
+    await db.sync({ force: true });
     newProduct = {
       name: 'Electrical Drop',
       dataName: 'Electrical',

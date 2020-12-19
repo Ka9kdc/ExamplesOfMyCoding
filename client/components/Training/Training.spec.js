@@ -37,9 +37,9 @@ describe('Training Page', () => {
   });
   describe('full mount', () => {
     let trainingPage;
-    let mockAxios
-    before(async() => {
-      mockAxios = new mockAdapter(axios)
+    let mockAxios;
+    before(async () => {
+      mockAxios = new mockAdapter(axios);
       await mockAxios.onGet('/api/calendar/training').replyOnce(200, []);
       trainingPage = mount(
         <Provider store={store}>

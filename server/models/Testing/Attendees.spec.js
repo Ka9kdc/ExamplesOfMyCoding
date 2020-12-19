@@ -7,8 +7,8 @@ describe('Attendee Model', () => {
   // before(() => db.sync({ force: true }));
 
   let newAttendee;
-  beforeEach(async() => {
-    await db.sync({ force: true })
+  beforeEach(async () => {
+    await db.sync({ force: true });
     newAttendee = {
       Name: 'Hannah',
       Callsign: 'Ka9ddd',

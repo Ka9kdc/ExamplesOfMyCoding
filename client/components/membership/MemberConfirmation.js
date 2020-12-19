@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { setAmount } from '../../redux/membership';
 import SingleMemberConfirmation from './SingleMemberConfirmation';

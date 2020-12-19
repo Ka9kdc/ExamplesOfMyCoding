@@ -23,18 +23,23 @@ describe('MembershipForm commitee', () => {
     commetteeOptions = commetteeForm
       .find('input')
       .map((node) => node.get(0).props);
-      commiteeText = commetteeForm.find('div').map(node => node.get(0).props.children).reduce((arr, child) => {
-        let str = child.filter(prop => typeof prop === 'string' && prop !== ' ')
-        arr.push(...str)
-        return arr
-      }, [])
+    commiteeText = commetteeForm
+      .find('div')
+      .map((node) => node.get(0).props.children)
+      .reduce((arr, child) => {
+        let str = child.filter(
+          (prop) => typeof prop === 'string' && prop !== ' '
+        );
+        arr.push(...str);
+        return arr;
+      }, []);
   });
   it('18 input fields', () => {
     expect(commetteeOptions).to.have.lengthOf(18);
   });
   it('message about commitee', () => {
-    expect(commiteeText[0]).to.include('indicate areas')
-  })
+    expect(commiteeText[0]).to.include('indicate areas');
+  });
   describe('Checkbox - RAB', () => {
     let inputField;
     before(() => {
@@ -53,8 +58,8 @@ describe('MembershipForm commitee', () => {
       expect(inputField.value).to.be.false;
     });
     it('has text Repeater Advisory Board', () => {
-      expect(commiteeText[1]).to.be.equal('Repeater Advisory Board')
-    })
+      expect(commiteeText[1]).to.be.equal('Repeater Advisory Board');
+    });
   });
   describe('Checkbox - meeting programs', () => {
     let inputField;
@@ -74,8 +79,8 @@ describe('MembershipForm commitee', () => {
       expect(inputField.value).to.be.false;
     });
     it('has text Meeting Programs', () => {
-      expect(commiteeText[2]).to.be.equal('Meeting Programs')
-    })
+      expect(commiteeText[2]).to.be.equal('Meeting Programs');
+    });
   });
   describe('Checkbox - Club Officer', () => {
     let inputField;
@@ -95,8 +100,8 @@ describe('MembershipForm commitee', () => {
       expect(inputField.value).to.be.false;
     });
     it('has text Club Officer', () => {
-      expect(commiteeText[3]).to.be.equal('Club Officer')
-    })
+      expect(commiteeText[3]).to.be.equal('Club Officer');
+    });
   });
   describe('Checkbox - Membership', () => {
     let inputField;
@@ -116,8 +121,8 @@ describe('MembershipForm commitee', () => {
       expect(inputField.value).to.be.false;
     });
     it('has text Membership', () => {
-      expect(commiteeText[4]).to.be.equal('Membership')
-    })
+      expect(commiteeText[4]).to.be.equal('Membership');
+    });
   });
   describe('Checkbox - Public Service', () => {
     let inputField;
@@ -137,8 +142,8 @@ describe('MembershipForm commitee', () => {
       expect(inputField.value).to.be.false;
     });
     it('has text Public Service Event', () => {
-      expect(commiteeText[5]).to.be.equal('Public Service Events')
-    })
+      expect(commiteeText[5]).to.be.equal('Public Service Events');
+    });
   });
   describe('Checkbox - Field Day', () => {
     let inputField;
@@ -158,8 +163,8 @@ describe('MembershipForm commitee', () => {
       expect(inputField.value).to.be.false;
     });
     it('has text Field Day (June)', () => {
-      expect(commiteeText[6]).to.be.equal('Field Day (June)')
-    })
+      expect(commiteeText[6]).to.be.equal('Field Day (June)');
+    });
   });
   describe('Checkbox - Fundraising', () => {
     let inputField;
@@ -179,8 +184,8 @@ describe('MembershipForm commitee', () => {
       expect(inputField.value).to.be.false;
     });
     it('has text Fundraising', () => {
-      expect(commiteeText[7]).to.be.equal('Fundraising')
-    })
+      expect(commiteeText[7]).to.be.equal('Fundraising');
+    });
   });
   describe('Checkbox - VE Testing', () => {
     let inputField;
@@ -200,8 +205,8 @@ describe('MembershipForm commitee', () => {
       expect(inputField.value).to.be.false;
     });
     it('has textVE Testing', () => {
-      expect(commiteeText[8]).to.be.equal('VE Testing')
-    })
+      expect(commiteeText[8]).to.be.equal('VE Testing');
+    });
   });
   describe('Checkbox - Training', () => {
     let inputField;
@@ -221,8 +226,8 @@ describe('MembershipForm commitee', () => {
       expect(inputField.value).to.be.false;
     });
     it('has text Training/Elmering', () => {
-      expect(commiteeText[9]).to.be.equal('Training/Elmering')
-    })
+      expect(commiteeText[9]).to.be.equal('Training/Elmering');
+    });
   });
   describe('Checkbox - Net', () => {
     let inputField;
@@ -242,8 +247,8 @@ describe('MembershipForm commitee', () => {
       expect(inputField.value).to.be.false;
     });
     it('has text On-Air Networks', () => {
-      expect(commiteeText[10]).to.be.equal('On-Air Networks')
-    })
+      expect(commiteeText[10]).to.be.equal('On-Air Networks');
+    });
   });
   describe('Checkbox - csuTrailer', () => {
     let inputField;
@@ -263,8 +268,8 @@ describe('MembershipForm commitee', () => {
       expect(inputField.value).to.be.false;
     });
     it('has text CSU Trailer', () => {
-      expect(commiteeText[11]).to.be.equal('CSU Trailer')
-    })
+      expect(commiteeText[11]).to.be.equal('CSU Trailer');
+    });
   });
   describe('Checkbox - Publicity', () => {
     let inputField;
@@ -284,8 +289,8 @@ describe('MembershipForm commitee', () => {
       expect(inputField.value).to.be.false;
     });
     it('has text Publicity', () => {
-      expect(commiteeText[12]).to.be.equal('Publicity')
-    })
+      expect(commiteeText[12]).to.be.equal('Publicity');
+    });
   });
   describe('Checkbox - Hamfest', () => {
     let inputField;
@@ -305,8 +310,8 @@ describe('MembershipForm commitee', () => {
       expect(inputField.value).to.be.false;
     });
     it('has text Hamfest (January)', () => {
-      expect(commiteeText[13]).to.be.equal('Hamfest (January)')
-    })
+      expect(commiteeText[13]).to.be.equal('Hamfest (January)');
+    });
   });
   describe('Checkbox - Youth Programs', () => {
     let inputField;
@@ -326,8 +331,8 @@ describe('MembershipForm commitee', () => {
       expect(inputField.value).to.be.false;
     });
     it('has text Youth Programs', () => {
-      expect(commiteeText[14]).to.be.equal('Youth Programs')
-    })
+      expect(commiteeText[14]).to.be.equal('Youth Programs');
+    });
   });
   describe('Checkbox - Hamletter', () => {
     let inputField;
@@ -347,8 +352,8 @@ describe('MembershipForm commitee', () => {
       expect(inputField.value).to.be.false;
     });
     it('has text NewsLetter', () => {
-      expect(commiteeText[15]).to.be.equal('Newsletter')
-    })
+      expect(commiteeText[15]).to.be.equal('Newsletter');
+    });
   });
   describe('Checkbox - Website', () => {
     let inputField;
@@ -368,8 +373,8 @@ describe('MembershipForm commitee', () => {
       expect(inputField.value).to.be.false;
     });
     it('has text Website', () => {
-      expect(commiteeText[16]).to.be.equal('Website')
-    })
+      expect(commiteeText[16]).to.be.equal('Website');
+    });
   });
   describe('Checkbox - other', () => {
     let inputField;
@@ -400,8 +405,8 @@ describe('MembershipForm commitee', () => {
         expect(box.type).to.be.equal('checkbox');
       });
       it('has text Other', () => {
-        expect(commiteeText[17]).to.be.equal(' Other:')
-      })
+        expect(commiteeText[17]).to.be.equal(' Other:');
+      });
     });
   });
 });
