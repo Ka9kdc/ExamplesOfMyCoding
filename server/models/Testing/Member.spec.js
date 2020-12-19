@@ -4,10 +4,11 @@ const { Member } = require('../member');
 
 //79 tests written and passing. none pending or failing
 describe('Member Model', () => {
-  before(() => db.sync({ force: true }));
+  // before(() => db.sync({ force: true }));
 
   let newMember;
-  beforeEach(() => {
+  beforeEach(async() => {
+    await db.sync({ force: true })
     newMember = {
       FirstName: 'Hannah',
       LastName: 'Green',
@@ -24,7 +25,7 @@ describe('Member Model', () => {
     };
   });
 
-  afterEach(() => db.sync({ force: true }));
+  // afterEach(() => db.sync({ force: true }));
   describe('fields', () => {
     let testMember;
     beforeEach(async () => {

@@ -4,10 +4,11 @@ const { Attendee } = require('../Attendees');
 
 //Tests: 51 passing -> 18 pending
 describe('Attendee Model', () => {
-  before(() => db.sync({ force: true }));
+  // before(() => db.sync({ force: true }));
 
   let newAttendee;
-  beforeEach(() => {
+  beforeEach(async() => {
+    await db.sync({ force: true })
     newAttendee = {
       Name: 'Hannah',
       Callsign: 'Ka9ddd',
@@ -21,7 +22,7 @@ describe('Attendee Model', () => {
     };
   });
 
-  afterEach(() => db.sync({ force: true }));
+  // afterEach(() => db.sync({ force: true }));
   describe('fields', () => {
     let testAttendee;
     beforeEach(async () => {

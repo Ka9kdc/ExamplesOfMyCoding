@@ -4,10 +4,11 @@ const Payment = require('../payment');
 
 //Tests 9 tests written and passing. none pending or failing
 describe('Payment Model', () => {
-  before(() => db.sync({ force: true }));
+  // before(() => db.sync({ force: true }));
 
   let newPayment;
-  beforeEach(() => {
+  beforeEach(async() => {
+    await db.sync({ force: true })
     newPayment = {
       Amount: 12345,
       PaymentDate: new Date(),

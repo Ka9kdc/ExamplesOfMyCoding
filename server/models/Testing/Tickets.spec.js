@@ -4,10 +4,11 @@ const { Ticket } = require('../Attendees');
 
 //Tests 19 tests written and passing. none pending or failing
 describe('Ticket Model', () => {
-  before(() => db.sync({ force: true }));
+  // before(() => db.sync({ force: true }));
 
   let newTicket;
-  beforeEach(() => {
+  beforeEach(async() => {
+    await db.sync({ force: true })
     newTicket = {
       Tickets: 1,
       Raffle: 1,

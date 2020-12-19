@@ -4,10 +4,11 @@ const OfficerHistory = require('../OfficerHistory');
 
 //Tests 27 passing. 10 pending or 0 failing
 describe('office history Model', () => {
-  before(() => db.sync({ force: true }));
+  // before(() =>  db.sync({ force: true }));
 
   let newOfficerHistory;
-  beforeEach(() => {
+  beforeEach(async() => {
+    await db.sync({ force: true })
     newOfficerHistory = {
       startYear: 1950,
       endYear: 1951,
@@ -19,7 +20,7 @@ describe('office history Model', () => {
     };
   });
 
-  afterEach(() => db.sync({ force: true }));
+  // afterEach(() => db.sync({ force: true }));
 
   describe('start Year', () => {
     it('start Year is a number', async () => {

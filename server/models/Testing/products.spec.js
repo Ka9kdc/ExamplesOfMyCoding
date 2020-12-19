@@ -4,9 +4,10 @@ const Product = require('../Products');
 
 //Tests: 24 passing 3 pending 0 failing
 describe('Products Model', () => {
-  before(() => db.sync({ force: true }));
+  // before(() => db.sync({ force: true }));
   let newProduct;
-  beforeEach(() => {
+  beforeEach(async() => {
+    await db.sync({ force: true })
     newProduct = {
       name: 'Electrical Drop',
       dataName: 'Electrical',

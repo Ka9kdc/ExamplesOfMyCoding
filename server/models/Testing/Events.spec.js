@@ -3,9 +3,10 @@ const { db, CalendarEvent } = require('..');
 
 //Tests: 24 passing 0 pending
 describe('CalendarEvent model', () => {
-  before(() => db.sync({ force: true }));
+  // before(() => db.sync({ force: true }));
   let newCalendarEvent;
-  beforeEach(() => {
+  beforeEach(async() => {
+    await db.sync({ force: true })
     newCalendarEvent = {
       Name: 'Club Meeting',
       Start: new Date(),
@@ -15,7 +16,7 @@ describe('CalendarEvent model', () => {
       Type: 'Training Class',
     };
   });
-  afterEach(() => db.sync({ force: true }));
+  // afterEach(() => db.sync({ force: true }));
   describe('Name field', () => {
     it('Name is a string', async () => {
       const hannah = await CalendarEvent.create(newCalendarEvent);

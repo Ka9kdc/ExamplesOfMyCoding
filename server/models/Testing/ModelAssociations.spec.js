@@ -137,9 +137,7 @@ describe('Model Relationships', () => {
       const matched = await testOrder.getVendor();
       expect(matched.Name).to.equal('Hannah');
       assert.deepEqual(matched.OrderDate, testOrder.OrderDate);
-
     });
-    //matched is return as null or undefined
     it('Vendor has one Payment', async () => {
       const matched = await testPayment.getVendor();
       expect(matched.Name).to.equal('Hannah');
@@ -156,7 +154,7 @@ describe('Model Relationships', () => {
       expect(matchedVendor.Name).to.equal('Hannah');
       expect(matchedOrder.Amount).to.equal(20);
       assert.deepEqual(matchedOrder.OrderDate, matchedVendor.OrderDate);
-    })
+    });
   });
   describe('Hamfest Attendee Associations', () => {
     let testAttendee;
@@ -187,9 +185,9 @@ describe('Model Relationships', () => {
     it('Attendee can have one ticket order', async () => {
       const matched = await testTicket.getAttendee();
       expect(matched.Name).to.equal('Hannah');
-      assert.deepEqual(matched.OrderDate, testTicket.OrderDate);      
+      assert.deepEqual(matched.OrderDate, testTicket.OrderDate);
     });
-    //matched is return as null or undefined
+
     it('Attendee has one Payment', async () => {
       const matched = await testPayment.getAttendee();
       expect(matched.Name).to.equal('Hannah');
@@ -206,11 +204,12 @@ describe('Model Relationships', () => {
       expect(matchedAttendee.Name).to.equal('Hannah');
       expect(matchedTicket.Amount).to.equal(20);
       assert.deepEqual(matchedTicket.OrderDate, matchedAttendee.OrderDate);
-    })
+    });
   });
   describe('User - Announcement', () => {
     let testuser;
-    beforeEach(async () => {
+    before(async () => {
+      await db.sync({ force: true });
       testMember = await Member.create(member);
       testuser = await User.create({
         Callsign: testMember.Callsign,
@@ -225,26 +224,23 @@ describe('Model Relationships', () => {
         message: 'asdf asdf asdf asdf asdf asdf asdf asdf',
         PostDate: today,
       });
-      await testAnnouncement1.setUser(testuser.id);
       const testAnnouncement2 = await Annoucement.create({
         borderColor: '#ff00aa',
         backgroundColor: '#00ff00',
         message: 'asdf asdf asdf',
         PostDate: today,
       });
-      await testAnnouncement2.setUser(testuser.id);
       const testAnnouncement3 = await Annoucement.create({
         borderColor: '#ff0004',
         backgroundColor: '#00ff00',
         message: 'lkjhg lkjhgf lkjhgf asdf asdf asdf asdf asdf asdf asdf asdf',
         PostDate: today,
       });
+      await testAnnouncement1.setUser(testuser.id);
+      await testAnnouncement2.setUser(testuser.id);
       await testAnnouncement3.setUser(testuser.id);
     });
     it('user can have many Announcements', async () => {
-      // console.log(Object.keys(testuser.__proto__));
-      //   console.log(testAnnouncement1)
-
       const announcementCount = await testuser.countAnnoucements();
       expect(announcementCount).to.equal(3);
     });
