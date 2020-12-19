@@ -26,7 +26,6 @@ describe('membership online renewal form', () => {
         </Provider>
       );
       sections = membershipForm.find('div').map((node) => node.get(0).props);
-      // console.log(sections)
     });
     it('does not initially render the badge component - badge desired = false', () => {
       expect(membershipForm.find(Badge)).to.have.lengthOf(0);
@@ -50,7 +49,6 @@ describe('membership online renewal form', () => {
           .children.props.children;
         check = badgeForm.filter((child) => child.type === 'input')[0];
         label = badgeForm.filter((child) => child.type === 'label')[0];
-        console.log('label', label);
       });
       it('has two children. an input and its label', () => {
         expect(check.type).to.be.equal('input');

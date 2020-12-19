@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TextApplication = (props) => {
+const TextApplication = () => {
   return (
     <div id="textApplication">
       <img alt="" className="Left" src="Images/LittleLogo.png" />

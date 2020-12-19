@@ -21,7 +21,6 @@ describe('membership information', () => {
     );
     inputs = membershipInfoForm.find('input').map((node) => node.get(0).props);
     labels = membershipInfoForm.find('label').map((node) => node.get(0).props);
-    // console.log(inputs)
   });
   it('has 9 input fields and labels', () => {
     expect(inputs).to.have.lengthOf(8);
