@@ -4,7 +4,7 @@ const db = require('../../models/db');
 const app = require('../../index');
 const { Member } = require('../../models');
 
-//Tests:  11 passing, 0 pending 0 failing
+//Tests:  11 passing, 0 pending/failing
 describe('/api/membership routes', () => {
   before(() => db.sync({ force: true }));
   const today = new Date();

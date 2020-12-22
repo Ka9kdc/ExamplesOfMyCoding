@@ -4,7 +4,7 @@ const { db, OfficerHistory } = require('../../models');
 const app = require('../../index');
 const sinon = require('sinon');
 
-//Tests: 3 passing, 0 pending, 0 failing
+//Tests: 3 passing, 0 pending/failing
 describe('/api/OfficerHistory routes', () => {
   beforeEach(async () => {
     await db.sync({ force: true });

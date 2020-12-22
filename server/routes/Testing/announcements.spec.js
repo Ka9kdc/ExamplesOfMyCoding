@@ -4,18 +4,18 @@ const request = require('supertest');
 const app = require('../../index');
 const sinon = require('sinon');
 
-//Tests: 6 passing, 0 pending, 0 failing
+//Tests: 6 passing, 0 pending/failing
 describe('Anouncement routes', () => {
   before(() => db.sync({ force: true }));
-  beforeEach(async () => {
-    await Annoucement.create({
-      borderColor: '#ff0000',
-      backgroundColor: '#00ff00',
-      message: 'asdf asdf asdf asdf asdf asdf asdf asdf',
-      PostDate: new Date(),
-    });
-  });
   describe('Get routes', () => {
+    beforeEach(async () => {
+      await Annoucement.create({
+        borderColor: '#ff0000',
+        backgroundColor: '#00ff00',
+        message: 'asdf asdf asdf asdf asdf asdf asdf asdf',
+        PostDate: new Date(),
+      });
+    });
     it('/api/Announcement/all', async () => {
       const res = await request(app).get('/api/Announcement/all').expect(200);
 

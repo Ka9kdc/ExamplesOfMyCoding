@@ -4,7 +4,7 @@ const app = require('../..');
 const request = require('supertest');
 const sinon = require('sinon');
 
-//Tests: 8 passing 0 pending,
+//Tests: 8 passing 0 pending/failing
 describe('Calendar Events Routes', () => {
   before(() => db.sync({ force: true }));
   const today = new Date();
