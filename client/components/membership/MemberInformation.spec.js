@@ -1,11 +1,10 @@
 import React from 'react';
 import { expect } from 'chai';
-import { mount} from 'enzyme';
+import { mount } from 'enzyme';
 import { Provider } from 'react-redux';
 import store from '../../store';
 import * as rrd from 'react-router-dom';
 import MemberInfomation from './MemberInfomation';
-
 
 //Tests 73 passing 0 pending/failing
 describe('membership information', () => {
@@ -22,7 +21,6 @@ describe('membership information', () => {
     );
     inputs = membershipInfoForm.find('input').map((node) => node.get(0).props);
     labels = membershipInfoForm.find('label').map((node) => node.get(0).props);
-    // console.log(inputs)
   });
   it('has 9 input fields and labels', () => {
     expect(inputs).to.have.lengthOf(8);
@@ -58,7 +56,7 @@ describe('membership information', () => {
     });
     it('handles change', () => {
       //  not sure if this expect is written right
-      expect(inputField.onChange).to.be.a.change;
+      expect(typeof inputField.onChange).to.equal('function');
     });
   });
   describe('second input field - last name', () => {
@@ -91,7 +89,7 @@ describe('membership information', () => {
     });
     it('handles change', () => {
       //  not sure if this expect is written right
-      expect(inputField.onChange).to.be.a.change;
+      expect(typeof inputField.onChange).to.equal('function');
     });
   });
   describe('third input field - callsign', () => {
@@ -124,7 +122,7 @@ describe('membership information', () => {
     });
     it('handles change', () => {
       //  not sure if this expect is written right
-      expect(inputField.onChange).to.be.a.change;
+      expect(typeof inputField.onChange).to.equal('function');
     });
   });
   describe('four input field - Email', () => {
@@ -160,7 +158,7 @@ describe('membership information', () => {
     });
     it('handles change', () => {
       //  not sure if this expect is written right
-      expect(inputField.onChange).to.be.a.change;
+      expect(typeof inputField.onChange).to.equal('function');
     });
   });
   describe('five input field - phone', () => {
@@ -196,7 +194,7 @@ describe('membership information', () => {
     });
     it('handles change', () => {
       //  not sure if this expect is written right
-      expect(inputField.onChange).to.be.a.change;
+      expect(typeof inputField.onChange).to.equal('function');
     });
   });
   describe('six input field - street', () => {
@@ -229,7 +227,7 @@ describe('membership information', () => {
     });
     it('handles change', () => {
       //  not sure if this expect is written right
-      expect(inputField.onChange).to.be.a.change;
+      expect(typeof inputField.onChange).to.equal('function');
     });
   });
   describe('seven input field - City', () => {
@@ -262,7 +260,7 @@ describe('membership information', () => {
     });
     it('handles change', () => {
       //  not sure if this expect is written right
-      expect(inputField.onChange).to.be.a.change;
+      expect(typeof inputField.onChange).to.equal('function');
     });
   });
   describe('eigth input field - state', () => {
@@ -297,7 +295,7 @@ describe('membership information', () => {
     });
     it('handles change', () => {
       //  not sure if this expect is written right
-      expect(inputField.onChange).to.be.a.change;
+      expect(typeof inputField.onChange).to.equal('function');
     });
   });
   describe('nine input field - Zip', () => {
@@ -330,7 +328,7 @@ describe('membership information', () => {
     });
     it('handles change', () => {
       //  not sure if this expect is written right
-      expect(inputField.onChange).to.be.a.change;
+      expect(typeof inputField.onChange).to.equal('function');
     });
   });
 });

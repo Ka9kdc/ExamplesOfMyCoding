@@ -11,13 +11,9 @@ import {
   updateMemberBadge,
 } from '../../redux/membership';
 
-
 class MembershipForm extends React.Component {
   constructor() {
     super();
-    this.state = {
-      familyCount: 1,
-    };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.addFamilyMember = this.addFamilyMember.bind(this);
@@ -53,8 +49,8 @@ class MembershipForm extends React.Component {
                       this.props.getBadge({ Desired: !this.props.Desired })
                     }
                     defaultChecked
-                  />{' '}
-                  Get A Club Badge{' '}
+                  />
+                  <label htmlFor="Desired">Get A Club Badge</label>
                 </div>
                 {/* <!--badge section only show up when checked?--> */}
 
@@ -68,8 +64,8 @@ class MembershipForm extends React.Component {
                   onChange={() =>
                     this.props.getBadge({ Desired: !this.props.Desired })
                   }
-                />{' '}
-                Get A Club Badge{' '}
+                />
+                <label htmlFor="Desired">Get A Club Badge</label>
               </div>
             )}
           </div>
@@ -131,7 +127,7 @@ class MembershipForm extends React.Component {
                   onClick={() => this.addFamilyMember()}
                 >
                   Add Family Member
-                </button>{' '}
+                </button>
               </Link>
             ) : (
               <button

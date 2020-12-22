@@ -4,10 +4,11 @@ const { Member } = require('../member');
 
 //79 tests written and passing. none pending or failing
 describe('Member Model', () => {
-  before(() => db.sync({ force: true }));
+  // before(() => db.sync({ force: true }));
 
   let newMember;
-  beforeEach(() => {
+  beforeEach(async () => {
+    await db.sync({ force: true });
     newMember = {
       FirstName: 'Hannah',
       LastName: 'Green',
@@ -24,7 +25,7 @@ describe('Member Model', () => {
     };
   });
 
-  afterEach(() => db.sync({ force: true }));
+  // afterEach(() => db.sync({ force: true }));
   describe('fields', () => {
     let testMember;
     beforeEach(async () => {
@@ -798,11 +799,11 @@ describe('Member Model', () => {
         throw Error('validation should have failed with empty string');
       } catch (err) {
         expect(err.message).to.contain(
-          'invalid input value for enum "enum_members_Membership"'
+          'Validation notEmpty on Membership failed'
         );
       }
     });
-    it('can not be an empty string', async () => {
+    it('can not be an random string', async () => {
       newMember.Membership = 'Hello';
       const testMember = Member.build(newMember);
 
@@ -810,9 +811,7 @@ describe('Member Model', () => {
         await testMember.save();
         throw Error('validation should have failed with random string');
       } catch (err) {
-        expect(err.message).to.contain(
-          'invalid input value for enum "enum_members_Membership"'
-        );
+        expect(err.message).to.contain('Validation isIn on Membership failed');
       }
     });
   });

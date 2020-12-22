@@ -78,7 +78,7 @@ const ContactUs = () => {
                   <a href="Hamletter.html">Hamletter</a>
                 </td>
                 <td>
-                  <a href="mailto:info@W9ccu.org">Open</a>
+                  <a href="mailto:info@w9ccu.org">Open</a>
                 </td>
               </tr>
               <tr>

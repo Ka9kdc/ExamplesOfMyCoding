@@ -4,10 +4,11 @@ const { Order } = require('../vendors');
 
 //Tests 32 tests written and passing. none pending or failing
 describe('Order Model', () => {
-  before(() => db.sync({ force: true }));
+  // before(() => db.sync({ force: true }));
 
   let newOrder;
-  beforeEach(() => {
+  beforeEach(async () => {
+    await db.sync({ force: true });
     newOrder = {
       Tickets: 1,
       Tables: 1,

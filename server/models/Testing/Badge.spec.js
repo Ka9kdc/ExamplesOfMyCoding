@@ -4,10 +4,11 @@ const { Badge } = require('../member');
 
 //Tests: 30 passing 4 pending
 describe('Badge', () => {
-  before(() => db.sync({ force: true }));
+  // before(() => db.sync({ force: true }));
 
   let newBadge;
-  beforeEach(() => {
+  beforeEach(async () => {
+    await db.sync({ force: true });
     newBadge = {
       Desired: true,
       Name: 'Cody',
@@ -19,7 +20,7 @@ describe('Badge', () => {
     };
   });
 
-  afterEach(() => db.sync({ force: true }));
+  // afterEach(() => db.sync({ force: true }));
   describe('fields', () => {
     let testBadge;
     beforeEach(async () => {

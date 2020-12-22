@@ -27,10 +27,10 @@ const Committees = (props) => {
             name="Repeaters"
             onChange={() =>
               props.updateCommitteeInfo({
-                Repeater: !props.Committees.Repeater,
+                Repeater: !props.Committees.Repeaters,
               })
             }
-            value={props.Committees.Repeater}
+            value={props.Committees.Repeaters}
           />{' '}
           Repeater Advisory Board
         </div>
