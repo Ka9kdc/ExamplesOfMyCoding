@@ -1,9 +1,8 @@
 const { expect, assert } = require('chai');
 const { db, CalendarEvent } = require('..');
 
-//Tests: 24 passing 0 pending
+//Tests: 24 passing 0 pending/failing
 describe('CalendarEvent model', () => {
-  // before(() => db.sync({ force: true }));
   let newCalendarEvent;
   beforeEach(async () => {
     await db.sync({ force: true });
@@ -16,7 +15,6 @@ describe('CalendarEvent model', () => {
       Type: 'Training Class',
     };
   });
-  // afterEach(() => db.sync({ force: true }));
   describe('Name field', () => {
     it('Name is a string', async () => {
       const hannah = await CalendarEvent.create(newCalendarEvent);

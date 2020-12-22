@@ -2,10 +2,8 @@ const { expect, assert } = require('chai');
 const db = require('../db');
 const { Member } = require('../member');
 
-//79 tests written and passing. none pending or failing
+//Tests: 79 passing. 0 pending/ failing
 describe('Member Model', () => {
-  // before(() => db.sync({ force: true }));
-
   let newMember;
   beforeEach(async () => {
     await db.sync({ force: true });
@@ -25,7 +23,6 @@ describe('Member Model', () => {
     };
   });
 
-  // afterEach(() => db.sync({ force: true }));
   describe('fields', () => {
     let testMember;
     beforeEach(async () => {

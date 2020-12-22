@@ -2,10 +2,8 @@ const { expect } = require('chai');
 const db = require('../db');
 const OfficerHistory = require('../OfficerHistory');
 
-//Tests 27 passing. 10 pending or 0 failing
+//Tests 27 passing. 10 pending and 0 failing
 describe('office history Model', () => {
-  // before(() =>  db.sync({ force: true }));
-
   let newOfficerHistory;
   beforeEach(async () => {
     await db.sync({ force: true });
@@ -19,8 +17,6 @@ describe('office history Model', () => {
       Custodian: 'Unknown',
     };
   });
-
-  // afterEach(() => db.sync({ force: true }));
 
   describe('start Year', () => {
     it('start Year is a number', async () => {

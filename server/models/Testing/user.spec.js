@@ -1,7 +1,7 @@
 const { expect } = require('chai');
 const { db, User } = require('../index');
 
-//Tests 26 passing non pending
+//Tests 26 passing 0 pending/failing
 describe('User model', () => {
   beforeEach(() => {
     return db.sync({ force: true });

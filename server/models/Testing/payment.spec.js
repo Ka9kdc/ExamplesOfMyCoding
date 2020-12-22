@@ -2,10 +2,8 @@ const { expect, assert } = require('chai');
 const db = require('../db');
 const Payment = require('../payment');
 
-//Tests 9 tests written and passing. none pending or failing
+//Tests 9 passing. 0 pending/failing
 describe('Payment Model', () => {
-  // before(() => db.sync({ force: true }));
-
   let newPayment;
   beforeEach(async () => {
     await db.sync({ force: true });

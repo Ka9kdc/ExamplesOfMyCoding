@@ -4,7 +4,6 @@ const Product = require('../Products');
 
 //Tests: 24 passing 3 pending 0 failing
 describe('Products Model', () => {
-  // before(() => db.sync({ force: true }));
   let newProduct;
   beforeEach(async () => {
     await db.sync({ force: true });

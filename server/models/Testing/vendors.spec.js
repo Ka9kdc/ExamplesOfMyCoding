@@ -4,8 +4,6 @@ const { Vendor } = require('../vendors');
 
 //tests: 63 passing - 6 pending
 describe('Vendor Model', () => {
-  // before(() => db.sync({ force: true }));
-
   let newVendor;
   beforeEach(async () => {
     await db.sync({ force: true });
@@ -24,7 +22,6 @@ describe('Vendor Model', () => {
     };
   });
 
-  // afterEach(() => db.sync({ force: true }));
   describe('fields', () => {
     let testVendor;
     beforeEach(async () => {

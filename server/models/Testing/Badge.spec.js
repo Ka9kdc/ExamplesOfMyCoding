@@ -4,8 +4,6 @@ const { Badge } = require('../member');
 
 //Tests: 30 passing 4 pending
 describe('Badge', () => {
-  // before(() => db.sync({ force: true }));
-
   let newBadge;
   beforeEach(async () => {
     await db.sync({ force: true });
@@ -20,7 +18,6 @@ describe('Badge', () => {
     };
   });
 
-  // afterEach(() => db.sync({ force: true }));
   describe('fields', () => {
     let testBadge;
     beforeEach(async () => {

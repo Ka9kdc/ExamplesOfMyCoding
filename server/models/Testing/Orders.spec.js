@@ -2,10 +2,8 @@ const { expect, assert } = require('chai');
 const db = require('../db');
 const { Order } = require('../vendors');
 
-//Tests 32 tests written and passing. none pending or failing
+//Tests: 32passing. 0 pending/failing
 describe('Order Model', () => {
-  // before(() => db.sync({ force: true }));
-
   let newOrder;
   beforeEach(async () => {
     await db.sync({ force: true });

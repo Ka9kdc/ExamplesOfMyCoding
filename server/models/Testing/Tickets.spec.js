@@ -2,10 +2,8 @@ const { expect, assert } = require('chai');
 const db = require('../db');
 const { Ticket } = require('../Attendees');
 
-//Tests 19 tests written and passing. none pending or failing
+//Tests: 19 passing. 0 pending/failing
 describe('Ticket Model', () => {
-  // before(() => db.sync({ force: true }));
-
   let newTicket;
   beforeEach(async () => {
     await db.sync({ force: true });

@@ -1,7 +1,7 @@
 const { expect } = require('chai');
 const { db, Committee } = require('..');
 
-//Tests: 36 passing, 0 pending and 0 failing
+//Tests: 36 passing, 0 pending/failing
 describe('Committee', () => {
   before(() => db.sync({ force: true }));
   describe('Hamfest', () => {

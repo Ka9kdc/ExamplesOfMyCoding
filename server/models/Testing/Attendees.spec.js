@@ -4,8 +4,6 @@ const { Attendee } = require('../Attendees');
 
 //Tests: 51 passing -> 18 pending
 describe('Attendee Model', () => {
-  // before(() => db.sync({ force: true }));
-
   let newAttendee;
   beforeEach(async () => {
     await db.sync({ force: true });
@@ -22,7 +20,6 @@ describe('Attendee Model', () => {
     };
   });
 
-  // afterEach(() => db.sync({ force: true }));
   describe('fields', () => {
     let testAttendee;
     beforeEach(async () => {
@@ -362,7 +359,6 @@ describe('Attendee Model', () => {
       const testAttendee = Attendee.build(newAttendee);
       try {
         await testAttendee.save();
-        // console.log('street -<', testAttendee);
         throw Error(
           'validation should have failed with with a nonvalid Street'
         );
