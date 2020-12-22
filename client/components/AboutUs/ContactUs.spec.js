@@ -114,8 +114,8 @@ describe('Contact us page', () => {
       expect(header).to.be.equal('Committees');
     });
     it('has a table with 12 rows and a header row', () => {
-        expect(committeelist).to.have.lengthOf(13)
-    })
+      expect(committeelist).to.have.lengthOf(13);
+    });
     it('header row list column titles', () => {
       let headerRow = committeelist[0];
       expect(headerRow[0].type).to.equal('th');
@@ -217,13 +217,14 @@ describe('Contact us page', () => {
       header = thisSection.filter((child) => child.type === 'h1')[0].props
         .children;
       generalText = thisSection
-        .filter((child) => child.type === 'p').map((child) => child.props.children);
+        .filter((child) => child.type === 'p')
+        .map((child) => child.props.children);
     });
     it('has a header of general inquiries', () => {
-        expect(header).to.equal('General Inquiries')
-    })
+      expect(header).to.equal('General Inquiries');
+    });
     it('has the club phone number', () => {
-        expect(generalText[1]).to.include('(630) 923-5447')
-    })
-  })
+      expect(generalText[1]).to.include('(630) 923-5447');
+    });
+  });
 });

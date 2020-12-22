@@ -3,26 +3,25 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import Bylaws from './Bylaws';
 
-
 //Tests: 17 passing 0pending/failling
 describe('Bylaws page', () => {
   let bylawsPage;
   let pageDivs;
   let articleHeader;
   let groupHeaders;
-  let officerPositions
+  let officerPositions;
   before(() => {
     bylawsPage = shallow(<Bylaws />);
     pageDivs = bylawsPage.find('div').map((node) => node.get(0).props);
     articleHeader = bylawsPage
       .find('h1')
       .map((node) => node.get(0).props.children);
-      groupHeaders = bylawsPage
+    groupHeaders = bylawsPage
       .find('h2')
-      .map((node) => node.get(0).props.children)
-      officerPositions = bylawsPage
+      .map((node) => node.get(0).props.children);
+    officerPositions = bylawsPage
       .find('h3')
-      .map((node) => node.get(0).props.children)
+      .map((node) => node.get(0).props.children);
   });
 
   it('has a title of WCRA bylays', () => {
@@ -44,28 +43,28 @@ describe('Bylaws page', () => {
     expect(articleHeader).to.include('ARTICLE II: OFFICERS');
   });
   it('has a subheader for Exec board', () => {
-     expect(groupHeaders).to.include('Executive Board')
-  })
+    expect(groupHeaders).to.include('Executive Board');
+  });
   it('talks about the responsibilities of each exec board posistion', () => {
-    expect(officerPositions).to.include('President')
-    expect(officerPositions).to.include('Vice President')
-    expect(officerPositions).to.include('Secretary')
-    expect(officerPositions).to.include('Treasurer')
-    expect(officerPositions).to.include('Property Custodian')
-  })
+    expect(officerPositions).to.include('President');
+    expect(officerPositions).to.include('Vice President');
+    expect(officerPositions).to.include('Secretary');
+    expect(officerPositions).to.include('Treasurer');
+    expect(officerPositions).to.include('Property Custodian');
+  });
   it('third article is for committees', () => {
     expect(articleHeader).to.include('ARTICLE III: COMMITTEES');
   });
   it('specifily list and talks about the following commitees', () => {
-    expect(groupHeaders).to.include('Program Committee')
-    expect(groupHeaders).to.include('Training Committee')
-    expect(groupHeaders).to.include('Public Service/Emergency Committee')
-    expect(groupHeaders).to.include('Public Relations Committee')
-    expect(groupHeaders).to.include('Field Day Committee')
-    expect(groupHeaders).to.include('Interference Committee')
-    expect(groupHeaders).to.include('Hamfest Committee')
-    expect(groupHeaders).to.include('Other positions')
-})
+    expect(groupHeaders).to.include('Program Committee');
+    expect(groupHeaders).to.include('Training Committee');
+    expect(groupHeaders).to.include('Public Service/Emergency Committee');
+    expect(groupHeaders).to.include('Public Relations Committee');
+    expect(groupHeaders).to.include('Field Day Committee');
+    expect(groupHeaders).to.include('Interference Committee');
+    expect(groupHeaders).to.include('Hamfest Committee');
+    expect(groupHeaders).to.include('Other positions');
+  });
   it('fourth article is for membership', () => {
     expect(articleHeader).to.include('ARTICLE IV: MEMBERSHIP');
   });
@@ -94,12 +93,12 @@ describe('Bylaws page', () => {
     );
   });
   it('talks about the orginization and structer of the RAB', () => {
-    expect(groupHeaders).to.include('Organization')
-    expect(groupHeaders).to.include('Meetings')
-    expect(groupHeaders).to.include('Selection of Members')
-    expect(groupHeaders).to.include('Administrative Functions')
-    expect(groupHeaders).to.include('Requesting RAB Action')
-    expect(groupHeaders).to.include('Reports')
-    expect(groupHeaders).to.include('Vetoing RAB Action')
-  })
+    expect(groupHeaders).to.include('Organization');
+    expect(groupHeaders).to.include('Meetings');
+    expect(groupHeaders).to.include('Selection of Members');
+    expect(groupHeaders).to.include('Administrative Functions');
+    expect(groupHeaders).to.include('Requesting RAB Action');
+    expect(groupHeaders).to.include('Reports');
+    expect(groupHeaders).to.include('Vetoing RAB Action');
+  });
 });

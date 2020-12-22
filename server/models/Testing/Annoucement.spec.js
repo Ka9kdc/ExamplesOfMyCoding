@@ -4,7 +4,6 @@ const { db, Annoucement } = require('..');
 //Tests 26 passing 0 pending
 /* figure out how to set and test if a string is a hexidecimal*/
 describe('Annoucement', () => {
-  // before(() => db.sync({ force: true }));
   let newAnnoucement;
   beforeEach(async () => {
     await db.sync({ force: true });
@@ -15,7 +14,6 @@ describe('Annoucement', () => {
       PostDate: new Date(),
     };
   });
-  // afterEach(() => db.sync({ force: true }));
   it('border and background color, message and date', async () => {
     newAnnoucement.notARealAttribute = 'does not compute';
     const testAnnoucement = await Annoucement.create(newAnnoucement);

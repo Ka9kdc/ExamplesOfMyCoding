@@ -506,33 +506,33 @@ describe('About Us', () => {
     });
   });
   describe('links', () => {
-      let pageLinks;
-      before(() => {
-          pageLinks = aboutUsPage.find('Link').map(node => node.get(0).props)
-      })
-      it('has a link to the contactUs page', () => {
-          let linkFound = pageLinks.filter(link => link.to === '/ContactUs')
-          expect(linkFound).to.have.lengthOf.greaterThan(1)
-      })
-      it('has a link to the repeaters page', () => {
-        let linkFound = pageLinks.filter(link => link.to === '/Repeaters')
-        expect(linkFound).to.have.lengthOf.greaterThan(1)
-    })
+    let pageLinks;
+    before(() => {
+      pageLinks = aboutUsPage.find('Link').map((node) => node.get(0).props);
+    });
+    it('has a link to the contactUs page', () => {
+      let linkFound = pageLinks.filter((link) => link.to === '/ContactUs');
+      expect(linkFound).to.have.lengthOf.greaterThan(1);
+    });
+    it('has a link to the repeaters page', () => {
+      let linkFound = pageLinks.filter((link) => link.to === '/Repeaters');
+      expect(linkFound).to.have.lengthOf.greaterThan(1);
+    });
     it('has a link to the Training page', () => {
-        let linkFound = pageLinks.filter(link => link.to === '/Training')
-        expect(linkFound).to.have.lengthOf.greaterThan(0)
-    })
+      let linkFound = pageLinks.filter((link) => link.to === '/Training');
+      expect(linkFound).to.have.lengthOf.greaterThan(0);
+    });
     it('has a link to the Events page', () => {
-        let linkFound = pageLinks.filter(link => link.to === '/Events')
-        expect(linkFound).to.have.lengthOf.greaterThan(0)
-    })
+      let linkFound = pageLinks.filter((link) => link.to === '/Events');
+      expect(linkFound).to.have.lengthOf.greaterThan(0);
+    });
     it('has a link to the Hamfest page', () => {
-        let linkFound = pageLinks.filter(link => link.to === '/Hamfest')
-        expect(linkFound).to.have.lengthOf.greaterThan(0)
-    })
+      let linkFound = pageLinks.filter((link) => link.to === '/Hamfest');
+      expect(linkFound).to.have.lengthOf.greaterThan(0);
+    });
     it('has a link to the bylaws  page', () => {
-        let linkFound = pageLinks.filter(link => link.to === '/Bylaws')
-        expect(linkFound).to.have.lengthOf.greaterThan(0)
-    })
-  })
+      let linkFound = pageLinks.filter((link) => link.to === '/Bylaws');
+      expect(linkFound).to.have.lengthOf.greaterThan(0);
+    });
+  });
 });
