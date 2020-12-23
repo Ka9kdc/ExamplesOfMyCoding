@@ -39,13 +39,13 @@ class MyCalender extends React.Component {
       );
     } else {
       return (
-        <div>
+        <>
           <div className="Title">Calendar</div>
 
           <div className="Content">
             <h1>Loading</h1>
           </div>
-        </div>
+        </>
       );
     }
   }
