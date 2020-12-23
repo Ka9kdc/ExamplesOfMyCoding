@@ -216,6 +216,11 @@ const Committee = db.define('committee', {
   },
 });
 
+Committee.beforeValidate(commitee => {
+  if(commitee.other === '') commitee.other = null
+  return commitee
+})
+
 module.exports = {
   Member,
   Badge,

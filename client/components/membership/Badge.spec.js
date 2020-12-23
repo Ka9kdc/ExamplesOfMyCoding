@@ -7,7 +7,7 @@ import * as rrd from 'react-router-dom';
 import Badge from './Badge';
 import { updateMemberBadge } from '../../redux/membership';
 
-// Tests 33 passing 0pending/failing
+// Tests 35 passing 0pending/failing
 // handle change tests are commented out they pass but are not testing what i want them to
 describe('MembershipForm Badge', () => {
   let badgeForm;
@@ -59,6 +59,12 @@ describe('MembershipForm Badge', () => {
     it('has text Year Licensed', () => {
       expect(checkText[0]).to.be.equal('Year licensed:');
     });
+    it('has a min of 1930', () => {
+      expect(inputField.min).to.be.equal('1930')
+    })
+    it('has max of the current year', () => {
+      expect(inputField.max).to.be.equal(new Date().getFullYear())
+    })
   });
   describe('Second input field - Badge Name', () => {
     let inputField;

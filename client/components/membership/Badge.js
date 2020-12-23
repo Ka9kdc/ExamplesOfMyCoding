@@ -9,7 +9,7 @@ const Badge = (props) => {
     <div>
       <div>
         Year licensed:{' '}
-        <input name="LicenseYear" type="number" onChange={props.handleChange} />
+        <input name="LicenseYear" type="number" onChange={props.handleChange} min='1930' max={new Date().getFullYear()} />
       </div>
       <div>
         Badge name:{' '}

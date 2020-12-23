@@ -2,7 +2,7 @@ const { expect, assert } = require('chai');
 const db = require('../db');
 const { Member } = require('../member');
 
-//Tests: 79 passing. 0 pending/ failing
+//Tests: 83 passing. 0 pending/ failing
 describe('Member Model', () => {
   let newMember;
   beforeEach(async () => {

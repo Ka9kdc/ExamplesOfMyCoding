@@ -187,15 +187,10 @@ describe('Committee', () => {
       expect(typeof hannah.other).to.equal('string');
     });
 
-    it('other cannot be an empty string', async () => {
+    it('if an empty string is passed null is returned', async () => {
       // We also shouldn't be able to create a Committee with an empty name.
-      const testCommittee = Committee.build({ other: '' });
-      try {
-        await testCommittee.validate();
-        throw Error('validation should have failed with empty other');
-      } catch (err) {
-        expect(err.message).to.contain('Validation notEmpty on other failed');
-      }
+      const testCommittee = await  Committee.create({ other: '' });
+     expect(testCommittee.other).to.be.null
     });
     it('other cannot have numbers', async () => {
       // We also shouldn't be able to create a Committee with an empty name.
