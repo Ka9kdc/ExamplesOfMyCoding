@@ -163,7 +163,7 @@ class NewEvent extends React.Component {
           )}
         </div>
         <div>
-          <label htmlFor="EndTime">EndTime</label>
+          <label htmlFor="EndTime">End Time</label>
           <input
             type="time"
             value={this.state.EndTime}
