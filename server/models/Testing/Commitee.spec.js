@@ -189,8 +189,8 @@ describe('Committee', () => {
 
     it('if an empty string is passed null is returned', async () => {
       // We also shouldn't be able to create a Committee with an empty name.
-      const testCommittee = await  Committee.create({ other: '' });
-     expect(testCommittee.other).to.be.null
+      const testCommittee = await Committee.create({ other: '' });
+      expect(testCommittee.other).to.be.null;
     });
     it('other cannot have numbers', async () => {
       // We also shouldn't be able to create a Committee with an empty name.

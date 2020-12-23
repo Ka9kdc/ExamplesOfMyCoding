@@ -60,11 +60,11 @@ describe('MembershipForm Badge', () => {
       expect(checkText[0]).to.be.equal('Year licensed:');
     });
     it('has a min of 1930', () => {
-      expect(inputField.min).to.be.equal('1930')
-    })
+      expect(inputField.min).to.be.equal('1930');
+    });
     it('has max of the current year', () => {
-      expect(inputField.max).to.be.equal(new Date().getFullYear())
-    })
+      expect(inputField.max).to.be.equal(new Date().getFullYear());
+    });
   });
   describe('Second input field - Badge Name', () => {
     let inputField;
