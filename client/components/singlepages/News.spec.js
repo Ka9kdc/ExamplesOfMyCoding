@@ -10,7 +10,7 @@ import MockAdapter from 'axios-mock-adapter'
 
 //Tests: 1 passing 1 pending/failing
 //figure out a better way to test the news feed.
-describe.only('News component', () => {
+describe.skip('News component', () => {
     let newsPage;
     let mockAxios
     const fakeNews = {

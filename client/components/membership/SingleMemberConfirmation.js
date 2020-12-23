@@ -4,12 +4,11 @@ import MemberPaypal from './MemberPayPal';
 import { setAmount, payment } from '../../redux/membership';
 
 const SingleMemberConfirmation = (props) => {
-  console.log(props.history);
   const { badge, contact, committees, amount } = props.member;
   const groups = Object.keys(committees).filter((group) => committees[group]);
 
   return (
-    <div>
+    <>
       <div className="Subtitle">
         Membership Confirmation For {contact.FirstName} {contact.LastName}
       </div>
@@ -74,7 +73,7 @@ const SingleMemberConfirmation = (props) => {
           ''
         )}
       </div>
-    </div>
+    </>
   );
 };
 
