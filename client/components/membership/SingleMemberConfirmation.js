@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import MemberPaypal from './MemberPayPal';
 import { setAmount, payment } from '../../redux/membership';
@@ -65,12 +65,10 @@ const SingleMemberConfirmation = (props) => {
             Confirm Membership Renewal
           </button>
         ) : (
+          <>
           <div id="paypal-button-container" />
-        )}
-        {contact.Membership !== 'Lifetime' ? (
           <MemberPaypal history={props.history} />
-        ) : (
-          ''
+          </>
         )}
       </div>
     </>
@@ -84,6 +82,7 @@ const mapState = (state) => {
 };
 
 const mapDispatch = (dispatch, ownProps) => {
+  console.log(ownProps)
   return {
     setAmount: (MembershipType) => dispatch(setAmount(MembershipType)),
     lifetimePayment: (memberInfo) =>

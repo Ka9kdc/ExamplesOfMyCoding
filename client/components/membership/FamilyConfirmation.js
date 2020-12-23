@@ -14,7 +14,7 @@ class FamilyConfirmation extends React.Component {
   constructor() {
     super();
     this.state = {
-      readyToPay: false,
+     addingMore:true
     };
     this.handleChange = this.handleChange.bind(this);
     this.FamilyFinal = this.FamilyFinal.bind(this);
@@ -26,7 +26,7 @@ class FamilyConfirmation extends React.Component {
 
   FamilyFinal() {
     this.props.submitFamilyMember(this.props.member);
-    this.setState({ readyToPay: true });
+    this.setState({ addingMore:false });
   }
 
   render() {
@@ -51,7 +51,7 @@ class FamilyConfirmation extends React.Component {
               <div>Email: {member.Email}</div>
             </h3>
           ))}
-          {!this.state.readyToPay ? (
+          {this.state.addingMore ? (
             <div>
               <h2>Next Member:</h2>
               <div className="Right">

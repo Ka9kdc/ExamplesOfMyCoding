@@ -8,10 +8,10 @@ const MemberConfirmation = (props) => {
   useEffect(() => {
     props.setAmount(props.contact.Membership);
   });
-  if (props.contact.FamilyMembers.length) {
-    return <FamilyConfirmation />;
+  if (props.contact.Membership === 'Family') {
+    return <FamilyConfirmation history={props.history}/>;
   } else {
-    return <SingleMemberConfirmation />;
+    return <SingleMemberConfirmation history={props.history}/>;
   }
 };
 
