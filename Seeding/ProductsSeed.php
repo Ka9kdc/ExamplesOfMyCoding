@@ -29,8 +29,6 @@ if(pg_query($dbConn, $sqlProductTable)) {
 }
 
 
-
-
 pg_close($dbConn);
 
 ?>
