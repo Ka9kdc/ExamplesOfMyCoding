@@ -14,13 +14,12 @@ $port = "port = 5432";
 $dbname = "dbname = WCRA_test";
 
 $dbConn = pg_connect( "$host $port $dbname" ) or die('Could not connet:' . pg_last_error());
+
 pg_query($dbConn, $sqlDrop);
-echo "Products Table Dropped \n";
 if(pg_query($dbConn, $sqlProductTable)) {
-    echo "Products Table created \n";
     for($x = 0; $x < 4; $x++){
         if(pg_query($dbConn, $products[$x])) {
-            echo "New records created successfully \n";
+            echo "New product created successfully \n";
         } else {
             echo "Error" . $products[$x] . "<br>" . pg_last_error() . "\n";
         }
