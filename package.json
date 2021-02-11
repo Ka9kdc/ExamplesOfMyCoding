@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "seed": "php seedData.php",
     "build": "webpack",
     "build-watch": "webpack -w",
     "lint": "eslint ./ --ignore-path .gitignore",
