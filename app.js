@@ -2,21 +2,16 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import {BrowserRouter as Router} from 'react-router-dom'
 
-import Header from './components/Header'
-import Navbar from './components/Navbar'
-import Routes from './components/Routes'
-import Footer from './components/Footer'
+import App from './components/app'
 
-const App = () => {
-    return (
-        <div>
-            <Header />
-            <Navbar />
-            <h1>Hello World</h1>
-            <Routes />
-            <Footer />
-        </div>
-    )
-}
+import { Provider } from 'react-redux';
+import store from './store';
 
-ReactDOM.render(<Router><App /></Router>, document.getElementById('app'))
+ReactDOM.render(
+  <Provider store={store}>
+    <Router>
+      <App />
+    </Router>
+  </Provider>,
+  document.getElementById('app')
+);
