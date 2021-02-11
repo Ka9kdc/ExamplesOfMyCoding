@@ -9,7 +9,7 @@ import { setEvents } from '../../reduxStore/calendar';
 import { fakecalendarEvents, fakeServiceEvent } from '../index.spec';
 
 //Tests 11 passing 0pending/failing
-describe('Activities - Public Service Event Section', () => {
+describe.skip('Activities - Public Service Event Section', () => {
   const fakeEvent2 = {
     id: 4,
     Name: 'Field Day',

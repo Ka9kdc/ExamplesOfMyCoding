@@ -7,7 +7,7 @@ import * as rrd from 'react-router-dom';
 import Repeaters from './Repeaters';
 
 //Tests: 46 passing 0 pending/failing
-describe('Repeater component/page', () => {
+describe.skip('Repeater component/page', () => {
   let repeaterPage;
   let repeaters;
   let nets;

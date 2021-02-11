@@ -9,7 +9,7 @@ import { updateMemberBadge } from '../../reduxStore/membership';
 
 // Tests 35 passing 0pending/failing
 // handle change tests are commented out they pass but are not testing what i want them to
-describe('MembershipForm Badge', () => {
+describe.skip('MembershipForm Badge', () => {
   let badgeForm;
   let inputs;
   let checkText;

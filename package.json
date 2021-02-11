@@ -11,7 +11,7 @@
     "lint-fix": "npm run lint -- --fix",
     "prettify": "prettier --write \"**/*.{js,jsx,json,css,scss,md}\"",
     "prettier": "npm run lint-fix && prettify",
-    "test": "npm run react-test && npm run redux-test",
+    "test": "NODE_ENV='test' mocha \"./reduxStore/**/*.spec.js\" \"./components/**/*.spec.js\" --require @babel/polyfill --require @babel/register --require ignore-styles",
     "redux-test": "NODE_ENV='test' mocha \"./reduxStore/**/*.spec.js\" --require @babel/polyfill --require @babel/register",
     "react-test": "NODE_ENV='test' mocha \"./components/**/*.spec.js\" --require @babel/polyfill --require @babel/register --require ignore-styles"
   },

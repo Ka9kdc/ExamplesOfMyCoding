@@ -35,7 +35,7 @@ describe('Training Page', () => {
       );
     });
   });
-  describe('full mount', () => {
+  describe.skip('full mount', () => {
     let trainingPage;
     let mockAxios;
     before(async () => {

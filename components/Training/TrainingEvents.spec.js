@@ -12,7 +12,7 @@ import mockAdapter from 'axios-mock-adapter';
 
 //Tests 20 passing 0pending/failing
 //Add axios calles and check that they are called
-describe('Training - Event Section', () => {
+describe.skip('Training - Event Section', () => {
   let mockAxios;
   const fakeEvent2 = {
     id: 4,

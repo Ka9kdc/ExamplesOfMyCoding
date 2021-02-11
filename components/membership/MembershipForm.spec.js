@@ -16,7 +16,7 @@ import {
 } from '../../reduxStore/membership';
 
 //Tests: 76 passing 0 pending/failling - should add more to account for conditional renders
-describe('membership online renewal form', () => {
+describe.skip('membership online renewal form', () => {
   let membershipForm;
   describe('full mount', () => {
     let sections;

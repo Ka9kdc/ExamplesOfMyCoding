@@ -10,7 +10,7 @@ import axios from 'axios';
 import mockAdapter from 'axios-mock-adapter';
 
 //Tests: 8 passing 0pending/failing
-describe('Officer History', () => {
+describe.skip('Officer History', () => {
   let historyPage;
   let tableHeaders;
   let mockAxios;
