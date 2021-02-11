@@ -1,10 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {BrowserRouter as Router} from 'react-router-dom'
-import Header from './Header'
-import Navbar from './Navbar'
-import Routes from './routes'
-import Footer from './Footer'
+
+import Header from './components/Header'
+import Navbar from './components/Navbar'
+import Routes from './components/Routes'
+import Footer from './components/Footer'
 
 const App = () => {
     return (
