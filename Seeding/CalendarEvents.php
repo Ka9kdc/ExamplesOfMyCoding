@@ -35,11 +35,6 @@ for($x = 0; $x < 8; $x++){
     }
 }
 
-$host = "host = localhost";
-$port = "port = 5432";
-$dbname = "dbname = WCRA_test";
-
-$dbConn = pg_connect( "$host $port $dbname" ) or die('Could not connet:' . pg_last_error());
 
 pg_query($dbConn, $drop_Calendar);
 if(pg_query($dbConn, $create_Calendar)){
@@ -54,6 +49,5 @@ if(pg_query($dbConn, $create_Calendar)){
     echo "Error" . $create_Calendar . "<br>" . pg_last_error() . "\n";
 }
 
-pg_close($dbConn)
 ?>
 

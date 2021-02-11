@@ -9,12 +9,6 @@ $product3 = "INSERT INTO Products (product_name, price, product_description, pho
 $product4 = "INSERT INTO Products (product_name, price, product_description, photo, onSale) VALUES ('Electric', 15, 'An Electric drop', '/Images/electricOutlet.png', false)";
 $products = array($product1, $product2, $product3, $product4);
 
-$host = "host = localhost";
-$port = "port = 5432";
-$dbname = "dbname = WCRA_test";
-
-$dbConn = pg_connect( "$host $port $dbname" ) or die('Could not connet:' . pg_last_error());
-
 pg_query($dbConn, $sqlDrop);
 if(pg_query($dbConn, $sqlProductTable)) {
     for($x = 0; $x < 4; $x++){
@@ -28,7 +22,5 @@ if(pg_query($dbConn, $sqlProductTable)) {
     echo "Error" . $sqlProductTable . "<br>" . pg_last_error() . "\n";
 }
 
-
-pg_close($dbConn);
 
 ?>

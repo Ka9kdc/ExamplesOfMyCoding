@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "seed": "php \"./Seeding/*.php",
+    "seed": "php \"Seeding/*\"",
     "build": "webpack",
     "build-watch": "webpack -w",
     "lint": "eslint ./ --ignore-path .gitignore",
