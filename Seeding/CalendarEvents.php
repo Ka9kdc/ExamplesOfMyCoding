@@ -1,5 +1,4 @@
 <?php 
-$drop_Calendar = "DROP TABLE Calendar";
 
 $create_Calendar = "CREATE TABLE IF NOT EXISTS Calendar (
     eventName varchar(255) NOT NULL,
@@ -35,12 +34,10 @@ for($x = 0; $x < 8; $x++){
     }
 }
 
-
-pg_query($dbConn, $drop_Calendar);
 if(pg_query($dbConn, $create_Calendar)){
     for($y = 0; $y < sizeof($calendarEvents); $y++){
         if(pg_query($dbConn, $calendarEvents[$y])) {
-            echo "New Event created successfully \n";
+            echo "New Event created successfully;  ";
         } else {
             echo "Error" . $calendarEvents[$y] . "<br>" . pg_last_error() . "\n";
         }   
