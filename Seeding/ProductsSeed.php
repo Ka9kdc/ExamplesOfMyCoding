@@ -9,7 +9,7 @@ $products = array($product1, $product2, $product3, $product4);
 
 
 if(pg_query($dbConn, $sqlProductTable)) {
-    for($x = 0; $x < 4; $x++){
+    for($x = 0; $x < sizeof($products); $x++){
         if(pg_query($dbConn, $products[$x])) {
             echo "New product created successfully;  ";
         } else {

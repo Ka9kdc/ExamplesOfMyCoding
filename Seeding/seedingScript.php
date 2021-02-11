@@ -11,10 +11,12 @@ $dropUsers = "DROP TABLE Users";
 pg_query($dbConn, $dropUsers);
 $drop_Calendar = "DROP TABLE Calendar";
 pg_query($dbConn, $drop_Calendar);
+pg_query($dbConn, "DROP TABLE OfficerHistory");
 
 include 'calendarEvents.php';
 include 'ProductsSeed.php';
 include 'UserSeed.php';
+include "OfficerHistory.php";
 
 echo "tables dropped - remove before production \n";
 
