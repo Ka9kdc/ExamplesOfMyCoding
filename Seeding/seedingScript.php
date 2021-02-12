@@ -20,8 +20,9 @@ include 'ProductsSeed.php';
 include 'UserSeed.php';
 include "OfficerHistory.php";
 include "NewsFeed.php";
+include "MakeAllOtherEmtpyTables.php";
 
-
+echo "done /n";
 
 pg_close($dbConn);
 
