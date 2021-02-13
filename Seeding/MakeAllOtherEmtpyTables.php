@@ -1,7 +1,8 @@
 <?php 
 
 $attendees_table = "CREATE TABLE IF NOT EXISTS attendees (
-    fullName varchar(255) NOT NULL,
+    id SERIAL PRIMARY KEY,
+    full_name varchar(255) NOT NULL,
     callsign varchar(6),
     phone varchar(10),
     street varchar(255),
@@ -9,26 +10,27 @@ $attendees_table = "CREATE TABLE IF NOT EXISTS attendees (
     st varchar(2),
     zip int,
     email varchar(255) NOT NULL,
-    orderDate timestamptz NOT NULL,
+    order_date timestamptz NOT NULL,
     vendor boolean,
     company varchar(255),
-    specialRequests text
+    special_Requests text
 )";
 
 $Hamfest_orders_table = "CREATE TABLE IF NOT EXISTS Hamfest_orders (
+    id SERIAL PRIMARY KEY,
     tickets int NOT NULL,
     tables int,
     chairs int,
     electrical boolean,
     raffle int,
     amount int NOT NULL,
-    orderDate timestamptz NOT NULL,
-    orderforPerson varchar(255),
-    orderForCompany varchar(255)
+    order_date timestamptz NOT NULL,
+    order_for_Person varchar(255),
+    order_for_Company varchar(255)
 )";
 
-// $membertype = "CREATE TYPE IF NOT EXISTS member_type AS ENUM ('Full', 'Senior', 'Student', 'Family', 'Associate', 'Lifetime')";
-// $validColors = "CREATE TYPE IF NOT EXISTS valid_colors AS ENUM ('Red',
+// $member_type = "CREATE _type IF NOT EXISTS member_type AS ENUM ('Full', 'Senior', 'Student', 'Family', 'Associate', 'Lifetime')";
+// $validColors = "CREATE _type IF NOT EXISTS valid_colors AS ENUM ('Red',
 // 'White',
 // 'Black',
 // 'Blue',
@@ -36,58 +38,60 @@ $Hamfest_orders_table = "CREATE TABLE IF NOT EXISTS Hamfest_orders (
 // 'Red, White and Blue',
 // 'Brown',
 // '')";
-// $badgestyles = "CREATE TYPE IF NOT EXISTS valid_styles AS ENUM ('NoPreference', 'Lanyard', 'Pin', 'Magnet', 'Notch')";
-// $field_types = array($membertype, $validColors, $badgestyles)
+// $badgestyles = "CREATE _type IF NOT EXISTS valid_styles AS ENUM ('NoPreference', 'Lanyard', 'Pin', 'Magnet', 'Notch')";
+// $field_types = array($member_type, $validColors, $badgestyles)
 
 $member_table = "CREATE TABLE IF NOT EXISTS members (
-    firstName varchar(255) NOT NULL,
-    lastName varchar(255) NOT NULL,
+    id SERIAL PRIMARY KEY,
+    first_name varchar(255) NOT NULL,
+    last_name varchar(255) NOT NULL,
     callsign varchar(6) NOT NULL,
     phone varchar(10) NOT NULL,
     street varchar(255) NOT NULL,
     city varchar(255) NOT NULL,
     st varchar(2) NOT NULL,
     zip int NOT NULL,
-    membershipType member_type,
+    membership_type member_type,
     email varchar(255) NOT NULL,
-    renewalDate timestamptz NOT NULL,
-    newMember boolean,
-    DueYear int NOT NULL,
-    badgeName varchar(255),
+    renewal_date timestamptz NOT NULL,
+    new_member boolean,
+    due_year int NOT NULL,
+    badge_name varchar(255),
     arrl boolean,
     color valid_colors,
-    badgeStyle valid_styles,
-    licenseYear int,
+    badge_style valid_styles,
+    license_year int,
     Hamfest boolean,
-  FieldDay boolean,
-  PublicService boolean,
-  MembershipCommittee boolean,
-  Publicity boolean,
-  Fundraising boolean,
-  MeetingPrograms boolean,
-  ClubOfficer boolean,
-  HamLetter boolean,
+  field_day boolean,
+  public_Service boolean,
+  membership_committee boolean,
+  publicity boolean,
+  fundraising boolean,
+  meeting_programs boolean,
+  club_officer boolean,
+  ham_letter boolean,
   Website boolean,
-  csuTrailer boolean,
+  csu_trailer boolean,
   Repeaters boolean,
   Net boolean,
   Training boolean,
-  YouthPrograms boolean,
-  VEtesting boolean,
+  youthPrograms boolean,
+  ve_testing boolean,
   other varchar(255)
 )";
 
 $payment_table = "CREATE TABLE IF NOT EXISTS payment (
+    id SERIAL PRIMARY KEY,
     amount int NOT NULL,
-    paymentDate timestamptz NOT NULL,
-    hamfestPayment boolean,
-    payeeName varchar(255)
+    payment_date timestamptz NOT NULL,
+    hamfest_payment boolean,
+    payee_name varchar(255)
 )";
 
 $tables_to_make = array($attendees_table, $Hamfest_orders_table, $member_table, $payment_table);
 
 for($x = 0; $x < sizeof($tables_to_make); $x++){
-    if(pg_query($dbConn, $tables_to_make[$x])){
+    if(pg_query($db_Conn, $tables_to_make[$x])){
         echo "table created:  ";
     } else {
         echo "Error" . $tables_to_make[$x] . "<br>" . pg_last_error() . "\n";

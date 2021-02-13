@@ -1,14 +1,15 @@
 <?php 
 
-$createAnnouncementTable = "CREATE TABLE IF NOT EXISTS Announcement (
-    borderColor varchar(25) NOT NULL,
-    backgroundColor varchar(25) NOT NULL,
-    announcementMessage  text NOT NULL,
-    postDate date NOT NULL
+$create_announcement_table = "CREATE TABLE IF NOT EXISTS Announcement (
+    id SERIAL PRIMARY KEY,
+    border_color varchar(25) NOT NULL,
+    background_color varchar(25) NOT NULL,
+    announcement_Message  text NOT NULL,
+    post_date date NOT NULL
 )";
 
-$newFeedHistory = array(
-"INSERT INTO Announcement (borderColor, backgroundColor, announcementMessage, postDate) VALUES ('\#945b0a',   '\#e6c589', '\#In-person Meeting: October 2nd at 7:30pm
+$news_feed_history = array(
+"INSERT INTO Announcement (border_color, background_color, announcement_Message, post_date) VALUES ('\#945b0a',   '\#e6c589', '\#In-person Meeting: October 2nd at 7:30pm
 
 [September](hamletter/MeetingMinutes/2020_11_September_MeetingMinutes.pdf) meeting minutes are available online.
 
@@ -32,7 +33,7 @@ Parks on the Air presented by Mark Spoo N9VDQ
 
 \#\#\# Please watch our website or [Facebook](https://www.facebook.com/groups/267873833946/?ref=bookmarks) page for further club news.',   '" . date("Y-m-d", strtotime("2020-8-15")) . "')"
     ,
-"INSERT INTO Announcement (borderColor, backgroundColor, announcementMessage, postDate) VALUES ('\#53cfda',   '\#Eff2e6',   '\# In-person Meeting: September 11th at 7:30pm
+"INSERT INTO Announcement (border_color, background_color, announcement_Message, post_date) VALUES ('\#53cfda',   '\#Eff2e6',   '\# In-person Meeting: September 11th at 7:30pm
 
 [August](hamletter/MeetingMinutes/August_7_2020_Minutes.pdf) and [September](hamletter/MeetingMinutes/2020_11_September_MeetingMinutes.pdf) meeting minutes are available online.
 
@@ -64,7 +65,7 @@ The following items are for sale. If you are interested in any of them, please c
 
 \#\#\# Please watch our website or [Facebook](https://www.facebook.com/groups/267873833946/?ref=bookmarks) page for further club news.',   '" . date("Y-m-d", strtotime("2020-7-15")) . "')"
     ,
-"INSERT INTO Announcement (borderColor, backgroundColor, announcementMessage, postDate) VALUES ('\#53cfda',   '\#Eff2e6',   '\# New WCRA Board
+"INSERT INTO Announcement (border_color, background_color, announcement_Message, post_date) VALUES ('\#53cfda',   '\#Eff2e6',   '\# New WCRA Board
 
 \#\# Congratulations to Scott DeSantis on being elected as the new WCRA club President.
 
@@ -103,15 +104,15 @@ The following items are for sale. If you are interested in any of them, please c
 
 \#\#\# Please watch our website or [Facebook](https://www.facebook.com/groups/267873833946/?ref=bookmarks) page for further club news.',   '" . date("Y-m-d", strtotime("2020-7-8")) . "')");
 
-if(pg_query($dbConn, $createAnnouncementTable)){
-    for($y = 0; $y < sizeof($newFeedHistory); $y++){
-        if(pg_query($dbConn, $newFeedHistory[$y])) {
-            echo "New Event created successfully;  ";
+if(pg_query($db_Conn, $create_announcement_table)){
+    for($y = 0; $y < sizeof($news_feed_history); $y++){
+        if(pg_query($db_Conn, $news_feed_history[$y])) {
+            echo "New event_ created successfully;  ";
         } else {
-            echo "Error" . $newFeedHistory[$y] . "<br>" . pg_last_error() . "\n";
+            echo "Error" . $news_feed_history[$y] . "<br>" . pg_last_error() . "\n";
         }   
     }
 } else {
-    echo "Error" . $createAnnouncementTable . "<br>" . pg_last_error() . "\n";
+    echo "Error" . $create_announcement_table . "<br>" . pg_last_error() . "\n";
 }
 ?>
