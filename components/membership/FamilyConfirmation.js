@@ -14,7 +14,7 @@ class FamilyConfirmation extends React.Component {
   constructor() {
     super();
     this.state = {
-     addingMore:true
+      addingMore: true,
     };
     this.handleChange = this.handleChange.bind(this);
     this.FamilyFinal = this.FamilyFinal.bind(this);
@@ -26,7 +26,7 @@ class FamilyConfirmation extends React.Component {
 
   FamilyFinal() {
     this.props.submitFamilyMember(this.props.member);
-    this.setState({ addingMore:false });
+    this.setState({ addingMore: false });
   }
 
   render() {

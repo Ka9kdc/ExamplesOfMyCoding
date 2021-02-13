@@ -66,8 +66,8 @@ const SingleMemberConfirmation = (props) => {
           </button>
         ) : (
           <>
-          <div id="paypal-button-container" />
-          <MemberPaypal history={props.history} />
+            <div id="paypal-button-container" />
+            <MemberPaypal history={props.history} />
           </>
         )}
       </div>
@@ -82,7 +82,7 @@ const mapState = (state) => {
 };
 
 const mapDispatch = (dispatch, ownProps) => {
-  console.log(ownProps)
+  console.log(ownProps);
   return {
     setAmount: (MembershipType) => dispatch(setAmount(MembershipType)),
     lifetimePayment: (memberInfo) =>

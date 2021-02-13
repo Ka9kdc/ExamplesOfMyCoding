@@ -1,6 +1,6 @@
 import React from 'react';
 
-const lastModDate = new Date()
+const lastModDate = new Date();
 
 const Footer = () => {
   return (
@@ -15,8 +15,7 @@ const Footer = () => {
       <>
         Contents copyright &copy; 2016-2021, Wheaton Community Radio Amateurs.
         All rights reserved.
-        <>
-          Last modified:   {lastModDate.toDateString()}     </>
+        <>Last modified: {lastModDate.toDateString()}</>
       </>
     </div>
   );

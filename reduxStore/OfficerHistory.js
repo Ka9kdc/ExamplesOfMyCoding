@@ -14,14 +14,17 @@ export const setOfficerHistory = (officers) => {
 export const getOfficerHistory = () => {
   return async (dispatch) => {
     try {
-      const res = await axios.get('/api/officerHistory');
+      const res = await axios.get('phpfiles/getOfficerHistory.php');
       const officers = res.data;
-      dispatch(setOfficerHistory(officers));
+      console.log(officers);
+      // dispatch(setOfficerHistory(officers));
     } catch (error) {
       console.error(error);
     }
   };
 };
+
+getOfficerHistory();
 
 const officerHistoryReducer = (state = initialHistory, action) => {
   switch (action.type) {

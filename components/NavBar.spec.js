@@ -12,7 +12,7 @@ describe.skip('NavBar component', () => {
   let navbar;
   let navbarChildern;
   before(() => {
-    console.log("before")
+    console.log('before');
     const wrapper = mount(
       <Provider store={store}>
         <rrd.MemoryRouter initialEntries={['/']}>
@@ -20,7 +20,7 @@ describe.skip('NavBar component', () => {
         </rrd.MemoryRouter>
       </Provider>
     );
-    console.log("after Wrapper")
+    console.log('after Wrapper');
     navbar = wrapper.find('a').map((node) => node.get(0).props);
     navbarChildern = navbar.map((props) => props.children);
   });
