@@ -1,5 +1,5 @@
 <?php 
-$calendarQuery = "SELECT * FROM Calendar WHERE eventType = 'special Event' OR eventStart BETWEEN '" . date("Y-m-d H:i:s") . "' AND '" . date("Y-m-d H:i:s", strtotime("+1 month")). "' ";
+$calendarQuery = "SELECT * FROM Calendar WHERE eventType = 'special Event' OR eventStart BETWEEN '" . date("Y-m-d H:i:s") . "' AND '" . date("Y-m-d H:i:s", strtotime("+1 month")). "' ORDER BY eventStart ASC";
 
 $host = "host = localhost";
 $port = "port = 5432";
