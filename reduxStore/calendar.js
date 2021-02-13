@@ -20,8 +20,10 @@ export const addEvent = (newEvent) => {
 export const fetchAllEvents = () => {
   return async (dispatch) => {
     try {
-      const res = await axios.get('/api/calendar');
+      console.log('all events');
+      const res = await axios.get('phpfiles/getAllCalendarEvents.php');
       const calendarEvents = res.data;
+      console.log(calendarEvents);
       dispatch(setEvents(calendarEvents));
     } catch (error) {
       console.error(error);
@@ -32,8 +34,10 @@ export const fetchAllEvents = () => {
 export const fetchMonthsEvents = () => {
   return async (dispatch) => {
     try {
-      const res = await axios.get('/api/calendar/month');
+      console.log('this month ');
+      const res = await fetch('phpfiles/getThisMonthsCalanderEvents.php');
       const calendarEvents = res.data;
+      console.log('this month data:', calendarEvents);
       dispatch(setEvents(calendarEvents));
     } catch (error) {
       console.error(error);
@@ -44,8 +48,11 @@ export const fetchMonthsEvents = () => {
 export const fetchTrainingEvents = () => {
   return async (dispatch) => {
     try {
-      const res = await axios.get('/api/calendar/training');
+      console.log('training');
+      const res = await axios.get('phpfiles/getTrainingCalendarEvents.php');
+      console.log(res);
       const calendarEvents = res.data || [];
+
       dispatch(setEvents(calendarEvents));
     } catch (error) {
       console.error(error);

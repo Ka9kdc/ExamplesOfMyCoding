@@ -14,8 +14,10 @@ export const getAllProducts = (products) => {
 export const fetchAllProducts = () => {
   return async (dispatch) => {
     try {
-      const response = await axios.get('/api/hamfest/products');
+      console.log('products');
+      const response = await axios.get('phpfiles/getAllProducts.php');
       const products = response.data;
+      console.log(products);
       dispatch(getAllProducts(products));
     } catch (error) {
       console.error(error);

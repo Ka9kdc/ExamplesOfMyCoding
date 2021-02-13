@@ -11,6 +11,7 @@ class Home extends React.Component {
     this.props.getNews();
   }
   render() {
+    console.log("Home", this.props.lastestNews)
     if (this.props.lastestNews.PostDate) {
       const lastestNews = makePost(this.props.lastestNews);
       const newsHolder = document.getElementById('newsHolder');

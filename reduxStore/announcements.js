@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+
 const initialAnnouncement = {
   message: '',
   backgroundColor: '#ffffff',
@@ -34,20 +35,49 @@ export const updateAnnouncement = (newPost) => {
 
 export const fetchLastAnnouncement = () => {
   return async (dispatch) => {
-    try {
-      const res = await axios.get('/api/announcement/last');
-      const announcement = res.data;
-      dispatch(setLastAnnouncment(announcement));
-    } catch (err) {
-      console.error(err);
-    }
+    // fetch('/phpfiles/getRecentAnnoucements.php')
+    // .then((response) => {
+    //   console.log(response)
+    //   return response.json()
+    // })
+    // .then((data) => {
+    //   // Work with JSON data here
+    //   console.log(data)
+    // })
+    // .catch((err) => {
+    //   // Do something for an error here
+    //   console.error(err);
+    // })
+
+    axios({url: '/phpfiles/getRecentAnnoucements.php'})
+
+
+    // axios
+    //   .get('/phpfiles/getRecentAnnoucements.php')
+    //   .then((response) => {
+    //     console.log("Annonce Res:", response)
+    //     return response.data})
+    //   .then((data) => console.log(data))
+    //   .catch((error) => console.log(error));
+    // try {
+    //   console.log("last")
+    //   const res = await ('phpfiles/getRecentAnnoucements.php');
+    //  console.log("last res:", res)
+    //   const announcement = await res.json()
+    //   console.log("last data:", announcement)
+    //   dispatch(setLastAnnouncment(announcement));
+    // } catch (err) {
+    //   console.error(err);
+    // }
   };
 };
-
+fetchLastAnnouncement()
 export const fetchAllAnnouncement = () => {
   return async (dispatch) => {
     try {
-      const res = await axios.get('/api/announcement/all');
+      console.log('all anouncements');
+      const res = await axios.get('phpfiles/getAnnouncementHistory.php');
+      console.log('history res:', res);
       const announcements = res.data;
       dispatch(setAnnounmentHistory(announcements));
     } catch (err) {
