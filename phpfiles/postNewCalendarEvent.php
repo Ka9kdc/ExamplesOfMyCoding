@@ -1,5 +1,5 @@
 <?php
-include 'db_ConnConfig.php';
+require('db_ConnConfig.php');
 
 $db_Conn = pg_connect( "$host $port $dbname" ) or die('Could not connet:' . pg_last_error());
 
@@ -13,6 +13,6 @@ $new_calendar_event = pg_fetch_row($result);
 
 echo json_encode($new_calendar_event);
 
-pg_close($db_Conn)
+pg_close($db_Conn);
 
 ?>
