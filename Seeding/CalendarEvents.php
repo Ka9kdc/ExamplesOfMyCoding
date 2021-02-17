@@ -7,7 +7,7 @@ $create_Calendar = "CREATE TABLE IF NOT EXISTS Calendar (
     event_end timestamptz,
     event_location varchar(255) NOT NULL,
     event_description varchar(255),
-    event_type varchar(255)
+    event_type varchar(255) DEFAULT 'Other'
     )";
 
 $next_sunday_net_start = strtotime("Sunday 8:00 PM");
