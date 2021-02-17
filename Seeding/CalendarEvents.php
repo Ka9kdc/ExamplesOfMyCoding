@@ -2,11 +2,11 @@
 
 $create_Calendar = "CREATE TABLE IF NOT EXISTS Calendar (
     id SERIAL PRIMARY KEY,
-    event_name varchar(255) NOT NULL,
-    event_start timestamptz,
-    event_end timestamptz,
-    event_location varchar(255) NOT NULL,
-    event_description varchar(255),
+    event_name varchar(255) NOT NULL CHECK (event_name <> ''),
+    event_start timestamptz NOT NULL CHECK (event_start <> ''),
+    event_end timestamptz NOT NULL CHECK (event_end <> ''),
+    event_location varchar(255) NOT NULL CHECK (event_location <> ',
+    event_description varchar(255) CHECK (event_description <> ''),
     event_type varchar(255) DEFAULT 'Other'
     )";
 
