@@ -9,9 +9,9 @@ const MemberConfirmation = (props) => {
     props.setAmount(props.contact.Membership);
   });
   if (props.contact.Membership === 'Family') {
-    return <FamilyConfirmation history={props.history}/>;
+    return <FamilyConfirmation history={props.history} />;
   } else {
-    return <SingleMemberConfirmation history={props.history}/>;
+    return <SingleMemberConfirmation history={props.history} />;
   }
 };
 

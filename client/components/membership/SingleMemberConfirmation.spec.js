@@ -31,7 +31,7 @@ describe.skip('Single Member signup confirmation page', () => {
     mockAxios = new mockAdapter(axios);
     confirmationPage = mount(
       <Provider store={store}>
-        <rrd.MemoryRouter initialEntries={['/memberConfirmation']}>
+        <rrd.MemoryRouter initialEntries={['/membershipConfirmation']}>
           <SingleMemberConfirmation />
         </rrd.MemoryRouter>
       </Provider>
