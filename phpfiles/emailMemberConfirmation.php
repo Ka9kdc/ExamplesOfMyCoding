@@ -32,7 +32,7 @@ $email_message2 .="Email: {$email}\n";
 $email_message2 .="Phone: {$phone}\n";
 $email_message2 .="Address: {$street}\n";
 $email_message2 .="{$city}, {$st} {$zip}\n";
-$email_message .="Committee Interests: ";
+$email_message2 .="Committee Interests: ";
 
 if(sizeOf($committeeInterest) === 1){
     $email_message .="{$committeeInterest[0]}\n";
@@ -57,7 +57,7 @@ if($new_member){
     $email_message2 .="Thank you for Joining the WCRA! \n";
     $email_message2 .="As you are a new member you will have to be voted in at the next monthly club meeting.";
     $email_message2 .="The next WCRA meeting is ";
-    if(strtolower('today') < strtotime("first friday of this month")){
+    if(strtotime('today') < strtotime("first friday of this month")){
         $email_message2 .="{date('Y-m-d', strtotime('first friday of this month'))}";
     } else {
         $email_message2 .="{date('Y-m-d', strtotime('first friday of next month'))}";
@@ -66,12 +66,17 @@ if($new_member){
     $email_message2 .="Once voted in a badge will be ordered for you.\n";
     $email_message2 .="Name on badge: {$badge_name}\n";
     $email_message2 .="Style of badge: {$badge_style}\n";
+    $email_message .="Name on badge: {$badge_name}\n";
+    $email_message .="Style of badge: {$badge_style}\n";
     if($badge_style === "Lanyard"){
         $email_message2 .="Lanyard Color: {$color}\n";
+        $email_message .="Lanyard Color: {$color}\n";
     }
     $email_message2 .="The year you were licensed: {$license_year}\n";
+    $email_message .="The year you were licensed: {$license_year}\n";
     if($arrl){
         $email_message2 .="Arrl Logo on badge: {$arrl}\n";
+        $email_message .="Arrl Logo on badge: {$arrl}\n";
     }
 }
 
